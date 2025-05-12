@@ -8,6 +8,8 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { db, app } from '../../../lib/firebase'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 
 // Dynamically import Tiptap editor with client-side rendering only
 const TiptapEditor = dynamic(() => import('./TiptapEditor'), {
@@ -227,6 +229,8 @@ const AddBlog = () => {
   }
 
   return (
+    <div>
+        <Navbar />
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#005F33E5] to-[#0A5C35] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
@@ -504,6 +508,9 @@ const AddBlog = () => {
         </motion.div>
       </div>
     </div>
+    <Footer />
+    </div>
+
   )
 }
 

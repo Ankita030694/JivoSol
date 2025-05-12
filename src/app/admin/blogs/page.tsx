@@ -12,6 +12,8 @@ import Link from 'next/link'
 
 // Import the already configured Firebase instances
 import { app, db, auth } from '../../../lib/firebase'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 // Blog interface
 interface Blog {
@@ -156,6 +158,8 @@ const BlogsManagement = () => {
   }
   
   return (
+    <div>
+        <Navbar />
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#005F33E5] to-[#0A5C35] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Page Header */}
@@ -513,6 +517,8 @@ const BlogsManagement = () => {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+    <Footer />
     </div>
   )
 }
