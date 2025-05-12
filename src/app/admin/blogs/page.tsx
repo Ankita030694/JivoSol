@@ -11,7 +11,7 @@ import { format } from 'date-fns'
 import Link from 'next/link'
 
 // Import the already configured Firebase instances
-import { app, db, auth } from '../../../lib/firebase'
+import { db } from '../../../lib/firebase'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
