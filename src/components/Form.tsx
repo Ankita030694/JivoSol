@@ -1,5 +1,8 @@
 'use client'
 import { useState } from 'react';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { app } from '../lib/firebase';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   name: string;
@@ -10,6 +13,7 @@ interface FormData {
 }
 
 const Form = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -18,6 +22,9 @@ const Form = () => {
     message: '',
   });
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  
   const serviceOptions = [
     { value: "", label: "Select Services" },
     { value: "brand", label: "Brand Strategy" },
@@ -27,18 +34,61 @@ const Form = () => {
     { value: "web", label: "Website Development" }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    setIsSubmitting(true);
+    setError('');
+    
+    // Validate name (only alphabets and whitespaces)
+    if (!/^[A-Za-z\s]+$/.test(formData.name.trim())) {
+      setError('Name should contain only alphabets and spaces.');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Validate email (must contain @ and .com)
+    if (!formData.email.includes('@') || !formData.email.includes('.com')) {
+      setError('Please enter a valid email address containing @ and .com');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    try {
+      const db = getFirestore(app);
+      await addDoc(collection(db, "inquiries"), {
+        ...formData,
+        timestamp: new Date()
+      });
+      
+      // Redirect to thank you page
+      router.push('/thankyou');
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      setError('There was a problem submitting your form. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    
+    // Real-time validation
+    if (name === 'name' && !/^[A-Za-z\s]*$/.test(value)) {
+      return; // Prevent updating state if name contains non-alphabets or spaces
+    }
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+  };
+
+  // Additional handler for name field to prevent numeric input
+  const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow only letters, spaces, and control keys (backspace, delete, arrows, etc.)
+    if (!/^[A-Za-z\s]$/.test(e.key) && e.key.length === 1) {
+      e.preventDefault();
+    }
   };
 
   const handleServiceSelect = (value: string) => {
@@ -78,6 +128,7 @@ const Form = () => {
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
+                    onKeyDown={handleNameKeyDown}
                     className="w-full px-4 py-2 rounded-xl border border-gray-100 focus:outline-none pr-10 text-gray-700"
                   />
                   <svg className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,15 +212,22 @@ const Form = () => {
                 </div>
               </div>
 
+              {error && (
+                <div className="text-red-500 text-sm mt-2">{error}</div>
+              )}
+
               <div className="bg-[#0A5C35] p-4 mx-[-24px] mb-[-24px] mt-4 rounded-b-3xl">
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-50 flex items-center justify-center gap-2 px-2 py-4 bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors duration-300 border border-gray-100 font-light"
                 >
-                  Send Message
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 20L21 12L3 4V9L17 12L3 15V20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {!isSubmitting && (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 20L21 12L3 4V9L17 12L3 15V20Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
                 </button>
               </div>
             </form>
