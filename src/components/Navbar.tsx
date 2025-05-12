@@ -4,9 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaPhone, FaChevronDown } from 'react-icons/fa';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const pathname = usePathname();
 
   const serviceLinks = [
     'Social Media Management',
@@ -16,6 +18,16 @@ const Navbar = () => {
     'Video & Animation',
     'Content Creation & Production'
   ];
+
+  // Check if the current path matches the link
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+  
+  // Check if current path is a service page
+  const isServiceActive = () => {
+    return pathname.startsWith('/services/');
+  };
 
   return (
     <nav className="flex items-center justify-around bg-[#ECECEC] px-4 py-4">
@@ -36,13 +48,17 @@ const Navbar = () => {
       <div className="flex gap-8 bg-white px-6 py-3 rounded-xl">
         <Link 
           href="/" 
-          className="text-gray-800 font-normal hover:text-green-700 transition-colors"
+          className={`font-normal transition-colors ${
+            isActive('/') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-green-700'
+          }`}
         >
           Home
         </Link>
         <Link 
           href="/about" 
-          className="text-gray-800 font-normal hover:text-green-700 transition-colors"
+          className={`font-normal transition-colors ${
+            isActive('/about') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-green-700'
+          }`}
         >
           About Us
         </Link>
@@ -50,7 +66,9 @@ const Navbar = () => {
           <button 
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
-            className="text-gray-800 font-normal hover:text-green-700 transition-colors flex items-center gap-1"
+            className={`font-normal transition-colors flex items-center gap-1 ${
+              isServiceActive() ? 'text-[#0A5C35]' : 'text-gray-800 hover:text-green-700'
+            }`}
           >
             Services
             <FaChevronDown className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -62,33 +80,44 @@ const Navbar = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              {serviceLinks.map((service, index) => (
-                <Link 
-                  key={index}
-                  href={`/services/${service.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-50 hover:text-green-700 transition-colors"
-                >
-                  {service}
-                </Link>
-              ))}
+              {serviceLinks.map((service, index) => {
+                const servicePath = `/services/${service.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <Link 
+                    key={index}
+                    href={servicePath}
+                    className={`block px-4 py-2 transition-colors ${
+                      isActive(servicePath) ? 'text-[#0A5C35]' : 'text-gray-800 hover:bg-gray-50 hover:text-green-700'
+                    }`}
+                  >
+                    {service}
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>
         <Link 
-          href="/work" 
-          className="text-gray-800 font-normal hover:text-green-700 transition-colors"
+          href="/ourwork" 
+          className={`font-normal transition-colors ${
+            isActive('/work') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-green-700'
+          }`}
         >
           Our Work
         </Link>
         <Link 
           href="/insights" 
-          className="text-gray-800 font-normal hover:text-green-700 transition-colors"
+          className={`font-normal transition-colors ${
+            isActive('/insights') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-green-700'
+          }`}
         >
           Insights
         </Link>
         <Link 
           href="/contact" 
-          className="text-gray-800 font-normal hover:text-green-700 transition-colors"
+          className={`font-normal transition-colors ${
+            isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-green-700'
+          }`}
         >
           Contact Us
         </Link>

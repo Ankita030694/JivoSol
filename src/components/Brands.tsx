@@ -40,7 +40,7 @@ const Brands = () => {
     const [activeCard, setActiveCard] = useState<number>(1);
   
     return (
-      <section className="py-16 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]">
+      <section className="pt-16 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]">
         <div className="text-center mb-12">
           <p className="text-[#0A5C35] font-medium mb-2 text-sm tracking-wide">CLIENT TESTIMONIALS</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Brands That Grew With JIVO.</h2>
