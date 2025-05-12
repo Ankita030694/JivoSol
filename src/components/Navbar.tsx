@@ -3,11 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPhone, FaChevronDown } from 'react-icons/fa';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
 
   const serviceLinks = [
@@ -28,6 +29,29 @@ const Navbar = () => {
   const isServiceActive = () => {
     return pathname.startsWith('/services/');
   };
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 1000); // Keep dropdown open for 1 second after leaving
+  };
+
+  useEffect(() => {
+    return () => {
+      // Clean up timeout when component unmounts
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className="flex items-center justify-around bg-[#ECECEC] px-4 py-4">
@@ -64,8 +88,8 @@ const Navbar = () => {
         </Link>
         <div className="relative">
           <button 
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className={`font-normal transition-colors flex items-center gap-1 ${
               isServiceActive() ? 'text-[#0A5C35]' : 'text-gray-800 hover:text-green-700'
             }`}
@@ -77,8 +101,8 @@ const Navbar = () => {
           {isServicesOpen && (
             <div 
               className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-lg py-2 z-50"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               {serviceLinks.map((service, index) => {
                 const servicePath = `/services/${service.toLowerCase().replace(/\s+/g, '-')}`;

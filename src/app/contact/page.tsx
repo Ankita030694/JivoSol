@@ -237,16 +237,7 @@ export default function ContactPage() {
       {/* New map section with leaf.gif */}
       <div className="container mx-auto px-32 py-16 relative">
         <div className="w-full">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.9628524978647!2d77.06553537625544!3d28.44766449033805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d185f6ecc20fd%3A0x84c1de0bf4b2485a!2sSpace%20Business%20Park%2C%20Sector%2066%2C%20Gurugram%2C%20Haryana%20122102!5e0!3m2!1sen!2sin!4v1699988223093!5m2!1sen!2sin" 
-            width="100%" 
-            height="450" 
-            style={{ border: 0 }} 
-            allowFullScreen={true} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-lg shadow-md"
-          ></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" width="1000" height="450" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div className="absolute right-12 top-128">
           <Image 
