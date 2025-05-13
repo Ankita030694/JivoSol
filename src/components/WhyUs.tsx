@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Marquee from "react-fast-marquee";
 
 const WhyUs = () => {
   return (
@@ -44,7 +45,7 @@ const WhyUs = () => {
         
       </div>
     </div>
-     <div className="bg-white py-8 mt-8 overflow-hidden">
+     <div className="bg-white py-8 overflow-hidden">
      <div className="text-center mb-8">
        <p className="text-[#0A5C35] text-lg">Our Clients</p>
        <h2 className="text-4xl font-bold text-black">Trusted By Businesses</h2>
@@ -54,23 +55,27 @@ const WhyUs = () => {
        </p>
      </div>
      
-     <div className="relative w-full overflow-hidden">
-       <div className="flex animate-marquee whitespace-nowrap">
+     <div className="relative w-full overflow-hidden max-w-6xl mx-auto">
+       <Marquee 
+         speed={100} 
+         gradient={false} 
+         direction="left"
+       >
          <Image
            src="/clientslide.png"
            alt="Our Clients"
-           width={2000}
+           width={1000}
            height={100}
            className="inline-block"
          />
          <Image
            src="/clientslide.png"
            alt="Our Clients"
-           width={2000}
+           width={1000}
            height={100}
            className="inline-block"
          />
-       </div>
+       </Marquee>
      </div>
    </div>
    </div>
