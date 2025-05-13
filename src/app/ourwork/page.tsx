@@ -11,7 +11,7 @@ export default function InsightsPage() {
           <h1
             className="font-poppins font-bold text-white uppercase"
             style={{
-              fontSize: "42px",
+              fontSize: "clamp(28px, 5vw, 42px)",
             }}
           >
             Our Work
@@ -43,7 +43,7 @@ export default function InsightsPage() {
           that drive engagement, loyalty, and action.
         </p>
 
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["Instagram", "Facebook", "YouTube", "LinkedIn", "Pinterest"].map(
             (platform) => (
               <button
@@ -60,7 +60,7 @@ export default function InsightsPage() {
         </div>
 
         {/* Image grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-64">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
@@ -113,7 +113,7 @@ export default function InsightsPage() {
         </div>
         {/* Web Development Projects Section */}
       </div>
-      <div className="mt-16 bg-[#ECECEC] px-64 py-16 text-center">
+      <div className="mt-16 bg-[#ECECEC] px-4 sm:px-8 md:px-16 lg:px-64 py-16 text-center">
         <p className="text-emerald-700 mb-2">Web Developments & SEO</p>
         <h2 className="text-4xl font-bold mb-12 text-black">
           Let's See Our Recent Work
@@ -121,7 +121,7 @@ export default function InsightsPage() {
           Projects Gallery
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { name: "Zaavi", image: "/jabout1.svg" },
             { name: "Rikh ", image: "/jabout2.svg" },
@@ -138,7 +138,7 @@ export default function InsightsPage() {
                 height={500}
                 className="w-full h-[400px] object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-emerald-800 p-4 flex justify-between items-center p-8">
+              <div className="absolute bottom-0 left-0 right-0 bg-emerald-800 p-4 md:p-8 flex justify-between items-center">
                 <h3 className="text-white text-lg">{project.name}</h3>
                 <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-full flex items-center gap-2 transition-colors duration-300 text-md">
                   View Project
@@ -205,7 +205,7 @@ export default function InsightsPage() {
           Projects Gallery
         </h2>
 
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {[
             "Logo",
             "Letterhead",
@@ -216,7 +216,7 @@ export default function InsightsPage() {
           ].map((platform) => (
             <button
               key={platform}
-              className="px-6 py-2 rounded-full border border-emerald-700 relative overflow-hidden group"
+              className="px-6 py-2 my-1 md:my-0 rounded-full border border-emerald-700 relative overflow-hidden group"
             >
               <span className="relative z-10 text-emerald-700 group-hover:text-white transition-colors duration-300">
                 {platform}
@@ -227,7 +227,7 @@ export default function InsightsPage() {
         </div>
 
         {/* Image grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-64">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
@@ -289,7 +289,7 @@ export default function InsightsPage() {
             Projects Gallery
           </h2>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-64">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}

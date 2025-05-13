@@ -59,9 +59,9 @@ export default function InsightsPage() {
         />
       </div>
 
-      {/* Founder Section */}
-      <div className="w-full py-16 flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/2 px-12">
+      {/* Founder Section - Desktop */}
+      <div className="w-full py-16 hidden md:flex flex-row items-center">
+        <div className="w-1/2 px-12">
           <h2 className="text-4xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
           <p className="text-xl mb-6 text-black">Founder</p>
           
@@ -81,7 +81,7 @@ export default function InsightsPage() {
             I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
           </p>
           
-            <p className="text-sm italic mb-4 text-black">
+          <p className="text-sm italic mb-4 text-black">
             &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
           </p>
           
@@ -90,7 +90,7 @@ export default function InsightsPage() {
           </p>
         </div>
         
-        <div className="relative w-full md:w-1/2 h-[600px]">
+        <div className="relative w-1/2 h-[600px]">
           <div className="relative w-full h-[80%] mt-8">
             <Image
               src="/image3.png"
@@ -104,6 +104,48 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
+      
+      {/* Founder Section - Mobile */}
+      <div className="w-full py-8 flex md:hidden flex-col items-center px-4">
+        <div className="relative w-full h-[350px] mb-6">
+          <Image
+            src="/akankshadidi.jpg"
+            alt="Founder"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+        
+        <div className="text-center">
+          <h2 className="text-4xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
+          <p className="text-xl mb-6 text-black">Founder</p>
+          
+          <p className="text-sm mb-6 text-black">
+            I Am Aakanksha Chugh, Founder Of JIVO Solutions <span className="italic">(formerly &apos;zeminik solutions&apos;)</span>
+          </p>
+          
+          <p className="text-sm mb-6 text-black">
+            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 50 businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting And Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO
+          </p>
+          
+          <p className="text-sm mb-6 text-black">
+            What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we&apos;ve worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
+          </p>
+          
+          <p className="text-sm mb-6 text-black">
+            I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
+          </p>
+          
+          <p className="text-sm italic mb-4 text-black">
+            &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
+          </p>
+          
+          <p className="text-sm text-black">
+            - Aakanksha Chugh
+          </p>
+        </div>
+      </div>
+
       <div className="flex flex-wrap justify-center gap-8 bg-[#ECECEC] p-12">
           <div className="bg-white p-8 rounded-lg">
             <p className="text-sm text-black">Brands Transformed</p>
@@ -117,10 +159,9 @@ export default function InsightsPage() {
           ))}
         </div>
 
-        <div className="w-full py-16 flex flex-col md:flex-row items-center justify-center text-center px-80">
-          <div className="w-full px-12">
+        <div className="w-full py-16 flex flex-col items-center justify-center">
+          <div className="w-full px-6 md:px-12 max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-2 text-black">The Meaning Behind JIVO</h2>
-            {/* <p className="text-xl mb-6 text-black">Founder</p> */}
             
             <p className="text-sm mb-6 text-black mt-5">
             JIVO is derived from the Sanskrit word <b>'Jeevan'</b>, which means <b>'Life'</b>. 

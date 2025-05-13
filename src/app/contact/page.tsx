@@ -57,9 +57,9 @@ export default function ContactPage() {
       <Navbar />
       <div className="w-full relative">
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <h1 className="font-poppins font-bold text-white uppercase" 
+          <h1 className="font-poppins font-bold text-white uppercase text-center px-4" 
               style={{ 
-                fontSize: "42px", 
+                fontSize: "clamp(28px, 5vw, 42px)", 
               }}>
             Contact Us
           </h1>
@@ -74,18 +74,18 @@ export default function ContactPage() {
         />
       </div>
 
-      <div className="container mx-auto px-32 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold mb-4 text-black">Leave a Message</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Leave a Message</h2>
           <p className="text-gray-600">
             lorem ipsum dolor sit amet, consectetur netted adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-between">
-          <div className="w-full lg:w-1/3 space-y-6 mb-8 lg:mb-0">
+        <div className="flex flex-col lg:flex-row flex-wrap justify-between">
+          <div className="w-full lg:w-1/3 space-y-6 mb-8 lg:mb-0 lg:pr-8">
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full">
+              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -97,7 +97,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full">
+              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 8L10.8906 13.2604C11.5624 13.7394 12.4376 13.7394 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -109,7 +109,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full">
+              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M12 22C16 18 20 14.4183 20 11C20 7.13401 16.4183 4 12 4C7.58172 4 4 7.13401 4 11C4 14.4183 8 18 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -122,7 +122,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2">
             {/* Form implementation */}
             <div className="bg-white rounded-xl p-6 shadow-lg">
               <form onSubmit={handleSubmit} className="flex flex-col">
@@ -220,7 +220,7 @@ export default function ContactPage() {
                 <div className="bg-[#0A5C35] p-4 mx-[-24px] mb-[-24px] mt-4 rounded-b-3xl">
                   <button
                     type="submit"
-                    className="w-50 flex items-center justify-center gap-2 px-2 py-4 bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors duration-300 border border-gray-100 font-light"
+                    className="w-full sm:w-auto sm:mx-auto flex items-center justify-center gap-2 px-4 py-4 bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors duration-300 border border-gray-100 font-light"
                   >
                     Send Message
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -235,17 +235,17 @@ export default function ContactPage() {
       </div>
 
       {/* New map section with leaf.gif */}
-      <div className="container mx-auto px-32 py-16 relative">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16 relative">
         <div className="w-full">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" width="1000" height="450" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" width="100%" height="450" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div className="absolute right-12 top-128">
+        <div className="absolute right-4 md:right-8 lg:right-12 top-8 md:top-16">
           <Image 
             src="/leaf.gif" 
             alt="Decorative leaf" 
             width={75} 
             height={75}
-            className="z-10"
+            className="z-10 w-12 md:w-16 lg:w-[75px]"
           />
         </div>
       </div>
