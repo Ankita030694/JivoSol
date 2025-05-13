@@ -1,7 +1,60 @@
+"use client"
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import { useState, useEffect, useRef } from "react";
 
 const WhyUs = () => {
+  // Array of statistics with different values
+  const stats = [
+    { label: "Brands Transformed", value: 105 },
+    { label: "Clients Across The Globe", value: 200 },
+    { label: "Projects Completed", value: 350 },
+    { label: "Client Retention Rate", value: 95 }
+  ];
+  
+  const [counters, setCounters] = useState(stats.map(() => 0));
+  const statsRef = useRef<HTMLDivElement>(null);
+  const animationTriggered = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && !animationTriggered.current) {
+        animationTriggered.current = true;
+        
+        stats.forEach((stat, index) => {
+          let startValue = 0;
+          const endValue = stat.value;
+          const duration = 1500; // animation duration in milliseconds
+          const stepTime = Math.abs(Math.floor(duration / endValue));
+          
+          const counter = setInterval(() => {
+            startValue += 1;
+            setCounters(prev => {
+              const newCounters = [...prev];
+              newCounters[index] = startValue;
+              return newCounters;
+            });
+            
+            if (startValue >= endValue) {
+              clearInterval(counter);
+            }
+          }, stepTime);
+        });
+      }
+    }, { threshold: 0.5 });
+    
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+    
+    return () => {
+      if (statsRef.current) {
+        observer.unobserve(statsRef.current);
+      }
+    };
+  }, [stats]);
+  
   return (
     <div>
 
@@ -18,15 +71,14 @@ const WhyUs = () => {
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
-          {/* <div className="bg-white p-8 rounded-lg">
-            <p className="text-sm text-black">Brands Transformed</p>
-            <p className="text-[#0A5C35] text-5xl font-bold">105+</p>
-          </div> */}
-          {[1, 2, 3, 4].map((index) => (
+        <div ref={statsRef} className="flex flex-wrap justify-center gap-8">
+          {stats.map((stat, index) => (
             <div key={index} className="bg-white p-8 rounded-lg">
-              <p className="text-sm text-black">Clients Across The Globe</p>
-              <p className="text-[#0A5C35] text-5xl font-bold">200+</p>
+              <p className="text-sm text-black">{stat.label}</p>
+              <p className="text-[#0A5C35] text-5xl font-bold">
+                {counters[index]}
+                {stat.label === "Client Retention Rate" ? "%" : "+"}
+              </p>
             </div>
           ))}
         </div>
