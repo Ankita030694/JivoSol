@@ -19,11 +19,11 @@ const WhyUs = () => {
         </div>
 
         <div className="flex flex-wrap justify-center gap-8">
-          <div className="bg-white p-8 rounded-lg">
+          {/* <div className="bg-white p-8 rounded-lg">
             <p className="text-sm text-black">Brands Transformed</p>
             <p className="text-[#0A5C35] text-5xl font-bold">105+</p>
-          </div>
-          {[1, 2, 3].map((index) => (
+          </div> */}
+          {[1, 2, 3, 4].map((index) => (
             <div key={index} className="bg-white p-8 rounded-lg">
               <p className="text-sm text-black">Clients Across The Globe</p>
               <p className="text-[#0A5C35] text-5xl font-bold">200+</p>

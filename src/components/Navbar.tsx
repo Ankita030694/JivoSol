@@ -2,12 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaPhone, FaChevronDown } from 'react-icons/fa';
+import { FaPhone, FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
 
@@ -44,6 +46,21 @@ const Navbar = () => {
     }, 1000); // Keep dropdown open for 1 second after leaving
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Close mobile menu when clicking a link
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Toggle mobile services dropdown
+  const toggleMobileServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsMobileServicesOpen(!isMobileServicesOpen);
+  };
+
   useEffect(() => {
     return () => {
       // Clean up timeout when component unmounts
@@ -53,9 +70,21 @@ const Navbar = () => {
     };
   }, []);
 
+  // Close mobile menu when window is resized beyond mobile breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <nav className="flex items-center justify-around bg-[#ECECEC] px-4 py-4">
-      {/* Logo */}
+    <nav className="flex items-center justify-between bg-[#ECECEC] px-4 py-4 relative">
+      {/* Logo - always on the left */}
       <div className="nav-logo">
         <Link href="/">
           <Image
@@ -68,8 +97,22 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Navigation Links */}
-      <div className="flex gap-8 bg-white px-6 py-3 rounded-xl">
+      {/* Mobile burger menu button - on the right */}
+      <button 
+        className="md:hidden text-gray-800 p-2 z-[60] relative"
+        onClick={toggleMobileMenu}
+        aria-label="Toggle mobile menu"
+      >
+        <div className={`transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'} absolute inset-0 flex items-center justify-center`}>
+          <FaTimes size={24} />
+        </div>
+        <div className={`transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}>
+          <FaBars size={24} />
+        </div>
+      </button>
+
+      {/* Desktop Navigation Links - hidden on mobile */}
+      <div className="hidden md:flex gap-8 bg-white px-6 py-3 rounded-xl">
         <Link 
           href="/" 
           className={`font-normal transition-colors ${
@@ -147,8 +190,8 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Contact Buttons */}
-      <div className="flex items-center gap-4">
+      {/* Desktop Contact Button - hidden on mobile */}
+      <div className="hidden md:flex items-center gap-4">
         <button 
           className="bg-white text-black rounded-full border border-[#0A5C3580] flex items-center gap-3 px-2 py-2 hover:opacity-90 transition-opacity"
           aria-label="Get in touch with us"
@@ -158,6 +201,120 @@ const Navbar = () => {
           </div>
           <span className="text-lg">Get In Touch</span>
         </button>
+      </div>
+
+      {/* Mobile menu - full screen overlay */}
+      <div 
+        className={`fixed inset-0 z-50 bg-[#ECECEC]/95 backdrop-blur-sm px-6 transition-all duration-300 ease-in-out transform ${
+          isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Centered logo at top of mobile menu */}
+        <div className="flex justify-center pt-10 pb-8">
+          <Link href="/" onClick={closeMobileMenu}>
+            <Image
+              src="/jivologo.png"
+              alt="Jivo Solutions Logo"
+              width={180}
+              height={18}
+              priority
+            />
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-6 max-w-md mx-auto">
+          <Link 
+            href="/" 
+            className={`text-xl font-normal transition-colors hover:text-[#0A5C35] ${
+              isActive('/') ? 'text-[#0A5C35] font-bold' : 'text-gray-800'
+            }`}
+            onClick={closeMobileMenu}
+          >
+            Home
+          </Link>
+          <Link 
+            href="/about" 
+            className={`text-xl font-normal transition-colors hover:text-[#0A5C35] ${
+              isActive('/about') ? 'text-[#0A5C35] font-bold' : 'text-gray-800'
+            }`}
+            onClick={closeMobileMenu}
+          >
+            About Us
+          </Link>
+          
+          {/* Mobile services dropdown with arrow */}
+          <div className="flex flex-col gap-2">
+            <button 
+              onClick={toggleMobileServices}
+              className={`text-xl font-normal flex items-center justify-between ${isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800'}`}
+            >
+              <span>Services</span>
+              <FaChevronDown 
+                className={`transition-transform duration-300 ml-2 ${isMobileServicesOpen ? 'rotate-180' : ''}`} 
+              />
+            </button>
+            
+            <div className={`pl-4 flex flex-col gap-3 overflow-hidden transition-all duration-300 ${
+              isMobileServicesOpen ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'
+            }`}>
+              {serviceLinks.map((service, index) => {
+                const servicePath = `/services/${service.toLowerCase().replace(/\s+/g, '-')}`;
+                return (
+                  <Link 
+                    key={index}
+                    href={servicePath}
+                    className={`text-lg transition-colors hover:text-[#0A5C35] ${
+                      isActive(servicePath) ? 'text-[#0A5C35]' : 'text-gray-600'
+                    }`}
+                    onClick={closeMobileMenu}
+                  >
+                    {service}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+          
+          <Link 
+            href="/ourwork" 
+            className={`text-xl font-normal transition-colors hover:text-[#0A5C35] ${
+              isActive('/work') ? 'text-[#0A5C35] font-bold' : 'text-gray-800'
+            }`}
+            onClick={closeMobileMenu}
+          >
+            Our Work
+          </Link>
+          <Link 
+            href="/insights" 
+            className={`text-xl font-normal transition-colors hover:text-[#0A5C35] ${
+              isActive('/insights') ? 'text-[#0A5C35] font-bold' : 'text-gray-800'
+            }`}
+            onClick={closeMobileMenu}
+          >
+            Insights
+          </Link>
+          <Link 
+            href="/contact" 
+            className={`text-xl font-normal transition-colors hover:text-[#0A5C35] ${
+              isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800'
+            }`}
+            onClick={closeMobileMenu}
+          >
+            Contact Us
+          </Link>
+          
+          {/* Mobile contact button */}
+          <button 
+            className="mt-8 bg-white text-black rounded-full border border-[#0A5C3580] flex items-center justify-center gap-3 px-4 py-3 hover:bg-[#0A5C35]/10 transition-all duration-300"
+            aria-label="Get in touch with us"
+            onClick={closeMobileMenu}
+          >
+            <div className="bg-[#005F33] rounded-full p-3 flex items-center justify-center">
+              <FaPhone className="text-white text-lg" />
+            </div>
+            <span className="text-lg font-medium">Get In Touch</span>
+          </button>
+        </div>
       </div>
     </nav>
   );
