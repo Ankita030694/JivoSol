@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -141,15 +142,13 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <span className="text-gray-400">Follow Us</span>
             <Link href="#" className="hover:text-[#7AA792]">
-              Facebook
+              <FaFacebook className="text-white text-xl hover:text-[#7AA792]" />
             </Link>
-            <span className="text-gray-400">•</span>
             <Link href="#" className="hover:text-[#7AA792]">
-              Instagram
+              <FaInstagram className="text-white text-xl hover:text-[#7AA792]" />
             </Link>
-            <span className="text-gray-400">•</span>
             <Link href="#" className="hover:text-[#7AA792]">
-              YouTube
+              <FaYoutube className="text-white text-xl hover:text-[#7AA792]" />
             </Link>
           </div>
         </div>

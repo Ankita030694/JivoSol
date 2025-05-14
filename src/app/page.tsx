@@ -16,8 +16,8 @@ export default function Home() {
           <h1 className="font-poppins font-bold text-white uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-normal">
             Presence is Everything
           </h1>
-          <h2 className="font-poppins font-normal text-white text-sm sm:text-base md:text-lg mt-2 md:mt-4 max-w-xl">
-            in a digital-first world, how you're seen is how you're remembered.
+          <h2 className="font-poppins font-light text-white text-sm max-w-xl">
+            In a digital-first world, how you're seen is how you're remembered.
           </h2>
         </div>
         <Image
@@ -33,7 +33,7 @@ export default function Home() {
       <WhyUs />
       <OurSol />
       <Brands />
-      <div className="mt-10">
+      <div className="-mt-30">
         <Form />
       </div>
       <Footer />

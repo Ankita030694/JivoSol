@@ -29,16 +29,20 @@ export default function InsightsPage() {
 
       {/* Social Media Section */}
       <div className="py-16 mx-auto text-center">
-        <p className="text-emerald-700 mb-2">Social Media Management</p>
-        <h2 className="text-4xl font-bold mb-4 text-black">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Social Media Management
+        </p>
+        <h2 className="text-3xl font-bold mb-4 text-black">
           Be Seen Where It Matters Most
         </h2>
-        <p className="mb-2 text-black">
+        <p className="mb-2 text-black text-sm">
           Your audience spends hours every day on social media. we make sure
           you're there,
         </p>
-        <p className="mb-6 text-black">not just present, but unforgettable.</p>
-        <p className="mb-8 text-black">
+        <p className="mb-6 text-black text-sm">
+          not just present, but unforgettable.
+        </p>
+        <p className="mb-8 text-black text-sm">
           At JIVO, we build <span className="italic">digital narratives</span>{" "}
           that drive engagement, loyalty, and action.
         </p>
@@ -111,11 +115,94 @@ export default function InsightsPage() {
             </svg>
           </button>
         </div>
-        {/* Web Development Projects Section */}
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
+        </div>
       </div>
-      <div className="mt-16 bg-[#ECECEC] px-4 sm:px-8 md:px-16 lg:px-64 py-16 text-center">
-        <p className="text-emerald-700 mb-2">Web Developments & SEO</p>
-        <h2 className="text-4xl font-bold mb-12 text-black">
+
+      {/* Performance Marketing Section - NEW */}
+      <div className="bg-[#ECECEC] px-4 sm:px-8 md:px-16 lg:px-64 py-16 text-center">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Performance Marketing
+        </p>
+        <h2 className="text-3xl font-bold mb-4 text-black">
+          Data-Driven Results That Matter
+        </h2>
+        <p className="mb-8 text-black text-sm">
+          Our performance marketing strategies are designed to maximize ROI and deliver
+          measurable results for your business.
+        </p>
+
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[1, 2, 3, 4].map((num) => (
+            <div
+              key={num}
+              className="relative overflow-hidden rounded-lg shadow-md"
+            >
+              <Image
+                src={`/jabout${num}.svg`}
+                alt={`Performance marketing image ${num}`}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Carousel Navigation */}
+        <div className="flex justify-center items-center mt-8 space-x-4">
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
+        </div>
+      </div>
+
+      {/* Web Development Projects Section */}
+      <div className="px-4 sm:px-8 md:px-16 lg:px-64 py-16 text-center">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Web Development & SEO
+        </p>
+        <h2 className="text-3xl font-bold mb-12 text-black">
           Let's See Our Recent Work
           <br />
           Projects Gallery
@@ -195,12 +282,21 @@ export default function InsightsPage() {
             </svg>
           </button>
         </div>
+        
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
+        </div>
       </div>
 
-      {/* Social Media Section */}
-      <div className="py-16 mx-auto text-center">
-        <p className="text-emerald-700 mb-2">Brand Identity & Design</p>
-        <h2 className="text-4xl font-bold mb-4 text-black">
+      {/* Brand Identity & Design Section */}
+      <div className="py-16 mx-auto text-center bg-[#ECECEC]">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Brand Identity & Design
+        </p>
+        <h2 className="text-3xl font-bold mb-4 text-black">
           Let's See Our Recent Work <br />
           Projects Gallery
         </h2>
@@ -279,17 +375,101 @@ export default function InsightsPage() {
             </svg>
           </button>
         </div>
+        
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
+        </div>
+      </div>
 
-        {/* Content Creation & Production Section */}
-        <div className="mt-16 text-center bg-[#ECECEC] py-16">
-          <p className="text-emerald-700 mb-2">Content Creation & Production</p>
-          <h2 className="text-4xl font-bold mb-12 text-black">
-            Let's See Our Recent Work
-            <br />
-            Projects Gallery
-          </h2>
+      {/* Video & Animation Section - NEW */}
+      <div className="py-16 mx-auto text-center">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Video & Animation
+        </p>
+        <h2 className="text-3xl font-bold mb-4 text-black">
+          Motion That Captures Attention
+        </h2>
+        <p className="mb-8 text-black text-sm">
+          From promotional videos to animated explainers, we create dynamic visual content
+          that tells your story in an engaging way.
+        </p>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
+          {[1, 2, 3, 4].map((num) => (
+            <div
+              key={num}
+              className="relative overflow-hidden rounded-lg shadow-md"
+            >
+              <Image
+                src={`/jabout${num}.svg`}
+                alt={`Video project ${num}`}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Carousel Navigation */}
+        <div className="flex justify-center items-center mt-8 space-x-4">
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
+        </div>
+      </div>
+
+      {/* Content Creation & Production Section */}
+      <div className="py-16 text-center bg-[#ECECEC]">
+        <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
+          Content Creation & Production
+        </p>
+        <h2 className="text-3xl font-bold mb-12 text-black">
+          Let's See Our Recent Work
+          <br />
+          Projects Gallery
+        </h2>
+
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-64">
           {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
@@ -304,45 +484,53 @@ export default function InsightsPage() {
               />
             </div>
           ))}
-          </div>
+        </div>
 
-          {/* Carousel Navigation */}
-          <div className="flex justify-center items-center mt-8 space-x-4">
-            <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
+        {/* Carousel Navigation */}
+        <div className="flex justify-center items-center mt-8 space-x-4">
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+        
+        {/* Read More button */}
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            Read More
+          </button>
         </div>
       </div>
+      
+      {/* Footer */}
       <Footer />
     </div>
   );

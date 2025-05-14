@@ -40,7 +40,7 @@ const OurSol: React.FC = () => {
     <section className="bg-[#ECECEC] py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-green-700 mb-2">Our Solutions</p>
+          <p className="text-[#0A5C35] mb-2">Our Solutions</p>
           <h2 className="text-4xl font-bold mb-4 text-black">
             Everything you need<br />
             to be seen and remembered.

@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,7 +7,6 @@ const About = () => {
     '/jabout2.svg',
     '/jabout3.svg',
     '/jabout4.svg',
-    '/jabout5.svg'
   ];
   
   // Add client names corresponding to each image
@@ -32,10 +30,10 @@ const About = () => {
 
       {/* Description Text */}
       <div className="max-w-4xl mx-auto mb-8">
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 mb-1">
           A Digital Solutions Company Focused On Building Strategic Visibility For Brands That Are Ready To Grow.
         </p>
-        <p className="text-gray-700 mb-8">
+        <p className="text-gray-700 mb-8 max-w-3xl text-center mx-auto">
           With 3+ Years Of Experience And Over 50 Brands Served Across Industries And Regions, We Create 
           Cohesive Digital Ecosystems That Align Content, Design, Performance, And Strategy.
         </p>
@@ -46,18 +44,18 @@ const About = () => {
         href="/about"
         className="inline-flex items-center bg-[#005F33] text-white px-6 py-3 rounded-full mb-16 hover:bg-[#004525] transition-colors"
       >
-        Learn More About Us
+        Learn More
         <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </Link>
 
       {/* Image Grid */}
-      <div className="flex justify-center gap-4 overflow-x-auto px-4">
+      <div className="flex justify-center gap-4 overflow-x-auto px-2">
         {images.map((image, index) => (
           <div 
             key={index}
-            className="relative w-[200px] h-[509px] rounded-2xl overflow-hidden flex-shrink-0 group"
+            className="relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 group"
           >
             <Image
               src={image}

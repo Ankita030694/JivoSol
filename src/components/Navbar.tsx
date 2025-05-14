@@ -83,7 +83,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex items-center justify-between bg-[#ECECEC] px-4 py-4 relative">
+    <nav className="sticky top-0 z-40 flex items-center justify-around bg-[#ECECEC] px-4 py-4 relative">
       {/* Logo - always on the left */}
       <div className="nav-logo">
         <Link href="/">
@@ -193,13 +193,13 @@ const Navbar = () => {
       {/* Desktop Contact Button - hidden on mobile */}
       <div className="hidden md:flex items-center gap-4">
         <button 
-          className="bg-white text-black rounded-full border border-[#0A5C3580] flex items-center gap-3 px-2 py-2 hover:opacity-90 transition-opacity"
+          className="bg-[#ECECEC] text-black rounded-full border border-[#0A5C3580] flex items-center gap-3 px-2 py-1 hover:opacity-90 transition-opacity"
           aria-label="Get in touch with us"
         >
           <div className="bg-[#005F33] rounded-full p-3 flex items-center justify-center">
-            <FaPhone className="text-white text-lg" />
+            <FaPhone className="text-white text-lg transform scale-x-[-1]" />
           </div>
-          <span className="text-lg">Get In Touch</span>
+          <span className="text-md">Get In Touch</span>
         </button>
       </div>
 
@@ -310,7 +310,7 @@ const Navbar = () => {
             onClick={closeMobileMenu}
           >
             <div className="bg-[#005F33] rounded-full p-3 flex items-center justify-center">
-              <FaPhone className="text-white text-lg" />
+              <FaPhone className="text-white text-lg transform scale-x-[-1]" />
             </div>
             <span className="text-lg font-medium">Get In Touch</span>
           </button>

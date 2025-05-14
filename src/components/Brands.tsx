@@ -37,12 +37,12 @@ const testimonials: Testimonial[] = [
 ];
 
 const Brands = () => {
-    const [activeCard, setActiveCard] = useState<number>(1);
+    // Removed activeCard state as we're using hover instead
   
     return (
       <section className="pt-16 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]">
         <div className="text-center mb-12">
-          <p className="text-[#0A5C35] font-medium mb-2 text-sm tracking-wide">CLIENT TESTIMONIALS</p>
+          <p className="text-[#0A5C35] font-medium mb-2 text-sm tracking-wide">Client Testimonials</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-black">Brands That Grew With JIVO.</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">Here's What They Have To Say.</p>
         </div>
@@ -51,12 +51,8 @@ const Brands = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              onClick={() => setActiveCard(testimonial.id)}
-              className={`cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 max-w-md ${
-                activeCard === testimonial.id
-                  ? 'bg-[#0A5C35] text-white shadow-lg'
-                  : 'bg-white text-black border border-gray-200 hover:border-gray-300'
-              }`}
+              className="cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 max-w-md
+                bg-white text-black border border-gray-200 hover:bg-[#0A5C35] hover:text-white hover:shadow-lg"
             >
               <p className="text-sm sm:text-base mb-4 sm:mb-5 leading-relaxed">"{testimonial.comment}"</p>
               <div className="flex items-center gap-3">
@@ -70,11 +66,7 @@ const Brands = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm sm:text-base">{testimonial.name}</h4>
-                  <p className={`text-xs sm:text-sm ${
-                    activeCard === testimonial.id
-                      ? 'text-white/80'
-                      : 'text-gray-600'
-                  }`}>
+                  <p className="text-xs sm:text-sm text-gray-600 group-hover:text-white/80">
                     {testimonial.position}
                   </p>
                 </div>

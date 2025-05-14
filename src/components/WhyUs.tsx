@@ -7,7 +7,7 @@ const WhyUs = () => {
   // Array of statistics with different values
   const stats = [
     { label: "Brands Transformed", value: 105 },
-    { label: "Clients Across The Globe", value: 200 },
+    { label: "Clients Globe", value: 200 },
     { label: "Projects Completed", value: 350 },
     { label: "Client Retention Rate", value: 95 }
   ];
@@ -67,14 +67,14 @@ const WhyUs = () => {
             we think deeply, execute precisely, and care about long-term outcomes.
           </p>
           <button className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto">
-            Work With Us →
+            Work With Us → 
           </button>
         </div>
 
-        <div ref={statsRef} className="flex flex-wrap justify-center gap-8">
+        <div ref={statsRef} className="flex flex-wrap justify-between max-w-full px-4">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg">
-              <p className="text-sm text-black">{stat.label}</p>
+            <div key={index} className="bg-white p-6 rounded-lg w-[220px] m-2">
+              <p className="text-sm text-black mb-3">{stat.label}</p>
               <p className="text-[#0A5C35] text-5xl font-bold">
                 {counters[index]}
                 {stat.label === "Client Retention Rate" ? "%" : "+"}
@@ -91,13 +91,9 @@ const WhyUs = () => {
             className="absolute -bottom-18 left-0 transform scale-x-[-1]"
           />
         </div>
-
-       
-
-        
       </div>
     </div>
-     <div className="bg-white py-8 overflow-hidden">
+     <div className="bg-white py-16 overflow-hidden">
      <div className="text-center mb-8">
        <p className="text-[#0A5C35] text-lg">Our Clients</p>
        <h2 className="text-4xl font-bold text-black">Trusted By Businesses</h2>
