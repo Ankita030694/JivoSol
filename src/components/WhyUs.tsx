@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const WhyUs = () => {
   // Array of statistics with different values
@@ -15,6 +17,45 @@ const WhyUs = () => {
   const [counters, setCounters] = useState(stats.map(() => 0));
   const statsRef = useRef<HTMLDivElement>(null);
   const animationTriggered = useRef(false);
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  };
+  
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const pulseAnimation = {
+    scale: [1, 1.02, 1],
+    transition: {
+      duration: 2,
+      ease: "easeInOut",
+      repeat: Infinity,
+      repeatType: "reverse"
+    }
+  };
+
+  // Use intersection observer for heading and description
+  const [headingRef, headingInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+  
+  // Use intersection observer for clients section
+  const [clientsRef, clientsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -57,77 +98,160 @@ const WhyUs = () => {
   
   return (
     <div>
+      <motion.div 
+        className="w-full bg-[#ECECEC] py-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-4">
+          <motion.div 
+            ref={headingRef}
+            className="text-center mb-8"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={headingInView ? "visible" : "hidden"}
+          >
+            <motion.h2 
+              className="text-4xl font-bold text-black mb-4"
+              variants={fadeInUp}
+            >
+              Why Brands Work With Us
+            </motion.h2>
+            <motion.p 
+              className="text-black max-w-3xl mx-auto"
+              variants={fadeInUp}
+            >
+              At JIVO, we don't follow trends, we build strategies. our clients choose us because
+              we think deeply, execute precisely, and care about long-term outcomes.
+            </motion.p>
+            <motion.button 
+              className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Work With Us {" "}
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                →
+              </motion.span>
+            </motion.button>
+          </motion.div>
 
-    <div className="w-full bg-[#ECECEC] py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-black mb-4">Why Brands Work With Us</h2>
-          <p className="text-black max-w-3xl mx-auto">
-            At JIVO, we don't follow trends, we build strategies. our clients choose us because
-            we think deeply, execute precisely, and care about long-term outcomes.
-          </p>
-          <button className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto">
-            Work With Us → 
-          </button>
+          <motion.div 
+            ref={statsRef} 
+            className="flex flex-wrap justify-between max-w-full px-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index} 
+                className="bg-white p-6 rounded-lg w-[220px] m-2"
+                variants={fadeInUp}
+                whileHover={{ 
+                  y: -10, 
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <p className="text-sm text-black mb-3">{stat.label}</p>
+                <motion.p 
+                  className="text-[#0A5C35] text-5xl font-bold"
+                  // animate={pulseAnimation}
+                >
+                  {counters[index]}
+                  {stat.label === "Client Retention Rate" ? "%" : "+"}
+                </motion.p>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <div className="relative mt-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <Image
+                src="/leaf.gif"
+                alt="Leaf Animation"
+                width={100}
+                height={100}
+                className="absolute -bottom-18 left-0 transform scale-x-[-1]"
+              />
+            </motion.div>
+          </div>
         </div>
-
-        <div ref={statsRef} className="flex flex-wrap justify-between max-w-full px-4">
-          {stats.map((stat, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg w-[220px] m-2">
-              <p className="text-sm text-black mb-3">{stat.label}</p>
-              <p className="text-[#0A5C35] text-5xl font-bold">
-                {counters[index]}
-                {stat.label === "Client Retention Rate" ? "%" : "+"}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="relative mt-8">
-          <Image
-            src="/leaf.gif"
-            alt="Leaf Animation"
-            width={100}
-            height={100}
-            className="absolute -bottom-18 left-0 transform scale-x-[-1]"
-          />
-        </div>
-      </div>
+      </motion.div>
+      
+      <motion.div 
+        className="bg-white py-16 overflow-hidden"
+        ref={clientsRef}
+        initial={{ opacity: 0 }}
+        animate={clientsInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div 
+          className="text-center mb-8"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={clientsInView ? "visible" : "hidden"}
+        >
+          <motion.p 
+            className="text-[#0A5C35] text-lg"
+            variants={fadeInUp}
+          >
+            Our Clients
+          </motion.p>
+          <motion.h2 
+            className="text-4xl font-bold text-black"
+            variants={fadeInUp}
+          >
+            Trusted By Businesses
+          </motion.h2>
+          <motion.p 
+            className="text-black max-w-3xl mx-auto mt-4"
+            variants={fadeInUp}
+          >
+            At JIVO, we don't follow trends, we build strategies. our clients choose
+            us because we think deeply, and care about long-term outcomes.
+          </motion.p>
+        </motion.div>
+        
+        <motion.div 
+          className="relative w-full overflow-hidden max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          animate={clientsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <Marquee 
+            speed={100} 
+            gradient={false} 
+            direction="left"
+          >
+            <Image
+              src="/clientslide.png"
+              alt="Our Clients"
+              width={1000}
+              height={100}
+              className="inline-block"
+            />
+            <Image
+              src="/clientslide.png"
+              alt="Our Clients"
+              width={1000}
+              height={100}
+              className="inline-block"
+            />
+          </Marquee>
+        </motion.div>
+      </motion.div>
     </div>
-     <div className="bg-white py-16 overflow-hidden">
-     <div className="text-center mb-8">
-       <p className="text-[#0A5C35] text-lg">Our Clients</p>
-       <h2 className="text-4xl font-bold text-black">Trusted By Businesses</h2>
-       <p className="text-black max-w-3xl mx-auto mt-4">
-         At JIVO, we don't follow trends, we build strategies. our clients choose
-         us because we think deeply, and care about long-term outcomes.
-       </p>
-     </div>
-     
-     <div className="relative w-full overflow-hidden max-w-6xl mx-auto">
-       <Marquee 
-         speed={100} 
-         gradient={false} 
-         direction="left"
-       >
-         <Image
-           src="/clientslide.png"
-           alt="Our Clients"
-           width={1000}
-           height={100}
-           className="inline-block"
-         />
-         <Image
-           src="/clientslide.png"
-           alt="Our Clients"
-           width={1000}
-           height={100}
-           className="inline-block"
-         />
-       </Marquee>
-     </div>
-   </div>
-   </div>
-
   );
 };
 

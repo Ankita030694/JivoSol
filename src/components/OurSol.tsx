@@ -1,5 +1,8 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 interface SolutionCard {
   image: string;
@@ -33,49 +36,132 @@ const OurSol: React.FC = () => {
         image: '/jabout2.svg',
         title: 'Website Development & SEO',
         description: 'Build high-performing digital foundations that convert and rank.',
-      },
+    },
   ];
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  };
+  
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  // Use intersection observer for header section
+  const [headerRef, headerInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Use intersection observer for solutions section
+  const [solutionsRef, solutionsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section className="bg-[#ECECEC] py-16">
+    <section className="bg-[#ECECEC] py-16 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <p className="text-[#0A5C35] mb-2">Our Solutions</p>
-          <h2 className="text-4xl font-bold mb-4 text-black">
+        <motion.div 
+          ref={headerRef}
+          className="text-center mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={headerInView ? "visible" : "hidden"}
+        >
+          <motion.p 
+            className="text-[#0A5C35] mb-2"
+            variants={fadeInUp}
+          >
+            Our Solutions
+          </motion.p>
+          <motion.h2 
+            className="text-4xl font-bold mb-4 text-black"
+            variants={fadeInUp}
+          >
             Everything you need<br />
             to be seen and remembered.
-          </h2>
-          <p className="text-gray-700">
+          </motion.h2>
+          <motion.p 
+            className="text-gray-700"
+            variants={fadeInUp}
+          >
             We Help Brands Build And Scale Their Digital Presence Through:
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide">
+        <motion.div 
+          ref={solutionsRef}
+          className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={solutionsInView ? "visible" : "hidden"}
+        >
           {solutions.map((solution, index) => (
-            <div
+            <motion.div
               key={index}
               className="max-w-[275px] h-[480px] bg-white rounded-lg overflow-hidden shadow-lg flex-shrink-0 flex flex-col"
+              variants={fadeInUp}
+              custom={index}
+              whileHover={{ 
+                y: -15, 
+                boxShadow: "0 25px 30px -12px rgba(0, 0, 0, 0.15)",
+                transition: { type: "spring", stiffness: 300 }
+              }}
             >
-              <div className="relative h-60">
+              <motion.div 
+                className="relative h-60"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Image
                   src={solution.image}
                   alt={solution.title}
                   fill
                   className="object-cover"
                 />
-              </div>
+              </motion.div>
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold mb-2 text-black">{solution.title}</h3>
-                  <p className="text-gray-600 text-sm">{solution.description}</p>
+                  <motion.h3 
+                    className="text-lg font-bold mb-2 text-black"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 * index, duration: 0.5 }}
+                  >
+                    {solution.title}
+                  </motion.h3>
+                  <motion.p 
+                    className="text-gray-600 text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 * index, duration: 0.5 }}
+                  >
+                    {solution.description}
+                  </motion.p>
                 </div>
-                <button className="flex items-center text-black hover:text-gray-700">
+                <motion.button 
+                  className="flex items-center text-black hover:text-gray-700"
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Read More
-                  <svg
+                  <motion.svg
                     className="w-4 h-4 ml-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                   >
                     <path
                       strokeLinecap="round"
@@ -83,12 +169,12 @@ const OurSol: React.FC = () => {
                       strokeWidth={2}
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
-                  </svg>
-                </button>
+                  </motion.svg>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
