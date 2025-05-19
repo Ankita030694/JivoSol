@@ -3,38 +3,42 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 interface SolutionCard {
-    image: string;
-    title: string;
-    description: string;
-  }
+  image: string;
+  title: string;
+  description: string;
+}
 export default function InsightsPage() {
-    const solutions: SolutionCard[] = [
-        {
-          image: '/jabout1.svg',
-          title: 'Brand Identity & Design',
-          description: 'Shape how your brand is seen, understood, and remembered.',
-        },
-        {
-          image: '/jabout2.svg',
-          title: 'Website Development & SEO',
-          description: 'Build high-performing digital foundations that convert and rank.',
-        },
-        {
-          image: '/jabout3.svg',
-          title: 'Content Creation & Prod.',
-          description: 'Tell stories that connect, educate, and resonate with your audience.',
-        },
-        {
-          image: '/jabout4.svg',
-          title: 'Social Media Management',
-          description: 'Show up consistently where your audience spends their time.',
-        },
-        {
-            image: '/jabout2.svg',
-            title: 'Website Development & SEO',
-            description: 'Build high-performing digital foundations that convert and rank.',
-          },
-      ];
+  const solutions: SolutionCard[] = [
+    {
+      image: "/jabout1.svg",
+      title: "Brand Identity & Design",
+      description: "Shape how your brand is seen, understood, and remembered.",
+    },
+    {
+      image: "/jabout2.svg",
+      title: "Website Development & SEO",
+      description:
+        "Build high-performing digital foundations that convert and rank.",
+    },
+    {
+      image: "/jabout3.svg",
+      title: "Content Creation & Prod.",
+      description:
+        "Tell stories that connect, educate, and resonate with your audience.",
+    },
+    {
+      image: "/jabout4.svg",
+      title: "Social Media Management",
+      description:
+        "Show up consistently where your audience spends their time.",
+    },
+    {
+      image: "/jabout2.svg",
+      title: "Website Development & SEO",
+      description:
+        "Build high-performing digital foundations that convert and rank.",
+    },
+  ];
   return (
     <div>
       <Navbar />
@@ -58,88 +62,344 @@ export default function InsightsPage() {
           priority
         />
       </div>
-      <div className="w-full px-4 py-16 text-center bg-[#ECECEC]">
-        <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">
-          Reach The Right Audience With<br />
-          The Right Message
-        </h2>
-        <p className="text-sm mb-8 max-w-3xl mx-auto text-black">
-          In today's digital-first landscape, your brand's <span className="font-semibold">Social Media Presence</span> is often your <br />
-          first and most important impression.
-        </p>
-        <p className="text-sm mb-12 mx-auto text-black">
-          We help your brand run strategic, roi-driven campaigns across platforms where your customers are already active.
-        </p>
-        <h3 className="text-2xl font-semibold text-green-700 mb-8 ">
-          We Manage And Optimize Paid Marketing Across:
-        </h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          <div className="px-6 py-2 bg-white rounded-full shadow text-black hover:bg-green-700 hover:text-white transition-colors duration-300">Google Ads</div>
-          <div className="px-6 py-2 bg-white rounded-full shadow text-black hover:bg-green-700 hover:text-white transition-colors duration-300">Meta Ads</div>
-          <div className="px-6 py-2 bg-white rounded-full shadow text-black hover:bg-green-700 hover:text-white transition-colors duration-300">YouTube Ads</div>
-          <div className="px-6 py-2 bg-white rounded-full shadow text-black hover:bg-green-700 hover:text-white transition-colors duration-300">LinkedIn Ads</div>
-        </div>
+      <div
+        className="w-full px-4 py-16 flex justify-center items-center"
+        style={{ backgroundImage: "url('/perfmark.png')" }}
+      >
+        <Image
+          src="/herounder.svg"
+          alt="Jivo Hero"
+          width={300}
+          height={100}
+          className="w-1/2 h-1/2 object-contain"
+          priority
+        />
       </div>
-      <section className="bg-[#ECECEC] py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-black">
-            What We Offer
-          </h2>
-        </div>
+      <div className="w-full flex justify-center items-center">
+        <Image
+          src="/heround2.svg"
+          alt="Jivo Hero"
+          width={300}
+          height={100}
+          className="w-full h-full object-cover"
+          priority
+        />
+      </div>
 
-        <div className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide">
-          {solutions.map((solution, index) => (
-            <div
-              key={index}
-              className="max-w-[275px] h-[480px] bg-white rounded-lg overflow-hidden shadow-lg flex-shrink-0 flex flex-col"
-            >
-              <div className="relative h-60">
-                <Image
-                  src={solution.image}
-                  alt={solution.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg font-bold mb-2 text-black">{solution.title}</h3>
-                  <p className="text-gray-600 text-sm">{solution.description}</p>
-                </div>
-                <button className="flex items-center text-black hover:text-gray-700">
-                  Read More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </div>
+      <div>
+        <Image
+          src="/heround3.svg"
+          alt="Jivo Hero"
+          width={1000}
+          height={100}
+          className="w-full h-48 object-cover"
+          priority
+        />
+      </div>
+
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold text-center mb-12 text-black">
+          Our Services
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Bing Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Bing Ads
+              </h2>
+              <Image src="/bing.svg" alt="Bing Logo" width={32} height={32} />
             </div>
-          ))}
+            <p className="mt-4 text-black">
+              Microsoft's bing search engine has more than 936 million unique
+              monthly visitors! tap into this audience with adlift's bing ads
+              services that include advanced targeting, ad scheduling, keyword
+              research, ad copy, a/b testing, and budget control.
+            </p>
+          </div>
+
+          {/* Facebook Advertising */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Facebook Advertising
+              </h2>
+              <Image src="/fb.svg" alt="Facebook Logo" width={32} height={32} />
+            </div>
+            <p className="mt-4 text-black">
+              Be seen and heard on the world's largest social media network. our
+              facebook advertising services include advanced targeting options,
+              personalized ad creation, and retargeting website visitors to
+              increase conversions and sales.
+            </p>
+          </div>
+
+          {/* Google Display Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Google Display Ads
+              </h2>
+              <Image
+                src="/da.svg"
+                alt="Google Display Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              Advertise on a network of over two million websites, videos, and
+              apps with our google display ads services. utilizing a wide range
+              of ad formats and targeting options we create highly engaging and
+              relevant ads to reach your target audience.
+            </p>
+          </div>
+
+          {/* Google Paid Search */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Google Paid Search
+              </h2>
+              <Image
+                src="/google.svg"
+                alt="Google Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              We offer google paid search services, also known as google ads, to
+              help you advertise on google serps. our google paid search
+              services include keyword research, bid management, and ad creation
+              to target users looking for products/services similar to what you
+              offer.
+            </p>
+          </div>
+
+          {/* Instagram Advertising */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Instagram Advertising
+              </h2>
+              <Image
+                src="/insta.svg"
+                alt="Instagram Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              We offer google paid search services, also known as google ads, to
+              help you advertise on google serps. our google paid search
+              services include keyword research, bid management, and ad creation
+              to target users looking for products/services similar to what you
+              offer.
+            </p>
+          </div>
+
+          {/* LinkedIn PPC Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                LinkedIn PPC Ads
+              </h2>
+              <Image
+                src="/linekdin.svg"
+                alt="LinkedIn Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              We offer google paid search services, also known as google ads, to
+              help you advertise on google serps. our google paid search
+              services include keyword research, bid management, and ad creation
+              to target users looking for products/services similar to what you
+              offer.
+            </p>
+          </div>
+
+          {/* Remarketing Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Remarketing Ads
+              </h2>
+              <Image
+                src="/market.svg"
+                alt="Remarketing Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              We offer google paid search services, also known as google ads, to
+              help you advertise on google serps. our google paid search
+              services include keyword research, bid management, and ad creation
+              to target users looking for products/services similar to what you
+              offer.
+            </p>
+          </div>
+
+          {/* Shopping Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                Shopping Ads
+              </h2>
+              <Image
+                src="/bag.svg"
+                alt="Shopping Logo"
+                width={32}
+                height={32}
+              />
+            </div>
+            <p className="mt-4 text-black">
+              We offer google paid search services, also known as google ads, to
+              help you advertise on google serps. our google paid search
+              services include keyword research, bid management, and ad creation
+              to target users looking for products/services similar to what you
+              offer.
+            </p>
+          </div>
+
+          {/* YouTube Video Ads */}
+          <div className="border rounded-lg p-6 flex flex-col">
+            <div className="flex justify-between items-start">
+              <h2 className="text-2xl font-semibold text-green-800">
+                YouTube Video Ads
+              </h2>
+              <Image src="/yt.svg" alt="YouTube Logo" width={32} height={32} />
+            </div>
+            <p className="mt-4 text-black">
+              Advertise on the world's largest video-sharing site with our
+              youtube video ads services. we create engaging video ads in
+              various formats, such as skippable ads, non-skippable ads, and
+              bumper ads, banner ads to reach your target audience.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
-    <div>
-        <Image src="/choose.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-48 object-cover" priority />
-    </div>
+           
+      <div className="bg-[#ECECEC] p-16">
+        <h1 className="text-4xl font-bold text-center mb-12 text-black">
+          Our PPC Case Studies
+        </h1>
 
-    <div className="flex justify-center items-center py-16">
-            <Image src="/perf.svg" alt="Jivo Hero" width={1000} height={100} className=" h-full object-cover" priority />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+          {/* Case Study 1 */}
+          <div className="bg-white rounded-lg overflow-hidden shadow">
+            <Image 
+              src="/case-study-1.jpg" 
+              alt="Case Study 1" 
+              width={400} 
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-3xl font-bold mb-2">181 Mn</h2>
+              <p className="text-gray-700 mb-4">
+                Full-funnel paid marketing strategies built for your business goals
+              </p>
+              <button className="flex items-center text-black font-medium">
+                See Case Study
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Case Study 2 */}
+          <div className="bg-white rounded-lg overflow-hidden shadow">
+            <Image 
+              src="/case-study-2.jpg" 
+              alt="Case Study 2" 
+              width={400} 
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-3xl font-bold mb-2">69+M</h2>
+              <p className="text-gray-700 mb-4">
+                Full-funnel paid marketing strategies built for your business goals
+              </p>
+              <button className="flex items-center text-black font-medium">
+                See Case Study
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Case Study 3 */}
+          <div className="bg-white rounded-lg overflow-hidden shadow">
+            <Image 
+              src="/case-study-3.jpg" 
+              alt="Case Study 3" 
+              width={400} 
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-3xl font-bold mb-2">19%</h2>
+              <p className="text-gray-700 mb-4">
+                Full-funnel paid marketing strategies built for your business goals
+              </p>
+              <button className="flex items-center text-black font-medium">
+                See Case Study
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Case Study 4 */}
+          <div className="bg-white rounded-lg overflow-hidden shadow">
+            <Image 
+              src="/case-study-4.jpg" 
+              alt="Case Study 4" 
+              width={400} 
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h2 className="text-3xl font-bold mb-2">24%</h2>
+              <p className="text-gray-700 mb-4">
+                Full-funnel paid marketing strategies built for your business goals
+              </p>
+              <button className="flex items-center text-black font-medium">
+                See Case Study
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="flex justify-center items-center py-16 w-full">
-            <Image src="/result.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+
+        <div className="flex justify-center gap-2">
+          <button className="w-8 h-8 rounded-full bg-green-800 text-white flex items-center justify-center">
+            <span className="sr-only">Previous</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button className="w-8 h-8 rounded-full bg-green-200 text-green-800 flex items-center justify-center">
+            <span className="sr-only">Next</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
         </div>
-        <Footer />
+      </div>
+      
+      <Footer />
     </div>
   );
 }
