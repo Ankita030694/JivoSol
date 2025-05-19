@@ -106,7 +106,7 @@ const Navbar = () => {
 
       {/* Mobile burger menu button - on the right */}
       <button 
-        className="md:hidden text-gray-800 p-2 z-[60] relative transition-transform hover:scale-110 active:scale-95 duration-200"
+        className="md:hidden text-gray-800 p-2 z-[60] relative transition-transform hover:scale-110 active:scale-95 duration-200 bg-white rounded-full shadow-sm"
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
       >
@@ -222,7 +222,7 @@ const Navbar = () => {
 
       {/* Mobile menu - full screen overlay */}
       <div 
-        className={`fixed inset-0 z-50 bg-[#ECECEC]/95 backdrop-blur-md px-6 transition-all duration-500 ease-in-out transform ${
+        className={`fixed inset-0 z-50 bg-[#ECECEC] px-6 transition-all duration-500 ease-in-out transform ${
           isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'
         }`}
       >
@@ -240,12 +240,12 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex flex-col gap-6 max-w-md mx-auto">
+        <div className="flex flex-col gap-6 max-w-md mx-auto bg-white rounded-xl p-6 shadow-md">
           <Link 
             href="/" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[0]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2'}`}
+            } ${isActive('/') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Home
@@ -254,7 +254,7 @@ const Navbar = () => {
             href="/about" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[1]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/about') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2'}`}
+            } ${isActive('/about') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             About Us
@@ -268,7 +268,7 @@ const Navbar = () => {
               onClick={toggleMobileServices}
               className={`text-xl font-normal flex items-center justify-between transition-all duration-300 ${
                 isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
-              }`}
+              } p-2 rounded-lg hover:bg-gray-50 w-full`}
             >
               <span>Services</span>
               <FaChevronDown 
@@ -287,7 +287,7 @@ const Navbar = () => {
                     href={servicePath}
                     className={`text-lg transition-all duration-300 hover:translate-x-2 ${
                       isActive(servicePath) ? 'text-[#0A5C35] font-medium' : 'text-gray-600 hover:text-[#0A5C35]'
-                    }`}
+                    } p-2 rounded-lg hover:bg-gray-50 block`}
                     style={{ transitionDelay: isMobileServicesOpen ? `${index * 50}ms` : '0ms' }}
                     onClick={closeMobileMenu}
                   >
@@ -302,7 +302,7 @@ const Navbar = () => {
             href="/ourwork" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[3]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2'}`}
+            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Our Work
@@ -311,7 +311,7 @@ const Navbar = () => {
             href="/insights" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[4]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2'}`}
+            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Insights
@@ -320,7 +320,7 @@ const Navbar = () => {
             href="/contact" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2'}`}
+            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Contact Us
