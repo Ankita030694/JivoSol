@@ -43,12 +43,9 @@ export default function InsightsPage() {
     <div>
       <Navbar />
       <div className="w-full relative">
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 text-center">
           <h1
-            className="font-poppins font-bold text-white uppercase"
-            style={{
-              fontSize: "42px",
-            }}
+            className="font-poppins font-bold text-white uppercase text-2xl sm:text-3xl md:text-4xl lg:text-[42px]"
           >
             Performance Marketing
           </h1>
@@ -58,12 +55,12 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={1000}
           height={100}
-          className="w-full h-48 object-cover"
+          className="w-full h-36 sm:h-48 object-cover"
           priority
         />
       </div>
       <div
-        className="w-full px-4 py-16 flex justify-center items-center"
+        className="w-full px-4 py-8 md:py-16 flex justify-center items-center"
         style={{ backgroundImage: "url('/perfmark.png')" }}
       >
         <Image
@@ -71,7 +68,7 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={300}
           height={100}
-          className="w-1/2 h-1/2 object-contain"
+          className="w-3/4 md:w-1/2 object-contain"
           priority
         />
       </div>
@@ -92,26 +89,26 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={1000}
           height={100}
-          className="w-full h-48 object-cover"
+          className="w-full h-36 sm:h-48 object-contain md:object-cover"
           priority
         />
       </div>
 
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-black">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-12 text-black">
           Our Services
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Bing Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Bing Ads
               </h2>
               <Image src="/bing.svg" alt="Bing Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               Microsoft's bing search engine has more than 936 million unique
               monthly visitors! tap into this audience with adlift's bing ads
               services that include advanced targeting, ad scheduling, keyword
@@ -120,14 +117,14 @@ export default function InsightsPage() {
           </div>
 
           {/* Facebook Advertising */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Facebook Advertising
               </h2>
               <Image src="/fb.svg" alt="Facebook Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               Be seen and heard on the world's largest social media network. our
               facebook advertising services include advanced targeting options,
               personalized ad creation, and retargeting website visitors to
@@ -136,9 +133,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Google Display Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Google Display Ads
               </h2>
               <Image
@@ -148,7 +145,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               Advertise on a network of over two million websites, videos, and
               apps with our google display ads services. utilizing a wide range
               of ad formats and targeting options we create highly engaging and
@@ -157,9 +154,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Google Paid Search */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Google Paid Search
               </h2>
               <Image
@@ -169,7 +166,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               We offer google paid search services, also known as google ads, to
               help you advertise on google serps. our google paid search
               services include keyword research, bid management, and ad creation
@@ -179,9 +176,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Instagram Advertising */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Instagram Advertising
               </h2>
               <Image
@@ -191,7 +188,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               We offer google paid search services, also known as google ads, to
               help you advertise on google serps. our google paid search
               services include keyword research, bid management, and ad creation
@@ -201,9 +198,9 @@ export default function InsightsPage() {
           </div>
 
           {/* LinkedIn PPC Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 LinkedIn PPC Ads
               </h2>
               <Image
@@ -213,7 +210,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               We offer google paid search services, also known as google ads, to
               help you advertise on google serps. our google paid search
               services include keyword research, bid management, and ad creation
@@ -223,9 +220,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Remarketing Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Remarketing Ads
               </h2>
               <Image
@@ -235,7 +232,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               We offer google paid search services, also known as google ads, to
               help you advertise on google serps. our google paid search
               services include keyword research, bid management, and ad creation
@@ -245,9 +242,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Shopping Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 Shopping Ads
               </h2>
               <Image
@@ -257,7 +254,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               We offer google paid search services, also known as google ads, to
               help you advertise on google serps. our google paid search
               services include keyword research, bid management, and ad creation
@@ -267,14 +264,14 @@ export default function InsightsPage() {
           </div>
 
           {/* YouTube Video Ads */}
-          <div className="border rounded-lg p-6 flex flex-col">
+          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="text-2xl font-semibold text-green-800">
+              <h2 className="text-xl md:text-2xl font-semibold text-green-800">
                 YouTube Video Ads
               </h2>
               <Image src="/yt.svg" alt="YouTube Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black">
+            <p className="mt-4 text-black text-sm md:text-base">
               Advertise on the world's largest video-sharing site with our
               youtube video ads services. we create engaging video ads in
               various formats, such as skippable ads, non-skippable ads, and
@@ -284,12 +281,12 @@ export default function InsightsPage() {
         </div>
       </div>
            
-      <div className="bg-[#ECECEC] p-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-black">
+      <div className="bg-[#ECECEC] px-4 py-8 md:p-16">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 md:mb-12 text-black">
           Our PPC Case Studies
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-10">
           {/* Case Study 1 */}
           <div className="bg-white rounded-lg overflow-hidden shadow">
             <Image 
@@ -297,14 +294,14 @@ export default function InsightsPage() {
               alt="Case Study 1" 
               width={400} 
               height={300}
-              className="w-full h-48 object-cover"
+              className="w-full h-40 sm:h-48 object-cover"
             />
-            <div className="p-6">
-              <h2 className="text-3xl font-bold mb-2">181 Mn</h2>
-              <p className="text-gray-700 mb-4">
+            <div className="p-4 md:p-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">181 Mn</h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Full-funnel paid marketing strategies built for your business goals
               </p>
-              <button className="flex items-center text-black font-medium">
+              <button className="flex items-center text-black font-medium text-sm md:text-base">
                 See Case Study
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -320,14 +317,14 @@ export default function InsightsPage() {
               alt="Case Study 2" 
               width={400} 
               height={300}
-              className="w-full h-48 object-cover"
+              className="w-full h-40 sm:h-48 object-cover"
             />
-            <div className="p-6">
-              <h2 className="text-3xl font-bold mb-2">69+M</h2>
-              <p className="text-gray-700 mb-4">
+            <div className="p-4 md:p-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">69+M</h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Full-funnel paid marketing strategies built for your business goals
               </p>
-              <button className="flex items-center text-black font-medium">
+              <button className="flex items-center text-black font-medium text-sm md:text-base">
                 See Case Study
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -343,14 +340,14 @@ export default function InsightsPage() {
               alt="Case Study 3" 
               width={400} 
               height={300}
-              className="w-full h-48 object-cover"
+              className="w-full h-40 sm:h-48 object-cover"
             />
-            <div className="p-6">
-              <h2 className="text-3xl font-bold mb-2">19%</h2>
-              <p className="text-gray-700 mb-4">
+            <div className="p-4 md:p-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">19%</h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Full-funnel paid marketing strategies built for your business goals
               </p>
-              <button className="flex items-center text-black font-medium">
+              <button className="flex items-center text-black font-medium text-sm md:text-base">
                 See Case Study
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -366,14 +363,14 @@ export default function InsightsPage() {
               alt="Case Study 4" 
               width={400} 
               height={300}
-              className="w-full h-48 object-cover"
+              className="w-full h-40 sm:h-48 object-cover"
             />
-            <div className="p-6">
-              <h2 className="text-3xl font-bold mb-2">24%</h2>
-              <p className="text-gray-700 mb-4">
+            <div className="p-4 md:p-6">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">24%</h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Full-funnel paid marketing strategies built for your business goals
               </p>
-              <button className="flex items-center text-black font-medium">
+              <button className="flex items-center text-black font-medium text-sm md:text-base">
                 See Case Study
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
