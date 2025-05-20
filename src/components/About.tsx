@@ -114,7 +114,7 @@ const About = () => {
         variants={staggerContainer}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="flex justify-center gap-4 overflow-x-auto px-2">
+        className="flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
         {images.map((image, index) => (
           <motion.div 
             key={index}
