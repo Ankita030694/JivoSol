@@ -635,7 +635,7 @@ const Form = () => {
           </motion.div>
           
           {/* Leaf decoration - mobile */}
-          {/* <div className="relative">
+          <div className="relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -649,7 +649,7 @@ const Form = () => {
                 className="absolute right-0"
               />
             </motion.div>
-          </div> */}
+          </div>
         </motion.div>
       </div>
     </div>
