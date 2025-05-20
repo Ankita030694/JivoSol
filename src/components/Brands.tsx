@@ -98,13 +98,13 @@ const Brands = () => {
           className="text-3xl sm:text-4xl font-bold mb-4 text-black"
           variants={fadeInUp}
         >
-          Brands That Grew With JIVO.
+          Brands That Grew With JIVO
         </motion.h2>
         <motion.p 
           className="text-gray-600 max-w-2xl mx-auto"
           variants={fadeInUp}
         >
-          Here's What They Have To Say.
+          Here's what they have to say:
         </motion.p>
       </motion.div>
 

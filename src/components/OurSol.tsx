@@ -19,7 +19,7 @@ const OurSol: React.FC = () => {
     },
     {
       image: '/jabout2.svg',
-      title: 'Website Development & SEO',
+      title: 'Performance Marketing',
       description: 'Build high-performing digital foundations that convert and rank.',
     },
     {
@@ -37,6 +37,11 @@ const OurSol: React.FC = () => {
         title: 'Website Development & SEO',
         description: 'Build high-performing digital foundations that convert and rank.',
     },
+    {
+      image: '/jabout2.svg',
+      title: 'Video and Animation',
+      description: 'Build high-performing digital foundations that convert and rank.',
+  },
   ];
 
   // Animation variants
@@ -89,13 +94,13 @@ const OurSol: React.FC = () => {
             variants={fadeInUp}
           >
             Everything you need<br />
-            to be seen and remembered.
+            to be <u>seen</u> and <u>remembered</u>
           </motion.h2>
           <motion.p 
             className="text-gray-700"
             variants={fadeInUp}
           >
-            We Help Brands Build And Scale Their Digital Presence Through:
+            We help brands build and scale their digital presence through:
           </motion.p>
         </motion.div>
 

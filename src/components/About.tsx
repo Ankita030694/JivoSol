@@ -76,15 +76,14 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
           className="text-gray-700 mb-1">
-          A Digital Solutions Company Focused On Building Strategic Visibility For Brands That Are Ready To Grow.
+          A <b>Digital Solutions Company</b> focused on building strategic visibility for brands that are ready to grow.
         </motion.p>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-gray-700 mb-8 max-w-3xl text-center mx-auto">
-          With 3+ Years Of Experience And Over 50 Brands Served Across Industries And Regions, We Create 
-          Cohesive Digital Ecosystems That Align Content, Design, Performance, And Strategy.
+          With 3+ years of experience and over 50 brands served across industries and regions, we create cohesive digital ecosystems that align Content, Design, Performance, and Strategy.
         </motion.p>
       </motion.div>
 

@@ -92,14 +92,14 @@ const Navbar = () => {
     <nav className="sticky top-0 z-40 flex items-center justify-around bg-[#ECECEC] px-4 py-4 relative shadow-md backdrop-blur-sm transition-all duration-300">
       {/* Logo - always on the left */}
       <div className="nav-logo group">
-        <Link href="/" className="transition-transform hover:scale-105 duration-300 block">
+        <Link href="/" className="transition-transform duration-300 block">
           <Image
             src="/jivologo.png"
             alt="Jivo Solutions Logo"
             width={210}
             height={21}
             priority
-            className="transition-opacity duration-500 hover:opacity-90"
+            className=""
           />
         </Link>
       </div>
@@ -122,33 +122,30 @@ const Navbar = () => {
       <div className="hidden md:flex gap-8 bg-white px-6 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
         <Link 
           href="/" 
-          className={`font-normal transition-all duration-300 relative overflow-hidden group ${
-            isActive('/') ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+          className={`font-normal transition-all duration-300 ${
+            isActive('/') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
           }`}
         >
-          <span className="relative z-10">Home</span>
-          <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isActive('/') ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
+          Home
         </Link>
         <Link 
           href="/about" 
-          className={`font-normal transition-all duration-300 relative overflow-hidden group ${
-            isActive('/about') ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+          className={`font-normal transition-all duration-300 ${
+            isActive('/about') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
           }`}
         >
-          <span className="relative z-10">About Us</span>
-          <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isActive('/about') ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
+          About Us
         </Link>
         <div className="relative">
           <button 
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`font-normal transition-all duration-300 flex items-center gap-1 relative overflow-hidden group ${
-              isServiceActive() ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+            className={`font-normal transition-all duration-300 flex items-center gap-1 ${
+              isServiceActive() ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
             }`}
           >
-            <span className="relative z-10">Services</span>
+            Services
             <FaChevronDown className={`transition-transform duration-300 ease-in-out ${isServicesOpen ? 'rotate-180' : ''}`} />
-            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isServiceActive() ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
           </button>
           
           {isServicesOpen && (
@@ -164,13 +161,12 @@ const Navbar = () => {
                   <Link 
                     key={index}
                     href={servicePath}
-                    className={`block px-4 py-2 transition-all duration-300 hover:pl-6 relative group/item ${
-                      isActive(servicePath) ? 'text-[#0A5C35] font-bold bg-green-50' : 'text-gray-800 hover:bg-gray-50 hover:text-[#0A5C35]'
+                    className={`block px-4 py-2 transition-all duration-300 hover:pl-6 relative ${
+                      isActive(servicePath) ? 'text-[#0A5C35] font-bold bg-green-50 scale-105' : 'text-gray-800 hover:bg-gray-50 hover:text-[#0A5C35] hover:scale-105'
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {service}
-                    <span className="absolute left-0 top-0 h-full w-1 bg-[#0A5C35] transform scale-y-0 origin-bottom transition-transform duration-300 group-hover/item:scale-y-100"></span>
                   </Link>
                 );
               })}
@@ -179,30 +175,27 @@ const Navbar = () => {
         </div>
         <Link 
           href="/ourwork" 
-          className={`font-normal transition-all duration-300 relative overflow-hidden group ${
-            isActive('/ourwork') ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+          className={`font-normal transition-all duration-300 ${
+            isActive('/ourwork') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
           }`}
         >
-          <span className="relative z-10">Our Work</span>
-          <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isActive('/ourwork') ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
+          Our Work
         </Link>
         <Link 
           href="/insights" 
-          className={`font-normal transition-all duration-300 relative overflow-hidden group ${
-            isActive('/insights') ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+          className={`font-normal transition-all duration-300 ${
+            isActive('/insights') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
           }`}
         >
-          <span className="relative z-10">Insights</span>
-          <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isActive('/insights') ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
+          Insights
         </Link>
         <Link 
           href="/contact" 
-          className={`font-normal transition-all duration-300 relative overflow-hidden group ${
-            isActive('/contact') ? 'text-[#0A5C35] font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35]'
+          className={`font-normal transition-all duration-300 ${
+            isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
           }`}
         >
-          <span className="relative z-10">Contact Us</span>
-          <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#0A5C35] transform origin-left ${isActive('/contact') ? 'scale-x-100' : 'scale-x-0 transition-transform duration-300 group-hover:scale-x-100'}`}></span>
+          Contact Us
         </Link>
       </div>
 
@@ -245,7 +238,7 @@ const Navbar = () => {
             href="/" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[0]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Home
@@ -254,7 +247,7 @@ const Navbar = () => {
             href="/about" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[1]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/about') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/about') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             About Us
@@ -267,7 +260,7 @@ const Navbar = () => {
             <button 
               onClick={toggleMobileServices}
               className={`text-xl font-normal flex items-center justify-between transition-all duration-300 ${
-                isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
+                isServiceActive() ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
               } p-2 rounded-lg hover:bg-gray-50 w-full`}
             >
               <span>Services</span>
@@ -286,7 +279,7 @@ const Navbar = () => {
                     key={index}
                     href={servicePath}
                     className={`text-lg transition-all duration-300 hover:translate-x-2 ${
-                      isActive(servicePath) ? 'text-[#0A5C35] font-medium' : 'text-gray-600 hover:text-[#0A5C35]'
+                      isActive(servicePath) ? 'text-[#0A5C35] font-medium scale-105' : 'text-gray-600 hover:text-[#0A5C35] hover:scale-105'
                     } p-2 rounded-lg hover:bg-gray-50 block`}
                     style={{ transitionDelay: isMobileServicesOpen ? `${index * 50}ms` : '0ms' }}
                     onClick={closeMobileMenu}
@@ -302,7 +295,7 @@ const Navbar = () => {
             href="/ourwork" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[3]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Our Work
@@ -311,7 +304,7 @@ const Navbar = () => {
             href="/insights" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[4]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Insights
@@ -320,7 +313,7 @@ const Navbar = () => {
             href="/contact" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold pl-4 border-l-4 border-[#0A5C35]' : 'text-gray-800 hover:text-[#0A5C35] hover:translate-x-2 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
             onClick={closeMobileMenu}
           >
             Contact Us
