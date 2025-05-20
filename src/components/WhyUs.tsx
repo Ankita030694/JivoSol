@@ -171,21 +171,7 @@ const WhyUs = () => {
             ))}
           </motion.div>
           
-          <div className="relative mt-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <Image
-                src="/leaf.gif"
-                alt="Leaf Animation"
-                width={100}
-                height={100}
-                className="absolute -bottom-18 left-0 transform scale-x-[-1]"
-              />
-            </motion.div>
-          </div>
+          
         </div>
       </motion.div>
       

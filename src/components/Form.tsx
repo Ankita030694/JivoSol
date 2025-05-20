@@ -4,6 +4,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface FormData {
   name: string;
@@ -376,6 +377,23 @@ const Form = () => {
               </motion.form>
             </motion.div>
           </motion.div>
+          
+          {/* Leaf decoration - desktop */}
+          <div className="relative z-10">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <Image
+                src="/leaf.gif"
+                alt="Leaf Animation"
+                width={100}
+                height={100}
+                className="absolute top-160 right-20"
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
 
@@ -611,9 +629,27 @@ const Form = () => {
                     </motion.svg>
                   </>
                 )}
+                
               </motion.button>
             </motion.form>
           </motion.div>
+          
+          {/* Leaf decoration - mobile */}
+          {/* <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <Image
+                src="/leaf.gif"
+                alt="Leaf Animation"
+                width={80}
+                height={80}
+                className="absolute right-0"
+              />
+            </motion.div>
+          </div> */}
         </motion.div>
       </div>
     </div>

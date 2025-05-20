@@ -106,7 +106,7 @@ const OurSol: React.FC = () => {
 
         <motion.div 
           ref={solutionsRef}
-          className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide"
+          className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide max-w-full"
           variants={staggerContainer}
           initial="hidden"
           animate={solutionsInView ? "visible" : "hidden"}
