@@ -94,7 +94,7 @@ const OurSol: React.FC = () => {
             variants={fadeInUp}
           >
             Everything you need<br />
-            to be <u>seen</u> and <u>remembered</u>
+            to be <span className="text-black" style={{textDecoration: 'underline', textDecorationColor: 'green'}}>seen</span> and <span className="text-black" style={{textDecoration: 'underline', textDecorationColor: 'green'}}>remembered</span>
           </motion.h2>
           <motion.p 
             className="text-gray-700"

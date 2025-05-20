@@ -521,7 +521,7 @@ const Form = () => {
                 </motion.div>
                 
                 <motion.div variants={itemVariants}>
-                  <label className="text-sm text-gray-600 mb-1 block">Service Needed</label>
+                  <label className="text-sm text-black mb-1 block">Service Needed</label>
                   <div className="relative">
                     <motion.div 
                       whileHover={{ scale: 1.01 }}
@@ -551,7 +551,7 @@ const Form = () => {
                           initial="hidden"
                           animate="visible"
                           exit="exit"
-                          className="absolute left-0 right-0 mt-1 bg-white rounded-lg shadow-lg z-20 border border-gray-100 py-1 max-h-48 overflow-y-auto"
+                          className="absolute left-0 right-0 mt-1 bg-white rounded-lg shadow-lg z-20 border border-gray-100 py-1 max-h-48 overflow-y-auto text-black"
                         >
                           {serviceOptions.map((option, index) => (
                             <motion.div 
