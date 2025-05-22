@@ -9,38 +9,38 @@ interface SolutionCard {
     description: string;
   }
 export default function InsightsPage() {
-    const solutions: SolutionCard[] = [
-        {
-          image: '/jabout1.svg',
-          title: 'Brand Identity & Design',
-          description: 'Shape how your brand is seen, understood, and remembered.',
-        },
-        {
-          image: '/jabout2.svg',
-          title: 'Website Development & SEO',
-          description: 'Build high-performing digital foundations that convert and rank.',
-        },
-        {
-          image: '/jabout3.svg',
-          title: 'Content Creation & Prod.',
-          description: 'Tell stories that connect, educate, and resonate with your audience.',
-        },
-        {
-          image: '/jabout4.svg',
-          title: 'Social Media Management',
-          description: 'Show up consistently where your audience spends their time.',
-        },
-        {
-          image: '/jabout5.svg',
-          title: 'Performance Marketing',
-          description: 'Drive targeted traffic and conversions through strategic campaigns.',
-        },
-        {
-          image: '/jabout2.svg',
-          title: 'Analytics & Reporting',
-          description: 'Gain insights from data to refine strategies and maximize results.',
-        },
-      ];
+  const solutions: SolutionCard[] = [
+    {
+      image: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=600&auto=format',
+      title: 'Brand Identity & Design',
+      description: 'Shape how your brand is seen, understood, and remembered.',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format',
+      title: 'Performance Marketing',
+      description: 'Build high-performing digital foundations that convert and rank.',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=600&auto=format',
+      title: 'Content Creation & Prod.',
+      description: 'Tell stories that connect, educate, and resonate with your audience.',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format',
+      title: 'Social Media Management',
+      description: 'Show up consistently where your audience spends their time.',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=600&auto=format',
+      title: 'Website Development & SEO',
+      description: 'Build high-performing digital foundations that convert and rank.',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format',
+      title: 'Video and Animation',
+      description: 'Build high-performing digital foundations that convert and rank.',
+    },
+  ];
 
     // Array of statistics for the counter section
     const stats = [
