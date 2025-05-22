@@ -82,7 +82,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
           className="text-gray-700 mb-8 max-w-3xl text-center mx-auto">
-          With 3+ years of experience and over 50 brands served across industries and regions, we create cohesive digital ecosystems that align Content, Design, Performance, and Strategy.
+          We create cohesive digital ecosystems that align Content, Design, Performance, and Strategy.
         </motion.p>
       </motion.div>
 
