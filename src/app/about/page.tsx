@@ -45,7 +45,7 @@ export default function InsightsPage() {
     // Array of statistics for the counter section
     const stats = [
       { label: "Brands Transformed", value: 105 },
-      { label: "Clients Globe", value: 200 },
+      { label: "Industries Served", value: 15 },
       { label: "Projects Completed", value: 350 },
       { label: "Client Retention Rate", value: 95 }
     ];
@@ -118,17 +118,17 @@ export default function InsightsPage() {
       </div>
 
       {/* Founder Section - Desktop */}
-      <div className="w-full py-16 hidden md:flex flex-row items-center max-w-[90%] mx-auto">
-        <div className="w-1/2 px-16">
+      <div className="w-full py-16 hidden md:flex flex-row items-start max-w-[90%] mx-auto">
+        <div className="w-1/2 p-5 flex flex-col justify-center text-left">
           <h2 className="text-4xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
           <p className="text-xl mb-6 text-black">Founder</p>
           
           <p className="text-sm mb-6 text-black">
-            I Am Aakanksha Chugh, Founder Of JIVO Solutions <span className="italic">(formerly &apos;zeminik solutions&apos;)</span>
+            I am Aakanksha Chugh, Founder Of JIVO Solutions <span className="italic">(formerly &apos;zeminik solutions&apos;)</span>
           </p>
           
           <p className="text-sm mb-6 text-black">
-            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 50 businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting And Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO
+            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO.
           </p>
           
           <p className="text-sm mb-6 text-black">
@@ -148,8 +148,8 @@ export default function InsightsPage() {
           </p>
         </div>
         
-        <div className="relative w-1/2 h-[650px]">
-          <div className="relative w-full h-[90%]">
+        <div className="w-1/2">
+          <div className="relative w-full h-[600px]">
             <Image
               src="/image3.png"
               alt="Founder"
@@ -164,18 +164,18 @@ export default function InsightsPage() {
       </div>
       
       {/* Founder Section - Mobile */}
-      <div className="w-full py-8 flex md:hidden flex-col items-center px-8 max-w-[95%] mx-auto">
-        <div className="relative w-full h-[400px] mb-6">
+      <div className="w-full py-12 flex md:hidden flex-col items-center px-4 max-w-[95%] mx-auto">
+        <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden shadow-md">
           <Image
             src="/akankshadidi.jpg"
             alt="Founder"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover"
           />
         </div>
         
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
+        <div className="text-left">
+          <h2 className="text-3xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
           <p className="text-xl mb-6 text-black">Founder</p>
           
           <p className="text-sm mb-6 text-black">
@@ -257,7 +257,7 @@ export default function InsightsPage() {
           </p>
 
           <p className="mb-8">
-            We bring together <b>Branding</b> , <b>Website Development</b> , <b>SEO</b> , <b>Content Marketing</b> , <b>Social Media Management</b> , and <b>Performance Marketing</b> into cohesive digital strategies that are built for long-term growth.
+            We bring together <b>Branding</b>, <b>Website Development</b>, <b>SEO</b>, <b>Content Marketing</b>, <b>Social Media Management</b>, and <b>Performance Marketing</b> into cohesive digital strategies that are built for long-term growth.
           </p>
 
           <p className="mb-4">

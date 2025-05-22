@@ -83,7 +83,7 @@ export default function ContactPage() {
         </div>
 
         <div className="flex flex-col lg:flex-row flex-wrap justify-between">
-          <div className="w-full lg:w-1/3 space-y-6 mb-8 lg:mb-0 lg:pr-8">
+          <div className="w-full lg:w-1/2 space-y-6 mb-8 lg:mb-0 lg:pr-8">
             <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
               <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,10 +217,10 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="bg-[#0A5C35] p-4 mx-[-24px] mb-[-24px] mt-4 rounded-b-3xl">
+                <div className="bg-[#0A5C35] p-4 mx-[-24px] mb-[-24px] mt-4 rounded-b-3xl text-right justify-end">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto sm:mx-auto flex items-center justify-center gap-2 px-4 py-4 bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors duration-300 border border-gray-100 font-light"
+                    className="w-full sm:w-auto ml-auto flex items-center gap-2 px-4 py-4 bg-white text-gray-700 rounded-full hover:bg-gray-50 transition-colors duration-300 border border-gray-100 font-light"
                   >
                     Send Message
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

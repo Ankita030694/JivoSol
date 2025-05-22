@@ -13,35 +13,35 @@ interface SolutionCard {
 const OurSol: React.FC = () => {
   const solutions: SolutionCard[] = [
     {
-      image: '/jabout1.svg',
+      image: 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=600&auto=format',
       title: 'Brand Identity & Design',
       description: 'Shape how your brand is seen, understood, and remembered.',
     },
     {
-      image: '/jabout2.svg',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format',
       title: 'Performance Marketing',
       description: 'Build high-performing digital foundations that convert and rank.',
     },
     {
-      image: '/jabout3.svg',
+      image: 'https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=600&auto=format',
       title: 'Content Creation & Prod.',
       description: 'Tell stories that connect, educate, and resonate with your audience.',
     },
     {
-      image: '/jabout4.svg',
+      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600&auto=format',
       title: 'Social Media Management',
       description: 'Show up consistently where your audience spends their time.',
     },
     {
-        image: '/jabout2.svg',
-        title: 'Website Development & SEO',
-        description: 'Build high-performing digital foundations that convert and rank.',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=600&auto=format',
+      title: 'Website Development & SEO',
+      description: 'Build high-performing digital foundations that convert and rank.',
     },
     {
-      image: '/jabout2.svg',
+      image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=600&auto=format',
       title: 'Video and Animation',
       description: 'Build high-performing digital foundations that convert and rank.',
-  },
+    },
   ];
 
   // Animation variants
@@ -94,7 +94,7 @@ const OurSol: React.FC = () => {
             variants={fadeInUp}
           >
             Everything you need<br />
-            to be <span className="text-black" style={{textDecoration: 'underline', textDecorationColor: 'green'}}>seen</span> and <span className="text-black" style={{textDecoration: 'underline', textDecorationColor: 'green'}}>remembered</span>
+            to be <span className="text-[#0A5C35]">seen</span> and <span className="text-[#0A5C35]">remembered</span>
           </motion.h2>
           <motion.p 
             className="text-gray-700"

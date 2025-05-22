@@ -390,7 +390,7 @@ const Form = () => {
                 alt="Leaf Animation"
                 width={100}
                 height={100}
-                className="absolute top-160 right-20"
+                className="absolute top-185 right-20"
               />
             </motion.div>
           </div>

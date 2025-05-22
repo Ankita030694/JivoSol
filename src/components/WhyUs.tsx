@@ -213,20 +213,30 @@ const WhyUs = () => {
             gradient={false} 
             direction="left"
           >
-            <Image
-              src="/clientslide.png"
-              alt="Our Clients"
-              width={1000}
-              height={100}
-              className="inline-block"
-            />
-            <Image
-              src="/clientslide.png"
-              alt="Our Clients"
-              width={1000}
-              height={100}
-              className="inline-block"
-            />
+            <Image src="/client/logo1.jpg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo2.jpeg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo3.jpeg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo4.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo6.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo7.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo9.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo10.jpg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo11.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo12.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo13.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo14.jpg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo15.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo16.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo17.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo18.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo19.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo20.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo21.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo22.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo23.jpeg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo24.png" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo25.jpg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
+            <Image src="/client/logo26.jpeg" alt="Client Logo" width={150} height={100} className="inline-block mx-4" />
           </Marquee>
         </motion.div>
       </motion.div>

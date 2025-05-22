@@ -15,9 +15,9 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 2,
-    name: "Bradley Gordon",
-    position: "CEO & Founder",
-    comment: "A studio with passionate, professional and full creativity. much more than i'm expect. great services, high quality products & affordable prices. i'm extremely satisfied!.",
+    name: "Abhirup Biswas",
+    position: "Founder, Ab Graaph Studios",
+    comment: "We had a great experience working with JIVO Solutions. We used their editing services for cinematic reels and videos for podcasts and events, and also partnered with them to build our company portfolio. Aakanksha and her team were incredibly supportive, always professional, punctual, and committed. They consistently met delivery timelines and even worked overtime to accommodate our last-minute needs. The quality of their work is top-notch, and our clients have been equally impressed with the final output. Highly recommend JIVO Solutions for anyone looking for high-quality creative and video solutions.",
     image: "/bradley.jpg", // Replace with your image path
   },
   {

@@ -1,19 +1,18 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const About = () => {
-  const images = [
-    '/jabout1.svg',
-    '/jabout2.svg',
-    '/jabout3.svg',
-    '/jabout4.svg',
+  const videos = [
+    '/videos/video1.mp4',
+    '/videos/video2.mp4',
+    '/videos/video3.mp4',
+    '/videos/video4.mp4',
   ];
   
-  // Add client names corresponding to each image
+  // Add client names corresponding to each video
   const clientNames = [
     'Client One',
     'Client Two',
@@ -108,14 +107,14 @@ const About = () => {
         </Link>
       </motion.div>
 
-      {/* Image Grid */}
+      {/* Video Grid */}
       <motion.div 
         ref={ref}
         variants={staggerContainer}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         className="flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
-        {images.map((image, index) => (
+        {videos.map((video, index) => (
           <motion.div 
             key={index}
             variants={fadeInUp}
@@ -127,12 +126,13 @@ const About = () => {
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Image
-              src={image}
-              alt={`Team member ${index + 1}`}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            <video
+              src={video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
             />
             <motion.div 
               className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
