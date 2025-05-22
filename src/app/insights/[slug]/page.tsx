@@ -21,14 +21,11 @@ interface Blog {
   title: string;
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
+type Params = {
+  slug: string;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   try {
     const blog = await getBlogBySlug(params.slug);
     
@@ -93,7 +90,7 @@ async function getRelatedBlogs(currentSlug: string, category: string = ""): Prom
   }
 }
 
-export default async function BlogPage({ params }: PageProps) {
+export default async function BlogPage({ params }: { params: Params }) {
   const blog = await getBlogBySlug(params.slug);
   const relatedBlogs = blog ? await getRelatedBlogs(params.slug) : [];
   
