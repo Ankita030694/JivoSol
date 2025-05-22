@@ -21,10 +21,11 @@ interface Blog {
   title: string;
 }
 
-interface PageProps {
+type PageProps = {
   params: {
     slug: string;
   };
+  searchParams?: Record<string, string | string[] | undefined>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
