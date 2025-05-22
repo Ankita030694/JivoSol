@@ -89,12 +89,13 @@ async function getRelatedBlogs(currentSlug: string, category = ""): Promise<Blog
   }
 }
 
-interface PageProps {
-  params: Params
-  searchParams: { [key: string]: string | string[] | undefined }
+// Use the correct type for Next.js App Router page components
+type PageProps = {
+  params: { slug: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-export default async function BlogPage({ params, searchParams }: PageProps) {
+export default async function BlogPage({ params, searchParams = {} }: PageProps) {
   const blog = await getBlogBySlug(params.slug)
   const relatedBlogs = blog ? await getRelatedBlogs(params.slug) : []
 
