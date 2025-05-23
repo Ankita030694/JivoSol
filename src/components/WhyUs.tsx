@@ -9,7 +9,7 @@ const WhyUs = () => {
   // Array of statistics with different values
   const stats = [
     { label: "Brands Transformed", value: 105 },
-    { label: "Clients Globe", value: 200 },
+    { label: "Industries Served", value: 15 },
     { label: "Projects Completed", value: 350 },
     { label: "Client Retention Rate", value: 95 }
   ];
