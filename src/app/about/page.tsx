@@ -149,7 +149,7 @@ export default function InsightsPage() {
         </div>
         
         <div className="w-1/2">
-          <div className="relative w-full h-[600px]">
+          <div className="relative w-full h-[700px]">
             <Image
               src="/image3.png"
               alt="Founder"
