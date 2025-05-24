@@ -25,15 +25,6 @@ export default function CaseStudyPage() {
       
       {/* Hero Section */}
       <div className="relative h-[60vh] bg-gradient-to-r from-[#0A5C35] to-[#0B4619]">
-        <div className="absolute inset-0">
-          <Image
-            src="/casestudies/ncdp.jpg"
-            alt="Nidhi Chugh Hero"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-        </div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl">
@@ -44,9 +35,6 @@ export default function CaseStudyPage() {
               A comprehensive digital strategy spanning Meta Ads, Google Ads, YouTube Growth & Podcast Branding
             </p>
             <div className="flex gap-4">
-              <button className="bg-white text-[#0A5C35] px-8 py-3 rounded-full font-medium hover:bg-[#0A5C35] hover:text-white transition-all duration-300">
-                View Case Study
-              </button>
               <button className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-[#0A5C35] transition-all duration-300">
                 Get in Touch
               </button>
@@ -74,7 +62,7 @@ export default function CaseStudyPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">About Nidhi Chugh</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">About Nidhi Chugh</h2>
               <p className="text-gray-600 mb-6">
                 Nidhi Chugh is a renowned astrologer, spiritual coach, and intuitive energy guide who empowers individuals through astrology, numerology, and cosmic healing. She partnered with JIVO Solutions to expand her digital presence and create a structured content ecosystem.
               </p>
@@ -103,7 +91,7 @@ export default function CaseStudyPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Campaign Strategy</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">Campaign Strategy</h2>
               <p className="text-gray-600">
                 Our comprehensive digital strategy encompassed multiple platforms to maximize reach and engagement. We focused on creating authentic content that resonates with the spiritual community while driving measurable results.
               </p>
@@ -123,13 +111,10 @@ export default function CaseStudyPage() {
                 <div className={`${platform.color} w-12 h-12 rounded-full flex items-center justify-center text-white mb-4`}>
                   <platform.icon size={24} />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{platform.name}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-black">{platform.name}</h3>
                 <p className="text-gray-600 mb-4">
                   Strategic approach to maximize reach and engagement across platforms.
                 </p>
-                <button className="text-[#0A5C35] font-medium flex items-center gap-2 hover:gap-4 transition-all duration-300">
-                  Learn More <FaArrowRight />
-                </button>
               </div>
             ))}
           </div>
@@ -139,7 +124,7 @@ export default function CaseStudyPage() {
       {/* Results Section */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Key Results</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#000000]">Key Results</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-[#0A5C35] text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-4">Meta Performance</h3>
@@ -185,7 +170,7 @@ export default function CaseStudyPage() {
               />
             </div>
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Our Services</h2>
+              <h2 className="text-3xl font-bold mb-6 text-black">Our Services</h2>
               <div className="space-y-4">
                 <div className="p-4 bg-white rounded-lg shadow-md">
                   <h3 className="text-xl font-semibold text-[#0A5C35] mb-2">Meta & Google Ads</h3>
@@ -208,7 +193,7 @@ export default function CaseStudyPage() {
       {/* CTA Section */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Scale Your Brand?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Scale Your Brand?</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's create a tailored digital strategy that drives real results for your business.
           </p>

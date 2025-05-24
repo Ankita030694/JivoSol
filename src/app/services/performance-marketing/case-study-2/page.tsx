@@ -25,15 +25,6 @@ export default function CaseStudyPage() {
       
       {/* Hero Section */}
       <div className="relative h-[60vh] bg-gradient-to-r from-[#0A5C35] to-[#0B4619]">
-        <div className="absolute inset-0">
-          <Image
-            src="/casestudies/witwise-hero.jpg"
-            alt="WitWise Education Hero"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-        </div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-3xl">
@@ -44,9 +35,6 @@ export default function CaseStudyPage() {
               Driving quality leads and building trust through strategic Meta advertising
             </p>
             <div className="flex gap-4">
-              <button className="bg-white text-[#0A5C35] px-8 py-3 rounded-full font-medium hover:bg-[#0A5C35] hover:text-white transition-all duration-300">
-                View Case Study
-              </button>
               <button className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-[#0A5C35] transition-all duration-300">
                 Get in Touch
               </button>
@@ -74,7 +62,7 @@ export default function CaseStudyPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">About WitWise Education</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">About WitWise Education</h2>
               <p className="text-gray-600 mb-6">
                 WitWise Education is an online education company offering career advancement programs for students and young professionals. They partnered with JIVO Solutions to drive lead generation through Meta ads, focusing on Tier 1 and Tier 2 cities across India.
               </p>
@@ -103,7 +91,7 @@ export default function CaseStudyPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8 mb-12">
             <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Our Strategy</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">Our Strategy</h2>
               <p className="text-gray-600">
                 We implemented a comprehensive funnel strategy using testimonials, faculty intros, and visual explainers. Our approach included A/B testing across multiple creative formats and optimizing for maximum conversion at minimal cost.
               </p>
@@ -123,7 +111,7 @@ export default function CaseStudyPage() {
       {/* Results Section */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Key Results</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#000000]">Key Results</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-[#0A5C35] text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-4">Lead Generation</h3>
@@ -159,7 +147,7 @@ export default function CaseStudyPage() {
       {/* CTA Section */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Scale Your Education Brand?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Scale Your Education Brand?</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's create a data-driven strategy that delivers quality leads and builds lasting trust.
           </p>
