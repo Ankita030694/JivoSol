@@ -288,7 +288,7 @@ export default function InsightsPage() {
           Our PPC Case Studies
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-10">
           {/* Case Study 1 - Nidhi Chugh */}
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
@@ -315,7 +315,7 @@ export default function InsightsPage() {
                 />
                 <h3 className="font-medium text-gray-800">Nidhi Chugh</h3>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">83M+</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">83M+</h2>
               <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Global spiritual brand growth through Meta Ads, Google Ads & YouTube
               </p>
@@ -359,7 +359,7 @@ export default function InsightsPage() {
                 />
                 <h3 className="font-medium text-gray-800">WitWise Education</h3>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">2000+</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">2000+</h2>
               <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Driving quality leads through strategic Meta advertising
               </p>
@@ -403,7 +403,7 @@ export default function InsightsPage() {
                 />
                 <h3 className="font-medium text-gray-800">Yashi Shukla Education</h3>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">1000+</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">1000+</h2>
               <p className="text-gray-700 mb-4 text-sm md:text-base">
                 Global education marketing success through multi-platform strategy
               </p>
@@ -424,28 +424,7 @@ export default function InsightsPage() {
             </div>
           </div>
 
-          {/* Case Study 4 */}
-          <div className="bg-white rounded-lg overflow-hidden shadow">
-            <Image 
-              src="/case-study-4.jpg" 
-              alt="Case Study 4" 
-              width={400} 
-              height={300}
-              className="w-full h-40 sm:h-48 object-cover"
-            />
-            <div className="p-4 md:p-6">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">24%</h2>
-              <p className="text-gray-700 mb-4 text-sm md:text-base">
-                Full-funnel paid marketing strategies built for your business goals
-              </p>
-              <button className="flex items-center text-black font-medium text-sm md:text-base">
-                See Case Study
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
+          
         </div>
 
         <div className="flex justify-center gap-2">
