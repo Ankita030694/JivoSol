@@ -6,19 +6,18 @@ import { useInView } from 'react-intersection-observer';
 
 const About = () => {
   const videos = [
-    '/videos/video1.mp4',
-    '/videos/video2.mp4',
-    '/videos/video3.mp4',
-    '/videos/video4.mp4',
+    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001.mp4?alt=media&token=ffaabfe0-4e64-428e-8619-71a2bf15608f',
+    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002.mp4?alt=media&token=2cc2a06e-5940-498e-82b1-cf5fab0be599',
+    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2).mp4?alt=media&token=cc03b3b3-ba22-4dad-9b4d-a0018f9f3530',
+    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise%201.Mp4%20New.mp4?alt=media&token=61a20daa-724e-4b78-a4b4-64be65e0ab96',
   ];
   
-  // Add client names corresponding to each video
+  // Client names corresponding to each video
   const clientNames = [
     'Client One',
     'Client Two',
-    'Client Three', 
+    'Client Three',
     'Client Four',
-    'Client Five'
   ];
 
   // Animation variants for different sections
@@ -118,7 +117,6 @@ const About = () => {
           <motion.div 
             key={index}
             variants={fadeInUp}
-            custom={index}
             className="relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 group"
             whileHover={{ 
               y: -10, 
@@ -180,4 +178,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

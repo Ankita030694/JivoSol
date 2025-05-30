@@ -5,18 +5,18 @@ import Image from "next/image";
 import { FaArrowRight, FaFacebookF, FaInstagram, FaGoogle, FaGraduationCap } from "react-icons/fa";
 
 export default function CaseStudyPage() {
-  const metrics = [
-    { number: "1000+", label: "Qualified Leads" },
-    { number: "25%", label: "Conversion Rate" },
-    { number: "1M+", label: "Reels Impressions" },
-    { number: "5000+", label: "Followers Growth" },
-  ];
-
   const platforms = [
     { icon: FaFacebookF, name: "Meta Ads", color: "bg-blue-500" },
     { icon: FaGoogle, name: "Google Ads", color: "bg-red-500" },
     { icon: FaInstagram, name: "Instagram Growth", color: "bg-pink-500" },
     { icon: FaGraduationCap, name: "Education", color: "bg-purple-500" },
+  ];
+
+  const videos = [
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001.mp4?alt=media&token=ffaabfe0-4e64-428e-8619-71a2bf15608f",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002.mp4?alt=media&token=2cc2a06e-5940-498e-82b1-cf5fab0be599",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2).mp4?alt=media&token=cc03b3b3-ba22-4dad-9b4d-a0018f9f3530",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise%201.Mp4%20New.mp4?alt=media&token=61a20daa-724e-4b78-a4b4-64be65e0ab96"
   ];
 
   return (
@@ -43,14 +43,22 @@ export default function CaseStudyPage() {
         </div>
       </div>
 
-      {/* Key Metrics Section */}
+      {/* Video Grid Section */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {metrics.map((metric, index) => (
-              <div key={index} className="text-center">
-                <h3 className="text-4xl md:text-5xl font-bold text-[#0A5C35] mb-2">{metric.number}</h3>
-                <p className="text-gray-600">{metric.label}</p>
+          <div className="grid grid-cols-2 gap-8">
+            {videos.map((videoUrl, index) => (
+              <div key={index} className="relative aspect-video rounded-lg overflow-hidden shadow-xl">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             ))}
           </div>
