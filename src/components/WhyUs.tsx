@@ -78,10 +78,7 @@ const WhyUs = () => {
   });
   
   // Use intersection observer for clients section
-  const [clientsRef, clientsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -124,123 +121,87 @@ const WhyUs = () => {
   
   return (
     <div>
-      <motion.div 
+      <div 
         className="w-full bg-[#ECECEC] py-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4">
-          <motion.div 
+          <div 
             ref={headingRef}
             className="text-center mb-8"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={headingInView ? "visible" : "hidden"}
           >
-            <motion.h2 
+            <h2 
               className="text-4xl font-bold text-black mb-4"
-              variants={fadeInUp}
             >
               Why Brands Work With Us
-            </motion.h2>
-            <motion.div 
+            </h2>
+            <div 
               className="text-black max-w-3xl mx-auto"
-              variants={fadeInUp}
             >
               <p className="font-bold">We are a strategy-first digital partner focused on long-term impact.</p>
               <p>Our clients choose us for our clarity of thought, execution excellence, and commitment to lasting results.</p>
-            </motion.div>
-            <motion.button 
+            </div>
+            <button 
               className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto"
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
             >
               Work With Us {" "}
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              >
+              <span>
                 →
-              </motion.span>
-            </motion.button>
-          </motion.div>
+              </span>
+            </button>
+          </div>
 
-          <motion.div 
+          <div 
             ref={statsRef} 
             className="flex flex-wrap justify-between max-w-full px-4"
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
           >
             {stats.map((stat, index) => (
-              <motion.div 
+              <div 
                 key={index} 
                 className="bg-white p-6 rounded-lg w-[220px] m-2"
-                variants={fadeInUp}
-                whileHover={{ 
-                  y: -10, 
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-                }}
-                transition={{ type: "spring", stiffness: 300 }}
               >
                 <p className="text-sm text-black mb-3">{stat.label}</p>
-                <motion.p 
+                <p 
                   className="text-[#0A5C35] text-5xl font-bold"
-                  // animate={pulseAnimation}
                 >
                   {counters[index]}
                   {stat.label === "Client Retention Rate" ? "%" : "+"}
-                </motion.p>
-              </motion.div>
+                  </p>
+              </div>
             ))}
-          </motion.div>
+          </div>
           
           
         </div>
-      </motion.div>
+      </div>
       
-      <motion.div 
+      <div 
         className="bg-white py-16 overflow-hidden"
-        ref={clientsRef}
-        initial={{ opacity: 0 }}
-        animate={clientsInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8 }}
       >
-        <motion.div 
+        <div 
           className="text-center mb-8"
-          variants={staggerContainer}
-          initial="hidden"
-          animate={clientsInView ? "visible" : "hidden"}
         >
-          <motion.p 
+          <p 
             className="text-[#0A5C35] text-lg"
-            variants={fadeInUp}
           >
             Our Clients
-          </motion.p>
-          <motion.h2 
+          </p>
+          <h2 
             className="text-4xl font-bold text-black"
-            variants={fadeInUp}
           >
             Trusted By Businesses
-          </motion.h2>
-        </motion.div>
+          </h2>
+        </div>
         
-        <motion.div 
+        <div 
           className="relative w-full overflow-hidden max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 40 }}
-          animate={clientsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
         >
          <Marquee speed={100} gradient={false} direction="left">
             {clientLogos.map((url, idx) => (
               <Image key={idx} src={url} alt="Client Logo" width={120} height={80} className="inline-block mx-4 object-contain" />
             ))}
           </Marquee>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

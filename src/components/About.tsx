@@ -1,15 +1,51 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+// Custom hook for lazy loading videos
+const useVideoLoader = (videoUrl: string) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (!videoElement) return;
+
+    const handleLoadedData = () => {
+      setIsLoading(false);
+    };
+
+    videoElement.addEventListener('loadeddata', handleLoadedData);
+    
+    return () => {
+      videoElement.removeEventListener('loadeddata', handleLoadedData);
+    };
+  }, [videoElement]);
+
+  return { isLoading, setVideoElement };
+};
+
 const About = () => {
+  // Thumbnail versions of videos (lower quality)
   const videos = [
-    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001.mp4?alt=media&token=ffaabfe0-4e64-428e-8619-71a2bf15608f',
-    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002.mp4?alt=media&token=2cc2a06e-5940-498e-82b1-cf5fab0be599',
-    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2).mp4?alt=media&token=cc03b3b3-ba22-4dad-9b4d-a0018f9f3530',
-    'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise%201.Mp4%20New.mp4?alt=media&token=61a20daa-724e-4b78-a4b4-64be65e0ab96',
+    {
+      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001.mp4?alt=media&token=ffaabfe0-4e64-428e-8619-71a2bf15608f',
+      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F001_thumb.jpg?alt=media', // You'll need to create and upload these thumbnails
+    },
+    {
+      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002.mp4?alt=media&token=2cc2a06e-5940-498e-82b1-cf5fab0be599',
+      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F002_thumb.jpg?alt=media',
+    },
+    {
+      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2).mp4?alt=media&token=cc03b3b3-ba22-4dad-9b4d-a0018f9f3530',
+      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Ffez_thumb.jpg?alt=media',
+    },
+    {
+      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise%201.Mp4%20New.mp4?alt=media&token=61a20daa-724e-4b78-a4b4-64be65e0ab96',
+      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Fwitwise_thumb.jpg?alt=media',
+    },
   ];
   
   // Client names corresponding to each video
@@ -42,6 +78,38 @@ const About = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Track which videos are in view for optimization
+  const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    // Preload videos that are in view
+    if (inView) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const videoIndex = parseInt(entry.target.getAttribute('data-index') || '0');
+            if (entry.isIntersecting) {
+              setVisibleVideos((prev) => new Set([...prev, videoIndex]));
+            } else {
+              setVisibleVideos((prev) => {
+                const newSet = new Set(prev);
+                newSet.delete(videoIndex);
+                return newSet;
+              });
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      document.querySelectorAll('.video-container').forEach((videoEl) => {
+        observer.observe(videoEl);
+      });
+
+      return () => observer.disconnect();
+    }
+  }, [inView]);
 
   return (
     <section className="py-16 px-4 text-center overflow-hidden">
@@ -113,42 +181,58 @@ const About = () => {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         className="flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
-        {videos.map((video, index) => (
-          <motion.div 
-            key={index}
-            variants={fadeInUp}
-            className="relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 group"
-            whileHover={{ 
-              y: -10, 
-              boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-            }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <video
-              src={video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-            />
+        {videos.map((video, index) => {
+          const { isLoading, setVideoElement } = useVideoLoader(video.url);
+          
+          return (
             <motion.div 
-              className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
-              initial={{ y: 20, opacity: 0 }}
-              whileHover={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3 }}
+              key={index}
+              variants={fadeInUp}
+              className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 group"
+              data-index={index}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <motion.p 
-                className="text-white px-4 pb-4 font-medium"
-                initial={{ y: 10 }}
-                whileHover={{ y: 0 }}
-                transition={{ duration: 0.2 }}
+              {isLoading && (
+                <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+              )}
+              
+              {visibleVideos.has(index) && (
+                <video
+                  ref={(el) => setVideoElement(el)}
+                  src={video.url}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-110 ${
+                    isLoading ? 'opacity-0' : 'opacity-100'
+                  }`}
+                  preload="metadata"
+                />
+              )}
+
+              <motion.div 
+                className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+                initial={{ y: 20, opacity: 0 }}
+                whileHover={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
               >
-                {clientNames[index]}
-              </motion.p>
+                <motion.p 
+                  className="text-white px-4 pb-4 font-medium"
+                  initial={{ y: 10 }}
+                  whileHover={{ y: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {clientNames[index]}
+                </motion.p>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          );
+        })}
       </motion.div>
 
       {/* Our Work Button */}
