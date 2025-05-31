@@ -21,7 +21,7 @@ const services = [
     link: '/services/content-creation-&-production',
     name: 'CONTENT CREATION & PROD.',
     icon: '/servicesicons/Content.png',
-    description: 'Tell stories that connect, educate, & resonate.',
+    description: 'Tell stories that connect, educate, & resonate with your audience.',
   },
   {
     link: '/services/social-media-management',
@@ -47,7 +47,7 @@ export default function OurSolutionsSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="bg-white py-28 px-6 md:px-20">
+    <section className="bg-[#EFEFEF] py-28 px-6 md:px-20">
       {/* Header */}
       <div className="text-center mb-28">
         <p className="text-[#005F33] font-semibold text-lg mb-3">Our Solutions</p>
@@ -61,61 +61,72 @@ export default function OurSolutionsSection() {
       </div>
 
       {/* Services List */}
-      <div className="space-y-32">
+      <div className="space-y-12">
         {services.map((svc, idx) => (
           <div
             key={idx}
-            className="relative h-full group cursor-pointer transition-all duration-300"
+            className="relative min-h-[80px] group cursor-pointer transition-all duration-300"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
           >
             {/* Left Line on hover */}
             <div
-              className={`absolute top-1/2 transform -translate-y-1/2 left-1/2 bg-black h-[2px] transition-all duration-500 origin-left ${
-                hovered === idx ? 'w-1/2 opacity-100' : 'w-0 opacity-0'
+              className={`absolute top-1/2 left-0 bg-black h-[1px] transition-all duration-500 transform -translate-y-1/2 z-10 ${
+                hovered === idx ? 'w-[calc(50%-220px)] opacity-100' : 'w-0 opacity-0'
               }`}
+              style={{ transformOrigin: 'left center' }}
             ></div>
 
             {/* Right Line on hover */}
             <div
-              className={`absolute top-1/2 transform -translate-y-1/2 right-1/2 bg-black h-[2px] transition-all duration-500 origin-right ${
-                hovered === idx ? 'w-1/2 opacity-100' : 'w-0 opacity-0'
+              className={`absolute top-1/2 right-0 bg-black h-[1px] transition-all duration-500 transform -translate-y-1/2 z-10 ${
+                hovered === idx ? 'w-[calc(50%-300px)] opacity-100' : 'w-0 opacity-0'
               }`}
+              style={{ transformOrigin: 'right center' }}
             ></div>
 
-            {/* Icon - triple size */}
-            <div className={`absolute left-10 top-10 transform -translate-y-1/2 w-44 h-44 transition-all duration-500 ${
+            {/* Icon - Green rounded rectangle with white icon */}
+            <div className={`absolute left-12 transform transition-all duration-500 z-20 ${
               hovered === idx ? 'opacity-100' : 'opacity-0'
             }`}>
-              <Image
-                src={svc.icon}
-                alt={svc.name}
-                width={168}
-                height={168}
-                className="object-contain drop-shadow-lg"
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center">
+                  <Image
+                    src={svc.icon}
+                    alt={svc.name}
+                    width={250}
+                    height={250}
+                    className="object-cover"
+                    // style={{ filter: 'brightness(0) invert(1)' }}
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Description above line */}
+            {/* Description positioned to the right */}
             <div
-              className={`absolute top-1 right-1 transform -translate-y-[160%] text-black text-xs md:text-xs transition-all duration-500 opacity-0 ${
-                hovered === idx ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
+              className={`absolute right-12 top-1/2 transform -translate-y-1/2 transition-all duration-500 z-20 ${
+                hovered === idx ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              {svc.description}
+              <div className="text-[#666666] text-base max-w-[320px] text-right leading-relaxed font-medium">
+                {svc.description}
+              </div>
             </div>
 
             {/* Service Name Centered */}
-            <Link href={svc.link} key={idx}>
-            <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 flex justify-center">
-              <span
-                className={`px-8 py-2 bg-white text-3xl md:text-4xl font-bold text-black transition-transform duration-300 ${
-                  hovered === idx ? 'scale-105 text-[#005F33]' : ''
-                }`}
-              >
-                {svc.name}
-              </span>
-            </div>
+            <Link href={svc.link}>
+              <div className="absolute inset-0 flex items-center justify-center z-30">
+                <span
+                  className={`px-12 text-2xl md:text-3xl font-bold transition-all duration-300 whitespace-nowrap bg-[#EFEFEF] ${
+                    hovered === idx 
+                      ? 'text-black scale-105' 
+                      : 'text-[#B8C5BC]'
+                  }`}
+                >
+                  {svc.name}
+                </span>
+              </div>
             </Link>
           </div>
         ))}
