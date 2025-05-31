@@ -3,7 +3,7 @@ import Image from "next/image";
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
 import WhyUs from '@/components/WhyUs';
-import OurSol from '@/components/OurSol';
+import { OurSolution } from '@/components/OurSol';
 import Brands from '@/components/Brands';
 import Footer from '@/components/Footer';
 import Form from '@/components/Form';
@@ -58,7 +58,7 @@ export default function Home() {
       </div>
       <About />
       <WhyUs />
-      <OurSol />
+      <OurSolution />
       <Brands />
       <div className="-mt-30">
         <Form />

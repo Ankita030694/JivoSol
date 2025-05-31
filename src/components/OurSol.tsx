@@ -1,136 +1,123 @@
-'use client';
+import React, { FC } from "react";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-
-const services = [
-  {
-    link: '/services/brand-identity-&-design',
-    name: 'BRAND IDENTITY & DESIGN',
-    icon: '/servicesicons/Brand.png',
-    description: 'Build a consistent visual identity across all platforms.',
-  },
-  {
-    link: '/services/performance-marketing',
-    name: 'PERFORMANCE MARKETING',
-    icon: '/servicesicons/Per Marketing.png',
-    description: 'Drive measurable results through data-driven strategies.',
-  },
-  {
-    link: '/services/content-creation-&-production',
-    name: 'CONTENT CREATION & PROD.',
-    icon: '/servicesicons/Content.png',
-    description: 'Tell stories that connect, educate, & resonate with your audience.',
-  },
-  {
-    link: '/services/social-media-management',
-    name: 'SOCIAL MEDIA MANAGEMENT',
-    icon: '/servicesicons/Social.png',
-    description: 'Engage your audience and grow your brand presence.',
-  },
-  {
-    link: '/services/web-development-&-seo',
-    name: 'WEBSITE DEVELOPMENT & SEO',
-    icon: '/servicesicons/Webstie.png',
-    description: 'Online presence for visibility and performance.',
-  },
-  {
-    link: '/services/video-&-animation',
-    name: 'VIDEO AND ANIMATION',
-    icon: '/servicesicons/Video.png',
-    description: 'Create compelling visual content that captivates.',
-  },
-];
-
-export default function OurSolutionsSection() {
-  const [hovered, setHovered] = useState<number | null>(null);
+export const OurSolution: FC = () => {
+  const services = [
+    {
+      link: '/services/brand-identity-&-design',
+      name: 'BRAND IDENTITY & DESIGN',
+      icon: '/servicesicons/Brand.png',
+      description: 'Build a consistent visual identity across all platforms.',
+      highlighted: false
+    },
+    {
+      link: '/services/performance-marketing',
+      name: 'PERFORMANCE MARKETING',
+      icon: '/servicesicons/Per Marketing.png',
+      description: 'Drive measurable results through data-driven strategies.',
+      highlighted: false
+    },
+    {
+      link: '/services/content-creation-&-production',
+      name: 'CONTENT CREATION & PROD.',
+      icon: '/servicesicons/Content.png',
+      description: 'Tell stories that connect, educate, & resonate with your audience.',
+      highlighted: false
+    },
+    {
+      link: '/services/social-media-management',
+      name: 'SOCIAL MEDIA MANAGEMENT',
+      icon: '/servicesicons/Social.png',
+      description: 'Engage your audience and grow your brand presence.',
+      highlighted: false
+    },
+    {
+      link: '/services/web-development-&-seo',
+      name: 'WEBSITE DEVELOPMENT & SEO',
+      icon: '/servicesicons/Webstie.png',
+      description: 'Online presence for visibility and performance.',
+      highlighted: false
+    },
+    {
+      link: '/services/video-&-animation',
+      name: 'VIDEO AND ANIMATION',
+      icon: '/servicesicons/Video.png',
+      description: 'Create compelling visual content that captivates.',
+      highlighted: false
+    }
+  ];
 
   return (
-    <section className="bg-[#EFEFEF] py-28 px-6 md:px-20">
-      {/* Header */}
-      <div className="text-center mb-28">
-        <p className="text-[#005F33] font-semibold text-lg mb-3">Our Solutions</p>
-        <h2 className="text-4xl md:text-6xl font-extrabold text-black leading-snug">
-          Everything you need <br />
-          to be <span className="text-[#005F33]">seen <span className="text-black">and</span> remembered</span>
-        </h2>
-        <p className="text-gray-600 text-lg mt-5 max-w-2xl mx-auto">
-          We help brands build and scale their digital presence through:
-        </p>
-      </div>
+    <section className="relative w-full max-w-[1440px] mx-auto py-16">
+      <h1 className="text-center text-6xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-12">
+        <span className="text-black">Everything you need to be </span>
+        <span className="text-[#055e31]">seen</span>
+        <span className="text-black"> and </span>
+        <span className="text-[#055e31]">remembered</span>
+      </h1>
 
-      {/* Services List */}
-      <div className="space-y-12">
-        {services.map((svc, idx) => (
-          <div
-            key={idx}
-            className="relative min-h-[80px] group cursor-pointer transition-all duration-300"
-            onMouseEnter={() => setHovered(idx)}
-            onMouseLeave={() => setHovered(null)}
-          >
-            {/* Left Line on hover */}
-            <div
-              className={`absolute top-1/2 left-0 bg-black h-[1px] transition-all duration-500 transform -translate-y-1/2 z-10 ${
-                hovered === idx ? 'w-[calc(50%-220px)] opacity-100' : 'w-0 opacity-0'
-              }`}
-              style={{ transformOrigin: 'left center' }}
-            ></div>
+      <p className="text-xl text-[#596475] font-['Poppins',Helvetica] text-center mb-16">
+        We help brands build and scale their digital presence through:
+      </p>
 
-            {/* Right Line on hover */}
-            <div
-              className={`absolute top-1/2 right-0 bg-black h-[1px] transition-all duration-500 transform -translate-y-1/2 z-10 ${
-                hovered === idx ? 'w-[calc(50%-300px)] opacity-100' : 'w-0 opacity-0'
-              }`}
-              style={{ transformOrigin: 'right center' }}
-            ></div>
-
-            {/* Icon - Green rounded rectangle with white icon */}
-            <div className={`absolute left-12 transform transition-all duration-500 z-20 ${
-              hovered === idx ? 'opacity-100' : 'opacity-0'
-            }`}>
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-full h-full flex items-center justify-center">
-                  <Image
-                    src={svc.icon}
-                    alt={svc.name}
-                    width={250}
-                    height={250}
-                    className="object-cover"
-                    // style={{ filter: 'brightness(0) invert(1)' }}
-                  />
-                </div>
-              </div>
+      <div className="relative flex flex-col items-center space-y-8">
+        {services.map((service, index) => (
+          <div key={index} className="group relative flex items-center w-full justify-center">
+            <div className="absolute w-screen h-[1px] left-1/2 -translate-x-1/2 flex justify-between pointer-events-none">
+              <div className="w-0 h-full bg-[#055e31] group-hover:w-[25vw] transition-all duration-500 origin-right"></div>
+              <div className="w-0 h-full bg-[#055e31] group-hover:w-[25vw] transition-all duration-500 origin-left"></div>
             </div>
-
-            {/* Description positioned to the right */}
-            <div
-              className={`absolute right-12 top-1/2 transform -translate-y-1/2 transition-all duration-500 z-20 ${
-                hovered === idx ? 'opacity-100' : 'opacity-0'
-              }`}
+            <a
+              href={service.link}
+              className="flex items-center gap-6 transition-all duration-300"
             >
-              <div className="text-[#666666] text-base max-w-[320px] text-right leading-relaxed font-medium">
-                {svc.description}
+              <img
+                src={service.icon}
+                alt={service.name}
+                className="w-8 h-8 object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+              <div
+                className={`font-['Poppins',Helvetica] text-[40px] leading-[46.2px] whitespace-nowrap transition-all duration-300 ${
+                  service.highlighted || "group-hover:"
+                }font-semibold ${
+                    service.highlighted || "group-hover:"
+                  }text-black group-hover:text-[44px] group-hover:font-bold ${
+                  !service.highlighted && "font-light text-[#055e3142] hover:text-black"
+                }`}
+              >
+                {service.name}
+              </div>
+            </a>
+            
+            {/* Description box that appears on hover */}
+            <div className="absolute right-0 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300 transform translate-x-full -translate-y-1/2 top-1/2 pl-8">
+              <div className="bg-[#055e31] text-white p-4 rounded-lg shadow-lg w-[300px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-500">
+                <p className="text-sm">{service.description}</p>
               </div>
             </div>
-
-            {/* Service Name Centered */}
-            <Link href={svc.link}>
-              <div className="absolute inset-0 flex items-center justify-center z-30">
-                <span
-                  className={`px-12 text-2xl md:text-3xl font-bold transition-all duration-300 whitespace-nowrap bg-[#EFEFEF] ${
-                    hovered === idx 
-                      ? 'text-black scale-105' 
-                      : 'text-[#B8C5BC]'
-                  }`}
-                >
-                  {svc.name}
-                </span>
-              </div>
-            </Link>
           </div>
         ))}
       </div>
+
+      <div className="absolute right-0 top-[456px]">
+        <img
+          className="w-[472px] h-px object-cover"
+          alt="Line"
+          src="/line-1.svg"
+        />
+      </div>
+
+      <div className="absolute left-0 top-[376px] w-[373px] h-[314px]">
+        <img
+          className="w-[373px] top-20 left-0 absolute h-px object-cover"
+          alt="Line"
+          src="/line-2.svg"
+        />
+        <img
+          className="absolute w-[317px] h-[314px] top-0 left-7 object-cover"
+          alt="Rectangle"
+          src="/rectangle-1.svg"
+        />
+      </div>
     </section>
   );
-}
+};
