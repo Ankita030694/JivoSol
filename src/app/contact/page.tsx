@@ -78,47 +78,22 @@ export default function ContactPage() {
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Leave a Message</h2>
           <p className="text-gray-600">
-          You’ve built something worth seeing. Let’s make sure the world does.
+          You've built something worth seeing. Let's make sure the world does.
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row flex-wrap justify-between">
-          <div className="w-full lg:w-1/2 space-y-6 mb-8 lg:mb-0 lg:pr-8">
-            <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-black">Phone Number</h3>
-                <p className="text-gray-600">202-8767-452</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 8L10.8906 13.2604C11.5624 13.7394 12.4376 13.7394 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-black">Email Address</h3>
-                <p className="text-gray-600">info@jivosolution.com</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
-              <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 22C16 18 20 14.4183 20 11C20 7.13401 16.4183 4 12 4C7.58172 4 4 7.13401 4 11C4 14.4183 8 18 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-black">Our Location</h3>
-                <p className="text-gray-600">Space Business Park, Sector 66, Gurugram, Haryana 122102</p>
-              </div>
+          <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+            <div className="w-full h-full">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{border:0, minHeight: '400px', borderRadius: '12px'}} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
@@ -234,19 +209,45 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* New map section with leaf.gif */}
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16 relative">
-        <div className="w-full">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" width="100%" height="450" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div className="absolute right-4 md:right-8 lg:right-12 top-8 md:top-16">
-          <Image 
-            src="/leaf.gif" 
-            alt="Decorative leaf" 
-            width={75} 
-            height={75}
-            className="z-10 w-12 md:w-16 lg:w-[75px]"
-          />
+      {/* Moved contact information here */}
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
+            <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black">Phone Number</h3>
+              <p className="text-gray-600">202-8767-452</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
+            <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 8L10.8906 13.2604C11.5624 13.7394 12.4376 13.7394 13.1094 13.2604L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black">Email Address</h3>
+              <p className="text-gray-600">info@jivosolution.com</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
+            <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
+              <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 22C16 18 20 14.4183 20 11C20 7.13401 16.4183 4 12 4C7.58172 4 4 7.13401 4 11C4 14.4183 8 18 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black">Our Location</h3>
+              <p className="text-gray-600">Space Business Park, Sector 66, Gurugram, Haryana 122102</p>
+            </div>
+          </div>
         </div>
       </div>
 
