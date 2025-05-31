@@ -2,34 +2,41 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const services = [
   {
+    link: '/services/brand-identity-&-design',
     name: 'BRAND IDENTITY & DESIGN',
     icon: '/servicesicons/Brand.png',
     description: 'Build a consistent visual identity across all platforms.',
   },
   {
+    link: '/services/performance-marketing',
     name: 'PERFORMANCE MARKETING',
     icon: '/servicesicons/Per Marketing.png',
     description: 'Drive measurable results through data-driven strategies.',
   },
   {
+    link: '/services/content-creation-&-production',
     name: 'CONTENT CREATION & PROD.',
     icon: '/servicesicons/Content.png',
     description: 'Tell stories that connect, educate, & resonate.',
   },
   {
+    link: '/services/social-media-management',
     name: 'SOCIAL MEDIA MANAGEMENT',
     icon: '/servicesicons/Social.png',
     description: 'Engage your audience and grow your brand presence.',
   },
   {
+    link: '/services/web-development-&-seo',
     name: 'WEBSITE DEVELOPMENT & SEO',
     icon: '/servicesicons/Webstie.png',
-    description: 'Optimize your online presence for visibility and performance.',
+    description: 'Online presence for visibility and performance.',
   },
   {
+    link: '/services/video-&-animation',
     name: 'VIDEO AND ANIMATION',
     icon: '/servicesicons/Video.png',
     description: 'Create compelling visual content that captivates.',
@@ -58,7 +65,7 @@ export default function OurSolutionsSection() {
         {services.map((svc, idx) => (
           <div
             key={idx}
-            className="relative h-52 group cursor-pointer transition-all duration-300"
+            className="relative h-full group cursor-pointer transition-all duration-300"
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -77,7 +84,9 @@ export default function OurSolutionsSection() {
             ></div>
 
             {/* Icon - triple size */}
-            <div className="absolute left-10 top-1/2 transform -translate-y-1/2 w-44 h-44">
+            <div className={`absolute left-10 top-10 transform -translate-y-1/2 w-44 h-44 transition-all duration-500 ${
+              hovered === idx ? 'opacity-100' : 'opacity-0'
+            }`}>
               <Image
                 src={svc.icon}
                 alt={svc.name}
@@ -89,14 +98,15 @@ export default function OurSolutionsSection() {
 
             {/* Description above line */}
             <div
-              className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[160%] text-black text-lg md:text-xl text-center max-w-md px-6 transition-all duration-500 ${
-                hovered === idx ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'
+              className={`absolute top-1 right-1 transform -translate-y-[160%] text-black text-xs md:text-xs transition-all duration-500 opacity-0 ${
+                hovered === idx ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
               }`}
             >
               {svc.description}
             </div>
 
             {/* Service Name Centered */}
+            <Link href={svc.link} key={idx}>
             <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 flex justify-center">
               <span
                 className={`px-8 py-2 bg-white text-3xl md:text-4xl font-bold text-black transition-transform duration-300 ${
@@ -106,6 +116,7 @@ export default function OurSolutionsSection() {
                 {svc.name}
               </span>
             </div>
+            </Link>
           </div>
         ))}
       </div>
