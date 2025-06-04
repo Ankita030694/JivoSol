@@ -132,43 +132,87 @@ export default function InsightsPage() {
             Explore the videos and visuals we've crafted to help brands grow, engage, and stand out online.
           </p>
           
-          {/* Main Video Display */}
-          <div className="relative w-full max-w-[400px] mx-auto mb-8">
-            <div className="aspect-[9/16] bg-black rounded-lg overflow-hidden shadow-2xl relative">
-              {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
-                </div>
-              )}
-              <video 
-                key={currentVideoIndex}
-                className="w-full h-full object-contain"
-                autoPlay
-                muted={false}
-                loop
-                playsInline
-                onLoadedData={handleVideoLoad}
-                preload="auto"
+          {/* Main Video Display with Carousel */}
+          <div className="relative w-full max-w-[800px] mx-auto mb-8">
+            <div className="flex items-center justify-center gap-4 relative">
+              {/* Previous Video Preview */}
+              <div 
+                className={`w-[250px] h-[444px] rounded-lg overflow-hidden opacity-40 blur-sm transform scale-95 transition-all duration-500 ease-in-out ${
+                  currentVideoIndex === 0 ? 'opacity-0' : 'opacity-40'
+                }`}
               >
-                <source src={videos[currentVideoIndex].src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                <video 
+                  key={`prev-${currentVideoIndex}`}
+                  className="w-full h-full object-contain"
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                >
+                  <source src={videos[(currentVideoIndex - 1 + videos.length) % videos.length].src} type="video/mp4" />
+                </video>
+              </div>
+
+              {/* Main Video */}
+              <div 
+                className={`w-[300px] h-[533px] bg-black rounded-lg overflow-hidden shadow-2xl relative z-10 transition-all duration-500 ease-in-out transform ${
+                  currentVideoIndex === 0 ? 'scale-100' : 'scale-95'
+                }`}
+              >
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+                  </div>
+                )}
+                <video 
+                  key={`main-${currentVideoIndex}`}
+                  className="w-full h-full object-contain"
+                  autoPlay
+                  muted={false}
+                  loop
+                  playsInline
+                  onLoadedData={handleVideoLoad}
+                  preload="auto"
+                >
+                  <source src={videos[currentVideoIndex].src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              {/* Next Video Preview */}
+              <div 
+                className={`w-[250px] h-[444px] rounded-lg overflow-hidden opacity-40 blur-sm transform scale-95 transition-all duration-500 ease-in-out ${
+                  currentVideoIndex === videos.length - 1 ? 'opacity-0' : 'opacity-40'
+                }`}
+              >
+                <video 
+                  key={`next-${currentVideoIndex}`}
+                  className="w-full h-full object-contain"
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                >
+                  <source src={videos[(currentVideoIndex + 1) % videos.length].src} type="video/mp4" />
+                </video>
+              </div>
             </div>
+
             {/* Navigation Arrows */}
             <button 
               onClick={prevVideo}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-70 transition-all duration-300"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             
             <button 
               onClick={nextVideo}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-70 transition-all duration-300"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>

@@ -49,7 +49,7 @@
 
     return (
       <section className="relative w-full max-w-[1440px] mx-auto py-16">
-        <h1 className="text-center text-6xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-12">
+        <h1 className="text-center text-4xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-12">
           <span className="text-black">Everything you need to be </span>
           <span className="text-[#055e31]">seen</span>
           <span className="text-black"> and </span>
@@ -82,7 +82,7 @@
                   className="block z-10 px-4 text-center flex-shrink-0"
                 >
                   <div
-                    className={`font-['Poppins',Helvetica] text-[40px] leading-[46.2px] whitespace-nowrap transition-all duration-300 font-light text-[#055e3142] group-hover:text-black group-hover:font-bold group-hover:text-[44px]`}
+                    className={`font-['Poppins',Helvetica] text-[30px] leading-[36.2px] whitespace-nowrap transition-all duration-300 font-light text-[#055e3142] group-hover:text-black group-hover:font-bold group-hover:text-[34px]`}
                   >
                     {service.name}
                   </div>

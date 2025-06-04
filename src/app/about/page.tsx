@@ -125,7 +125,7 @@ export default function InsightsPage() {
           <p className="text-xl mb-6 text-black">Founder</p>
           
           <p className="text-sm mb-6 text-black">
-            I am Aakanksha Chugh, Founder Of JIVO Solutions <span className="italic">(formerly &apos;zeminik solutions&apos;)</span>
+            I am Aakanksha Chugh, Founder Of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
           </p>
           
           <p className="text-sm mb-6 text-black">
@@ -180,7 +180,7 @@ export default function InsightsPage() {
           <p className="text-xl mb-6 text-black">Founder</p>
           
           <p className="text-sm mb-6 text-black">
-            I Am Aakanksha Chugh, Founder Of JIVO Solutions <span className="italic">(formerly &apos;zeminik solutions&apos;)</span>
+            I Am Aakanksha Chugh, Founder Of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
           </p>
           
           <p className="text-sm mb-6 text-black">

@@ -188,12 +188,8 @@ const About = () => {
             <motion.div 
               key={index}
               variants={fadeInUp}
-              className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 group"
+              className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0"
               data-index={index}
-              whileHover={{ 
-                y: -10, 
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-              }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               {isLoading && (
@@ -208,7 +204,7 @@ const About = () => {
                   muted
                   loop
                   playsInline
-                  className={`object-cover w-full h-full transition-transform duration-300 group-hover:scale-110 ${
+                  className={`object-cover w-full h-full ${
                     isLoading ? 'opacity-0' : 'opacity-100'
                   }`}
                   preload="metadata"
@@ -216,15 +212,13 @@ const About = () => {
               )}
 
               <motion.div 
-                className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+                className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
                 initial={{ y: 20, opacity: 0 }}
-                whileHover={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
                 <motion.p 
                   className="text-white px-4 pb-4 font-medium"
                   initial={{ y: 10 }}
-                  whileHover={{ y: 0 }}
                   transition={{ duration: 0.2 }}
                 >
                   {clientNames[index]}

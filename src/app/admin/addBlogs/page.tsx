@@ -2,14 +2,16 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faChartLine, faUpload, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { collection, addDoc, updateDoc, doc } from 'firebase/firestore'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
-import { db, app } from '../../../lib/firebase'
+import { db, app, storage } from '../../../lib/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import ImageUpload from './ImageUpload'
 
 // Dynamically import Tiptap editor with client-side rendering only
 const TiptapEditor = dynamic(() => import('./TiptapEditor'), {
@@ -56,6 +58,7 @@ const AddBlog = () => {
   })
   const [formMode, setFormMode] = useState<'add' | 'edit'>('add')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isUploadingImage, setIsUploadingImage] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const router = useRouter()
 
@@ -144,8 +147,8 @@ const AddBlog = () => {
 
     try {
       // Validate required fields
-      if (!newBlog.title || !newBlog.description || !newBlog.slug) {
-        throw new Error('Please fill in all required fields')
+      if (!newBlog.title || !newBlog.description || !newBlog.slug || !newBlog.image) {
+        throw new Error('Please fill in all required fields including the featured image')
       }
 
       // Add timestamp and format the date
@@ -345,16 +348,11 @@ const AddBlog = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="image" className="block text-sm font-medium mb-1">Image URL*</label>
-                  <input
-                    type="text"
-                    id="image"
-                    name="image"
-                    value={newBlog.image}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-2 bg-black/30 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent text-white"
-                    placeholder="Enter image URL"
+                  <label htmlFor="image" className="block text-sm font-medium mb-1">Featured Image*</label>
+                  <ImageUpload
+                    onImageUploaded={(url) => setNewBlog(prev => ({ ...prev, image: url }))}
+                    currentImage={newBlog.image}
+                    folder="blog-featured-images"
                   />
                 </div>
               </div>
@@ -510,7 +508,6 @@ const AddBlog = () => {
     </div>
     <Footer />
     </div>
-
   )
 }
 

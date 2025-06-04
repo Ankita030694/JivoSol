@@ -29,6 +29,8 @@ import {
   faSubscript, faSuperscript, faUndo, faRedo, faPaintBrush,
   faRemoveFormat, faIndent, faOutdent
 } from '@fortawesome/free-solid-svg-icons'
+import { storage } from '../../../lib/firebase'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 interface TiptapEditorProps {
   content: string
@@ -39,6 +41,7 @@ interface TiptapEditorProps {
 const TiptapEditor = ({ content, onChange, className = '' }: TiptapEditorProps) => {
   const [isMounted, setIsMounted] = useState(false)
   const [showColorPicker, setShowColorPicker] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
 
   // Configure the editor with all extensions
   const editor = useEditor({
@@ -51,7 +54,11 @@ const TiptapEditor = ({ content, onChange, className = '' }: TiptapEditorProps) 
           class: 'text-blue-500 underline cursor-pointer',
         },
       }),
-      Image,
+      Image.configure({
+        HTMLAttributes: {
+          class: 'max-w-full h-auto rounded-lg',
+        },
+      }),
       TextAlign.configure({
         types: ['heading', 'paragraph'],
       }),
@@ -121,15 +128,46 @@ const TiptapEditor = ({ content, onChange, className = '' }: TiptapEditorProps) 
     editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
   }
 
-  // Add image handler
-  const addImage = () => {
+  // Add image handler with Firebase Storage upload
+  const addImage = async () => {
     if (!editor) return
     
-    const url = window.prompt('Image URL')
+    // Create file input element
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = 'image/*'
     
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run()
+    input.onchange = async (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0]
+      if (!file) return
+      
+      try {
+        setIsUploading(true)
+        
+        // Create a unique filename
+        const timestamp = Date.now()
+        const filename = `${timestamp}_${file.name}`
+        
+        // Create a reference to the file location in Firebase Storage
+        const storageRef = ref(storage, `blog-images/${filename}`)
+        
+        // Upload the file
+        const snapshot = await uploadBytes(storageRef, file)
+        
+        // Get the download URL
+        const downloadURL = await getDownloadURL(snapshot.ref)
+        
+        // Insert the image into the editor
+        editor.chain().focus().setImage({ src: downloadURL }).run()
+      } catch (error) {
+        console.error('Error uploading image:', error)
+        alert('Error uploading image. Please try again.')
+      } finally {
+        setIsUploading(false)
+      }
     }
+    
+    input.click()
   }
 
   // Add table handler
@@ -275,8 +313,16 @@ const TiptapEditor = ({ content, onChange, className = '' }: TiptapEditorProps) 
           <FontAwesomeIcon icon={faLink} />
         </button>
         
-        <button onClick={addImage} className="p-2 rounded hover:bg-gray-200 text-gray-700" title="Insert Image">
+        <button 
+          onClick={addImage} 
+          className={`p-2 rounded hover:bg-gray-200 text-gray-700 ${isUploading ? 'opacity-50 cursor-not-allowed' : ''}`}
+          title="Insert Image"
+          disabled={isUploading}
+        >
           <FontAwesomeIcon icon={faImage} />
+          {isUploading && (
+            <span className="ml-2 text-xs">Uploading...</span>
+          )}
         </button>
         
         <button onClick={addTable} className="p-2 rounded hover:bg-gray-200 text-gray-700" title="Insert Table">
@@ -397,6 +443,11 @@ const TiptapEditor = ({ content, onChange, className = '' }: TiptapEditorProps) 
         }
         .ProseMirror p {
           margin: 0.5em 0;
+        }
+        .ProseMirror img {
+          max-width: 100%;
+          height: auto;
+          margin: 1em 0;
         }
       `}</style>
     </div>
