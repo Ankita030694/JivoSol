@@ -270,7 +270,9 @@ export default function InsightsPage() {
           </p>
         </div>
       </div>
-      <OurSolution />
+      <div className="w-full mx-auto px-4">
+        <OurSolution />
+      </div>
       <Footer />
   </div>
 );
