@@ -111,10 +111,10 @@ export default function InsightsPage() {
               <Image src="/bing.svg" alt="Bing Logo" width={32} height={32} />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              Microsoft's bing search engine has more than 936 million unique
-              monthly visitors! tap into this audience with adlift's bing ads
+              Microsoft's Bing search engine has more than 936 million unique
+              monthly visitors! Tap into this audience with our Bing Ads
               services that include advanced targeting, ad scheduling, keyword
-              research, ad copy, a/b testing, and budget control.
+              research, ad copy, A/B testing, and budget control.
             </p>
           </div>
 
@@ -127,8 +127,8 @@ export default function InsightsPage() {
               <Image src="/fb.svg" alt="Facebook Logo" width={32} height={32} />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              Be seen and heard on the world's largest social media network. our
-              facebook advertising services include advanced targeting options,
+              Be seen and heard on the world's largest social media network. Our
+              Facebook advertising services include advanced targeting options,
               personalized ad creation, and retargeting website visitors to
               increase conversions and sales.
             </p>
@@ -149,8 +149,8 @@ export default function InsightsPage() {
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
               Advertise on a network of over two million websites, videos, and
-              apps with our google display ads services. utilizing a wide range
-              of ad formats and targeting options we create highly engaging and
+              apps with our Google Display Ads services. Utilizing a wide range
+              of ad formats and targeting options, we create highly engaging and
               relevant ads to reach your target audience.
             </p>
           </div>
@@ -169,8 +169,8 @@ export default function InsightsPage() {
               />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              We offer google paid search services, also known as google ads, to
-              help you advertise on google serps. our google paid search
+              We offer Google Paid Search services, also known as Google Ads, to
+              help you advertise on Google SERPs. Our Google Paid Search
               services include keyword research, bid management, and ad creation
               to target users looking for products/services similar to what you
               offer.
@@ -191,11 +191,10 @@ export default function InsightsPage() {
               />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              We offer google paid search services, also known as google ads, to
-              help you advertise on google serps. our google paid search
-              services include keyword research, bid management, and ad creation
-              to target users looking for products/services similar to what you
-              offer.
+              Connect with your audience on one of the most engaging social platforms. Our
+              Instagram advertising services include creative content development,
+              targeted campaigns, and performance optimization to maximize your
+              brand's impact and reach.
             </p>
           </div>
 
@@ -213,11 +212,9 @@ export default function InsightsPage() {
               />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              We offer google paid search services, also known as google ads, to
-              help you advertise on google serps. our google paid search
-              services include keyword research, bid management, and ad creation
-              to target users looking for products/services similar to what you
-              offer.
+              Reach professional audiences with our LinkedIn PPC advertising services.
+              We specialize in creating targeted campaigns for B2B marketing,
+              lead generation, and brand awareness in the professional network.
             </p>
           </div>
 
@@ -235,11 +232,9 @@ export default function InsightsPage() {
               />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              We offer google paid search services, also known as google ads, to
-              help you advertise on google serps. our google paid search
-              services include keyword research, bid management, and ad creation
-              to target users looking for products/services similar to what you
-              offer.
+              Reconnect with your website visitors through strategic remarketing campaigns.
+              Our services help you engage potential customers who have shown interest
+              in your products or services, increasing conversion rates and ROI.
             </p>
           </div>
 
@@ -257,11 +252,9 @@ export default function InsightsPage() {
               />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              We offer google paid search services, also known as google ads, to
-              help you advertise on google serps. our google paid search
-              services include keyword research, bid management, and ad creation
-              to target users looking for products/services similar to what you
-              offer.
+              Showcase your products directly in search results with our Shopping Ads
+              services. We optimize your product listings, manage campaigns, and
+              implement strategies to increase visibility and drive sales.
             </p>
           </div>
 
@@ -274,10 +267,10 @@ export default function InsightsPage() {
               <Image src="/yt.svg" alt="YouTube Logo" width={32} height={32} />
             </div>
             <p className="mt-4 text-black text-sm md:text-base">
-              Advertise on the world's largest video-sharing site with our
-              youtube video ads services. we create engaging video ads in
-              various formats, such as skippable ads, non-skippable ads, and
-              bumper ads, banner ads to reach your target audience.
+              Advertise on the world's largest video-sharing platform with our
+              YouTube video ads services. We create engaging video ads in
+              various formats, including skippable ads, non-skippable ads,
+              bumper ads, and banner ads to effectively reach your target audience.
             </p>
           </div>
         </div>
@@ -384,7 +377,7 @@ export default function InsightsPage() {
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
               <Image 
-                src="/casestudies/yashi-hero.jpg" 
+                src="/yse.jpeg" 
                 alt="Yashi Shukla Education Case Study" 
                 fill
                 className="object-cover"

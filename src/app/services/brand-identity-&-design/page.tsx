@@ -1,8 +1,47 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+
 export default function InsightsPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "What's included in a brand identity package?",
+      answer: "You'll get logo design, color palette, typography system, brand guidelines, and all final assets in print and digital formats."
+    },
+    {
+      question: "How many logo options and revisions do you offer?",
+      answer: "We present multiple initial concepts and include revision rounds to refine the direction until it's right for your brand."
+    },
+    {
+      question: "Do you provide a brand guidelines document?",
+      answer: "Yes. It includes logo usage, tone of voice, color codes, font rules, and placement guides for brand consistency."
+    },
+    {
+      question: "Can you create business cards, stationery, and event collaterals?",
+      answer: "Absolutely. We design brand kits with cards, letterheads, email signatures, and print material for events or campaigns."
+    },
+    {
+      question: "Can you redesign or upgrade my existing branding?",
+      answer: "Yes. Whether you need a full rebrand or a visual refresh, we align your identity with your growth and audience."
+    },
+    {
+      question: "Will I get files in all formats?",
+      answer: "Yes. Final assets are delivered in all standard print and digital formats (PNG, JPEG, PDF, SVG, EPS, etc.)."
+    },
+    {
+      question: "How long does a branding project take?",
+      answer: "Brand identity projects usually take 3 - 4 weeks, depending on the scope and number of revisions."
+    }
+  ];
+
   return (
     <div>
       <Navbar />
@@ -27,17 +66,15 @@ export default function InsightsPage() {
         />
       </div>
       
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+          <h2 className="text-3xl font-bold mb-4 text-black">
             Shape How Your Brand Is Seen, Understood, And Remembered
           </h2>
           <p className="text-md text-gray-600 mb-6">
-            your brand identity is not just how you look — it's how you're remembered.
+          Your brand identity is not just how you look, it's how you're remembered. At JIVO, we build sharp, strategic visual systems that define your presence and make it impossible to ignore.
           </p>
-          <p className="text-md text-gray-600">
-            At JIVO, we build sharp, strategic visual systems that define your presence and make it impossible to ignore.
-          </p>
+
         </div>
       </div>
 
@@ -104,7 +141,56 @@ export default function InsightsPage() {
       <div className="flex justify-center items-center py-16 w-full">
             <Image src="/result.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
         </div>
-        <Footer />
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+              Find answers to common questions about our brand identity and design services
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div key={index} className="mb-3">
+                <button
+                  className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                    ${openIndex === index 
+                      ? 'bg-[#0a5c35] text-white shadow-lg' 
+                      : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                    }`}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span className={`font-semibold text-sm transition-colors duration-300 ${
+                    openIndex === index ? 'text-white' : 'text-gray-800'
+                  }`}>
+                    {faq.question}
+                  </span>
+                  <span className={`text-lg transition-colors duration-300 ${
+                    openIndex === index ? 'text-white' : 'text-[#0a5c35]'
+                  }`}>
+                    {openIndex === index ? '↑' : '↓'}
+                  </span>
+                </button>
+                
+                {openIndex === index && (
+                  <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                    <p className="text-gray-700 leading-relaxed text-xs">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function InsightsPage() {
       description: "Playful content that resonates with audiences"
     },
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FYse(1).mp4?alt=media&token=f8c7f7f5-b0de-4320-b684-a908d4f631c4",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FYse(2).mp4?alt=media&token=fefa06ee-9277-41f0-8a2a-406d0b9d922e",
       title: "YSE Project",
       description: "Strategic content for maximum impact"
     }
@@ -137,7 +137,7 @@ export default function InsightsPage() {
             <div className="flex items-center justify-center gap-4 relative">
               {/* Previous Video Preview */}
               <div 
-                className={`w-[250px] h-[444px] rounded-lg overflow-hidden opacity-40 blur-sm transform scale-95 transition-all duration-500 ease-in-out ${
+                className={`w-[250px] h-[440px] rounded-lg overflow-hidden opacity-40 blur-sm transform scale-95 transition-all duration-500 ease-in-out ${
                   currentVideoIndex === 0 ? 'opacity-0' : 'opacity-40'
                 }`}
               >
@@ -155,8 +155,8 @@ export default function InsightsPage() {
 
               {/* Main Video */}
               <div 
-                className={`w-[300px] h-[533px] bg-black rounded-lg overflow-hidden shadow-2xl relative z-10 transition-all duration-500 ease-in-out transform ${
-                  currentVideoIndex === 0 ? 'scale-100' : 'scale-95'
+                className={`w-[300px] h-[535px] relative z-10 transition-all duration-500 ease-in-out transform ${
+                  currentVideoIndex === 0 ? 'scale-100' : 'scale-100'
                 }`}
               >
                 {isLoading && (

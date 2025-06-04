@@ -1,8 +1,12 @@
+"use client"
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+
 export default function InsightsPage() {
+  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+
   return (
     <div>
       <Navbar />
@@ -218,6 +222,83 @@ export default function InsightsPage() {
           />
         </div>
       </div> */}
+
+      {/* FAQ Section */}
+      <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+              Find answers to common questions about our content creation and production services
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {[
+              {
+                question: "What kind of content do you create?",
+                answer: "We produce high-quality visual content like photos, reels, and videos, along with written content including captions, website copy, blogs, and ad scripts."
+              },
+              {
+                question: "Do you offer both photo and video shoots?",
+                answer: "Yes, we handle full production, concept, direction, shooting, and post-editing for both photos and videos."
+              },
+              {
+                question: "Can you work with us if we're in a different city?",
+                answer: "Absolutely. We coordinate remote shoots using detailed shot lists, references, and brand-aligned direction."
+              },
+              {
+                question: "What industries do you work with?",
+                answer: "We've worked across hospitality, wellness, fashion, education, and more, adapting content to each niche."
+              },
+              {
+                question: "Do you help plan the shoot as well?",
+                answer: "Yes, we offer creative direction, moodboards, styling suggestions, and location planning before the shoot."
+              },
+              {
+                question: "What kind of writing do you offer?",
+                answer: "We write conversion-focused website copy, social captions, blogs, email sequences, and ad copy for Meta, Google, and LinkedIn."
+              },
+              {
+                question: "Can I get both visuals and written content in one package?",
+                answer: "Yes, we offer bundled packages with photo/video production and copywriting for a cohesive content strategy."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="mb-3">
+                <button
+                  className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                    ${openIndex === index 
+                      ? 'bg-[#0a5c35] text-white shadow-lg' 
+                      : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                    }`}
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                >
+                  <span className={`font-semibold text-sm transition-colors duration-300 ${
+                    openIndex === index ? 'text-white' : 'text-gray-800'
+                  }`}>
+                    {faq.question}
+                  </span>
+                  <span className={`text-lg transition-colors duration-300 ${
+                    openIndex === index ? 'text-white' : 'text-[#0a5c35]'
+                  }`}>
+                    {openIndex === index ? '↑' : '↓'}
+                  </span>
+                </button>
+                
+                {openIndex === index && (
+                  <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                    <p className="text-gray-700 leading-relaxed text-xs">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
