@@ -7,6 +7,7 @@ import { OurSolution } from '@/components/OurSol';
 import Brands from '@/components/Brands';
 import Footer from '@/components/Footer';
 import Form from '@/components/Form';
+import FAQ from '@/components/FAQ';
 import { useEffect, useState } from "react";
 
 // Typewriter animation component
@@ -63,6 +64,7 @@ export default function Home() {
       <div className="-mt-30">
         <Form />
       </div>
+      <FAQ />
       <Footer />
     </div>
   );
