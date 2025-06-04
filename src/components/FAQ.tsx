@@ -57,34 +57,34 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+    <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4 font-poppins text-[#0a5c35]">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-sm max-w-2xl mx-auto">
             Find answers to common questions about our services and how we can help your business grow
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-6">
+            <div key={index} className="mb-3">
               <button
-                className={`w-full text-left p-6 rounded-xl transition-all duration-300 flex justify-between items-center group
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
                   ${openIndex === index 
                     ? 'bg-[#0a5c35] text-white shadow-lg' 
                     : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
                   }`}
                 onClick={() => toggleFAQ(index)}
               >
-                <span className={`font-semibold text-lg transition-colors duration-300 ${
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
                   openIndex === index ? 'text-white' : 'text-gray-800'
                 }`}>
                   {faq.question}
                 </span>
-                <span className={`text-2xl transition-colors duration-300 ${
+                <span className={`text-lg transition-colors duration-300 ${
                   openIndex === index ? 'text-white' : 'text-[#0a5c35]'
                 }`}>
                   {openIndex === index ? '↑' : '↓'}
@@ -92,8 +92,8 @@ const FAQ = () => {
               </button>
               
               {openIndex === index && (
-                <div className="p-6 bg-white mt-2 rounded-xl shadow-md border border-[#0a5c35]/10">
-                  <p className="text-gray-700 leading-relaxed">
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
                     {faq.answer}
                   </p>
                 </div>

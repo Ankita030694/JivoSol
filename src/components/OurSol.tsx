@@ -91,8 +91,8 @@
                 <div className="relative flex-grow flex flex-col items-end justify-center">
                   <div className="h-[2px] bg-[#055e31] transition-all duration-500 group-hover:ml-4 ml-0 opacity-0 group-hover:opacity-100 w-full"></div>
                   {/* Description above the right line, aligned right, never overflowing */}
-                  <div className="absolute -top-16 right-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-10 max-w-[90vw] w-[320px] flex justify-center">
-                    <p className="text-sm text-black p-4 text-center w-full">
+                  <div className="absolute -top-14 right-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-10 max-w-[90vw] w-[420px] flex justify-center">
+                    <p className="text-sm text-black p-4 text-left w-full">
                       {service.description}
                     </p>
                   </div>
