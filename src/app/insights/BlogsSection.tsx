@@ -72,12 +72,7 @@ export default function BlogsSection({ blogs }: BlogsSectionProps) {
             <Link href={`/insights/${blog.slug}`}>
             <div className="relative h-48">
                 
-              <Image
-                src={   '/jabout1.svg'}
-                alt={blog.title}
-                fill
-                className="object-cover"
-              />
+
             </div>
             <div className="p-4">
               <p className="text-sm text-black mb-2">{blog.date}</p>
