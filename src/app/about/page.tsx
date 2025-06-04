@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import { OurSolution } from '@/components/OurSol';
 interface SolutionCard {
     image: string;
     title: string;
@@ -269,100 +270,7 @@ export default function InsightsPage() {
           </p>
         </div>
       </div>
-      <section className="bg-[#ffffff] py-16">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4 text-black">
-          Services
-        </h2>
-      </div>
-
-      <div className="relative">
-        {/* Left Arrow */}
-        <button 
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg -ml-5"
-          onClick={() => {
-            const container = document.getElementById('services-container');
-            if (container) container.scrollLeft -= container.offsetWidth * 0.75;
-          }}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 18L9 12L15 6" stroke="#0A5C35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        {/* Services Container */}
-        <div 
-          id="services-container"
-          className="flex gap-6 overflow-x-auto pb-6 snap-x scrollbar-hide scroll-smooth"
-        >
-          {solutions.map((solution, index) => (
-            <div
-              key={index}
-              className="min-w-[calc(25%-20px)] w-[calc(25%-20px)] h-[500px] bg-white rounded-lg overflow-hidden shadow-lg flex-shrink-0 flex flex-col snap-start"
-            >
-              <div className="relative h-72">
-                <Image
-                  src={solution.image}
-                  alt={solution.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3 className="text-md font-bold mb-2 text-black whitespace-nowrap overflow-hidden text-ellipsis">{solution.title}</h3>
-                  <p className="text-gray-600 text-sm">{solution.description}</p>
-                </div>
-                <button className="flex items-center text-black hover:text-gray-700">
-                  Read More
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Right Arrow */}
-        <button 
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg -mr-5"
-          onClick={() => {
-            const container = document.getElementById('services-container');
-            if (container) container.scrollLeft += container.offsetWidth * 0.75;
-          }}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 6L15 12L9 18" stroke="#0A5C35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
-        {/* Scroll Indicator Text */}
-        <div className="flex justify-center mt-4">
-          <p className="text-sm text-gray-500 flex items-center">
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            Scroll for more
-            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <OurSolution />
       <Footer />
   </div>
 );
