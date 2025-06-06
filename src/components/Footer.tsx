@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -126,6 +126,7 @@ const Footer = () => {
               { href: "#", icon: FaFacebook },
               { href: "#", icon: FaInstagram },
               { href: "#", icon: FaYoutube },
+              { href: "#", icon: FaLinkedin },
             ].map((social, index) => {
               const Icon = social.icon;
               return (

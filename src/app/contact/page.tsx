@@ -245,7 +245,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-black">Our Location</h3>
-              <p className="text-gray-600">Space Business Park, Sector 66, Gurugram, Haryana 122102</p>
+              <p className="text-gray-600">Tower B3, Spaze i-Tech Park, 140, Sector 49, Gurugram, Haryana 122018</p>
             </div>
           </div>
         </div>

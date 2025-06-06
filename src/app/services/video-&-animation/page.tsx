@@ -1,8 +1,15 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+
 export default function InsightsPage() {
+  // Video URLs from Firebase Storage
+  const videoUrls = [
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fvideoandanim%2FAb%20Grab%20studio%20podcast-16.mp4?alt=media&token=84605a79-996c-458f-aca5-f3c182f4dcf2",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fvideoandanim%2FFor%20Web%20Podcast%2015.mp4?alt=media&token=d58d1e0b-9c8e-480b-bafd-a0047042080e",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fvideoandanim%2FIntro%20Lifestyle%20-%20Teaser.mp4?alt=media&token=509c0dc5-5e6a-4cf4-8946-d4e3f93de1a1"
+  ];
+
   return (
     <div>
       <Navbar />
@@ -17,13 +24,10 @@ export default function InsightsPage() {
             Video & Animation
           </h1>
         </div>
-        <Image
+        <img
           src="/jivobn1.svg"
           alt="Jivo Hero"
-          width={1000}
-          height={100}
           className="w-full h-48 object-cover"
-          priority
         />
       </div>
       <div className="w-full bg-[#ECECEC] py-16 text-black text-center">
@@ -89,51 +93,25 @@ export default function InsightsPage() {
       <div className="w-full bg-white py-16">
         <h1 className="text-4xl font-bold mb-12 text-center text-black">Our Videos</h1>
         <div className="max-w-7xl mx-auto flex overflow-x-auto gap-4 px-4">
-          <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: "calc(20% - 16px)" }}>
-            <Image
-              src="/vid1.gif"
-              alt="Video showcase 1"
-              width={400}
-              height={500}
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
-          <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: "calc(20% - 16px)" }}>
-            <Image
-              src="/vid2.gif"
-              alt="Video showcase 2"
-              width={400}
-              height={500}
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
-          <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: "calc(20% - 16px)" }}>
-            <Image
-              src="/vid3.gif"
-              alt="Video showcase 3"
-              width={400}
-              height={500}
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
-          <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: "calc(20% - 16px)" }}>
-            <Image
-              src="/vid4.gif"
-              alt="Video showcase 4"
-              width={400}
-              height={500}
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
-          <div className="rounded-2xl overflow-hidden flex-shrink-0" style={{ width: "calc(20% - 16px)" }}>
-            <Image
-              src="/vid4.gif"
-              alt="Video showcase 4"
-              width={400}
-              height={500}
-              className="w-full h-[400px] object-cover"
-            />
-          </div>
+          {videoUrls.map((url, index) => (
+            <div
+              key={index}
+              className="rounded-2xl overflow-hidden flex-shrink-0"
+              style={{ width: "calc(33.333% - 16px)" }}
+            >
+              <video
+                src={url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                poster={`${url}#t=0.1`}
+                className="w-full h-[400px] object-cover"
+                style={{ willChange: 'transform' }}
+              />
+            </div>
+          ))}
         </div>
       </div>
       <Footer />

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRight, FaFacebookF, FaInstagram, FaGoogle, FaGraduationCap } from "react-icons/fa";
 
 export default function CaseStudyPage() {
@@ -35,9 +36,11 @@ export default function CaseStudyPage() {
               Comprehensive digital strategy for overseas education lead generation
             </p>
             <div className="flex gap-4">
-              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-[#0A5C35] transition-all duration-300">
-                Get in Touch
-              </button>
+              <Link href="/contact">
+                <button className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-[#0A5C35] hover:border-[#0A5C35] transition-all duration-300">
+                  Get in Touch
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -159,9 +162,11 @@ export default function CaseStudyPage() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's create a powerful digital strategy to reach students worldwide and build your education brand.
           </p>
-          <button className="bg-[#0A5C35] text-white px-8 py-3 rounded-full font-medium hover:bg-[#0B4619] transition-all duration-300">
-            Start Your Journey
-          </button>
+          <Link href="/contact">
+            <button className="bg-[#0A5C35] text-white px-8 py-3 rounded-full font-medium hover:bg-[#0B4619] transition-all duration-300">
+              Start Your Journey
+            </button>
+          </Link>
         </div>
       </div>
 

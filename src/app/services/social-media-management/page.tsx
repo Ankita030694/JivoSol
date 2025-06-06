@@ -114,12 +114,11 @@ export default function InsightsPage() {
             (platform) => (
               <button
                 key={platform}
-                className="px-6 py-2 rounded-full border border-emerald-700 relative overflow-hidden group"
+                className="px-6 py-2 rounded-full border border-emerald-700"
               >
-                <span className="relative z-10 text-black group-hover:text-white transition-colors duration-300">
+                <span className="text-black">
                   {platform}
                 </span>
-                <div className="absolute inset-0 bg-emerald-700 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
               </button>
             )
           )}
@@ -219,24 +218,6 @@ export default function InsightsPage() {
           </div>
 
 
-        </div>
-
-        {/* Image grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 md:px-64">
-          {[1, 2, 3, 4].map((num) => (
-            <div
-              key={num}
-              className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <Image
-                src={`/jabout${num}.svg`}
-                alt={`Portfolio image ${num}`}
-                width={400}
-                height={400}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          ))}
         </div>
 
         {/* Carousel Navigation - moved outside the grid */}

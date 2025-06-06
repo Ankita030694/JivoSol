@@ -4,6 +4,7 @@ import Marquee from "react-fast-marquee";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
 
 // Client logos array from Firebase
 const clientLogos = [
@@ -143,6 +144,7 @@ const WhyUs = () => {
               <p className="font-bold">We are a strategy-first digital partner focused on long-term impact.</p>
               <p>Our clients choose us for our clarity of thought, execution excellence, and commitment to lasting results.</p>
             </div>
+            <Link href="/ourwork">
             <button 
               className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto"
             >
@@ -151,6 +153,7 @@ const WhyUs = () => {
                 →
               </span>
             </button>
+            </Link>
           </div>
 
           <div 
@@ -196,7 +199,7 @@ const WhyUs = () => {
         </div>
         
         <div 
-          className="relative w-full overflow-hidden max-w-6xl mx-auto"
+          className="relative w-full overflow-hidden"
         >
          <Marquee speed={100} gradient={false} direction="left">
             {clientLogos.map((url, idx) => (

@@ -276,7 +276,7 @@ const About = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}>
           <Link 
-            href="/work"
+            href="/ourwork"
             className="inline-flex items-center bg-[#005F33] text-white px-6 py-3 rounded-full hover:bg-[#004525] transition-colors"
           >
             Our Work

@@ -7,8 +7,8 @@ import Link from "next/link";
 
 export default function InsightsPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState<boolean[]>(Array(5).fill(true));
-  const [videosLoaded, setVideosLoaded] = useState<boolean[]>(Array(5).fill(false));
+  const [isLoading, setIsLoading] = useState<boolean[]>(Array(4).fill(true));
+  const [videosLoaded, setVideosLoaded] = useState<boolean[]>(Array(4).fill(false));
   const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set([0]));
 
   const videos = [
@@ -31,12 +31,7 @@ export default function InsightsPage() {
       src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FWhatsApp%20Video%202025-05-23%20at%203.57.23%20PM.mp4?alt=media&token=c5596ff9-ad47-4f29-8f1a-766f7bc743f3",
       title: "Updated Campaign",
       description: "Fresh perspectives on social media marketing"
-    },
-    {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FWhatsApp%20Video%202025-06-04%20at%204.41.42%20PM.mp4?alt=media&token=5239cb13-d555-46b0-95bd-c29a53a7e09a",
-      title: "Waby-Saby",
-      description: "Playful content that resonates with audiences"
-    },
+    }
   ];
 
   // Preload videos
