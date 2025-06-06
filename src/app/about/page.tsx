@@ -152,7 +152,7 @@ export default function InsightsPage() {
         <div className="w-1/2">
           <div className="relative w-full h-[700px]">
             <Image
-              src="/image3.png"
+              src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/misc%2FAkansha.svg?alt=media&token=d84fbb9c-896c-45d8-8e93-2954b45b0f19"
               alt="Founder"
               fill
               className="object-cover rounded-lg rounded-r-none"
@@ -168,7 +168,7 @@ export default function InsightsPage() {
       <div className="w-full py-12 flex md:hidden flex-col items-center px-4 max-w-[95%] mx-auto">
         <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden shadow-md">
           <Image
-            src="/akankshadidi.jpg"
+            src="/Akansha.png"
             alt="Founder"
             fill
             className="object-cover"
