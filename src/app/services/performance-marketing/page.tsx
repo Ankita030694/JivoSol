@@ -299,13 +299,6 @@ export default function InsightsPage() {
             </div>
             <div className="p-4 md:p-6">
               <div className="flex items-center gap-2 mb-2">
-                <Image 
-                  src="/casestudies/ncpost.png"
-                  alt="Nidhi Chugh"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
                 <h3 className="font-medium text-gray-800">Nidhi Chugh</h3>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">83M+</h2>
@@ -333,7 +326,7 @@ export default function InsightsPage() {
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
               <Image 
-                src="/casestudies/witwise-hero.jpg" 
+                src="/witwisecs.jpeg" 
                 alt="WitWise Education Case Study" 
                 fill
                 className="object-cover"
@@ -343,13 +336,6 @@ export default function InsightsPage() {
             </div>
             <div className="p-4 md:p-6">
               <div className="flex items-center gap-2 mb-2">
-                <Image 
-                  src="/casestudies/witwise-overview.jpg"
-                  alt="WitWise Education"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
                 <h3 className="font-medium text-gray-800">WitWise Education</h3>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">2000+</h2>
@@ -387,13 +373,7 @@ export default function InsightsPage() {
             </div>
             <div className="p-4 md:p-6">
               <div className="flex items-center gap-2 mb-2">
-                <Image 
-                  src="/casestudies/yashi-overview.jpg"
-                  alt="Yashi Shukla Education"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
+                
                 <h3 className="font-medium text-gray-800">Yashi Shukla Education</h3>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A5C35]">1000+</h2>
