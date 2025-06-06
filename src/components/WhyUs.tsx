@@ -5,37 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const WhyUs = () => {
-  // Array of statistics with different values
-  const stats = [
-    { label: "Brands Transformed", value: 105 },
-    { label: "Industries Served", value: 15 },
-    { label: "Projects Completed", value: 350 },
-    { label: "Client Retention Rate", value: 95 }
-  ];
-  
-  const [counters, setCounters] = useState(stats.map(() => 0));
-  const statsRef = useRef<HTMLDivElement>(null);
-  const animationTriggered = useRef(false);
-
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
-  };
-  
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-   // Client logos array from Firebase
-   const clientLogos = [
+// Client logos array from Firebase
+const clientLogos = [
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2F1%20(2).jpg?alt=media&token=f15b1d7f-a65f-463b-b160-81f17669ac6e",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2F84515ced-e02b-4d1d-a484-4d533da326a2.jpeg?alt=media&token=bce8e46d-84a5-4f3c-b78f-51c7046070fa",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2F9161631f-239f-4d83-b450-5406045dbca9.jpeg?alt=media&token=0838e2e1-ac73-449b-9633-634304479763",
@@ -69,8 +40,40 @@ const WhyUs = () => {
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Fmpowerbiz-technologies-squarelogo-1500389602975.png?alt=media&token=33ee1c5d-e85a-40ce-ac93-e10b74476701",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Fudaawat%20logo%20ft%20(1).png?alt=media&token=8ace3693-df77-4a5e-86e2-6ddd0c98b254",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Fwhite.png?alt=media&token=690c56dc-394b-45e3-8f59-d7c7bc24af55"
-  ];
+];
 
+export { clientLogos };
+
+const WhyUs = () => {
+  // Array of statistics with different values
+  const stats = [
+    { label: "Brands Transformed", value: 105 },
+    { label: "Industries Served", value: 15 },
+    { label: "Projects Completed", value: 350 },
+    { label: "Client Retention Rate", value: 95 }
+  ];
+  
+  const [counters, setCounters] = useState(stats.map(() => 0));
+  const statsRef = useRef<HTMLDivElement>(null);
+  const animationTriggered = useRef(false);
+
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  };
+  
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+  
   // Use intersection observer for heading and description
   const [headingRef, headingInView] = useInView({
     triggerOnce: true,

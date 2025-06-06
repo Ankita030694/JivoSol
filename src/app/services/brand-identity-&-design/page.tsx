@@ -11,6 +11,18 @@ export default function InsightsPage() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const brandLogos = [
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2F1%20(2).jpg?alt=media&token=f15b1d7f-a65f-463b-b160-81f17669ac6e",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2FArtboard%201%20copy%202%403x.png?alt=media&token=4a235b9f-0acd-44a1-991f-9ea7c611b6df",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2FJai%20Jalaram-PNG.png?alt=media&token=d34b7878-dd16-4bb6-882a-2661321555a3",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2FLogo%207-01.png?alt=media&token=54d57f98-9aab-469b-bff3-4629e3f6ae78",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2FWhatsApp%20Image%202025-03-25%20at%2015.38.36.jpeg?alt=media&token=24031bb6-197c-452d-8fe9-27e472168b25",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Flong.jpg?alt=media&token=39eea10c-1d0a-451b-8f65-67a34d28923e",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Famar%20file.png?alt=media&token=f924bdd7-bcf5-4f22-a859-446acf81ed51",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2FUDAWAT.jpg?alt=media&token=e5279930-f976-4ebf-975f-419c5d177c46",
+    "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/clientlogos%2Fvida.png?alt=media&token=c2c6423e-a93e-4f15-8309-49d15015f500"
+  ];
+
   const faqs = [
     {
       question: "What's included in a brand identity package?",
@@ -27,7 +39,7 @@ export default function InsightsPage() {
     {
       question: "Can you create business cards, stationery, and event collaterals?",
       answer: "Absolutely. We design brand kits with cards, letterheads, email signatures, and print material for events or campaigns."
-    },
+    }, 
     {
       question: "Can you redesign or upgrade my existing branding?",
       answer: "Yes. Whether you need a full rebrand or a visual refresh, we align your identity with your growth and audience."
@@ -134,6 +146,64 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
+
+      {/* Client Logos Section */}
+      <div className="px-48 py-16 bg-white">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-black">Logo Designing & Branding</h2>
+          <p className="text-gray-600 mb-8">
+            Trusted by leading brands across industries
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto">
+          {brandLogos.map((logo: string, index: number) => (
+            <div key={index} className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+              <Image
+                src={logo}
+                alt={`Brand Logo ${index + 1}`}
+                width={180}
+                height={180}
+                className="object-contain w-[180px] h-[180px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Event & Print Design Section */}
+<div className="px-48 py-16 bg-[#f9f9f9]">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl font-bold text-black mb-4">Event & Print Design</h2>
+    <p className="text-gray-600">
+      Explore our work in print collateral — from letterheads and newspapers to standees and bill designs.
+    </p>
+  </div>
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    {[
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fa91f852f-65e9-4254-b801-321e39fc6284%20copy.png?alt=media&token=e7266c1f-29d1-4967-999a-cc428365c57e",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fac8de650-9ec8-4341-af46-ed01d52d30eb%20copy.png?alt=media&token=30bfe591-b781-4ef4-89ba-4b09ceb3d9e1",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fb01.png?alt=media&token=4c016ea1-b609-4969-8487-0fdbf21a042e",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fb02.png?alt=media&token=53b81d72-fdbf-44f9-b3a1-ba3f31288d5f",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FBILL.png?alt=media&token=c808396f-f867-4c8a-8cbd-3f46c3b5e1cd",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FLETTERHEAD.png?alt=media&token=201cf558-bffc-4819-b706-89aa699c1ebd",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fmdc.png?alt=media&token=21a4e2a1-2780-4bc7-bccf-acac7a772d77",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fnews%20paper%2002.png?alt=media&token=a0d12e03-c3a5-4fb8-baa2-6a7ef5c08029",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fnews%20paper%20copy.png?alt=media&token=69e7cbe4-804a-4811-8f73-b7eae65e2ee2",
+      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FSTANDEE%20(1).png?alt=media&token=69128f52-bbbc-4adc-b538-69c6595d90aa"
+    ].map((url, idx) => (
+      <div key={idx} className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition duration-300 flex items-center justify-center">
+        <Image
+          src={url}
+          alt={`Event & Print Design ${idx + 1}`}
+          width={240}
+          height={240}
+          className="object-contain w-full h-auto"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
       <div className="flex justify-center items-center py-16 w-full px-48">
             <Image src="/process2.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
         </div>
