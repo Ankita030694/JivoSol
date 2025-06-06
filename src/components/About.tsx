@@ -6,15 +6,26 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 // Custom hook for lazy loading videos
-const useVideoLoader = (videoUrl: string) => {
+const useVideoLoader = (videoUrl: string, thumbnailUrl: string) => {
   const [isLoading, setIsLoading] = useState(true);
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
+  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    // Preload thumbnail
+    const img = new Image();
+    img.src = thumbnailUrl;
+    img.onload = () => setThumbnailLoaded(true);
+  }, [thumbnailUrl]);
 
   useEffect(() => {
     if (!videoElement) return;
 
     const handleLoadedData = () => {
       setIsLoading(false);
+      // Add a small delay before marking video as ready to ensure smooth transition
+      setTimeout(() => setVideoReady(true), 100);
     };
 
     videoElement.addEventListener('loadeddata', handleLoadedData);
@@ -24,7 +35,7 @@ const useVideoLoader = (videoUrl: string) => {
     };
   }, [videoElement]);
 
-  return { isLoading, setVideoElement };
+  return { isLoading, setVideoElement, thumbnailLoaded, videoReady };
 };
 
 const About = () => {
@@ -81,9 +92,9 @@ const About = () => {
 
   // Track which videos are in view for optimization
   const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
+  const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set());
 
   useEffect(() => {
-    // Preload videos that are in view
     if (inView) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -91,6 +102,9 @@ const About = () => {
             const videoIndex = parseInt(entry.target.getAttribute('data-index') || '0');
             if (entry.isIntersecting) {
               setVisibleVideos((prev) => new Set([...prev, videoIndex]));
+              // Preload next video
+              const nextIndex = (videoIndex + 1) % videos.length;
+              setPreloadedVideos((prev) => new Set([...prev, nextIndex]));
             } else {
               setVisibleVideos((prev) => {
                 const newSet = new Set(prev);
@@ -100,7 +114,7 @@ const About = () => {
             }
           });
         },
-        { threshold: 0.5 }
+        { threshold: 0.1 }
       );
 
       document.querySelectorAll('.video-container').forEach((videoEl) => {
@@ -109,7 +123,7 @@ const About = () => {
 
       return () => observer.disconnect();
     }
-  }, [inView]);
+  }, [inView, videos.length]);
 
   return (
     <section className="py-16 px-4 text-center overflow-hidden">
@@ -182,7 +196,8 @@ const About = () => {
         animate={inView ? "visible" : "hidden"}
         className="flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
         {videos.map((video, index) => {
-          const { isLoading, setVideoElement } = useVideoLoader(video.url);
+          const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
+          const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
           
           return (
             <motion.div 
@@ -192,24 +207,46 @@ const About = () => {
               data-index={index}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              {isLoading && (
+              {(!thumbnailLoaded || isLoading) && (
                 <div className="absolute inset-0 bg-gray-200 animate-pulse" />
               )}
               
-              {visibleVideos.has(index) && (
-                <video
-                  ref={(el) => setVideoElement(el)}
-                  src={video.url}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className={`object-cover w-full h-full ${
-                    isLoading ? 'opacity-0' : 'opacity-100'
+              <div className="relative w-full h-full">
+                {/* Thumbnail Layer */}
+                <div 
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    videoReady ? 'opacity-0' : 'opacity-100'
                   }`}
-                  preload="metadata"
-                />
-              )}
+                >
+                  {thumbnailLoaded && (
+                    <img 
+                      src={video.thumbnail}
+                      alt={`Thumbnail for ${clientNames[index]}`}
+                      className="object-cover w-full h-full"
+                    />
+                  )}
+                </div>
+
+                {/* Video Layer */}
+                <div 
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    videoReady ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  {shouldLoadVideo && (
+                    <video
+                      ref={(el) => setVideoElement(el)}
+                      src={video.url}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="object-cover w-full h-full"
+                      preload="metadata"
+                    />
+                  )}
+                </div>
+              </div>
 
               <motion.div 
                 className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"

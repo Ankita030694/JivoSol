@@ -201,6 +201,7 @@ const Navbar = () => {
 
       {/* Desktop Contact Button - hidden on mobile */}
       <div className="hidden md:flex items-center gap-4">
+        <Link href="/contact">
         <button 
           className="bg-[#ECECEC] text-black rounded-full border border-[#0A5C3580] flex items-center gap-3 px-2 py-1 
           hover:bg-[#0A5C35]/10 transition-all duration-300 transform hover:scale-105 active:scale-95 group"
@@ -211,6 +212,7 @@ const Navbar = () => {
           </div>
           <span className="text-md group-hover:font-medium transition-all duration-300">Get In Touch</span>
         </button>
+        </Link>
       </div>
 
       {/* Mobile menu - full screen overlay */}
@@ -320,6 +322,13 @@ const Navbar = () => {
           </Link>
           
           {/* Mobile contact button */}
+          <Link href="/contact" className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${mobileMenuItemVariants[5]} ${
+            isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+          } ${isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            onClick={closeMobileMenu}
+          >
+            Contact Us
+          </Link>
           <button 
             className={`mt-8 bg-white text-black rounded-full border border-[#0A5C3580] flex items-center justify-center gap-3 px-4 py-3 
             hover:bg-[#0A5C35]/10 transition-all duration-500 transform hover:scale-105 active:scale-95 group 
