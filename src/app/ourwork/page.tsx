@@ -12,27 +12,27 @@ export default function InsightsPage() {
 
   const videos = [
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FAQNkACVXl3wCpfqGLepghYpic5e4gMEFI190x76alQt4cUlZ4H4FdyLIKjxk_06Igsotb52ChDxmIFx2wVJKgcw3wGoCpoL9Ap7C1ts.mp4?alt=media&token=237a9ad4-bf8f-4d8c-83cb-273a51833e2e",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FAd%201%20(V1)%20-%20Career%20Counseling%20Course.Mp4%20(1).mp4?alt=media&token=e126eea4-0a46-46e1-9179-8b00b5f1d433",
       title: "Brand Showcase",
       description: "Creative brand storytelling that captivates audiences"
     },
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FFez%20(1).mp4?alt=media&token=92da8740-7900-48f6-9a6f-ccb19a30904e",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FSidewok12.mp4?alt=media&token=151c6d74-c5ac-40c6-b677-ca1732719fe6",
       title: "Fez Campaign",
       description: "Engaging content that drives brand awareness"
     },
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FRh%20Reel%20001(1).mp4?alt=media&token=e9de23a1-056d-41a3-a437-f30014e824b6",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FWhatsApp%20Video%202025-05-23%20at%203.57.08%20PM.mp4?alt=media&token=4364e770-e899-466b-b3b2-f8d908922b42",
       title: "RH Reel",
       description: "Dynamic reels that boost engagement"
     },
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FUpdated%20Video%20002(1).mp4?alt=media&token=c2cc09b9-19e2-4049-a68d-ac4ccd3009b9",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FWhatsApp%20Video%202025-05-23%20at%203.57.23%20PM.mp4?alt=media&token=c5596ff9-ad47-4f29-8f1a-766f7bc743f3",
       title: "Updated Campaign",
       description: "Fresh perspectives on social media marketing"
     },
     {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FWaby-Saby.mp4?alt=media&token=8999bb6e-7cd4-4a0a-bef0-5481cc1f4d1d",
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fperfmark%2FWhatsApp%20Video%202025-06-04%20at%204.41.42%20PM.mp4?alt=media&token=5239cb13-d555-46b0-95bd-c29a53a7e09a",
       title: "Waby-Saby",
       description: "Playful content that resonates with audiences"
     },
