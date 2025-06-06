@@ -1,12 +1,13 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export default function InsightsPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean[]>(Array(5).fill(true));
+  const [videosLoaded, setVideosLoaded] = useState<boolean[]>(Array(5).fill(false));
   const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set([0]));
 
   const videos = [
@@ -35,12 +36,50 @@ export default function InsightsPage() {
       title: "Waby-Saby",
       description: "Playful content that resonates with audiences"
     },
-    {
-      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FYse(2).mp4?alt=media&token=fefa06ee-9277-41f0-8a2a-406d0b9d922e",
-      title: "YSE Project",
-      description: "Strategic content for maximum impact"
-    }
   ];
+
+  // Preload videos
+  useEffect(() => {
+    const preloadVideos = async () => {
+      const videoPromises = videos.map((video, index) => {
+        return new Promise((resolve) => {
+          const videoElement = document.createElement('video');
+          videoElement.preload = 'metadata';
+          videoElement.src = video.src;
+          
+          videoElement.onloadedmetadata = () => {
+            setIsLoading(prev => {
+              const newState = [...prev];
+              newState[index] = false;
+              return newState;
+            });
+            resolve(true);
+          };
+
+          videoElement.onerror = () => {
+            setIsLoading(prev => {
+              const newState = [...prev];
+              newState[index] = false;
+              return newState;
+            });
+            resolve(false);
+          };
+        });
+      });
+
+      await Promise.all(videoPromises);
+    };
+
+    preloadVideos();
+  }, []);
+
+  const handleVideoLoad = useCallback((index: number) => {
+    setVideosLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  }, []);
 
   // Preload next video
   const preloadNextVideo = (index: number) => {
@@ -64,11 +103,6 @@ export default function InsightsPage() {
     const prevIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
     setCurrentVideoIndex(prevIndex);
     preloadNextVideo(prevIndex);
-  };
-
-  // Handle video loading
-  const handleVideoLoad = () => {
-    setIsLoading(false);
   };
 
   return (
@@ -209,10 +243,10 @@ export default function InsightsPage() {
           
           {/* Video Grid */}
           <div className="grid grid-cols-5 gap-4 max-w-[1400px] mx-auto px-4">
-            {videos.slice(0, 5).map((video, index) => (
+            {videos.map((video, index) => (
               <div key={index} className="relative rounded-lg overflow-hidden shadow-lg bg-black">
                 <div className="aspect-[9/16] relative">
-                  {isLoading && (
+                  {isLoading[index] && (
                     <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
                       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
                     </div>
@@ -223,7 +257,8 @@ export default function InsightsPage() {
                     muted
                     loop
                     playsInline
-                    onLoadedData={handleVideoLoad}
+                    onLoadedData={() => handleVideoLoad(index)}
+                    preload="metadata"
                   >
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.
