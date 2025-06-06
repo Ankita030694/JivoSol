@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function InsightsPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -226,7 +227,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Performance Marketing Section - NEW */}
-      <div className="bg-[#ECECEC] px-4 sm:px-8 md:px-16 lg:px-64 py-16 text-center">
+      <div className="bg-[#ECECEC] py-16 text-center">
         <p className="text-emerald-700 mb-2 text-xl font-bold uppercase tracking-wider">
           Performance Marketing
         </p>
@@ -238,40 +239,120 @@ export default function InsightsPage() {
           measurable results for your business.
         </p>
 
+        
         {/* Video Grid Showcase */}
         <div className="mt-16 mb-16">
           
           {/* Video Grid */}
-          <div className="grid grid-cols-5 gap-4 max-w-[1400px] mx-auto px-4">
-            {videos.map((video, index) => (
-              <div key={index} className="relative rounded-lg overflow-hidden shadow-lg bg-black">
-                <div className="aspect-[9/16] relative">
-                  {isLoading[index] && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
-                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
-                    </div>
-                  )}
-                  <video 
-                    className="w-full h-full object-contain"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onLoadedData={() => handleVideoLoad(index)}
-                    preload="metadata"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+          <div className="w-full overflow-x-auto">
+            <div className="flex justify-center gap-4 min-w-max mx-auto px-4">
+              {videos.map((video, index) => (
+                <div key={index} className="relative rounded-lg overflow-hidden shadow-lg bg-black w-[200px] flex-shrink-0">
+                  <div className="aspect-[9/16] relative">
+                    {isLoading[index] && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+                      </div>
+                    )}
+                    <video 
+                      className="w-full h-full object-contain"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      onLoadedData={() => handleVideoLoad(index)}
+                      preload="metadata"
+                    >
+                      <source src={video.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
-                  <h3 className="text-white font-semibold text-sm">{video.title}</h3>
-                  <p className="text-white/80 text-xs line-clamp-2">{video.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
+        {/* Ads that perform section */}
+        <div className="mt-16 mb-16">
+          <h3 className="text-3xl font-bold mb-8 text-black">Ads that perform</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 sm:px-8 md:px-16 lg:px-64">
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2F1-1%20(3).jpg?alt=media&token=cea9db02-c5a7-4766-be79-f87aa8f1570f"
+                alt="Performance Ad 1"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2F1-1%20(4).jpg?alt=media&token=5cedc5bf-bc08-4f18-ace9-8184236f3cd4"
+                alt="Performance Ad 2"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2F1-1.jpg?alt=media&token=f91dc1e1-dced-4aeb-b2c6-013cf4267b03"
+                alt="Performance Ad 3"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2F2d48707b-c589-4b90-a970-fbe18edd0d6a.jpeg?alt=media&token=33d728ab-b127-4223-82e9-3c4b036e6338"
+                alt="Performance Ad 4"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2F5515a32d-7583-4782-a6da-59255c4cb0e5.jpeg?alt=media&token=e2b742b1-6095-46d3-a08c-0490dd324d6b"
+                alt="Performance Ad 5"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FArtboard%205.jpg?alt=media&token=9f35b2c7-c3e2-4fd3-9dd1-d29ad283dfc4"
+                alt="Performance Ad 6"
+                width={400}
+                height={400}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fd0aba021-bbdf-4bb9-93b4-f003e3f590f2.jpeg?alt=media&token=92b462d6-c4a4-4e2c-be2e-90ba3e8a2670"
+                alt="Performance Ad 7"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="relative overflow-hidden rounded-lg shadow-md">
+              <Image
+                src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Ff86ebed8-1ced-4028-9831-79a9f96474a7.jpeg?alt=media&token=08c84641-cf2d-43b3-ba57-9c3716c62b8e"
+                alt="Performance Ad 8"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Carousel Navigation */}
         {/* <div className="flex justify-center items-center mt-8 space-x-4">
           <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
@@ -311,7 +392,9 @@ export default function InsightsPage() {
         {/* Read More button */}
         <div className="mt-10">
           <button className="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full transition-colors duration-300 font-medium">
+            <Link href="/services/performance-marketing">
             Read More
+            </Link>
           </button>
         </div>
       </div>
