@@ -1,8 +1,76 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+
 export default function InsightsPage() {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set([0]));
+
+  const videos = [
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FAQNkACVXl3wCpfqGLepghYpic5e4gMEFI190x76alQt4cUlZ4H4FdyLIKjxk_06Igsotb52ChDxmIFx2wVJKgcw3wGoCpoL9Ap7C1ts.mp4?alt=media&token=237a9ad4-bf8f-4d8c-83cb-273a51833e2e",
+      title: "Brand Showcase",
+      description: "Creative brand storytelling that captivates audiences"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FFez%20(1).mp4?alt=media&token=92da8740-7900-48f6-9a6f-ccb19a30904e",
+      title: "Fez Campaign",
+      description: "Engaging content that drives brand awareness"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FRh%20Reel%20001(1).mp4?alt=media&token=e9de23a1-056d-41a3-a437-f30014e824b6",
+      title: "RH Reel",
+      description: "Dynamic reels that boost engagement"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FUpdated%20Video%20002(1).mp4?alt=media&token=c2cc09b9-19e2-4049-a68d-ac4ccd3009b9",
+      title: "Updated Campaign",
+      description: "Fresh perspectives on social media marketing"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FWaby-Saby.mp4?alt=media&token=8999bb6e-7cd4-4a0a-bef0-5481cc1f4d1d",
+      title: "Waby-Saby",
+      description: "Playful content that resonates with audiences"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/servicesvids%2Fsocialmedia%2FYse(2).mp4?alt=media&token=fefa06ee-9277-41f0-8a2a-406d0b9d922e",
+      title: "YSE Project",
+      description: "Strategic content for maximum impact"
+    }
+  ];
+
+  // Preload next video
+  const preloadNextVideo = (index: number) => {
+    const nextIndex = (index + 1) % videos.length;
+    if (!preloadedVideos.has(nextIndex)) {
+      const video = document.createElement('video');
+      video.src = videos[nextIndex].src;
+      video.preload = "auto";
+      video.load();
+      setPreloadedVideos(prev => new Set([...prev, nextIndex]));
+    }
+  };
+
+  const nextVideo = () => {
+    const nextIndex = (currentVideoIndex + 1) % videos.length;
+    setCurrentVideoIndex(nextIndex);
+    preloadNextVideo(nextIndex);
+  };
+
+  const prevVideo = () => {
+    const prevIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+    setCurrentVideoIndex(prevIndex);
+    preloadNextVideo(prevIndex);
+  };
+
+  // Handle video loading
+  const handleVideoLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
     <div>
       <Navbar />
@@ -136,25 +204,41 @@ export default function InsightsPage() {
           measurable results for your business.
         </p>
 
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[1, 2, 3, 4].map((num) => (
-            <div
-              key={num}
-              className="relative overflow-hidden rounded-lg shadow-md"
-            >
-              <Image
-                src={`/jabout${num}.svg`}
-                alt={`Performance marketing image ${num}`}
-                width={400}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        {/* Video Grid Showcase */}
+        <div className="mt-16 mb-16">
+          
+          {/* Video Grid */}
+          <div className="grid grid-cols-5 gap-4 max-w-[1400px] mx-auto px-4">
+            {videos.slice(0, 5).map((video, index) => (
+              <div key={index} className="relative rounded-lg overflow-hidden shadow-lg bg-black">
+                <div className="aspect-[9/16] relative">
+                  {isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+                    </div>
+                  )}
+                  <video 
+                    className="w-full h-full object-contain"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onLoadedData={handleVideoLoad}
+                  >
+                    <source src={video.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                  <h3 className="text-white font-semibold text-sm">{video.title}</h3>
+                  <p className="text-white/80 text-xs line-clamp-2">{video.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
         {/* Carousel Navigation */}
-        <div className="flex justify-center items-center mt-8 space-x-4">
+        {/* <div className="flex justify-center items-center mt-8 space-x-4">
           <button className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +271,7 @@ export default function InsightsPage() {
               />
             </svg>
           </button>
-        </div>
+        </div> */}
         
         {/* Read More button */}
         <div className="mt-10">

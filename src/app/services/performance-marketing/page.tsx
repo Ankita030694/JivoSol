@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -10,6 +11,12 @@ interface SolutionCard {
   description: string;
 }
 export default function InsightsPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   const solutions: SolutionCard[] = [
     {
       image: "/jabout1.svg",
@@ -416,6 +423,232 @@ export default function InsightsPage() {
         </div>
       </div>
       
+      {/* FAQs Section */}
+      <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+              Find answers to common questions about our performance marketing services
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {/* FAQ 1 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 0 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(0)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 0 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  What is performance marketing?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 0 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 0 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 0 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    Performance marketing is a results-driven approach where you pay only for actions like clicks, leads, or sales. We track and optimize every campaign to deliver measurable ROI.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 2 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 1 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(1)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 1 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  Which platforms do you run ads on?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 1 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 1 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 1 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    We run campaigns on Meta (Facebook & Instagram), Google Search & Display, YouTube, LinkedIn, Bing, and other top ad networks based on your audience.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 3 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 2 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(2)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 2 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  Can you manage ads for both products and services?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 2 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 2 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 2 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    Yes. We create ad strategies for e-commerce brands, service-based businesses, educators, consultants, and more.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 4 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 3 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(3)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 3 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  What's included in your ad management service?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 3 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 3 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 3 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    We handle ad strategy, keyword research, creative development, audience targeting, A/B testing, performance tracking, and ongoing optimization.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 5 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 4 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(4)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 4 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  How do you track campaign performance?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 4 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 4 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 4 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    We use tools like Meta Ads Manager, Google Analytics, Google Ads Dashboard, and heatmaps to monitor traffic, conversions, and ROI in real-time.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 6 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 5 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(5)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 5 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  What is remarketing and do you offer it?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 5 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 5 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 5 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    Yes, we do. Remarketing targets users who've visited your site or interacted with your content, helping convert warm leads into paying customers.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* FAQ 7 */}
+            <div className="mb-3">
+              <button
+                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                  ${openIndex === 6 
+                    ? 'bg-[#0a5c35] text-white shadow-lg' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                  }`}
+                onClick={() => toggleFAQ(6)}
+              >
+                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  openIndex === 6 ? 'text-white' : 'text-gray-800'
+                }`}>
+                  How soon can I see results?
+                </span>
+                <span className={`text-lg transition-colors duration-300 ${
+                  openIndex === 6 ? 'text-white' : 'text-[#0a5c35]'
+                }`}>
+                  {openIndex === 6 ? '↑' : '↓'}
+                </span>
+              </button>
+              {openIndex === 6 && (
+                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs">
+                    You may start seeing early results within 1–2 weeks, but most campaigns show strong performance after 4–6 weeks of testing and optimization.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
