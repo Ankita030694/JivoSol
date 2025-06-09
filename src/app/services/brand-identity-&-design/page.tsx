@@ -171,38 +171,38 @@ export default function InsightsPage() {
       </div>
 
       {/* Event & Print Design Section */}
-<div className="px-48 py-16 bg-[#f9f9f9]">
-  <div className="text-center mb-12">
-    <h2 className="text-3xl font-bold text-black mb-4">Event & Print Design</h2>
-    <p className="text-gray-600">
-      Explore our work in print collateral — from letterheads and newspapers to standees and bill designs.
-    </p>
-  </div>
-  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-    {[
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fa91f852f-65e9-4254-b801-321e39fc6284%20copy.png?alt=media&token=e7266c1f-29d1-4967-999a-cc428365c57e",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fac8de650-9ec8-4341-af46-ed01d52d30eb%20copy.png?alt=media&token=30bfe591-b781-4ef4-89ba-4b09ceb3d9e1",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fb01.png?alt=media&token=4c016ea1-b609-4969-8487-0fdbf21a042e",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fb02.png?alt=media&token=53b81d72-fdbf-44f9-b3a1-ba3f31288d5f",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FBILL.png?alt=media&token=c808396f-f867-4c8a-8cbd-3f46c3b5e1cd",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FLETTERHEAD.png?alt=media&token=201cf558-bffc-4819-b706-89aa699c1ebd",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fmdc.png?alt=media&token=21a4e2a1-2780-4bc7-bccf-acac7a772d77",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fnews%20paper%2002.png?alt=media&token=a0d12e03-c3a5-4fb8-baa2-6a7ef5c08029",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2Fnews%20paper%20copy.png?alt=media&token=69e7cbe4-804a-4811-8f73-b7eae65e2ee2",
-      "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/ourwork%2FSTANDEE%20(1).png?alt=media&token=69128f52-bbbc-4adc-b538-69c6595d90aa"
-    ].map((url, idx) => (
-      <div key={idx} className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition duration-300 flex items-center justify-center">
-        <Image
-          src={url}
-          alt={`Event & Print Design ${idx + 1}`}
-          width={240}
-          height={240}
-          className="object-contain w-full h-auto"
-        />
+      <div className="px-48 py-16 bg-[#f9f9f9]">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-black mb-4">Event & Print Design</h2>
+          <p className="text-gray-600">
+            Explore our work in print collateral — from letterheads and newspapers to standees and bill designs.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {[
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe01.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe02.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe03.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe04.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe05.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe06.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe07.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe08.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            // "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe14.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+            // "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe15.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a"
+          ].map((url, idx) => (
+            <div key={idx} className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition duration-300 flex items-center justify-center">
+              <Image
+                src={url}
+                alt={`Event & Print Design ${idx + 1}`}
+                width={240}
+                height={240}
+                className="object-contain w-full h-auto"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
       <div className="flex justify-center items-center py-16 w-full px-48">
             <Image src="/process2.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />

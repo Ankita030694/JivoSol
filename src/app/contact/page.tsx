@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 interface FormData {
   name: string;
@@ -74,7 +75,7 @@ export default function ContactPage() {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Leave a Message</h2>
           <p className="text-gray-600">
@@ -86,7 +87,7 @@ export default function ContactPage() {
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <div className="w-full h-full">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.2158361635466!2d77.04158387562093!3d28.41274349402743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sZeminik%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.1234567890123!2d77.12345678901234!3d28.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sSpaze%20Business%20Park%2C%20Sector%2066%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{border:0, minHeight: '400px', borderRadius: '12px'}} 
@@ -210,7 +211,7 @@ export default function ContactPage() {
       </div>
 
       {/* Moved contact information here */}
-      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex items-center gap-4 p-6 bg-white rounded-xl shadow-sm">
             <div className="bg-[#0A5C35] p-3 rounded-full flex-shrink-0">
@@ -245,9 +246,38 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-black">Our Location</h3>
-              <p className="text-gray-600">Tower B3, Spaze i-Tech Park, 140, Sector 49, Gurugram, Haryana 122018</p>
+              <p className="text-gray-600">Spaze Business park, sector 66, Tower B unit no 108, 1st floor Gurugram</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Social Media Section */}
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-semibold text-black mb-4">Connect With Us</h2>
+          <p className="text-gray-600 mb-6">Follow us on social media for the latest updates</p>
+        </div>
+        <div className="flex justify-center gap-6">
+          {[
+            { href: "https://www.facebook.com/profile.php?id=61557791590642", icon: FaFacebook },
+            { href: "https://www.instagram.com/zeminik_?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
+            { href: "https://www.youtube.com/@jivosolutions", icon: FaYoutube },
+            { href: "https://www.linkedin.com/company/zeminik/?viewAsMember=true", icon: FaLinkedin },
+          ].map((social, index) => {
+            const Icon = social.icon;
+            return (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#0A5C35] p-4 rounded-full hover:bg-[#08482a] transition-colors duration-300"
+              >
+                <Icon className="w-6 h-6 text-white" />
+              </a>
+            );
+          })}
         </div>
       </div>
 

@@ -123,10 +123,10 @@ const Footer = () => {
               Follow Us
             </span>
             {[
-              { href: "#", icon: FaFacebook },
-              { href: "#", icon: FaInstagram },
-              { href: "#", icon: FaYoutube },
-              { href: "#", icon: FaLinkedin },
+               { href: "https://www.facebook.com/profile.php?id=61557791590642", icon: FaFacebook },
+               { href: "https://www.instagram.com/zeminik_?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
+               { href: "https://www.youtube.com/@jivosolutions", icon: FaYoutube },
+               { href: "https://www.linkedin.com/company/zeminik/?viewAsMember=true", icon: FaLinkedin },
             ].map((social, index) => {
               const Icon = social.icon;
               return (

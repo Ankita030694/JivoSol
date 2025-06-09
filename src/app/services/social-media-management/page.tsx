@@ -9,6 +9,7 @@ export default function InsightsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set([0]));
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [isMuted, setIsMuted] = useState(false);
   
   const videos = [
     {
@@ -167,7 +168,7 @@ export default function InsightsPage() {
                   key={`main-${currentVideoIndex}`}
                   className="w-full h-full object-contain"
                   autoPlay
-                  muted={false}
+                  muted={isMuted}
                   loop
                   playsInline
                   onLoadedData={handleVideoLoad}
@@ -176,6 +177,22 @@ export default function InsightsPage() {
                   <source src={videos[currentVideoIndex].src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                {/* Sound Toggle Button */}
+                <button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-70 transition-all duration-300"
+                >
+                  {isMuted ? (
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>
+                  ) : (
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
+                  )}
+                </button>
               </div>
 
               {/* Next Video Preview */}

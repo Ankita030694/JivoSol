@@ -14,28 +14,26 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    id: 2,
+    id: 1,
     name: "Abhirup Biswas",
     position: "Founder, Ab Graaph Studios",
-    comment: "We had a great experience working with JIVO Solutions. We used their editing services for cinematic reels and videos for podcasts and events, and also partnered with them to build our company portfolio. Aakanksha and her team were incredibly supportive, always professional, punctual, and committed. They consistently met delivery timelines and even worked overtime to accommodate our last-minute needs. The quality of their work is top-notch, and our clients have been equally impressed with the final output. Highly recommend JIVO Solutions for anyone looking for high-quality creative and video solutions.",
+    comment: "Working with JIVO Solutions was fantastic. They handled our video editing for cinematic reels, podcasts, and events, plus helped build our company portfolio. The team was professional, punctual, and always supportive. They met all deadlines and even worked extra hours when needed. Our clients love the quality of their work. I highly recommend them for creative and video solutions.",
     image: "/bradley.jpg", // Replace with your image path
   },
   {
-    id: 1,
-    name: "Bradley Gordon",
-    position: "CEO & Founder",
-    comment: "A studio with passionate, professional and full creativity. much more than i'm expect. great services, high quality products & affordable prices. i'm extremely satisfied!.",
+    id: 2,
+    name: "Nidhi",
+    position: "Vastu Expert",
+    comment: "JIVO Solutions has really helped me grow my brand online. Their team managed my social media, did performance marketing (both Meta and Google Ads), and planned amazing content shoots. Many of my reels have hit views in the millions, with one even crossing 83 million. They understand what works and make everything look and feel just right. I'm very happy with their work and highly recommend them.",
     image: "/bradley.jpg", // Replace with your image path
   },
   {
     id: 3,
-    name: "Bradley Gordon",
-    position: "CEO & Founder",
-    comment: "A studio with passionate, professional and full creativity. much more than i'm expect. great services, high quality products & affordable prices. i'm extremely satisfied!.",
+    name: "Dr. Divya Marwaha",
+    position: "Dentist",
+    comment: "I loved working with JIVO Solutions. They managed my social media and did beautiful photo and video shoots for my clinic. The content was clean, professional, and perfect for my brand. Patients often say they found me through Instagram, and the page now feels more trusted and polished. Highly recommend them!",
     image: "/bradley.jpg", // Replace with your image path
-  },
-  
-  // Add more testimonials as needed
+  }
 ];
 
 const Brands = () => {
@@ -143,18 +141,6 @@ const Brands = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <motion.div 
-                className="w-10 h-10 relative rounded-full overflow-hidden"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
               <div>
                 <motion.h4 
                   className="font-semibold text-sm sm:text-base"
@@ -165,7 +151,7 @@ const Brands = () => {
                   {testimonial.name}
                 </motion.h4>
                 <motion.p 
-                  className="text-xs sm:text-sm text-gray-600 group-hover:text-white/80"
+                  className="text-xs sm:text-sm text-black"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.5 }}

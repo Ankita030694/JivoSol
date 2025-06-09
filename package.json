@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
     "@tiptap/extension-bullet-list": "^2.12.0",
     "@tiptap/extension-code-block": "^2.12.0",
     "@tiptap/extension-color": "^2.12.0",
@@ -46,6 +46,7 @@
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.6.0",
+    "swiper": "^11.2.8",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
