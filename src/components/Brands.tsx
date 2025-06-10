@@ -133,7 +133,7 @@ const Brands = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              "{testimonial.comment}"
+              {testimonial.comment}
             </motion.p>
             <motion.div 
               className="flex items-center gap-3"
@@ -180,29 +180,6 @@ const Brands = () => {
             </motion.div>
           </motion.div>
         ))}
-      </motion.div>
-
-      <motion.div 
-        className="flex justify-center gap-2 mt-8"
-        ref={navRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={navInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <motion.button 
-          className="w-10 h-10 rounded-full bg-[#0A5C35] text-white flex items-center justify-center shadow-sm hover:bg-[#0A5C35]/90 transition-colors"
-          whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.9 }}
-        >
-          ←
-        </motion.button>
-        <motion.button 
-          className="w-10 h-10 rounded-full bg-[#0A5C35]/20 text-[#0A5C35] flex items-center justify-center border border-[#0A5C35]/30 hover:bg-[#0A5C35]/30 transition-colors"
-          whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
-          whileTap={{ scale: 0.9 }}
-        >
-          →
-        </motion.button>
       </motion.div>
     </motion.section>
   );

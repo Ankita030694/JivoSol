@@ -123,7 +123,7 @@ const Navbar = () => {
         <Link 
           href="/" 
           className={`font-normal transition-all duration-300 ${
-            isActive('/') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+            isActive('/') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
           Home
@@ -131,7 +131,7 @@ const Navbar = () => {
         <Link 
           href="/about" 
           className={`font-normal transition-all duration-300 ${
-            isActive('/about') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+            isActive('/about') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
           About Us
@@ -141,7 +141,7 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={`font-normal transition-all duration-300 flex items-center gap-1 ${
-              isServiceActive() ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+              isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
             }`}
           >
             Services
@@ -162,7 +162,7 @@ const Navbar = () => {
                     key={index}
                     href={servicePath}
                     className={`block px-4 py-2 transition-all duration-300 hover:pl-6 relative ${
-                      isActive(servicePath) ? 'text-[#0A5C35] font-bold bg-green-50 scale-105' : 'text-gray-800 hover:bg-gray-50 hover:text-[#0A5C35] hover:scale-105'
+                      isActive(servicePath) ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
@@ -176,7 +176,7 @@ const Navbar = () => {
         <Link 
           href="/ourwork" 
           className={`font-normal transition-all duration-300 ${
-            isActive('/ourwork') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+            isActive('/ourwork') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
           Our Work
@@ -184,7 +184,7 @@ const Navbar = () => {
         <Link 
           href="/insights" 
           className={`font-normal transition-all duration-300 ${
-            isActive('/insights') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+            isActive('/insights') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
           Insights
@@ -192,7 +192,7 @@ const Navbar = () => {
         <Link 
           href="/contact" 
           className={`font-normal transition-all duration-300 ${
-            isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+            isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
           Contact Us
@@ -240,7 +240,7 @@ const Navbar = () => {
             href="/" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[0]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
             onClick={closeMobileMenu}
           >
             Home
@@ -249,7 +249,7 @@ const Navbar = () => {
             href="/about" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[1]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/about') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/about') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
             onClick={closeMobileMenu}
           >
             About Us
@@ -262,7 +262,7 @@ const Navbar = () => {
             <button 
               onClick={toggleMobileServices}
               className={`text-xl font-normal flex items-center justify-between transition-all duration-300 ${
-                isServiceActive() ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105'
+                isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
               } p-2 rounded-lg hover:bg-gray-50 w-full`}
             >
               <span>Services</span>
@@ -281,7 +281,7 @@ const Navbar = () => {
                     key={index}
                     href={servicePath}
                     className={`text-lg transition-all duration-300 hover:translate-x-2 ${
-                      isActive(servicePath) ? 'text-[#0A5C35] font-medium scale-105' : 'text-gray-600 hover:text-[#0A5C35] hover:scale-105'
+                      isActive(servicePath) ? 'text-[#0A5C35] font-medium' : 'text-gray-600 hover:text-[#0A5C35]'
                     } p-2 rounded-lg hover:bg-gray-50 block`}
                     style={{ transitionDelay: isMobileServicesOpen ? `${index * 50}ms` : '0ms' }}
                     onClick={closeMobileMenu}
@@ -297,7 +297,7 @@ const Navbar = () => {
             href="/ourwork" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[3]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
             onClick={closeMobileMenu}
           >
             Our Work
@@ -306,7 +306,7 @@ const Navbar = () => {
             href="/insights" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[4]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/insights') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
             onClick={closeMobileMenu}
           >
             Insights
@@ -315,7 +315,7 @@ const Navbar = () => {
             href="/contact" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${
               isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+            } ${isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
             onClick={closeMobileMenu}
           >
             Contact Us
@@ -324,7 +324,7 @@ const Navbar = () => {
           {/* Mobile contact button */}
           <Link href="/contact" className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${mobileMenuItemVariants[5]} ${
             isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-          } ${isActive('/contact') ? 'text-[#0A5C35] font-bold scale-105' : 'text-gray-800 hover:text-[#0A5C35] hover:scale-105 p-2 rounded-lg hover:bg-gray-50'}`}
+          } ${isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'} p-2 rounded-lg`}
             onClick={closeMobileMenu}
           >
             Contact Us

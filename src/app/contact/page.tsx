@@ -77,7 +77,6 @@ export default function ContactPage() {
 
       <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Leave a Message</h2>
           <p className="text-gray-600">
           You've built something worth seeing. Let's make sure the world does.
           </p>
@@ -87,7 +86,7 @@ export default function ContactPage() {
           <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <div className="w-full h-full">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.1234567890123!2d77.12345678901234!3d28.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23c1efdef3dd%3A0xa64d47403093d93a!2sSpaze%20Business%20Park%2C%20Sector%2066%2C%20Gurugram%2C%20Haryana!5e0!3m2!1sen!2sin!4v1747034821785!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.4958664935525!2d77.05617997573074!3d28.404290875790192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d22605251b88f%3A0x3a3287d47a73088!2sSPAZE%20BUSINESS%20PARK!5e0!3m2!1sen!2sin!4v1749532028011!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{border:0, minHeight: '400px', borderRadius: '12px'}} 
@@ -220,8 +219,12 @@ export default function ContactPage() {
               </svg>
             </div>
             <div>
-              <h3 className="font-semibold text-black">Phone Number</h3>
-              <p className="text-gray-600">202-8767-452</p>
+              <a href="tel:+918130380131">             <h3 className="font-semibold text-black">Phone Number</h3>
+              <p className="text-gray-600">
+                +91 8130380131
+                </p>
+                </a>
+ 
             </div>
           </div>
 
@@ -232,8 +235,12 @@ export default function ContactPage() {
               </svg>
             </div>
             <div>
+              <a href="mailto:info@jivosolutions.com">
               <h3 className="font-semibold text-black">Email Address</h3>
-              <p className="text-gray-600">info@jivosolution.com</p>
+              <p className="text-gray-600">
+              info@jivosolutions.com
+              </p>
+              </a>
             </div>
           </div>
 

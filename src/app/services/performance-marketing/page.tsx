@@ -68,19 +68,157 @@ export default function InsightsPage() {
           priority
         />
       </div>
-      <div
-        className="w-full px-4 py-8 md:py-16 flex justify-center items-center"
-        style={{ backgroundImage: "url('/perfmark.png')" }}
-      >
-        <Image
-          src="/herounder.svg"
-          alt="Jivo Hero"
-          width={300}
-          height={100}
-          className="w-3/4 md:w-1/2 object-contain"
-          priority
-        />
-      </div>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Main Heading - We Are Paid Media Experts */}
+          <h1 
+            className="font-bold text-gray-900 mb-8 leading-[60px] text-center"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 700,
+              fontSize: '48px',
+              lineHeight: '60px',
+              letterSpacing: '0%'
+            }}
+          >
+            We Are Paid Media Experts
+          </h1>
+          
+          {/* Subheading - Award-winning description */}
+          <p 
+            className="text-gray-600 mb-12 max-w-4xl mx-auto text-center"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 600,
+              fontSize: '16px',
+              lineHeight: '29px',
+              letterSpacing: '0%'
+            }}
+          >
+            Our award-winning paid media marketing experts are dedicated to helping businesses grow through effective digital marketing strategies. we know what it takes to drive traffic, increase conversions, and maximize roi .
+          </p>
+          
+          {/* Services Heading - We Manage And Optimize */}
+          <h2 
+            className="mb-16 text-center"
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 600,
+              fontSize: '24px',
+              lineHeight: '29px',
+              letterSpacing: '0%',
+              color: '#0A5C35'
+            }}
+          >
+            We Manage And Optimize Paid Marketing Across:
+          </h2>
+          
+          {/* Metrics Cards Container with Exact Positioning */}
+          <div className="relative mx-auto mb-20" style={{ width: '708px', height: '347px' }}>
+            {/* Spend Card - Left */}
+            <div 
+              className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300"
+              style={{
+                width: '214px',
+                height: '161px',
+                top: '162px',
+                left: '0px',
+                borderRadius: '24px 24px 0 0',
+                borderTop: '5px solid rgba(255,255,255,0.2)',
+                background: 'linear-gradient(180deg, #004826 0%, #4F9F7A 100%)',
+                padding: '32px'
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-2 opacity-90">Spend</h3>
+              <p className="text-3xl font-bold">$20,546</p>
+            </div>
+            
+            {/* Revenue Card - Middle (Tallest) */}
+            <div 
+              className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300 z-10"
+              style={{
+                width: '280px',
+                height: '347px',
+                top: '0px',
+                left: '214px',
+                borderRadius: '24px',
+                background: 'linear-gradient(180deg, #004826 0%, #4F9F7A 100%)',
+                padding: '32px'
+              }}
+            >
+              {/* Custom Image Placeholder for Up Arrow */}
+              <div className="flex items-center justify-center mb-6">
+                <div className="relative">
+                  {/* Glowing background circle */}
+                  <div className="absolute inset-0 bg-white/20 rounded-full blur-sm animate-pulse"></div>
+                  {/* Image container with subtle border */}
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-full p-4 border border-white/20">
+                    <img 
+                      src="/up.png" 
+                      alt="Revenue Growth Icon"
+                      className="w-16 h-16 object-contain drop-shadow-lg"
+                    />
+                    {/* Fallback placeholder */}
+                    <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold text-2xl hidden">
+                      ↑
+                    </div>
+                  </div>
+                  {/* Small accent dots */}
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
+                  <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-white/30 rounded-full animate-pulse delay-300"></div>
+                </div>
+              </div>
+              <h3 className="text-2xl font-semibold mb-3 opacity-90 tracking-wide">Revenue</h3>
+              <p className="text-5xl font-bold drop-shadow-md">$189,696</p>
+            </div>
+            
+            {/* ROAS Card - Right */}
+            <div 
+              className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300"
+              style={{
+                width: '214px',
+                height: '161px',
+                top: '162px',
+                right: '0px',
+                borderRadius: '24px 24px 0 0',
+                borderTop: '5px solid rgba(255,255,255,0.2)',
+                background: 'linear-gradient(180deg, #004826 0%, #4F9F7A 100%)',
+                padding: '32px'
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-2 opacity-90">ROAS</h3>
+              <p className="text-3xl font-bold">9.2</p>
+            </div>
+          </div>
+          
+          {/* Partner Logos - Custom Images */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-8 border-gray-200 -mt-30 relative z-50">
+            {/* Custom Partner Logo 1 */}
+            <div className="flex flex-col items-center group cursor-pointer relative z-50">
+              <div className="mb-4">
+                <img 
+                  src="/meta.png" 
+                  alt="Meta Partner Logo"
+                  className="h-20 w-auto object-contain group-hover:scale-110 transition-transform duration-300 relative z-50"
+                  style={{ transform: 'scale(2)' }}
+                />
+              </div>
+            </div>
+            
+            {/* Custom Partner Logo 2 */}
+            <div className="flex flex-col items-center group cursor-pointer relative z-50 ml-20">
+              <div className="mb-4">
+                <img 
+                  src="/google.png" 
+                  alt="Google Partner Logo"
+                  className="h-20 w-auto object-contain group-hover:scale-110 transition-transform duration-300 relative z-50"
+                  style={{ transform: 'scale(2)' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
       <div className="w-full flex justify-center items-center">
         <Image
           src="/heround2.svg"
