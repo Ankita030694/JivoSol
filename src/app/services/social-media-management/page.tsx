@@ -326,7 +326,7 @@ export default function InsightsPage() {
       </div>
       
       <div className="flex justify-center items-center py-16">
-        <Image src="/process.svg" alt="Jivo Hero" width={1000} height={100} className="h-full object-cover" priority />
+        <Image src="/sm1process.svg" alt="Jivo Hero" width={1000} height={100} className="h-full object-cover" priority />
       </div>
 
       <div className="flex justify-center items-center py-16 w-full">
