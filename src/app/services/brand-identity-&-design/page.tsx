@@ -22,11 +22,6 @@ const brochures = [
     thumbnail: "/brochures/thumbnails/nidhi-thumbnail.png"
   },
   {
-    title: "Krishnaveni Vastu",
-    file: "/brochures/krishnaveni-vastu.pdf",
-    thumbnail: "/brochures/thumbnails/krishnaveni-thumbnail.png"
-  },
-  {
     title: "CS Spine Brochure",
     file: "/brochures/cs-spine-brochure.pdf",
     thumbnail: "/brochures/thumbnails/cs-spine-thumbnail.png"
@@ -43,10 +38,119 @@ const brochures = [
   }
 ];
 
+// Add Modal components
+const BrandLogoModal = ({ isOpen, onClose, imageUrl }: { isOpen: boolean; onClose: () => void; imageUrl: string }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+      <div className="relative max-w-4xl w-full bg-white rounded-lg p-4">
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div className="relative h-[80vh] w-full">
+          <Image
+            src={imageUrl}
+            alt="Brand Logo"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const StationaryCarouselModal = ({ isOpen, onClose, images, startIndex }: { isOpen: boolean; onClose: () => void; images: { src: string; title: string }[]; startIndex: number }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
+
+  if (!isOpen) return null;
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+      <div className="relative max-w-4xl w-full bg-white rounded-lg p-4">
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 z-10"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <div className="text-center mb-4">
+          <h3 className="text-xl font-semibold text-gray-800">{images[currentIndex].title}</h3>
+        </div>
+
+        <div className="relative h-[80vh] w-full">
+          <Image
+            src={images[currentIndex].src}
+            alt={images[currentIndex].title}
+            fill
+            className="object-contain"
+          />
+        </div>
+
+        <div className="absolute inset-y-0 left-0 flex items-center">
+          <button
+            onClick={prevSlide}
+            className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="absolute inset-y-0 right-0 flex items-center">
+          <button
+            onClick={nextSlide}
+            className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                currentIndex === index ? 'bg-green-700' : 'bg-gray-300'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function InsightsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedBrochure, setSelectedBrochure] = useState<string | null>(null);
+  const [isBrandLogoModalOpen, setIsBrandLogoModalOpen] = useState(false);
+  const [isStationaryModalOpen, setIsStationaryModalOpen] = useState(false);
+  const [selectedStationaryIndex, setSelectedStationaryIndex] = useState(0);
+  const [isSecondBrandModalOpen, setIsSecondBrandModalOpen] = useState(false);
+  const [selectedSecondBrandIndex, setSelectedSecondBrandIndex] = useState(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -112,6 +216,26 @@ export default function InsightsPage() {
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe06.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe07.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
     "https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/b%26iservice%2Fe08.jpg?alt=media&token=c80bf9c0-2183-4219-8630-12a76b198c8a",
+  ];
+
+  const stationaryItems = [
+    { src: '/stationary/letterhead.png', title: 'Letterhead Design' },
+    { src: '/stationary/business-card.png', title: 'Business Card Design' },
+    { src: '/stationary/invoice.png', title: 'Invoice Design' },
+    { src: '/stationary/stationary-preview-1.jpeg', title: 'Stationary Preview 1' },
+    { src: '/stationary/stationary-preview-2.jpeg', title: 'Stationary Preview 2' },
+    { src: '/stationary/stationary-preview-3.jpeg', title: 'Stationary Preview 3' },
+    { src: '/stationary/stationary-preview-4.jpeg', title: 'Stationary Preview 4' },
+    { src: '/stationary/stationary-preview-5.jpeg', title: 'Stationary Preview 5' }
+  ];
+
+  const secondBrandItems = [
+    { src: '/stationary/img11.jpg', title: 'Brand Design 1' },
+    { src: '/stationary/Img12.jpg', title: 'Brand Design 2' },
+    { src: '/stationary/Img14.jpg', title: 'Brand Design 3' },
+    { src: '/stationary/img34.jpg', title: 'Brand Design 4' },
+    { src: '/stationary/img45.jpg', title: 'Brand Design 5' },
+    { src: '/stationary/img113.jpg', title: 'Brand Design 6' }
   ];
 
   return (
@@ -305,6 +429,59 @@ export default function InsightsPage() {
         </div>
       </div>
 
+      {/* Brand Stationary Kit Section */}
+      <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Brand Stationary Kit</h2>
+          <p className="text-sm md:text-base text-gray-600">
+            Professional stationary designs that elevate your brand presence
+          </p>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* First Brand Logo */}
+            <div 
+              className="cursor-pointer group"
+              onClick={() => setIsStationaryModalOpen(true)}
+            >
+              <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <Image
+                  src="/stationary/brand-logo.png"
+                  alt="Brand Logo"
+                  fill
+                  className="object-contain p-4 bg-white"
+                />
+                <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <span className="bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Brand Kit 1
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Second Brand Logo */}
+            <div 
+              className="cursor-pointer group"
+              onClick={() => setIsSecondBrandModalOpen(true)}
+            >
+              <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <Image
+                  src="/stationary/img34.jpg"
+                  alt="Second Brand Logo"
+                  fill
+                  className="object-contain p-4 bg-white"
+                />
+                <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <span className="bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Brand Kit 2
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="flex justify-center items-center py-8 md:py-16 w-full px-10">
             <Image src="/process2.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
         </div>
@@ -405,6 +582,27 @@ export default function InsightsPage() {
           </div>
         </div>
       </section>
+
+      {/* Modals */}
+      <BrandLogoModal
+        isOpen={isBrandLogoModalOpen}
+        onClose={() => setIsBrandLogoModalOpen(false)}
+        imageUrl="/stationary/brand-logo.png"
+      />
+
+      <StationaryCarouselModal
+        isOpen={isStationaryModalOpen}
+        onClose={() => setIsStationaryModalOpen(false)}
+        images={stationaryItems}
+        startIndex={selectedStationaryIndex}
+      />
+
+      <StationaryCarouselModal
+        isOpen={isSecondBrandModalOpen}
+        onClose={() => setIsSecondBrandModalOpen(false)}
+        images={secondBrandItems}
+        startIndex={selectedSecondBrandIndex}
+      />
 
       <Footer />
     </div>
