@@ -4,9 +4,49 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
+// Add brochures data
+const brochures = [
+  {
+    title: "WitWise Brochure",
+    file: "/brochures/witwise-brochure.pdf",
+    thumbnail: "/brochures/thumbnails/witwise-thumbnail.png"
+  },
+  {
+    title: "Santhosh Sir Portfolio",
+    file: "/brochures/santhosh-portfolio.pdf",
+    thumbnail: "/brochures/thumbnails/santhosh-thumbnail.png"
+  },
+  {
+    title: "Nidhi Chugh Portfolio",
+    file: "/brochures/nidhi-portfolio.pdf",
+    thumbnail: "/brochures/thumbnails/nidhi-thumbnail.png"
+  },
+  {
+    title: "Krishnaveni Vastu",
+    file: "/brochures/krishnaveni-vastu.pdf",
+    thumbnail: "/brochures/thumbnails/krishnaveni-thumbnail.png"
+  },
+  {
+    title: "CS Spine Brochure",
+    file: "/brochures/cs-spine-brochure.pdf",
+    thumbnail: "/brochures/thumbnails/cs-spine-thumbnail.png"
+  },
+  {
+    title: "Amar Portfolio",
+    file: "/brochures/amar-portfolio.pdf",
+    thumbnail: "/brochures/thumbnails/amar-thumbnail.png"
+  },
+  {
+    title: "AB Portfolio",
+    file: "/brochures/ab-portfolio.pdf",
+    thumbnail: "/brochures/thumbnails/ab-thumbnail.png"
+  }
+];
+
 export default function InsightsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedBrochure, setSelectedBrochure] = useState<string | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -272,6 +312,51 @@ export default function InsightsPage() {
       <div className="flex justify-center items-center py-8 md:py-16 w-full">
             <Image src="/result.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
         </div>
+
+      {/* Brochures Section */}
+      <section className="py-8 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Our Brochures</h2>
+            <p className="text-sm md:text-base text-gray-600">
+              Explore our collection of brochures and portfolios
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {brochures.map((brochure, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer group"
+                onClick={() => window.open(brochure.file, '_blank')}
+              >
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={brochure.thumbnail}
+                    alt={brochure.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                    <span className="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      View PDF
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{brochure.title}</h3>
+                  <div className="flex items-center text-green-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span className="text-sm">Click to view</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-8 md:py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
