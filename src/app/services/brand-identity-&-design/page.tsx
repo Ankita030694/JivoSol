@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 
 // Add brochures data
 const brochures = [
@@ -164,6 +165,14 @@ export default function InsightsPage() {
     setCurrentSlide((prev) => (prev - 1 + eventImages.length) % eventImages.length);
   };
 
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const brandLogos = [
     "/clientlogo/client1.jpg",
     "/clientlogo/client2.png",
@@ -261,15 +270,42 @@ export default function InsightsPage() {
           priority
         />
       </div>
-      
-      <div className="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-16">
-        <div className="text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">
-            Shape How Your Brand Is Seen, Understood, And Remembered
-          </h2>
-          <p className="text-sm md:text-md text-gray-600 mb-6">
-          Your brand identity is not just how you look, it's how you're remembered. At JIVO, we build sharp, strategic visual systems that define your presence and make it impossible to ignore.
+
+      {/* Brand Introduction Section */}
+      <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">Build a brand that stays remembered.</h2>
+          <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+            Your brand is more than just a logo. It's how people see, feel, and remember your business. At JIVO Solutions, we help you build a clear, memorable, and professional brand identity that creates trust, drives recall, and sets you apart in any market.
           </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {[
+              "Build trust and professionalism",
+              "Stand out in crowded markets",
+              "Communicate your values clearly",
+              "Attract your ideal customers",
+              "Stay consistent across every platform"
+            ].map((benefit, index) => (
+              <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="text-xl font-semibold mb-4 text-black">What's included?</h3>
+            <p className="text-gray-700 mb-4">
+              We offer complete branding services that cover everything from discovery to design, across digital, print, and web touchpoints.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -280,19 +316,34 @@ export default function InsightsPage() {
             We offer end-to-end branding services, from concept to final delivery — across <br className="hidden md:block" /> digital, print, and real-world experiences.
           </p>
           
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">We Manage And Optimize Paid Marketing Across:</h3>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <button className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base">
+            <button 
+              onClick={() => scrollToSection('logo-section')}
+              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+            >
               <span className="relative z-10 group-hover:text-white transition-colors">Logo designing & branding</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
-            <button className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base">
+            <button 
+              onClick={() => scrollToSection('event-section')}
+              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+            >
               <span className="relative z-10 group-hover:text-white transition-colors">Event & print design</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
-            <button className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base">
+            <button 
+              onClick={() => scrollToSection('stationary-section')}
+              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+            >
               <span className="relative z-10 group-hover:text-white transition-colors">Brand Stationery Kit</span>
+              <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
+            </button>
+            <button 
+              onClick={() => scrollToSection('brochures-section')}
+              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+            >
+              <span className="relative z-10 group-hover:text-white transition-colors">Brochures</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
           </div>
@@ -315,23 +366,12 @@ export default function InsightsPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[1, 2, 3, 4].map((num) => (
-              <Image
-                key={num}
-                src={`/jabout${num}.svg`}
-                alt={`Brand Example ${num}`}
-                width={300}
-                height={300}
-                className="w-full aspect-square object-cover rounded-lg"
-              />
-            ))}
-          </div>
+
         </div>
       </div>
 
       {/* Client Logos Section */}
-      <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
+      <div id="logo-section" className="px-4 md:px-48 py-8 md:py-16 bg-white">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Logo Designing & Branding</h2>
           <p className="text-sm md:text-base text-gray-600 mb-8">
@@ -356,7 +396,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Event & Print Design Section */}
-      <div className="px-4 md:px-48 py-8 md:py-16 bg-[#f9f9f9]">
+      <div id="event-section" className="px-4 md:px-48 py-8 md:py-16 bg-[#f9f9f9]">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Event & Print Design</h2>
           <p className="text-sm md:text-base text-gray-600">
@@ -430,7 +470,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Brand Stationary Kit Section */}
-      <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
+      <div id="stationary-section" className="px-4 md:px-48 py-8 md:py-16 bg-white">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Brand Stationary Kit</h2>
           <p className="text-sm md:text-base text-gray-600">
@@ -444,7 +484,7 @@ export default function InsightsPage() {
               className="cursor-pointer group"
               onClick={() => setIsStationaryModalOpen(true)}
             >
-              <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/stationary/brand-logo.png"
                   alt="Brand Logo"
@@ -464,7 +504,7 @@ export default function InsightsPage() {
               className="cursor-pointer group"
               onClick={() => setIsSecondBrandModalOpen(true)}
             >
-              <div className="relative h-[400px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/stationary/img34.jpg"
                   alt="Second Brand Logo"
@@ -482,17 +522,9 @@ export default function InsightsPage() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center py-8 md:py-16 w-full px-10">
-            <Image src="/process2.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
-        </div>
-
-      <div className="flex justify-center items-center py-8 md:py-16 w-full">
-            <Image src="/result.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
-        </div>
-
-      {/* Brochures Section */}
-      <section className="py-8 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Brochures Section - Moved here */}
+      <section id="brochures-section" className="py-8 md:py-16 bg-[#f9f9f9]">
+        <div className="container mx-auto px-4 md:px-48">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Our Brochures</h2>
             <p className="text-sm md:text-base text-gray-600">
@@ -534,6 +566,27 @@ export default function InsightsPage() {
           </div>
         </div>
       </section>
+
+      <div className="flex justify-center items-center py-8 md:py-16 w-[90%] mx-auto">
+            <Image src="/process2.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
+        </div>
+
+      <div className="flex justify-center items-center w-full">
+            <Image src="/result.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
+        </div>
+
+      {/* CTA Section */}
+      <div className="py-16 bg-gray-50 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Build Your Memorable Brand?</h2>
+          <p className="mb-8 text-black">Let's discuss how we can help you create a brand identity that stands out and stays remembered.</p>
+          <Link href="/contact" className="inline-block pointer-cursor">
+            <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl pointer-cursor">
+              Book a discovery call
+            </button>
+          </Link>
+        </div>
+      </div>
 
       {/* FAQ Section */}
       <section className="py-8 md:py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">

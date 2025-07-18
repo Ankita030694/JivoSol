@@ -10,7 +10,7 @@ export default function InsightsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set([0]));
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   const videos = [
@@ -319,47 +319,7 @@ export default function InsightsPage() {
             </button>
           </div>
 
-          {/* Carousel Navigation */}
-          <div className="flex justify-center items-center mt-8 space-x-4">
-            <button 
-              onClick={prevVideo}
-              className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button 
-              onClick={nextVideo}
-              className="bg-emerald-700 hover:bg-emerald-800 text-white p-3 rounded-full shadow-md transition-all duration-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
+          
         </div>
       </div>
 
@@ -543,7 +503,7 @@ export default function InsightsPage() {
       </div>
       
       {/* Results Section */}
-      <div className="flex justify-center items-center py-16 w-full">
+      <div className="flex justify-center items-center w-full">
         <Image src="/result.svg" alt="Results" width={1000} height={100} className="w-full h-full object-cover" priority />
       </div>
 

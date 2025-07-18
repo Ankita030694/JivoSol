@@ -67,19 +67,18 @@ export default function InsightsPage() {
         />
       </div>
 
-      {/* Content Section */}
+      {/* Hero Section */}
       <div className="bg-[#ECECEC] py-16">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-4xl font-bold mb-6 text-black">
-            Your Website Is Your Brand's <br /> Digital Home
+            Build a website that performs and gets found
           </h2>
-          <p className="text-md mb-12 text-black">
-            At JIVO, we design and develop fast, functional, and search-optimized websites that
-            are easy to navigate, easy to find, and built to convert.
+          <p className="text-lg mb-12 text-black leading-relaxed">
+            Your website is your brand's digital home. At JIVO Solutions, we design and develop websites that are fast, mobile-responsive, easy to navigate, and built to convert. Every website is backed by strong SEO foundations so it's discoverable too.
           </p>
           
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-[#006B3F]">We Build On</h3>
+            <h3 className="text-2xl font-semibold text-black">Platforms we build on</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {['WordPress', 'Webflow', 'Shopify', 'HTML/CSS', 'React'].map((tech) => (
                 <button
@@ -94,6 +93,175 @@ export default function InsightsPage() {
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* What We Offer Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">What We Offer</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Web Design & Development",
+                description: "From layout to launch, we build user-friendly websites that reflect your brand and are optimized for performance, speed, and scalability."
+              },
+              {
+                title: "Front-End & Back-End Development",
+                description: "We use the latest technologies like HTML, CSS, JavaScript, React, and PHP to build smooth, secure, and scalable websites."
+              },
+              {
+                title: "Responsive Design",
+                description: "Every site we build is mobile-optimized to ensure your brand looks perfect on every screen, from desktop to smartphone."
+              },
+              {
+                title: "eCommerce Development",
+                description: "We create custom online stores on Shopify, WooCommerce, or custom platforms with smooth UX, secure payments, and easy inventory management."
+              },
+              {
+                title: "SEO (Search Engine Optimization)",
+                description: "We optimize your website structure, content, and code for better visibility on search engines like Google, helping you rank higher and get found faster."
+              }
+            ].map((service, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{service.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* What Is SEO Section */}
+      <div className="py-16 bg-[#ECECEC]">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-8 text-black">What Is SEO?</h2>
+          <p className="text-lg mb-8 text-black leading-relaxed">
+            SEO, or Search Engine Optimization, is the process of improving your website to increase its visibility on search engines like Google.
+          </p>
+          <p className="text-lg mb-8 text-black font-semibold">An optimized website helps you:</p>
+          <ul className="space-y-4 mb-8">
+            {[
+              "Rank higher in search results",
+              "Attract more organic traffic",
+              "Target the right audience with the right keywords",
+              "Improve user experience and conversion rates"
+            ].map((benefit, index) => (
+              <li key={index} className="flex items-center text-black">
+                <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <p className="text-lg text-black leading-relaxed">
+            At JIVO, we offer both on-page and off-page SEO strategies to boost your digital presence and grow your business online.
+          </p>
+        </div>
+      </div>
+
+      {/* SEO Services Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* On-Page SEO */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#006B3F]">On-Page SEO Services</h3>
+              <p className="text-gray-700 mb-6">
+                We optimize the elements within your website to improve its search engine ranking.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Keyword research & mapping",
+                  "Title tags & meta descriptions",
+                  "Header tags (H1, H2, H3)",
+                  "Image optimization (alt text, file names)",
+                  "Internal linking strategy",
+                  "URL structure optimization",
+                  "Page speed improvements",
+                  "Schema markup integration",
+                  "Mobile-friendliness & Core Web Vitals"
+                ].map((service, index) => (
+                  <li key={index} className="flex items-center text-gray-700">
+                    <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Off-Page SEO */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 text-[#006B3F]">Off-Page SEO Services</h3>
+              <p className="text-gray-700 mb-6">
+                We help build your website's credibility and authority outside of your website.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Backlink building from high-authority websites",
+                  "Local SEO (Google Business Profile optimization)",
+                  "Guest posting & digital PR",
+                  "Directory submissions",
+                  "Competitor backlink analysis",
+                  "Social signals and content distribution",
+                  "Brand mentions & reputation management"
+                ].map((service, index) => (
+                  <li key={index} className="flex items-center text-gray-700">
+                    <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* We Specialize Section */}
+      <div className="flex justify-center items-center py-16 w-full px-48">
+        <Image src="/specialize.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+      </div>
+
+      {/* Process Section */}
+      <div className="py-16 bg-[#ECECEC]">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Web Development & SEO Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Discovery & Planning",
+                description: "We start by understanding your business goals, target audience, and technical needs. This forms the foundation for your website strategy."
+              },
+              {
+                step: "2",
+                title: "Design & Wireframes",
+                description: "Our UI/UX experts create user-friendly, visually compelling wireframes and mockups tailored to your brand."
+              },
+              {
+                step: "3",
+                title: "Development & Testing",
+                description: "We build the website using clean code and test across devices and browsers for speed, security, and performance."
+              },
+              {
+                step: "4",
+                title: "SEO Integration",
+                description: "We set up on-page SEO best practices and configure tools like Google Analytics, Search Console, and XML sitemaps."
+              },
+              {
+                step: "5",
+                title: "Launch & Optimization",
+                description: "Once live, we monitor performance and continuously improve your SEO and user experience to keep your site competitive."
+              }
+            ].map((process, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-[#006B3F] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                  {process.step}
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-black">{process.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{process.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -155,12 +323,65 @@ export default function InsightsPage() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center py-16 w-full px-48">
-        <Image src="/specialize.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+      {/* Results Section */}
+      <div className="flex justify-center items-center w-full">
+        <Image src="/result.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
       </div>
 
-      <div className="flex justify-center items-center py-16 w-full">
-        <Image src="/result.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+      {/* Why Choose JIVO Section */}
+      <div className="py-16 bg-[#ECECEC]">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">Why Choose JIVO for Web Development & SEO?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Custom-Built",
+                description: "Every website is designed around your goals, your audience, and your brand personality."
+              },
+              {
+                title: "Fast, Functional & Responsive",
+                description: "We develop websites with lightweight code, responsive frameworks, and speed optimization techniques for fast load times across all devices."
+              },
+              {
+                title: "SEO-Optimized From Day One",
+                description: "Our websites follow best practices for technical SEO, including clean URL structures, schema markup, core web vitals optimization, XML sitemaps, and seamless integration with Google Search Console and GA4 so your site is built to rank."
+              },
+              {
+                title: "End-to-End Expertise",
+                description: "We handle everything from domain registration and SSL certificate setup to back-end configuration, CMS implementation (WordPress, Webflow, Shopify), and CDN setup (Cloudflare, AWS)."
+              },
+              {
+                title: "One Point of Contact",
+                description: "You'll work with a dedicated manager who oversees your project from start to finish, ensuring clear communication and smooth execution."
+              },
+              {
+                title: "Built to Scale",
+                description: "Our sites are made to grow with your business, easy to update, expand, and integrate with tools like CRMs, payment gateways, and marketing platforms."
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{feature.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="py-16 bg-[#006B3F]">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl font-bold mb-6 text-white">Ready to Build Your Digital Presence?</h2>
+          <p className="text-lg mb-8 text-white">
+            Let's discuss your project and create a website that drives results.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-white text-[#006B3F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+          >
+            Book a discovery call
+          </Link>
+        </div>
       </div>
 
       {/* FAQ Section */}
