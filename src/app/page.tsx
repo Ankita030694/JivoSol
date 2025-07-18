@@ -61,9 +61,7 @@ export default function Home() {
       <WhyUs />
       <OurSolution />
       <Brands />
-      <div className="-mt-30">
-        <Form />
-      </div>
+      <Form />
       <FAQ />
       <Footer />
     </div>

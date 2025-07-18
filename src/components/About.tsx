@@ -126,7 +126,7 @@ const About = () => {
   }, [inView, videos.length]);
 
   return (
-    <section className="py-16 px-4 text-center overflow-hidden">
+    <section className="py-8 px-4 text-center overflow-hidden">
       {/* About Us Header */}
       <motion.div 
         initial={{ opacity: 0, y: -30 }}
@@ -176,7 +176,7 @@ const About = () => {
         transition={{ delay: 1.1 }}>
         <Link 
           href="/about"
-          className="inline-flex items-center bg-[#005F33] text-white px-6 py-3 rounded-full mb-16 hover:bg-[#004525] transition-colors"
+          className="inline-flex items-center bg-[#005F33] text-white px-6 py-3 rounded-full mb-12 hover:bg-[#004525] transition-colors"
         >
           Learn More
           <motion.svg 

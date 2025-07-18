@@ -110,13 +110,13 @@ const Brands = () => {
   
   return (
     <motion.section 
-      className="pt-16 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]"
+      className="pt-8 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.div 
-        className="text-center mb-12"
+        className="text-center mb-8"
         ref={headerRef}
         variants={staggerContainer}
         initial="hidden"
@@ -130,7 +130,7 @@ const Brands = () => {
         <motion.h2 
           className="text-3xl sm:text-4xl font-bold mb-4 text-black"
         >
-          Brands That Grew With JIVO
+          Brands that grew with JIVO
         </motion.h2>
         <motion.p 
           className="text-gray-600 max-w-2xl mx-auto"
@@ -141,7 +141,7 @@ const Brands = () => {
 
       <div className="relative">
         <motion.div 
-          className="flex flex-col md:flex-row gap-6 justify-center items-center"
+          className="flex flex-col md:flex-row gap-6 justify-center items-stretch"
           ref={testimonialsRef}
           variants={staggerContainer}
           initial="hidden"
@@ -150,8 +150,8 @@ const Brands = () => {
           {visibleTestimonials.map((testimonial, index) => (
             <motion.div
               key={`${testimonial.id}-${currentIndex}`}
-              className="cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 max-w-md
-                bg-white text-black border border-gray-200 hover:bg-[#0A5C35] hover:text-white hover:shadow-lg"
+              className="cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 flex-1 max-w-md
+                bg-white text-black border border-gray-200 hover:bg-[#0A5C35] hover:text-white hover:shadow-lg flex flex-col"
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
@@ -159,12 +159,12 @@ const Brands = () => {
               }}
             >
               <motion.p 
-                className="text-sm sm:text-base mb-4 sm:mb-5 leading-relaxed"
+                className="text-sm sm:text-base mb-4 sm:mb-5 leading-relaxed flex-grow"
               >
                 {testimonial.comment}
               </motion.p>
               <motion.div 
-                className="flex items-center gap-3"
+                className="flex items-center gap-3 mt-auto"
               >
                 <div>
                   <motion.h4 

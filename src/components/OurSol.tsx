@@ -5,42 +5,42 @@
     const services = [
       {
         link: '/services/brand-identity-&-design',
-        name: 'BRAND IDENTITY & DESIGN',
+        name: 'Brand identity & design',
         icon: '/servicesicons/Brand.png',
         description: 'Build a consistent visual identity across all platforms.',
         highlighted: false
       },
       {
         link: '/services/performance-marketing',
-        name: 'PERFORMANCE MARKETING',
+        name: 'Performance marketing',
         icon: '/servicesicons/Per Marketing.png',
         description: 'Drive measurable results through data-driven strategies.',
         highlighted: false
       },
       {
         link: '/services/content-creation-&-production',
-        name: 'CONTENT CREATION & PROD.',
+        name: 'Content creation & prod.',
         icon: '/servicesicons/Content.png',
         description: 'Tell stories that connect, educate, & resonate with your audience.',
         highlighted: false
       },
       {
         link: '/services/social-media-management',
-        name: 'SOCIAL MEDIA MANAGEMENT',
+        name: 'Social media management',
         icon: '/servicesicons/Social.png',
         description: 'Engage your audience and grow your brand presence.',
         highlighted: false
       },
       {
         link: '/services/web-development-&-seo',
-        name: 'WEBSITE DEVELOPMENT & SEO',
+        name: 'Website development & SEO',
         icon: '/servicesicons/Webstie.png',
         description: 'Online presence for visibility and performance.',
         highlighted: false
       },
       {
         link: '/services/video-&-animation',
-        name: 'VIDEO AND ANIMATION',
+        name: 'Video and animation',
         icon: '/servicesicons/Video.png',
         description: 'Create compelling visual content that captivates.',
         highlighted: false
@@ -48,7 +48,7 @@
     ];
 
     return (
-      <section className="relative w-full max-w-[1440px] mx-auto py-16">
+      <section className="relative w-full max-w-[1440px] mx-auto py-8">
         <h1 className="text-center text-4xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-12">
           <span className="text-black">Everything you need to be </span>
           <span className="text-[#055e31]">seen</span>
@@ -74,8 +74,8 @@
                     height={300}
                   />
                 </div>
-                {/* Left line */}
-                <div className="flex-grow h-[2px] bg-[#055e31] transition-all duration-500 group-hover:mr-4 mr-0 opacity-0 group-hover:opacity-100" style={{ maxWidth: '100vw' }}></div>
+                {/* Left line - now extends to the edge */}
+                <div className="flex-grow h-[2px] bg-[#055e31] transition-all duration-500 group-hover:mr-4 mr-0 opacity-0 group-hover:opacity-100"></div>
                 {/* Service Name */}
                 <a
                   href={service.link}
@@ -87,12 +87,12 @@
                     {service.name}
                   </div>
                 </a>
-                {/* Right line and Description above it */}
+                {/* Right line - now extends to the edge */}
                 <div className="relative flex-grow flex flex-col items-end justify-center">
                   <div className="h-[2px] bg-[#055e31] transition-all duration-500 group-hover:ml-4 ml-0 opacity-0 group-hover:opacity-100 w-full"></div>
-                  {/* Description above the right line, aligned right, never overflowing */}
-                  <div className="absolute -top-14 right-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 z-10 max-w-[90vw] w-[420px] flex justify-center">
-                    <p className="text-sm text-black p-4 text-left w-full">
+                  {/* Description above the right line, right-aligned */}
+                  <div className="absolute -top-14 right-0 opacity-0 group-hover:opacity-100 transition-all duration-500 z-10 max-w-[420px] w-full">
+                    <p className="text-sm text-black p-4 text-right">
                       {service.description}
                     </p>
                   </div>
