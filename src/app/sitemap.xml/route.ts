@@ -9,6 +9,16 @@ interface Blog {
   created: number;
 }
 
+// Helper function to encode URLs for XML
+function encodeUrlForXml(url: string): string {
+  return url
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET() {
   try {
     // Static pages
@@ -147,7 +157,7 @@ export async function GET() {
 ${allPages
   .map(
     (page) => `  <url>
-    <loc>${page.url}</loc>
+    <loc>${encodeUrlForXml(page.url)}</loc>
     <lastmod>${page.lastModified.toISOString()}</lastmod>
     <changefreq>${page.changeFrequency}</changefreq>
     <priority>${page.priority}</priority>
