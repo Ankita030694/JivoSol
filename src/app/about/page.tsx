@@ -165,7 +165,7 @@ export default function InsightsPage() {
       <div className="w-full py-12 flex md:hidden flex-col items-center px-4 max-w-[95%] mx-auto">
         <div className="relative w-64 h-80 mb-8 rounded-lg overflow-hidden shadow-lg">
           <Image
-            src="/Akansha.png"
+            src="/akanksha.jpeg"
             alt="Founder"
             fill
             className="object-cover"
