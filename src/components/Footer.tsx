@@ -90,7 +90,7 @@ const Footer = () => {
               Head office
             </h4>
             <p className="mb-4">
-              Space business park, Sector 66, Gurugram, Haryana 122102
+            Spaze Business park, sector 66, Tower B unit no 108, 1st floor Gurugram
             </p>
             <a
               href="mailto:info@jivosolutions.com"
@@ -99,10 +99,10 @@ const Footer = () => {
               info@jivosolutions.com
             </a>
             <a 
-              href="tel:+919844494599" 
+              href="tel:+918130380131" 
               className="text-[#7AA792] block"
             >
-              +91 9844494599
+              +91 8130380131
             </a>
           </div>
         </div>
