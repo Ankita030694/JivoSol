@@ -120,27 +120,27 @@ export default function InsightsPage() {
 
       {/* Founder Section - Desktop */}
       <div className="w-full py-16 hidden md:flex flex-row items-start max-w-[90%] mx-auto">
-        <div className="w-1/2 p-5 flex flex-col justify-center text-left">
+        <div className="w-2/3 p-5 flex flex-col justify-center text-left">
           <h2 className="text-4xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
           <p className="text-xl mb-6 text-black">Founder</p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             I am Aakanksha Chugh, Founder of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO.
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we&apos;ve worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
           </p>
           
-          <p className="text-sm italic mb-4 text-black">
+          <p className="text-sm italic mb-4 text-black text-justify">
             &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
           </p>
           
@@ -149,16 +149,13 @@ export default function InsightsPage() {
           </p>
         </div>
         
-        <div className="w-1/2">
-          <div className="relative w-full h-[700px]">
+        <div className="w-1/3 flex justify-center items-center">
+          <div className="relative w-full h-full min-h-[600px]">
             <Image
-              src="https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/misc%2FAkansha.svg?alt=media&token=d84fbb9c-896c-45d8-8e93-2954b45b0f19"
+              src="/akanksha.jpeg"
               alt="Founder"
               fill
-              className="object-cover rounded-lg rounded-r-none"
-              style={{
-                clipPath: 'inset(0 0 0 0 round 16px 0 0 16px)'
-              }}
+              className="object-cover rounded-lg shadow-lg"
             />
           </div>
         </div>
@@ -166,7 +163,7 @@ export default function InsightsPage() {
       
       {/* Founder Section - Mobile */}
       <div className="w-full py-12 flex md:hidden flex-col items-center px-4 max-w-[95%] mx-auto">
-        <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden shadow-md">
+        <div className="relative w-64 h-80 mb-8 rounded-lg overflow-hidden shadow-lg">
           <Image
             src="/Akansha.png"
             alt="Founder"
@@ -179,43 +176,41 @@ export default function InsightsPage() {
           <h2 className="text-3xl font-bold mb-2 text-black">Aakanksha Chugh</h2>
           <p className="text-xl mb-6 text-black">Founder</p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             I Am Aakanksha Chugh, Founder Of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 50 businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting And Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we&apos;ve worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
           </p>
           
-          <p className="text-sm mb-6 text-black">
+          <p className="text-sm mb-6 text-black text-justify">
             I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
           </p>
           
-          <p className="text-sm italic mb-4 text-black">
+          <p className="text-sm italic mb-4 text-black text-justify">
             &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
-          </p>
-          
-          <p className="text-sm text-black">
-            - Aakanksha Chugh
           </p>
         </div>
       </div>
 
       <div ref={statsRef} className="flex flex-wrap justify-between max-w-full p-12 bg-[#ECECEC]">
-          {stats.map((stat, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg w-[220px] m-2">
-              <p className="text-sm text-black mb-3">{stat.label}</p>
-              <p className="text-[#0A5C35] text-5xl font-bold">
+        {stats.map((stat, index) => (
+          <div key={index} className="bg-white p-6 rounded-lg w-[220px] m-2">
+            <p className="text-sm text-black mb-3">{stat.label}</p>
+            <p className="text-[#0A5C35] text-5xl font-bold transition-all duration-300">
+              <span className="inline-block">
                 {counters[index]}
-                {stat.label === "Client Retention Rate" ? "%" : "+"}
-              </p>
-            </div>
-          ))}
-        </div>
+              </span>
+              {stat.label === "Client Retention Rate" ? "%" : "+"}
+            </p>
+          </div>
+        ))}
+      </div>
 
       <div className="w-full py-16 flex flex-col items-center justify-center">
         <div className="w-full px-6 md:px-12 max-w-4xl mx-auto text-center">

@@ -174,14 +174,6 @@ const Navbar = () => {
           )}
         </div>
         <Link 
-          href="/ourwork" 
-          className={`font-normal transition-all duration-300 ${
-            isActive('/ourwork') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
-          }`}
-        >
-          Our Work
-        </Link>
-        <Link 
           href="/insights" 
           className={`font-normal transition-all duration-300 ${
             isActive('/insights') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
