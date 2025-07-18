@@ -8,41 +8,41 @@ import Link from "next/link";
 
 // Client logos array from local public folder
 const clientLogos = [
-    "/clientlogo/1.jpg",
-    "/clientlogo/2.jpg",
-    "/clientlogo/3.jpeg",
-    "/clientlogo/4.jpg",
-    "/clientlogo/5.jpg",
-    "/clientlogo/6.jpg",
-    "/clientlogo/7.jpg",
-    "/clientlogo/8.jpg",
-    "/clientlogo/9.jpg",
-    "/clientlogo/10.jpg",
-    "/clientlogo/11.jpg",
-    "/clientlogo/12.jpg",
-    "/clientlogo/13.jpg",
-    "/clientlogo/14.jpg",
-    "/clientlogo/15.jpg",
-    "/clientlogo/16.jpg",
-    "/clientlogo/17.jpg",
-    "/clientlogo/18.jpg",
-    "/clientlogo/19.jpg",
-    "/clientlogo/20.jpg",
-    "/clientlogo/21.jpg",
-    "/clientlogo/22.jpg",
-    "/clientlogo/23.jpg",
-    "/clientlogo/24.jpg",
-    "/clientlogo/25.jpg",
-    "/clientlogo/26.jpg",
-    "/clientlogo/27.jpg",
-    "/clientlogo/28.jpg",
-    "/clientlogo/29.jpg",
-    "/clientlogo/30.jpg",
-    "/clientlogo/32.jpg",
-    "/clientlogo/33.jpg",
-    "/clientlogo/34.jpg",
-    "/clientlogo/35.jpg",
-    "/clientlogo/36.jpg"
+    "/clientlogos/1.jpeg",
+    "/clientlogos/2.jpeg",
+    "/clientlogos/3.jpeg",
+    "/clientlogos/4.jpeg",
+    "/clientlogos/5.jpeg",
+    "/clientlogos/6.jpeg",
+    "/clientlogos/7.jpeg",
+    "/clientlogos/8.jpeg",
+    "/clientlogos/9.jpeg",
+    "/clientlogos/10.jpeg",
+    "/clientlogos/11.jpeg",
+    "/clientlogos/12.jpeg",
+    "/clientlogos/13.jpeg",
+    "/clientlogos/14.jpeg",
+    "/clientlogos/15.jpeg",
+    "/clientlogos/16.jpeg",
+    "/clientlogos/17.jpeg",
+    "/clientlogos/18.jpeg",
+    "/clientlogos/19.jpeg",
+    "/clientlogos/20.jpeg",
+    "/clientlogos/21.jpeg",
+    "/clientlogos/22.jpeg",
+    "/clientlogos/23.jpeg",
+    "/clientlogos/24.jpeg",
+    "/clientlogos/25.jpeg",
+    "/clientlogos/26.jpeg",
+    "/clientlogos/27.jpeg",
+    "/clientlogos/28.jpeg",
+    "/clientlogos/29.jpeg",
+    "/clientlogos/30.jpeg",
+    "/clientlogos/31.jpeg",
+    "/clientlogos/32.jpeg",
+    "/clientlogos/33.jpeg",
+    "/clientlogos/34.jpeg",
+    "/clientlogos/35.jpeg"
 ];
 
 export { clientLogos };
@@ -213,9 +213,9 @@ const WhyUs = () => {
                 width={0}
                 height={0}
                 sizes="200px"
-                quality={100}
+                quality={1000}
                 unoptimized={true}
-                className="inline-block mx-4 w-[200px] h-[120px] object-contain" 
+                className="inline-block mx-4 w-[100px] h-[100px] object-contain" 
                 style={{
                   filter: 'none',
                   transform: 'translateZ(0)'
