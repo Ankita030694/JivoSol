@@ -10,7 +10,7 @@ import Link from "next/link";
 const clientLogos = [
     "/clientlogo/1.jpg",
     "/clientlogo/2.jpg",
-    "/clientlogo/3.jpg",
+    "/clientlogo/3.jpeg",
     "/clientlogo/4.jpg",
     "/clientlogo/5.jpg",
     "/clientlogo/6.jpg",
@@ -205,7 +205,22 @@ const WhyUs = () => {
         >
          <Marquee speed={100} gradient={false} direction="left">
             {clientLogos.map((url, idx) => (
-              <Image key={idx} src={url} alt="Client Logo" width={120} height={80} className="inline-block mx-4 object-contain" />
+              <Image 
+                key={idx} 
+                src={url} 
+                alt="Client Logo" 
+                fill={false}
+                width={0}
+                height={0}
+                sizes="200px"
+                quality={100}
+                unoptimized={true}
+                className="inline-block mx-4 w-[200px] h-[120px] object-contain" 
+                style={{
+                  filter: 'none',
+                  transform: 'translateZ(0)'
+                }}
+              />
             ))}
           </Marquee>
         </div>
