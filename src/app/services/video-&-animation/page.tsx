@@ -84,10 +84,10 @@ export default function InsightsPage() {
       
       <div className="w-full bg-white py-16 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center mb-12">
-          <h2 className="text-4xl font-bold mb-6 text-[#0a5c35]">
+          <h2 className="text-4xl font-bold mb-6 text-black">
             Turn viewers into customers with powerful visual content
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          <p className="mb-4 text-black max-w-4xl mx-auto">
             In a world of short attention spans, video is the fastest and most effective way to engage your audience. 
             At JIVO Solutions, we create high-quality videos and animations that not only look great but also drive results, 
             whether it's building brand awareness, simplifying your pitch, or boosting conversions.
@@ -97,7 +97,7 @@ export default function InsightsPage() {
           </p>
           
           <div className="bg-gradient-to-r from-[#0a5c35]/5 to-[#006400]/5 p-8 rounded-lg border border-[#0a5c35]/10">
-            <h3 className="text-2xl font-bold mb-6 text-[#0a5c35]">
+            <h3 className="text-2xl font-bold mb-6 text-black">
               Great video content helps you:
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
@@ -117,7 +117,7 @@ export default function InsightsPage() {
                 <span className="text-[#006400] text-xl font-bold">•</span>
                 <p className="font-semibold text-gray-800">Improve website dwell time and SEO rankings</p>
               </div>
-              <div className="flex items-start gap-3 md:col-span-2">
+              <div className="flex items-start gap-3">
                 <span className="text-[#006400] text-xl font-bold">•</span>
                 <p className="font-semibold text-gray-800">Increase sales and conversions</p>
               </div>
@@ -358,7 +358,7 @@ export default function InsightsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
-              Frequently Asked Questions
+              FAQs
             </h2>
             <p className="text-gray-700 text-sm max-w-2xl mx-auto">
               Find answers to common questions about our video and animation services

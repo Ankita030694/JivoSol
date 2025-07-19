@@ -68,7 +68,6 @@ const Footer = () => {
             <ul className="space-y-2">
               {[
                 { href: "/about", text: "About Us" },
-                { href: "/ourwork", text: "Our Work" },
                 { href: "/insights", text: "Insights" },
                 { href: "/contact", text: "Contact" },
               ].map((link, index) => (
@@ -90,7 +89,7 @@ const Footer = () => {
               Head office
             </h4>
             <p className="mb-4">
-            Spaze Business park, sector 66, Tower B unit no 108, 1st floor Gurugram
+            Unit No.108, Tower B, 1st Floor, Space Business Park, Sector 66, Gurugram
             </p>
             <a
               href="mailto:info@jivosolutions.com"
@@ -124,7 +123,7 @@ const Footer = () => {
             </span>
             {[
                { href: "https://www.facebook.com/profile.php?id=61557791590642", icon: FaFacebook },
-               { href: "https://www.instagram.com/zeminik_?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
+               { href: "https://www.instagram.com/jivosolutions?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
                { href: "https://www.youtube.com/@jivosolutions", icon: FaYoutube },
                { href: "https://www.linkedin.com/company/zeminik/?viewAsMember=true", icon: FaLinkedin },
             ].map((social, index) => {

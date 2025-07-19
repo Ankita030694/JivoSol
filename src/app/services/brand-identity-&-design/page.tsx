@@ -275,29 +275,48 @@ export default function InsightsPage() {
       <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">Build a brand that stays remembered.</h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+          <p className="mb-4 text-black max-w-4xl mx-auto">
             Your brand is more than just a logo. It's how people see, feel, and remember your business. At JIVO Solutions, we help you build a clear, memorable, and professional brand identity that creates trust, drives recall, and sets you apart in any market.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {[
-              "Build trust and professionalism",
-              "Stand out in crowded markets",
-              "Communicate your values clearly",
-              "Attract your ideal customers",
-              "Stay consistent across every platform"
-            ].map((benefit, index) => (
-              <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+          <div className="flex flex-col gap-6 mb-8">
+            {/* First row: 3 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                "Build trust and professionalism",
+                "Stand out in crowded markets",
+                "Communicate your values clearly"
+              ].map((benefit, index) => (
+                <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
                   </div>
-                  <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* Second row: 2 cards centered */}
+            <div className="flex justify-center gap-6">
+              {[
+                "Attract your ideal customers",
+                "Stay consistent across every platform"
+              ].map((benefit, index) => (
+                <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200 min-w-[250px]">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="bg-gray-50 p-6 rounded-lg">
@@ -578,7 +597,7 @@ export default function InsightsPage() {
       {/* CTA Section */}
       <div className="py-16 bg-gray-50 text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Build Your Memorable Brand?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Build a Memorable Brand?</h2>
           <p className="mb-8 text-black">Let's discuss how we can help you create a brand identity that stands out and stays remembered.</p>
           <Link href="/contact" className="inline-block pointer-cursor">
             <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl pointer-cursor">
@@ -593,7 +612,7 @@ export default function InsightsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
-              Frequently Asked Questions
+              FAQs
             </h2>
             <p className="text-gray-700 text-xs md:text-sm max-w-2xl mx-auto">
               Find answers to common questions about our brand identity and design services

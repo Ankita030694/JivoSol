@@ -123,7 +123,7 @@ const Brands = () => {
         animate={headerInView ? "visible" : "hidden"}
       >
         <motion.p 
-          className="text-[#0A5C35] font-medium mb-2 text-sm tracking-wide"
+          className="text-[#0A5C35] text-lg"
         >
           Client Testimonials
         </motion.p>

@@ -5,42 +5,42 @@
     const services = [
       {
         link: '/services/brand-identity-&-design',
-        name: 'Brand identity & design',
+        name: 'Brand Identity & Design',
         icon: '/servicesicons/Brand.png',
         description: 'Build a consistent visual identity across all platforms.',
         highlighted: false
       },
       {
         link: '/services/performance-marketing',
-        name: 'Performance marketing',
+        name: 'Performance Marketing',
         icon: '/servicesicons/Per Marketing.png',
         description: 'Drive measurable results through data-driven strategies.',
         highlighted: false
       },
       {
         link: '/services/content-creation-&-production',
-        name: 'Content creation & prod.',
+        name: 'Content Creation & Production',
         icon: '/servicesicons/Content.png',
         description: 'Tell stories that connect, educate, & resonate with your audience.',
         highlighted: false
       },
       {
         link: '/services/social-media-management',
-        name: 'Social media management',
+        name: 'Social Media Management',
         icon: '/servicesicons/Social.png',
         description: 'Engage your audience and grow your brand presence.',
         highlighted: false
       },
       {
         link: '/services/web-development-&-seo',
-        name: 'Website development & SEO',
+        name: 'Website Development & SEO',
         icon: '/servicesicons/Webstie.png',
         description: 'Online presence for visibility and performance.',
         highlighted: false
       },
       {
         link: '/services/video-&-animation',
-        name: 'Video and animation',
+        name: 'Video & Animation',
         icon: '/servicesicons/Video.png',
         description: 'Create compelling visual content that captivates.',
         highlighted: false
@@ -49,14 +49,14 @@
 
     return (
       <section className="relative w-full max-w-[1440px] mx-auto py-8">
-        <h1 className="text-center text-4xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-12">
+        <h1 className="text-center text-4xl font-extrabold font-['Poppins',Helvetica] leading-[69.2px] mb-4">
           <span className="text-black">Everything you need to be </span>
           <span className="text-[#055e31]">seen</span>
           <span className="text-black"> and </span>
           <span className="text-[#055e31]">remembered</span>
         </h1>
 
-        <p className="text-xl text-[#596475] font-['Poppins',Helvetica] text-center mb-16">
+        <p className="text-xl text-[#596475] font-['Poppins',Helvetica] text-center mb-12">
           We help brands build and scale their digital presence through:
         </p>
 

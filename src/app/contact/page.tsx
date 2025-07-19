@@ -77,7 +77,7 @@ export default function ContactPage() {
 
       <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 py-8 md:py-8">
         <div className="text-center mb-8">
-          <p className="text-gray-600">
+          <p className="text-xl font-bold mb-6 text-black">
           You've built something worth seeing. Let's make sure the world does.
           </p>
         </div>
@@ -253,7 +253,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-black">Our Location</h3>
-              <p className="text-gray-600">Spaze Business park, sector 66, Tower B unit no 108, 1st floor Gurugram</p>
+              <p className="text-gray-600">Unit No.108, Tower B, 1st Floor, Space Business Park, Sector 66, Gurugram</p>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ export default function ContactPage() {
         <div className="flex justify-center gap-6">
           {[
             { href: "https://www.facebook.com/profile.php?id=61557791590642", icon: FaFacebook },
-            { href: "https://www.instagram.com/zeminik_?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
+            { href: "https://www.instagram.com/jivosolutions?igsh=bzZxZTV0M2NkcW1l&utm_source=qr", icon: FaInstagram },
             { href: "https://www.youtube.com/@jivosolutions", icon: FaYoutube },
             { href: "https://www.linkedin.com/company/zeminik/?viewAsMember=true", icon: FaLinkedin },
           ].map((social, index) => {

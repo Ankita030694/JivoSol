@@ -129,7 +129,7 @@ export default function InsightsPage() {
       </div>
       
       {/* Hero Content Section */}
-      <div className="py-16 mx-auto text-center">
+      <div className="py-8 mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6 text-black">Be Seen. Be Trusted. Be Talked About.</h2>
         <p className="mb-4 text-black max-w-4xl mx-auto">
           Your social media presence is often your first impression, before someone even visits your website. That's why our social media management service helps brands go beyond basic posts and build real digital influence, with Instagram, LinkedIn, Facebook, and more.
@@ -139,7 +139,7 @@ export default function InsightsPage() {
         </p>
         <p className="mb-6 text-black">We manage and grow your brand across all leading platforms:</p>
 
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+        <div className="flex justify-center gap-4 flex-wrap">
           {["Instagram", "Facebook", "YouTube", "LinkedIn", "Threads", "Twitter", "Pinterest"].map(
             (platform) => (
               <button
@@ -156,7 +156,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Why Social Media Matters Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-black">Why Social Media matters for your business</h2>
           <p className="mb-8 text-black text-center max-w-4xl mx-auto">
@@ -208,7 +208,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Video Showcase Section */}
-      <div className="py-16">
+      <div className="py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6 text-black">Our social content showcase</h2>
           <p className="mb-8 text-black max-w-4xl mx-auto">
@@ -324,7 +324,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Platforms JIVO Specializes In Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-8 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-black">Platforms JIVO specializes in</h2>
           <p className="mb-12 text-black text-center max-w-4xl mx-auto">
@@ -426,7 +426,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Our Social Media Management Process Section */}
-      <div className="py-16">
+      <div className="py-8">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center text-black">Our Social Media Management process</h2>
           <p className="mb-12 text-black text-center max-w-4xl mx-auto">
@@ -462,7 +462,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Why Choose JIVO Section */}
-      <div className="bg-[#0A5C35] text-white py-16 px-4">
+      <div className="bg-[#0A5C35] text-white py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">
             Why choose JIVO as your social media partner
@@ -508,7 +508,7 @@ export default function InsightsPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16 bg-gray-50 text-center">
+      <div className="py-8 bg-gray-50 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6 text-black">Ready to Transform Your Social Media Presence?</h2>
           <p className="mb-8 text-black">Let's discuss how we can help your brand stand out and grow on social media.</p>
@@ -521,7 +521,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Social Media Management Specific FAQs */}
-      <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">

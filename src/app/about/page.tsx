@@ -129,7 +129,7 @@ export default function InsightsPage() {
           </p>
           
           <p className="text-sm mb-6 text-black text-justify">
-            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO.
+            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which I bring into every creative decision and strategic framework we build at JIVO.
           </p>
           
           <p className="text-sm mb-6 text-black text-justify">
@@ -144,9 +144,7 @@ export default function InsightsPage() {
             &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
           </p>
           
-          <p className="text-sm text-black">
-            - Aakanksha Chugh
-          </p>
+
         </div>
         
         <div className="w-1/3 flex justify-center items-center">

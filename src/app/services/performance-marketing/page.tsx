@@ -48,10 +48,38 @@ const AnimatedCounter = ({ target, duration = 2000, prefix = "", suffix = "" }: 
 
 export default function InsightsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const openImageModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
+
+  // Keyboard support for modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && selectedImage) {
+        closeImageModal();
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset'; // Restore scrolling
+    };
+  }, [selectedImage]);
 
   const solutions: SolutionCard[] = [
     {
@@ -84,6 +112,18 @@ export default function InsightsPage() {
         "Build high-performing digital foundations that convert and rank.",
     },
   ];
+
+  // Creative images array
+  const creativeImages = [
+    '/perfmark/ed8fc475-1f9e-48c0-8c14-4a184cf77830.jpeg',
+    '/perfmark/98386d89-e052-4f03-a2fe-0c435aa3a627.jpeg',
+    '/perfmark/5515a32d-7583-4782-a6da-59255c4cb0e5.jpeg',
+    '/perfmark/1.1.jpg',
+    '/perfmark/1-1.jpg',
+    '/perfmark/1-1 (3).jpg',
+    '/perfmark/1-1 (1).jpg'
+  ];
+
   return (
     <div>
       <Navbar />
@@ -104,73 +144,92 @@ export default function InsightsPage() {
           priority
         />
       </div>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-12 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
           {/* Main Heading - We Are Paid Media Experts */}
           <h1 
             className="font-poppins font-bold text-gray-900 mb-6 text-4xl text-center"
           >
-            We Are Paid Media Experts
+            We are paid media experts
           </h1>
           
           {/* Updated Subheading */}
           <div className="text-gray-600 mb-8 max-w-4xl mx-auto text-center font-poppins space-y-4">
             <p 
-              style={{
-                fontWeight: 600,
-                fontSize: '16px',
-                lineHeight: '29px',
-                letterSpacing: '0%'
-              }}
+              className="mb-4 text-black max-w-4xl mx-auto"
             >
               At JIVO Solutions, we go beyond traditional ad management. Our award-winning performance marketing experts craft high-impact campaigns using smart targeting, data-driven strategy, and continuous optimization. The goal is simple, more traffic, more leads, more sales.
             </p>
             <p 
-              style={{
-                fontWeight: 600,
-                fontSize: '16px',
-                lineHeight: '29px',
-                letterSpacing: '0%'
-              }}
+              className="mb-4 text-black max-w-4xl mx-auto"
             >
               Whether you're launching a product, scaling your eCommerce store, or generating B2B leads, we build campaigns that turn ad spend into measurable business impact.
             </p>
           </div>
 
-          {/* What is Performance Marketing Section */}
-          <div className="mb-12 max-w-4xl mx-auto">
-            <h2 className="font-poppins font-bold text-2xl text-[#0A5C35] mb-4">
-              What is Performance Marketing?
-            </h2>
-            <p className="text-gray-700 mb-6 font-poppins text-base leading-relaxed">
-              Performance marketing is a results-focused form of online advertising where you only pay when someone takes a specific action, like clicking your ad, filling out a form, or making a purchase. It ensures every dollar spent is tied to a clear business outcome.
-            </p>
-            <p className="text-gray-700 mb-4 font-poppins text-base leading-relaxed">
-              It's perfect for brands looking to:
-            </p>
-            <ul className="text-gray-700 font-poppins text-base leading-relaxed space-y-2 text-left max-w-2xl mx-auto">
-              <li className="flex items-start">
-                <span className="text-[#0A5C35] font-bold mr-2">•</span>
-                Track real ROI from their ad budgets
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#0A5C35] font-bold mr-2">•</span>
-                Target the right audience with precision
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#0A5C35] font-bold mr-2">•</span>
-                Scale campaigns based on real-time data
-              </li>
-              <li className="flex items-start">
-                <span className="text-[#0A5C35] font-bold mr-2">•</span>
-                Maximize returns from every campaign
-              </li>
-            </ul>
-          </div>
+          {/* What is Performance Marketing Section - Redesigned, Content Only */}
+          <section className="mb-16 max-w-5xl mx-auto relative z-10">
+            {/* Decorative background gradients */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-[#0A5C35]/20 to-[#4F9F7A]/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-gradient-to-tr from-[#0A5C35]/10 to-[#4F9F7A]/30 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div className="relative bg-white/80 backdrop-blur-lg border border-[#0A5C35]/10 rounded-3xl shadow-2xl px-8 py-10 md:px-16 md:py-14">
+              <div className="flex flex-col items-center gap-6">
+                <h2 className="font-poppins font-bold text-gray-900 mb-6 text-2xl text-center">
+                  What is Performance Marketing?
+                </h2>
+                <p className="text-gray-800 mb-6 font-poppins text-lg leading-relaxed text-center">
+                  <span className="bg-gradient-to-r from-[#0A5C35]/10 to-[#4F9F7A]/10 px-1 rounded">
+                    Performance marketing
+                  </span>{" "}
+                  is a results-driven approach to online advertising where you only pay when your audience takes action—like clicking, signing up, or buying. Every dollar is accountable, every campaign is measurable, and every result is real.
+                </p>
+                <div className="mb-4">
+                  <span className="inline-block bg-[#0A5C35]/10 text-[#0A5C35] font-semibold px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-2">
+                    Perfect for brands who want to:
+                  </span>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-800 font-poppins text-base leading-relaxed max-w-xl w-full">
+                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    Track real ROI from their ad budgets
+                  </li>
+                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    Target the right audience with precision
+                  </li>
+                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    Scale campaigns based on real-time data
+                  </li>
+                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    Maximize returns from every campaign
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
           
           {/* Services Heading - We Manage And Optimize */}
           <h2 
-            className="mb-12 text-center font-poppins font-semibold text-2xl text-[#0A5C35]"
+            className="text-3xl font-bold mb-6 text-black"
           >
             We Manage And Optimize Paid Marketing Across:
           </h2>
@@ -254,7 +313,7 @@ export default function InsightsPage() {
           </div>
           
           {/* Partner Logos - Custom Images */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-8 border-gray-200 -mt-30 relative z-50">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-8 border-gray-200 -mt-30 relative z-50 mb-10">
             {/* Custom Partner Logo 1 */}
             <div className="flex flex-col items-center group cursor-pointer relative z-50">
               <div className="mb-4">
@@ -281,16 +340,6 @@ export default function InsightsPage() {
           </div>
         </div>
       </div> 
-      <div className="w-full flex justify-center items-center">
-        <Image
-          src="/heround2.svg"
-          alt="Jivo Hero"
-          width={300}
-          height={100}
-          className="w-full h-full object-cover"
-          priority
-        />
-      </div>
 
       <div>
         <Image
@@ -303,7 +352,7 @@ export default function InsightsPage() {
         />
       </div>
 
-      <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="container mx-auto px-4 py-8">
         <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
           Platforms JIVO specializes in
         </h1>
@@ -484,129 +533,128 @@ export default function InsightsPage() {
       </div>
 
       {/* How does Performance Marketing work at JIVO? */}
-      <div className="bg-white py-12 md:py-16">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-8">
+        <div className="container mx-auto px-1 md:px-2">
           <h2 className="font-poppins font-bold text-4xl text-center mb-4 text-black">
             How does Performance Marketing work at JIVO?
           </h2>
-          <p className="text-gray-700 text-center mb-12 max-w-3xl mx-auto font-poppins text-lg">
+          <p className="text-gray-700 text-center mb-10 max-w-3xl mx-auto font-poppins text-lg">
             We use a step-by-step process to make sure your ads reach the right people, generate meaningful results, and continuously improve over time.
           </p>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Step 1 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  1
+            {/* First row: 4 cards */}
+            <div className="flex flex-col gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-0">
+                {/* Step 1 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    1
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Set clear business goals</h3>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    We begin by understanding what you want to achieve, whether it's more website traffic, leads, product sales, app installs, or event signups.
+                  </p>
                 </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Set clear business goals</h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  We begin by understanding what you want to achieve, whether it's more website traffic, leads, product sales, app installs, or event signups.
-                </p>
+                {/* Step 2 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    2
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Choose the right ad platforms</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-2">
+                    We identify where your audience is most active and choose the most effective channels. These include:
+                  </p>
+                  <ul className="text-white/90 text-sm space-y-1">
+                    <li>• Google Ads (Search, Shopping, Display, Performance Max)</li>
+                    <li>• Meta Ads (Facebook, Instagram & WhatsApp Marketing)</li>
+                    <li>• LinkedIn Ads (For B2B & professional targeting)</li>
+                    <li>• YouTube Ads (For video reach & brand storytelling)</li>
+                    <li>• Bing Ads (For cost-effective search marketing)</li>
+                  </ul>
+                </div>
+                {/* Step 3 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    3
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Build campaign strategy & creatives</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-2">
+                    We create:
+                  </p>
+                  <ul className="text-white/90 text-sm space-y-1">
+                    <li>• Scroll-stopping visual creatives</li>
+                    <li>• Click-worthy ad copy</li>
+                    <li>• Landing pages that convert</li>
+                    <li>• Precise audience targeting using demographics, interests, keywords, and behaviours</li>
+                    <li>• Smart bidding strategies to make the most of your ad spend</li>
+                  </ul>
+                </div>
+                {/* Step 4 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    4
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Launch with advanced tracking</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-2">
+                    Before your ads go live, we implement full-funnel tracking:
+                  </p>
+                  <ul className="text-white/90 text-sm space-y-1">
+                    <li>• Meta Pixel Smart Tracking for Retargeting & Conversions</li>
+                    <li>• Google Analytics 4 (GA4) Deeper Insights into Your Website Visitors</li>
+                    <li>• UTM tags to Track Campaign Sources</li>
+                    <li>• Conversion Events To Track the Funnel from Click to Enrollment</li>
+                  </ul>
+                </div>
               </div>
-
-              {/* Step 2 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  2
+              {/* Second row: 3 cards, centered and aligned */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 px-0 mt-4 lg:mx-auto" style={{maxWidth: 'calc(75% + 1.5rem)'}}>
+                {/* Step 5 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    5
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Daily monitoring & optimization</h3>
+                  <p className="text-white/90 text-sm leading-relaxed mb-2">
+                    Once live, we monitor every campaign in real time. We track:
+                  </p>
+                  <ul className="text-white/90 text-sm space-y-1">
+                    <li>• Click-through rates (CTR)</li>
+                    <li>• Cost per click (CPC)</li>
+                    <li>• Cost Per Acquisition (CPA)</li>
+                    <li>• Return on ad spend (ROAS)</li>
+                    <li>• Ad Frequency, Ad Fatigue, and Audience Fatigue</li>
+                  </ul>
+                  <p className="text-white/90 text-sm leading-relaxed mt-2">
+                    Based on what we see, we make daily tweaks, adjusting targeting, budgets, creatives, and bids to boost results.
+                  </p>
                 </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Choose the right ad platforms</h3>
-                <p className="text-white/90 text-sm leading-relaxed mb-3">
-                  We identify where your audience is most active and choose the most effective channels. These include:
-                </p>
-                <ul className="text-white/90 text-sm space-y-1">
-                  <li>• Google Ads (Search, Shopping, Display, Performance Max)</li>
-                  <li>• Meta Ads (Facebook, Instagram & WhatsApp Marketing)</li>
-                  <li>• LinkedIn Ads (For B2B & professional targeting)</li>
-                  <li>• YouTube Ads (For video reach & brand storytelling)</li>
-                  <li>• Bing Ads (For cost-effective search marketing)</li>
-                </ul>
-              </div>
-
-              {/* Step 3 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  3
+                {/* Step 6 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    6
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Continuous testing & scaling</h3>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    We constantly run A/B tests to compare different headlines, images, ad formats, and audiences. Once we find what's working best, we scale the campaign to reach more people and increase returns, without increasing waste.
+                  </p>
                 </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Build campaign strategy & creatives</h3>
-                <p className="text-white/90 text-sm leading-relaxed mb-3">
-                  We create:
-                </p>
-                <ul className="text-white/90 text-sm space-y-1">
-                  <li>• Scroll-stopping visual creatives</li>
-                  <li>• Click-worthy ad copy</li>
-                  <li>• Landing pages that convert</li>
-                  <li>• Precise audience targeting using demographics, interests, keywords, and behaviours</li>
-                  <li>• Smart bidding strategies to make the most of your ad spend</li>
-                </ul>
-              </div>
-
-              {/* Step 4 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  4
+                {/* Step 7 */}
+                <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 md:p-5 shadow-lg flex flex-col h-full">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold mb-3">
+                    7
+                  </div>
+                  <h3 className="font-poppins font-bold text-lg mb-2">Transparent Reporting</h3>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    You'll receive clear, jargon-free performance reports every month (or weekly if needed). We explain what's working, what's not, and what's next so you always know where your money is going.
+                  </p>
                 </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Launch with advanced tracking</h3>
-                <p className="text-white/90 text-sm leading-relaxed mb-3">
-                  Before your ads go live, we implement full-funnel tracking:
-                </p>
-                <ul className="text-white/90 text-sm space-y-1">
-                  <li>• Meta Pixel Smart Tracking for Retargeting & Conversions</li>
-                  <li>• Google Analytics 4 (GA4) Deeper Insights into Your Website Visitors</li>
-                  <li>• UTM tags to Track Campaign Sources</li>
-                  <li>• Conversion Events To Track the Funnel from Click to Enrollment</li>
-                </ul>
-              </div>
-
-              {/* Step 5 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  5
-                </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Daily monitoring & optimization</h3>
-                <p className="text-white/90 text-sm leading-relaxed mb-3">
-                  Once live, we monitor every campaign in real time. We track:
-                </p>
-                <ul className="text-white/90 text-sm space-y-1">
-                  <li>• Click-through rates (CTR)</li>
-                  <li>• Cost per click (CPC)</li>
-                  <li>• Cost Per Acquisition (CPA)</li>
-                  <li>• Return on ad spend (ROAS)</li>
-                  <li>• Ad Frequency, Ad Fatigue, and Audience Fatigue</li>
-                </ul>
-                <p className="text-white/90 text-sm leading-relaxed mt-3">
-                  Based on what we see, we make daily tweaks, adjusting targeting, budgets, creatives, and bids to boost results.
-                </p>
-              </div>
-
-              {/* Step 6 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  6
-                </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Continuous testing & scaling</h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  We constantly run A/B tests to compare different headlines, images, ad formats, and audiences. Once we find what's working best, we scale the campaign to reach more people and increase returns, without increasing waste.
-                </p>
-              </div>
-
-              {/* Step 7 */}
-              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-6 shadow-lg md:col-span-2 lg:col-span-1">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl font-bold mb-4">
-                  7
-                </div>
-                <h3 className="font-poppins font-bold text-xl mb-3">Transparent Reporting</h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  You'll receive clear, jargon-free performance reports every month (or weekly if needed). We explain what's working, what's not, and what's next so you always know where your money is going.
-                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-           
-      <div className="bg-[#ECECEC] px-4 py-8 md:p-12">
+      <div className="bg-[#ECECEC] px-4 py-8">
         <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
           Our PPC Case Studies
         </h1>
@@ -736,24 +784,149 @@ export default function InsightsPage() {
           
         </div>
 
-        <div className="flex justify-center gap-2">
-          <button className="w-8 h-8 rounded-full bg-green-800 text-white flex items-center justify-center">
-            <span className="sr-only">Previous</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </button>
-          <button className="w-8 h-8 rounded-full bg-green-200 text-green-800 flex items-center justify-center">
-            <span className="sr-only">Next</span>
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
+
+      </div>
+       {/* Ads that perform Section */}
+      <div className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-poppins font-bold text-4xl text-black">
+              Ads that perform
+            </h2>
+            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+              See our performance marketing campaigns in action. From compelling video ads to high-converting creatives, 
+              we create content that drives real results for our clients.
+            </p>
+          </div>
+
+          {/* Video Showcase Section */}
+          <div className="mb-16">
+            <h3 className="font-poppins font-bold text-2xl mb-8 text-black text-center">
+              Video Campaigns
+            </h3>
+            
+            {/* Video Grid - Similar to About.tsx */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {[
+                {
+                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001(1).mp4?alt=media&token=3ed17b44-c716-4d10-93c5-9d482a2daa4a',
+                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F001_thumb.jpg?alt=media',
+                  title: 'Brand Storytelling'
+                },
+                {
+                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002(1).mp4?alt=media&token=3b941819-af45-4c1f-ac43-549d787a950a',
+                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F002_thumb.jpg?alt=media',
+                  title: 'Product Showcase'
+                },
+                {
+                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2)(1).mp4?alt=media&token=c5ab4613-f83f-4989-9774-0793e3208425',
+                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Ffez_thumb.jpg?alt=media',
+                  title: 'Fez Campaign'
+                },
+                {
+                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise5.mp4?alt=media&token=8da7e4a5-396e-4b22-83f3-f21346e85ee6',
+                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Fwitwise_thumb.jpg?alt=media',
+                  title: 'WitWise Education'
+                }
+              ].map((video, index) => (
+                <div 
+                  key={index}
+                  className="relative w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+                >
+                  <video
+                    src={video.url}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls={false}
+                    className="object-cover w-full h-full"
+                    preload="metadata"
+                  />
+                  
+                  {/* Overlay with title */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div className="p-4 w-full">
+                      <h4 className="text-white font-poppins font-semibold text-lg mb-2">
+                        {video.title}
+                      </h4>
+                      <p className="text-white/80 text-sm">
+                        Performance Marketing Campaign
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Creative Showcase Section */}
+          <div>
+            <h3 className="font-poppins font-bold text-2xl mb-8 text-black text-center">
+              Creative Assets
+            </h3>
+            
+            {/* Creative Grid - First Row (4 images) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+              {creativeImages.slice(0, 4).map((image, index) => (
+                <div 
+                  key={index}
+                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                >
+                  <Image
+                    src={image}
+                    alt={`Performance Marketing Creative ${index + 1}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    onClick={() => openImageModal(image)}
+                  />
+                  
+                 
+                </div>
+              ))}
+            </div>
+
+            {/* Creative Grid - Second Row (3 images) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {creativeImages.slice(4).map((image, index) => (
+                <div 
+                  key={index + 4}
+                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                >
+                  <Image
+                    src={image}
+                    alt={`Performance Marketing Creative ${index + 5}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    onClick={() => openImageModal(image)}
+                  />
+                  
+                  {/* Overlay on hover */}
+                 
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-12">
+            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+              Ready to see your brand's performance marketing campaigns come to life? 
+              Let's create ads that don't just look good—they perform.
+            </p>
+            <Link href="/contact">
+              <button className="bg-[#0A5C35] hover:bg-[#004826] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                Start Your Campaign
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Why choose JIVO as your performance marketing partner */}
-      <div className="bg-white py-12 md:py-16">
+      <div className="bg-white py-8">
         <div className="container mx-auto px-4">
           <h2 className="font-poppins font-bold text-4xl text-center mb-12 text-black">
             Why choose JIVO as your performance marketing partner
@@ -840,20 +1013,18 @@ export default function InsightsPage() {
           </div>
 
           {/* CTA Button */}
-          <div className="text-center">
-            <button className="bg-[#0A5C35] hover:bg-[#004826] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              Book a discovery call
-            </button>
-          </div>
+         
         </div>
       </div>
+
+     
       
       {/* FAQs Section */}
-      <section className="py-8 md:py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6">
             <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0a5c35]">
-              Frequently Asked Questions
+              FAQs
             </h2>
             <p className="text-gray-700 text-sm max-w-2xl mx-auto">
               Find answers to common questions about our performance marketing services
@@ -1073,6 +1244,32 @@ export default function InsightsPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+          onClick={closeImageModal}
+        >
+          <div className="relative max-w-5xl max-h-full">
+            <Image
+              src={selectedImage}
+              alt="Enlarged Creative Asset"
+              width={1200}
+              height={1200}
+              className="object-contain max-h-[90vh] rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={closeImageModal}
+              className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition-colors duration-200 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

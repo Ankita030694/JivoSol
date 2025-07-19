@@ -73,7 +73,7 @@ export default function InsightsPage() {
           <h2 className="text-4xl font-bold mb-6 text-black">
             Build a website that performs and gets found
           </h2>
-          <p className="text-lg mb-12 text-black leading-relaxed">
+          <p className="mb-4 text-black max-w-4xl mx-auto">
             Your website is your brand's digital home. At JIVO Solutions, we design and develop websites that are fast, mobile-responsive, easy to navigate, and built to convert. Every website is backed by strong SEO foundations so it's discoverable too.
           </p>
           
@@ -101,7 +101,8 @@ export default function InsightsPage() {
       <div className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">What We Offer</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* First row: 3 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {[
               {
                 title: "Web Design & Development",
@@ -114,7 +115,17 @@ export default function InsightsPage() {
               {
                 title: "Responsive Design",
                 description: "Every site we build is mobile-optimized to ensure your brand looks perfect on every screen, from desktop to smartphone."
-              },
+              }
+            ].map((service, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{service.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{service.description}</p>
+              </div>
+            ))}
+          </div>
+          {/* Second row: 2 cards centered */}
+          <div className="flex flex-col md:flex-row justify-center gap-8">
+            {[
               {
                 title: "eCommerce Development",
                 description: "We create custom online stores on Shopify, WooCommerce, or custom platforms with smooth UX, secure payments, and easy inventory management."
@@ -124,7 +135,7 @@ export default function InsightsPage() {
                 description: "We optimize your website structure, content, and code for better visibility on search engines like Google, helping you rank higher and get found faster."
               }
             ].map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow min-w-[260px] flex-1">
                 <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{service.title}</h3>
                 <p className="text-gray-700 leading-relaxed">{service.description}</p>
               </div>
@@ -389,7 +400,7 @@ export default function InsightsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
-              Frequently Asked Questions
+              FAQs
             </h2>
             <p className="text-gray-700 text-sm max-w-2xl mx-auto">
               Find answers to common questions about our web development and SEO services

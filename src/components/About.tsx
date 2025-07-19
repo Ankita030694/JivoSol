@@ -133,7 +133,7 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         className="mb-4">
-        <h3 className="text-[#005F33] font-poppins">About Us</h3>
+        <h3 className="text-[#0A5C35] text-lg">About Us</h3>
       </motion.div>
 
       {/* Main Title */}
@@ -266,29 +266,7 @@ const About = () => {
         })}
       </motion.div>
 
-      {/* Our Work Button */}
-      <motion.div 
-        className="mt-16"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.3, duration: 0.8 }}>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}>
-          <Link 
-            href="/ourwork"
-            className="inline-flex items-center bg-[#005F33] text-white px-6 py-3 rounded-full hover:bg-[#004525] transition-colors"
-          >
-            Our Work
-            <motion.svg 
-              animate={{ x: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </motion.svg>
-          </Link>
-        </motion.div>
-      </motion.div>
+
     </section>
   );
 };

@@ -89,7 +89,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-40 flex items-center justify-around bg-[#ECECEC] px-4 py-4 relative shadow-md backdrop-blur-sm transition-all duration-300">
+    <nav className="sticky top-0 z-50 flex items-center justify-around bg-[#ECECEC] px-4 py-4 shadow-lg backdrop-blur-sm transition-all duration-300 border-b border-gray-200 w-full">
       {/* Logo - always on the left */}
       <div className="nav-logo group">
         <Link href="/" className="transition-transform duration-300 block">
@@ -285,15 +285,7 @@ const Navbar = () => {
             </div>
           </div>
           
-          <Link 
-            href="/ourwork" 
-            className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[3]} ${
-              isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-            } ${isActive('/ourwork') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'}`}
-            onClick={closeMobileMenu}
-          >
-            Our Work
-          </Link>
+         
           <Link 
             href="/insights" 
             className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[4]} ${
@@ -314,13 +306,6 @@ const Navbar = () => {
           </Link>
           
           {/* Mobile contact button */}
-          <Link href="/contact" className={`text-xl font-normal transition-all duration-300 ${mobileMenuItemClasses} ${mobileMenuItemVariants[5]} ${mobileMenuItemVariants[5]} ${
-            isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-          } ${isActive('/contact') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'} p-2 rounded-lg`}
-            onClick={closeMobileMenu}
-          >
-            Contact Us
-          </Link>
           <button 
             className={`mt-8 bg-white text-black rounded-full border border-[#0A5C3580] flex items-center justify-center gap-3 px-4 py-3 
             hover:bg-[#0A5C35]/10 transition-all duration-500 transform hover:scale-105 active:scale-95 group 
