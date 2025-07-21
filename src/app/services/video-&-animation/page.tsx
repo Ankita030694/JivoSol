@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
+import CTAComponent from "../CTAComponent";
 
 export default function InsightsPage() {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
@@ -82,7 +85,7 @@ export default function InsightsPage() {
         />
       </div>
       
-      <div className="w-full bg-white py-16 text-black">
+      <div className="w-full bg-white py-8 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center mb-12">
           <h2 className="text-4xl font-bold mb-6 text-black">
             Turn viewers into customers with powerful visual content
@@ -171,7 +174,7 @@ export default function InsightsPage() {
         </div>
       </div>
       
-      <div className="w-full bg-gray-50 py-16">
+      <div className="w-full bg-gray-50 py-8">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-black mb-12">Our video production process</h2>
           <p className="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
@@ -208,7 +211,7 @@ export default function InsightsPage() {
         </div>
       </div>
       
-      <div className="w-full bg-white py-16">
+      <div className="w-full bg-white py-8">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center text-black mb-12">Why choose JIVO for video & animation?</h2>
           
@@ -276,7 +279,7 @@ export default function InsightsPage() {
         </div>
       </div>
       
-      <div className="w-full bg-white py-16">
+        <div className="w-full bg-white py-8">
         <h1 className="text-4xl font-bold text-center text-black mb-4">Video Showcase</h1>
         <p className="text-center text-gray-700 mb-12 max-w-2xl mx-auto px-4">
           Explore some of the video work we've created for our clients:
@@ -342,19 +345,12 @@ export default function InsightsPage() {
         </div>
       </div>
       
-      <div className="w-full bg-[#0a5c35] py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to create powerful video content?</h2>
-          <p className="text-white/90 mb-8 text-lg">
-            Let's discuss your video project and how we can help you turn viewers into customers.
-          </p>
-          <button className="bg-white text-[#0a5c35] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
-            Book a discovery call
-          </button>
-        </div>
-      </div>
+      <CTAComponent
+        title="Ready to create powerful video content?"
+        description="Let's discuss your video project and how we can help you turn viewers into customers."
+      />
       
-      <div className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <div className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">

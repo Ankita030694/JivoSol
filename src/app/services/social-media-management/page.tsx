@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import CTAComponent from "../CTAComponent";
 
 export default function InsightsPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -508,17 +509,10 @@ export default function InsightsPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-8 bg-gray-50 text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Transform Your Social Media Presence?</h2>
-          <p className="mb-8 text-black">Let's discuss how we can help your brand stand out and grow on social media.</p>
-          <Link href="/contact" className="inline-block pointer-cursor">
-            <button className="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl pointer-cursor">
-              Book a discovery call
-            </button>
-          </Link>
-        </div>
-      </div>
+      <CTAComponent
+        title="Ready to Transform Your Social Media Presence?"
+        description="Let's discuss how we can help your brand stand out and grow on social media."
+      />
 
       {/* Social Media Management Specific FAQs */}
       <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">

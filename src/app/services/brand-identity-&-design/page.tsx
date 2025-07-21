@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import CTAComponent from "../CTAComponent";
 
 // Add brochures data
 const brochures = [
@@ -272,7 +273,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Brand Introduction Section */}
-      <div className="px-4 md:px-48 py-8 md:py-16 bg-white">
+      <div className="px-4 md:px-48 py-8 bg-white">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">Build a brand that stays remembered.</h2>
           <p className="mb-4 text-black max-w-4xl mx-auto">
@@ -328,7 +329,7 @@ export default function InsightsPage() {
         </div>
       </div>
 
-      <div className="px-4 md:px-48 py-8 md:py-16 bg-[#ECECEC]">
+      <div className="px-4 md:px-48 py-8 bg-[#ECECEC]">
         <div className="text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 text-black">What We Offer</h2>
           <p className="text-sm md:text-base text-gray-600 mb-8 text-black">
@@ -390,7 +391,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Client Logos Section */}
-      <div id="logo-section" className="px-4 md:px-48 py-8 md:py-16 bg-white">
+      <div id="logo-section" className="px-4 md:px-48 py-8 bg-white">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Logo Designing & Branding</h2>
           <p className="text-sm md:text-base text-gray-600 mb-8">
@@ -415,7 +416,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Event & Print Design Section */}
-      <div id="event-section" className="px-4 md:px-48 py-8 md:py-16 bg-[#f9f9f9]">
+      <div id="event-section" className="px-4 md:px-48 py-8 bg-[#f9f9f9]">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Event & Print Design</h2>
           <p className="text-sm md:text-base text-gray-600">
@@ -489,7 +490,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Brand Stationary Kit Section */}
-      <div id="stationary-section" className="px-4 md:px-48 py-8 md:py-16 bg-white">
+      <div id="stationary-section" className="px-4 md:px-48 py-8 bg-white">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Brand Stationary Kit</h2>
           <p className="text-sm md:text-base text-gray-600">
@@ -542,7 +543,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Brochures Section - Moved here */}
-      <section id="brochures-section" className="py-8 md:py-16 bg-[#f9f9f9]">
+      <section id="brochures-section" className="py-8 bg-[#f9f9f9]">
         <div className="container mx-auto px-4 md:px-48">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Our Brochures</h2>
@@ -586,7 +587,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <div className="flex justify-center items-center py-8 md:py-16 w-[90%] mx-auto">
+      <div className="flex justify-center items-center py-8 w-[90%] mx-auto">
             <Image src="/process2.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
         </div>
 
@@ -595,20 +596,13 @@ export default function InsightsPage() {
         </div>
 
       {/* CTA Section */}
-      <div className="py-16 bg-gray-50 text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6 text-black">Ready to Build a Memorable Brand?</h2>
-          <p className="mb-8 text-black">Let's discuss how we can help you create a brand identity that stands out and stays remembered.</p>
-          <Link href="/contact" className="inline-block pointer-cursor">
-            <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl pointer-cursor">
-              Book a discovery call
-            </button>
-          </Link>
-        </div>
-      </div>
+      <CTAComponent
+        title="Ready to Build a Memorable Brand?"
+        description="Let's discuss how we can help you create a brand identity that stands out and stays remembered."
+      />
 
       {/* FAQ Section */}
-      <section className="py-8 md:py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">

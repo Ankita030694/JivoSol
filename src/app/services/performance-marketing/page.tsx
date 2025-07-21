@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import CTAComponent from "../CTAComponent";
 
 interface SolutionCard {
   image: string;
@@ -340,7 +341,118 @@ export default function InsightsPage() {
           </div>
         </div>
       </div> 
+      {/* Paid Media Tools Section */}
+      <div className="w-full bg-[#0A5C35] py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Main Heading */}
+          <h2 className="text-white font-poppins font-bold text-4xl md:text-5xl text-center mb-16">
+            Paid Media Tools We Thrive On
+          </h2>
+          
+          {/* Tools Grid */}
+          <div className="space-y-12">
+            {/* First Row - 5 tools */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+              {/* Google Ads */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
+                  <img 
+                    src="/google.svg" 
+                    alt="Google Ads" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <span className="text-white font-medium text-base">Google Ads</span>
+              </div>
+              
+              {/* Meta */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
+                  <img 
+                    src="/fb.svg" 
+                    alt="Meta" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <span className="text-white font-medium text-base">Meta</span>
+              </div>
+              
+              {/* Bing Ads */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
+                  <img 
+                    src="/bing.svg" 
+                    alt="Bing Ads" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <span className="text-white font-medium text-base">Bing Ads</span>
+              </div>
+              
+              {/* Google Analytics */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
+                  <img 
+                    src="/google.svg" 
+                    alt="Google Analytics" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <span className="text-white font-medium text-base">Google Analytics</span>
+              </div>
+              
+              {/* Google Merchant Centre */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
+                  <img 
+                    src="/google.svg" 
+                    alt="Google Merchant Centre" 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
+                <span className="text-white font-medium text-base">Google Merchant Centre</span>
+              </div>
+            </div>
+            
+            {/* Second Row - 4 tools, centered */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
+              {/* Semrush */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-2xl">S</span>
+                </div>
+                <span className="text-white font-medium text-base">Semrush</span>
+              </div>
+              
+              {/* Shopify */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-2xl">S</span>
+                </div>
+                <span className="text-white font-medium text-base">Shopify</span>
+              </div>
+              
+              {/* ChatGPT */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-2xl">C</span>
+                </div>
+                <span className="text-white font-medium text-base">ChatGPT</span>
+              </div>
+              
+              {/* Buffer */}
+              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
+                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+                  <span className="text-white font-bold text-2xl">B</span>
+                </div>
+                <span className="text-white font-medium text-base">Buffer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      {/* Hero Round 3 Image */}
       <div>
         <Image
           src="/heround3.svg"
@@ -352,6 +464,7 @@ export default function InsightsPage() {
         />
       </div>
 
+      {/* Platforms Section */}
       <div className="container mx-auto px-4 py-8">
         <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
           Platforms JIVO specializes in
@@ -531,6 +644,8 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
+
+      
 
       {/* How does Performance Marketing work at JIVO? */}
       <div className="bg-white py-8">
@@ -787,7 +902,7 @@ export default function InsightsPage() {
 
       </div>
        {/* Ads that perform Section */}
-      <div className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <div className="py-8 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-poppins font-bold text-4xl text-black">
@@ -911,17 +1026,10 @@ export default function InsightsPage() {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center mt-12">
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              Ready to see your brand's performance marketing campaigns come to life? 
-              Let's create ads that don't just look good—they perform.
-            </p>
-            <Link href="/contact">
-              <button className="bg-[#0A5C35] hover:bg-[#004826] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Start Your Campaign
-              </button>
-            </Link>
-          </div>
+          <CTAComponent
+            title="Ready to see your brand's performance marketing campaigns come to life?"
+            description="Let's create ads that don't just look good—they perform."
+          />
         </div>
       </div>
 

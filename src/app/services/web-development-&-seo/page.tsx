@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import CTAComponent from "../CTAComponent";
 
 export default function InsightsPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -68,7 +69,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-[#ECECEC] py-16">
+      <div className="bg-[#ECECEC] py-8">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-4xl font-bold mb-6 text-black">
             Build a website that performs and gets found
@@ -98,7 +99,7 @@ export default function InsightsPage() {
       </div>
 
       {/* What We Offer Section */}
-      <div className="py-16 bg-white">
+      <div className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">What We Offer</h2>
           {/* First row: 3 cards */}
@@ -145,7 +146,7 @@ export default function InsightsPage() {
       </div>
 
       {/* What Is SEO Section */}
-      <div className="py-16 bg-[#ECECEC]">
+      <div className="py-8 bg-[#ECECEC]">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-8 text-black">What Is SEO?</h2>
           <p className="text-lg mb-8 text-black leading-relaxed">
@@ -172,7 +173,7 @@ export default function InsightsPage() {
       </div>
 
       {/* SEO Services Section */}
-      <div className="py-16 bg-white">
+      <div className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* On-Page SEO */}
@@ -229,12 +230,12 @@ export default function InsightsPage() {
       </div>
 
       {/* We Specialize Section */}
-      <div className="flex justify-center items-center py-16 w-full px-48">
+      <div className="flex justify-center items-center py-8 w-full px-48">
         <Image src="/specialize.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
       </div>
 
       {/* Process Section */}
-      <div className="py-16 bg-[#ECECEC]">
+      <div className="py-8 bg-[#ECECEC]">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Web Development & SEO Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -278,7 +279,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Portfolio Section */}
-      <div className="py-16 bg-white">
+        <div className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -340,7 +341,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Why Choose JIVO Section */}
-      <div className="py-16 bg-[#ECECEC]">
+      <div className="py-8 bg-[#ECECEC]">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Why Choose JIVO for Web Development & SEO?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -380,23 +381,13 @@ export default function InsightsPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-16 bg-[#006B3F]">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-6 text-white">Ready to Build Your Digital Presence?</h2>
-          <p className="text-lg mb-8 text-white">
-            Let's discuss your project and create a website that drives results.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-[#006B3F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
-          >
-            Book a discovery call
-          </Link>
-        </div>
-      </div>
+      <CTAComponent
+        title="Ready to Build Your Digital Presence?"
+        description="Let's discuss your project and create a website that drives results."
+      />
 
       {/* FAQ Section */}
-      <section className="py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
