@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 export default function InsightsPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -426,44 +427,10 @@ export default function InsightsPage() {
         </div>
       </div>
 
-      {/* Our Social Media Management Process Section */}
-      <div className="py-8">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center text-black">Our Social Media Management process</h2>
-          <p className="mb-12 text-black text-center max-w-4xl mx-auto">
-            Our approach is built for clarity, consistency, and content that converts.
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-              <h3 className="text-lg font-bold mb-2 text-black">Strategy Development</h3>
-              <p className="text-black text-sm">We analyze your brand, audience, and goals to create a tailored social media strategy.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-              <h3 className="text-lg font-bold mb-2 text-black">Content Creation</h3>
-              <p className="text-black text-sm">Our team creates high-quality visuals, videos, and copy that align with your brand voice.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-              <h3 className="text-lg font-bold mb-2 text-black">Publishing & Engagement</h3>
-              <p className="text-black text-sm">We publish content at optimal times and actively engage with your audience.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
-              <h3 className="text-lg font-bold mb-2 text-black">Analytics & Optimization</h3>
-              <p className="text-black text-sm">We track performance and continuously optimize your strategy for better results.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Why Choose JIVO Section */}
-      <div className="bg-[#0A5C35] text-white py-8 px-4">
+      <div className="bg-[#0A5C35] text-white py-8 px-4" style={{ marginBottom: 0, paddingBottom: 0 }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">
             Why choose JIVO as your social media partner
@@ -502,10 +469,45 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
+       {/* Our Social Media Management Process Section */}
+       <div className="py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center text-black">Our Social Media Management process</h2>
+          <p className="mb-12 text-black text-center max-w-4xl mx-auto">
+            Our approach is built for clarity, consistency, and content that converts.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+              <h3 className="text-lg font-bold mb-2 text-black">Strategy Development</h3>
+              <p className="text-black text-sm">We analyze your brand, audience, and goals to create a tailored social media strategy.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+              <h3 className="text-lg font-bold mb-2 text-black">Content Creation</h3>
+              <p className="text-black text-sm">Our team creates high-quality visuals, videos, and copy that align with your brand voice.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+              <h3 className="text-lg font-bold mb-2 text-black">Publishing & Engagement</h3>
+              <p className="text-black text-sm">We publish content at optimal times and actively engage with your audience.</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-emerald-700 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+              <h3 className="text-lg font-bold mb-2 text-black">Analytics & Optimization</h3>
+              <p className="text-black text-sm">We track performance and continuously optimize your strategy for better results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
       
       {/* Results Section */}
-      <div className="flex justify-center items-center w-full">
-        <Image src="/result.svg" alt="Results" width={1000} height={100} className="w-full h-full object-cover" priority />
+      <div className="flex justify-center items-center w-full" style={{ margin: 0, padding: 0, border: 'none', outline: 'none' }}>
+        <ResultComponent />
       </div>
 
       {/* CTA Section */}

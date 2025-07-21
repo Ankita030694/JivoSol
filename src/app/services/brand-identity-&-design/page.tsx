@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 // Add brochures data
 const brochures = [
@@ -592,8 +593,8 @@ export default function InsightsPage() {
         </div>
 
       <div className="flex justify-center items-center w-full">
-            <Image src="/result.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
-        </div>
+        <ResultComponent />
+      </div>
 
       {/* CTA Section */}
       <CTAComponent

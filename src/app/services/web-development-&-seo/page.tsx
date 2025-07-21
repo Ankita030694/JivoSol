@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 export default function InsightsPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -392,7 +393,7 @@ export default function InsightsPage() {
 
       {/* Results Section */}
       <div className="flex justify-center items-center w-full">
-        <Image src="/result.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+        <ResultComponent />
       </div>
 
       {/* Why Choose JIVO Section */}

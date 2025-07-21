@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 export default function InsightsPage() {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
@@ -344,7 +345,11 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
-      
+
+      <div className="flex justify-center items-center w-full">
+        <ResultComponent />
+      </div>
+
       <CTAComponent
         title="Ready to create powerful video content?"
         description="Let's discuss your video project and how we can help you turn viewers into customers."

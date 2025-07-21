@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 interface SolutionCard {
   image: string;
@@ -769,138 +770,10 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
-      <div className="bg-[#ECECEC] px-4 py-8">
-        <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
-          Our PPC Case Studies
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6">
-          {/* Case Study 1 - Nidhi Chugh */}
-          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
-            <div className="relative h-48">
-              <Image 
-                src="/casestudies/ncdp.jpg" 
-                alt="Nidhi Chugh Case Study" 
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-4">
-                <span className="bg-[#0A5C35] text-white px-3 py-1 rounded-full text-sm">Featured</span>
-              </div>
-            </div>
-            <div className="p-4 md:p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="font-poppins font-medium text-xl text-gray-800">Nidhi Chugh</h3>
-              </div>
-              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
-                <AnimatedCounter target={83} suffix="M+" />
-              </h2>
-              <p className="text-gray-700 mb-4 text-sm md:text-base">
-                Global spiritual brand growth through Meta Ads, Google Ads & YouTube
-              </p>
-              <Link 
-                href="/services/performance-marketing/case-study-1" 
-                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
-              >
-                See Case Study
-                <svg 
-                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Case Study 2 - WitWise Education */}
-          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
-            <div className="relative h-48">
-              <Image 
-                src="/witwisecs.jpeg" 
-                alt="WitWise Education Case Study" 
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-            <div className="p-4 md:p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="font-poppins font-medium text-xl text-gray-800">WitWise Education</h3>
-              </div>
-              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
-                <AnimatedCounter target={2000} suffix="+" />
-              </h2>
-              <p className="text-gray-700 mb-4 text-sm md:text-base">
-                Driving quality leads through strategic Meta advertising
-              </p>
-              <Link 
-                href="/services/performance-marketing/case-study-2" 
-                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
-              >
-                See Case Study
-                <svg 
-                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          {/* Case Study 3 - Yashi Shukla Education */}
-          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
-            <div className="relative h-48">
-              <Image 
-                src="/yse.jpeg" 
-                alt="Yashi Shukla Education Case Study" 
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-            <div className="p-4 md:p-6">
-              <div className="flex items-center gap-2 mb-2">
-                
-                <h3 className="font-poppins font-medium text-xl text-gray-800">Yashi Shukla Education</h3>
-              </div>
-              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
-                <AnimatedCounter target={1000} suffix="+" />
-              </h2>
-              <p className="text-gray-700 mb-4 text-sm md:text-base">
-                Global education marketing success through multi-platform strategy
-              </p>
-              <Link 
-                href="/services/performance-marketing/case-study-3" 
-                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
-              >
-                See Case Study
-                <svg 
-                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          
-        </div>
-
-
+      <div className="flex justify-center items-center w-full">
+        <ResultComponent />
       </div>
+     
        {/* Ads that perform Section */}
       <div className="py-8 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -1125,7 +998,141 @@ export default function InsightsPage() {
         </div>
       </div>
 
-     
+      <div className="flex justify-center items-center w-full">
+        <ResultComponent />
+      </div>  
+      <div className="bg-[#ECECEC] px-4 py-8">
+        <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
+          Our PPC Case Studies
+        </h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6">
+          {/* Case Study 1 - Nidhi Chugh */}
+          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+            <div className="relative h-48">
+              <Image 
+                src="/casestudies/ncdp.jpg" 
+                alt="Nidhi Chugh Case Study" 
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-4">
+                <span className="bg-[#0A5C35] text-white px-3 py-1 rounded-full text-sm">Featured</span>
+              </div>
+            </div>
+            <div className="p-4 md:p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-poppins font-medium text-xl text-gray-800">Nidhi Chugh</h3>
+              </div>
+              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
+                <AnimatedCounter target={83} suffix="M+" />
+              </h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
+                Global spiritual brand growth through Meta Ads, Google Ads & YouTube
+              </p>
+              <Link 
+                href="/services/performance-marketing/case-study-1" 
+                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
+              >
+                See Case Study
+                <svg 
+                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Case Study 2 - WitWise Education */}
+          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+            <div className="relative h-48">
+              <Image 
+                src="/witwisecs.jpeg" 
+                alt="WitWise Education Case Study" 
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div className="p-4 md:p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-poppins font-medium text-xl text-gray-800">WitWise Education</h3>
+              </div>
+              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
+                <AnimatedCounter target={2000} suffix="+" />
+              </h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
+                Driving quality leads through strategic Meta advertising
+              </p>
+              <Link 
+                href="/services/performance-marketing/case-study-2" 
+                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
+              >
+                See Case Study
+                <svg 
+                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Case Study 3 - Yashi Shukla Education */}
+          <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
+            <div className="relative h-48">
+              <Image 
+                src="/yse.jpeg" 
+                alt="Yashi Shukla Education Case Study" 
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div className="p-4 md:p-6">
+              <div className="flex items-center gap-2 mb-2">
+                
+                <h3 className="font-poppins font-medium text-xl text-gray-800">Yashi Shukla Education</h3>
+              </div>
+              <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0A5C35]">
+                <AnimatedCounter target={1000} suffix="+" />
+              </h2>
+              <p className="text-gray-700 mb-4 text-sm md:text-base">
+                Global education marketing success through multi-platform strategy
+              </p>
+              <Link 
+                href="/services/performance-marketing/case-study-3" 
+                className="flex items-center text-[#0A5C35] font-medium text-sm md:text-base group"
+              >
+                See Case Study
+                <svg 
+                  className="ml-2 w-4 h-4 transform transition-transform group-hover:translate-x-2" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          
+        </div>
+
+
+      </div>
       
       {/* FAQs Section */}
       <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import CTAComponent from "../CTAComponent";
+import ResultComponent from "../ResultComponent";
 
 export default function InsightsPage() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
@@ -499,6 +500,10 @@ export default function InsightsPage() {
           {/* CTA Button */}
 
         </div>
+      </div>
+
+      <div className="flex justify-center items-center w-full">
+        <ResultComponent />
       </div>
 
       {/* CTA Section */}
