@@ -1025,14 +1025,14 @@ export default function InsightsPage() {
             </div>
           </div>
 
-          {/* CTA Section */}
-          <CTAComponent
+          
+        </div>
+      </div>
+{/* CTA Section */}
+<CTAComponent
             title="Ready to see your brand's performance marketing campaigns come to life?"
             description="Let's create ads that don't just look good—they perform."
           />
-        </div>
-      </div>
-
       {/* Why choose JIVO as your performance marketing partner */}
       <div className="bg-white py-8">
         <div className="container mx-auto px-4">

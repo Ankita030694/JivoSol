@@ -8,6 +8,27 @@ import CTAComponent from "../CTAComponent";
 
 export default function InsightsPage() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<'fb' | 'team'>('fb');
+
+  // F&B images
+  const fbImages = [
+    '/ccp/fb/Kaho-chicken.jpg',
+    '/ccp/fb/DSCF0604.jpg',
+    '/ccp/fb/DSCF0525.jpg',
+    '/ccp/fb/Clay-Pot-Prawn.jpg',
+    '/ccp/fb/Blueberry.jpg',
+    '/ccp/fb/Apple-Cinnamon-Blondie.jpg'
+  ];
+
+  // Team images
+  const teamImages = [
+    '/ccp/team/YSe1.jpg',
+    '/ccp/team/YSe.jpg',
+    '/ccp/team/Waby1.jpg',
+    '/ccp/team/Waby.jpg',
+    '/ccp/team/Ergophy1.jpg',
+    '/ccp/team/Ergophy.jpg'
+  ];
 
   return (
     <div>
@@ -184,11 +205,90 @@ export default function InsightsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-24">
-          <Image src="/jabout1.svg" alt="About Example 1" width={300} height={300} className="rounded-lg shadow-lg w-full aspect-square object-cover" />
-          <Image src="/jabout2.svg" alt="About Example 2" width={300} height={300} className="rounded-lg shadow-lg w-full aspect-square object-cover" />
-          <Image src="/jabout3.svg" alt="About Example 3" width={300} height={300} className="rounded-lg shadow-lg w-full aspect-square object-cover" />
-          <Image src="/jabout4.svg" alt="About Example 4" width={300} height={300} className="rounded-lg shadow-lg w-full aspect-square object-cover" />
+        {/* Tabbed Image Gallery */}
+        <div className="mb-12">
+          {/* Tab Buttons */}
+          <div className="flex justify-center mb-8">
+            <div className="flex bg-gray-100 rounded-lg p-1">
+              <button
+                onClick={() => setActiveTab('fb')}
+                className={`px-6 py-2 rounded-md font-medium transition-all duration-300 ${
+                  activeTab === 'fb'
+                    ? 'bg-[#0a5c35] text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                F&B
+              </button>
+              <button
+                onClick={() => setActiveTab('team')}
+                className={`px-6 py-2 rounded-md font-medium transition-all duration-300 ${
+                  activeTab === 'team'
+                    ? 'bg-[#0a5c35] text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                Team
+              </button>
+            </div>
+          </div>
+
+          {/* Image Grid */}
+          <div className="px-24">
+            <div className="grid grid-cols-4 gap-6">
+              {/* First 4 images in a row */}
+              {activeTab === 'fb' 
+                ? fbImages.slice(0, 4).map((image, index) => (
+                    <Image 
+                      key={index}
+                      src={image} 
+                      alt={`F&B Example ${index + 1}`} 
+                      width={300} 
+                      height={300} 
+                      className="rounded-lg shadow-lg w-full aspect-square object-cover" 
+                    />
+                  ))
+                : teamImages.slice(0, 4).map((image, index) => (
+                    <Image 
+                      key={index}
+                      src={image} 
+                      alt={`Team Example ${index + 1}`} 
+                      width={300} 
+                      height={300} 
+                      className="rounded-lg shadow-lg w-full aspect-square object-cover" 
+                    />
+                  ))
+              }
+            </div>
+            
+            {/* Last 2 images centered below */}
+            <div className="flex justify-center mt-6">
+              <div className="grid grid-cols-2 gap-6 w-1/2">
+                {activeTab === 'fb' 
+                  ? fbImages.slice(4, 6).map((image, index) => (
+                      <Image 
+                        key={index + 4}
+                        src={image} 
+                        alt={`F&B Example ${index + 5}`} 
+                        width={300} 
+                        height={300} 
+                        className="rounded-lg shadow-lg w-full aspect-square object-cover" 
+                      />
+                    ))
+                  : teamImages.slice(4, 6).map((image, index) => (
+                      <Image 
+                        key={index + 4}
+                        src={image} 
+                        alt={`Team Example ${index + 5}`} 
+                        width={300} 
+                        height={300} 
+                        className="rounded-lg shadow-lg w-full aspect-square object-cover" 
+                      />
+                    ))
+                }
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

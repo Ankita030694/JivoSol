@@ -146,43 +146,83 @@ export default function InsightsPage() {
       </div>
 
       {/* What Is SEO Section */}
-      <div className="py-8 bg-[#ECECEC]">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-8 text-black">What Is SEO?</h2>
-          <p className="text-lg mb-8 text-black leading-relaxed">
-            SEO, or Search Engine Optimization, is the process of improving your website to increase its visibility on search engines like Google.
-          </p>
-          <p className="text-lg mb-8 text-black font-semibold">An optimized website helps you:</p>
-          <ul className="space-y-4 mb-8">
-            {[
-              "Rank higher in search results",
-              "Attract more organic traffic",
-              "Target the right audience with the right keywords",
-              "Improve user experience and conversion rates"
-            ].map((benefit, index) => (
-              <li key={index} className="flex items-center text-black">
-                <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
-                {benefit}
-              </li>
-            ))}
-          </ul>
-          <p className="text-lg text-black leading-relaxed">
-            At JIVO, we offer both on-page and off-page SEO strategies to boost your digital presence and grow your business online.
-          </p>
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc]">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-4xl font-bold text-center mb-12 text-black">
+              What Is SEO?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+              SEO (Search Engine Optimization) is the art and science of enhancing your website to increase its visibility on search engines like Google.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row md:items-stretch md:justify-center gap-8">
+            <div className="flex-1">
+              <div className="bg-white rounded-xl shadow-lg p-8 h-full flex flex-col justify-center">
+                <h3 className="text-xl font-semibold text-[#006B3F] mb-4 text-center">Why SEO Matters</h3>
+                <ul className="space-y-4">
+                  {[
+                    "Rank higher in search results",
+                    "Attract more organic traffic",
+                    "Target the right audience with the right keywords",
+                    "Improve user experience and conversion rates"
+                  ].map((benefit, index) => (
+                    <li key={index} className="flex items-center text-gray-800 text-base md:text-lg">
+                      <span className="flex items-center justify-center w-6 h-6 bg-[#0a5c35] rounded-full mr-3">
+                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="flex-1 flex flex-col justify-center">
+              <div className="bg-[#006B3F] rounded-xl shadow-lg p-8 h-full flex flex-col justify-center">
+                <h4 className="text-xl font-semibold text-white mb-4 text-center">Our Approach</h4>
+                <p className="text-white text-base md:text-lg leading-relaxed mb-4 text-center">
+                  At JIVO, we combine on-page and off-page SEO strategies to elevate your digital presence and drive real business growth.
+                </p>
+                <div className="flex justify-center">
+                  <svg className="w-14 h-14 text-white opacity-80" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20" stroke="#fff" strokeWidth="3" fill="none"/>
+                    <path d="M24 14v10l7 7" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* SEO Services Section */}
-      <div className="py-8 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-4xl font-bold text-center mb-12 text-black">
+              Our SEO Services
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+              We offer a comprehensive suite of SEO solutions to help your business grow online.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* On-Page SEO */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-[#006B3F]">On-Page SEO Services</h3>
-              <p className="text-gray-700 mb-6">
-                We optimize the elements within your website to improve its search engine ranking.
+            <div className="bg-gradient-to-br from-[#e2eafc] to-[#f5f7fa] rounded-xl shadow-lg p-8 flex flex-col h-full">
+              <div className="flex items-center mb-6">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#006B3F] mr-3">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 9l5-5 5 5M12 4.5V15" />
+                  </svg>
+                </span>
+                <h3 className="text-2xl font-bold text-[#006B3F]">On-Page SEO Services</h3>
+              </div>
+              <p className="text-gray-700 mb-6 text-base md:text-lg">
+                We optimize every element within your website to improve its search engine ranking and user experience.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "Keyword research & mapping",
                   "Title tags & meta descriptions",
@@ -194,8 +234,12 @@ export default function InsightsPage() {
                   "Schema markup integration",
                   "Mobile-friendliness & Core Web Vitals"
                 ].map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
+                  <li key={index} className="flex items-center text-gray-800">
+                    <span className="flex items-center justify-center w-6 h-6 bg-[#0a5c35] rounded-full mr-3">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
                     {service}
                   </li>
                 ))}
@@ -203,12 +247,19 @@ export default function InsightsPage() {
             </div>
 
             {/* Off-Page SEO */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-[#006B3F]">Off-Page SEO Services</h3>
-              <p className="text-gray-700 mb-6">
-                We help build your website's credibility and authority outside of your website.
+            <div className="bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc] rounded-xl shadow-lg p-8 flex flex-col h-full">
+              <div className="flex items-center mb-6">
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0a5c35] mr-3">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                </span>
+                <h3 className="text-2xl font-bold text-[#0a5c35]">Off-Page SEO Services</h3>
+              </div>
+              <p className="text-gray-700 mb-6 text-base md:text-lg">
+                We build your website's credibility and authority through strategic activities beyond your site.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {[
                   "Backlink building from high-authority websites",
                   "Local SEO (Google Business Profile optimization)",
@@ -218,8 +269,12 @@ export default function InsightsPage() {
                   "Social signals and content distribution",
                   "Brand mentions & reputation management"
                 ].map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-700">
-                    <span className="w-2 h-2 bg-[#006B3F] rounded-full mr-3"></span>
+                  <li key={index} className="flex items-center text-gray-800">
+                    <span className="flex items-center justify-center w-6 h-6 bg-[#006B3F] rounded-full mr-3">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
                     {service}
                   </li>
                 ))}
@@ -227,7 +282,7 @@ export default function InsightsPage() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* We Specialize Section */}
       <div className="flex justify-center items-center py-8 w-full px-48">
