@@ -14,14 +14,13 @@ const ResultComponent: React.FC = () => {
   ];
 
   return (
-    <div className="relative w-full" style={{ height: "290px", maxWidth: "1440px", margin: "0 auto" }}>
+    <div className="relative w-full" style={{ height: "290px" }}>
       {/* Background Image */}
       <Image 
         src="/result.png" 
         alt="Results Background" 
-        width={1440} 
-        height={268.5} 
-        className="w-full h-full object-cover"
+        fill
+        className="object-cover"
         style={{ 
           border: 'none', 
           outline: 'none', 
@@ -40,7 +39,7 @@ const ResultComponent: React.FC = () => {
           Results You Can Expect
         </h2>
         
-        {/* Two Column Grid */}
+        {/* Two Column Grid - constrain content width but not background */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full">
           {/* Left Column */}
           <div className="space-y-3">
