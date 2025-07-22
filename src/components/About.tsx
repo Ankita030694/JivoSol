@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -39,6 +39,10 @@ const useVideoLoader = (videoUrl: string, thumbnailUrl: string) => {
 };
 
 const About = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
   // Thumbnail versions of videos (lower quality)
   const videos = [
     {
@@ -93,6 +97,39 @@ const About = () => {
   // Track which videos are in view for optimization
   const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
   const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set());
+
+  // Handle scroll events for mobile
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const containerWidth = container.clientWidth;
+      const videoWidth = containerWidth * 0.8; // 80% of container width on mobile
+      const gap = 16; // gap between videos
+      
+      const newIndex = Math.round(scrollLeft / (videoWidth + gap));
+      setCurrentVideoIndex(Math.max(0, Math.min(newIndex, videos.length - 1)));
+      
+      // Hide scroll indicator after first scroll
+      if (scrollLeft > 10) {
+        setShowScrollIndicator(false);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [videos.length]);
+
+  // Auto-hide scroll indicator after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowScrollIndicator(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -188,84 +225,201 @@ const About = () => {
         </Link>
       </motion.div>
 
-      {/* Video Grid */}
-      <motion.div 
-        ref={ref}
-        variants={staggerContainer}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        className="flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
-        {videos.map((video, index) => {
-          const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
-          const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
-          
-          return (
-            <motion.div 
-              key={index}
-              variants={fadeInUp}
-              className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0"
-              data-index={index}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              {(!thumbnailLoaded || isLoading) && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse" />
-              )}
-              
-              <div className="relative w-full h-full">
-                {/* Thumbnail Layer */}
-                <div 
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    videoReady ? 'opacity-0' : 'opacity-100'
-                  }`}
-                >
-                  {thumbnailLoaded && (
-                    <img 
-                      src={video.thumbnail}
-                      alt={`Thumbnail for ${clientNames[index]}`}
-                      className="object-cover w-full h-full"
-                    />
-                  )}
-                </div>
-
-                {/* Video Layer */}
-                <div 
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    videoReady ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  {shouldLoadVideo && (
-                    <video
-                      ref={(el) => setVideoElement(el)}
-                      src={video.url}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="object-cover w-full h-full"
-                      preload="metadata"
-                    />
-                  )}
-                </div>
-              </div>
-
-              <motion.div 
-                className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
-                initial={{ y: 20, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.p 
-                  className="text-white px-4 pb-4 font-medium"
-                  initial={{ y: 10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {clientNames[index]}
-                </motion.p>
-              </motion.div>
-            </motion.div>
-          );
-        })}
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showScrollIndicator ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="mb-4 flex justify-center items-center gap-2 text-sm text-gray-500"
+      >
+        <motion.div
+          animate={{ x: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          className="w-4 h-4"
+        >
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </motion.div>
+        <span>Swipe to see more</span>
       </motion.div>
 
+      {/* Video Grid Container */}
+      <div className="relative">
+        <motion.div 
+          ref={ref}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="relative"
+        >
+          {/* Desktop Grid */}
+          <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
+            {videos.map((video, index) => {
+              const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
+              const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
+              
+              return (
+                <motion.div 
+                  key={index}
+                  variants={fadeInUp}
+                  className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0"
+                  data-index={index}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {(!thumbnailLoaded || isLoading) && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                  )}
+                  
+                  <div className="relative w-full h-full">
+                    {/* Thumbnail Layer */}
+                    <div 
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        videoReady ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    >
+                      {thumbnailLoaded && (
+                        <img 
+                          src={video.thumbnail}
+                          alt={`Thumbnail for ${clientNames[index]}`}
+                          className="object-cover w-full h-full"
+                        />
+                      )}
+                    </div>
+
+                    {/* Video Layer */}
+                    <div 
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        videoReady ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      {shouldLoadVideo && (
+                        <video
+                          ref={(el) => setVideoElement(el)}
+                          src={video.url}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="object-cover w-full h-full"
+                          preload="metadata"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  <motion.div 
+                    className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
+                    initial={{ y: 20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.p 
+                      className="text-white px-4 pb-4 font-medium"
+                      initial={{ y: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {clientNames[index]}
+                    </motion.p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Horizontal Scroll */}
+          <div 
+            ref={scrollContainerRef}
+            className="md:hidden flex gap-4 overflow-x-auto scroll-smooth px-4 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {videos.map((video, index) => {
+              const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
+              const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
+              const isActive = currentVideoIndex === index;
+              
+              return (
+                <motion.div 
+                  key={index}
+                  variants={fadeInUp}
+                  className="video-container relative w-[80vw] h-[70vh] rounded-2xl overflow-hidden flex-shrink-0 snap-center"
+                  data-index={index}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  style={{ minWidth: '80vw' }}
+                >
+                  {(!thumbnailLoaded || isLoading) && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                  )}
+                  
+                  <div className="relative w-full h-full">
+                    {/* Thumbnail Layer */}
+                    <div 
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        videoReady ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    >
+                      {thumbnailLoaded && (
+                        <img 
+                          src={video.thumbnail}
+                          alt={`Thumbnail for ${clientNames[index]}`}
+                          className="object-cover w-full h-full"
+                        />
+                      )}
+                    </div>
+
+                    {/* Video Layer */}
+                    <div 
+                      className={`absolute inset-0 transition-opacity duration-500 ${
+                        videoReady ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
+                      {shouldLoadVideo && (
+                        <video
+                          ref={(el) => setVideoElement(el)}
+                          src={video.url}
+                          autoPlay={isActive}
+                          muted
+                          loop
+                          playsInline
+                          className="object-cover w-full h-full"
+                          preload="metadata"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  <motion.div 
+                    className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
+                    initial={{ y: 20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.p 
+                      className="text-white px-4 pb-4 font-medium"
+                      initial={{ y: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {clientNames[index]}
+                    </motion.p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Mobile Video Indicators */}
+        <div className="md:hidden flex justify-center gap-2 mt-4">
+          {videos.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentVideoIndex 
+                  ? 'bg-[#005F33] w-6' 
+                  : 'bg-gray-300'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
 
     </section>
   );
