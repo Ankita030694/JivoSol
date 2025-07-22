@@ -178,7 +178,7 @@ const About = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-4xl font-bold mb-6 text-black">
+        className="text-3xl md:text-4xl font-bold mb-6 text-black">
         We are JIVO Solutions
       </motion.h2>
 

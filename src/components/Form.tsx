@@ -29,11 +29,12 @@ const Form = () => {
   
   const serviceOptions = [
     { value: "", label: "Select Services" },
-    { value: "brand", label: "Brand Strategy" },
-    { value: "packaging", label: "Packaging Design" },
-    { value: "media", label: "Photography & Videography" },
-    { value: "social", label: "Social Media Management" },
-    { value: "web", label: "Website Development" }
+    { value: "brand-identity-design", label: "Brand Identity & Design" },
+    { value: "performance-marketing", label: "Performance Marketing" },
+    { value: "content-creation-production", label: "Content Creation & Production" },
+    { value: "video-animation", label: "Video & Animation" },
+    { value: "web-development-seo", label: "Web Development & SEO" },
+    { value: "social-media-management", label: "Social Media Management" }
   ];
 
   // Animation variants

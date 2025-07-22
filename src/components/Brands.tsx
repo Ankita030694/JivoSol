@@ -140,80 +140,118 @@ const Brands = () => {
       </motion.div>
 
       <div className="relative">
-        <motion.div 
-          className="flex flex-col md:flex-row gap-6 justify-center items-stretch"
-          ref={testimonialsRef}
-          variants={staggerContainer}
-          initial="hidden"
-          animate={testimonialsInView ? "visible" : "hidden"}
-        >
-          {visibleTestimonials.map((testimonial, index) => (
-            <motion.div
-              key={`${testimonial.id}-${currentIndex}`}
-              className="cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 flex-1 max-w-md
-                bg-white text-black border border-gray-200 hover:bg-[#0A5C35] hover:text-white hover:shadow-lg flex flex-col"
-              whileHover={{ 
-                y: -15, 
-                scale: 1.02,
-                boxShadow: "0 25px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
-              }}
-            >
-              <motion.p 
-                className="text-sm sm:text-base mb-4 sm:mb-5 leading-relaxed flex-grow"
+        {/* Mobile: Single card with horizontal scroll */}
+        <div className="md:hidden bg-red-100 p-4">
+          <div className="text-center mb-4">
+          </div>
+          <div className="flex overflow-x-auto gap-4 pb-4">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className="cursor-pointer rounded-2xl p-4 bg-white text-black border border-gray-200 flex-shrink-0 w-80 flex flex-col"
               >
-                {testimonial.comment}
-              </motion.p>
-              <motion.div 
-                className="flex items-center gap-3 mt-auto"
-              >
-                <div>
-                  <motion.h4 
-                    className="font-semibold text-sm sm:text-base"
-                  >
-                    {testimonial.name}
-                  </motion.h4>
-                  <motion.p 
-                    className="text-xs sm:text-sm text-black"
-                  >
-                    {testimonial.position}
-                  </motion.p>
+                <p className="text-sm mb-4 leading-relaxed flex-grow">
+                  {testimonial.comment}
+                </p>
+                <div className="flex items-center gap-3 mt-auto">
+                  <div>
+                    <h4 className="font-semibold text-sm">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-xs text-black">
+                      {testimonial.position}
+                    </p>
+                  </div>
+                  <div className="ml-auto">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className="text-yellow-400 text-sm">
+                        ★
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <motion.div 
-                  className="ml-auto"
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Three cards with navigation */}
+        <div className="hidden md:block">
+          <motion.div 
+            className="flex flex-col md:flex-row gap-6 justify-center items-stretch"
+            ref={testimonialsRef}
+            variants={staggerContainer}
+            initial="hidden"
+            animate={testimonialsInView ? "visible" : "hidden"}
+          >
+            {visibleTestimonials.map((testimonial, index) => (
+              <motion.div
+                key={`${testimonial.id}-${currentIndex}`}
+                className="cursor-pointer rounded-2xl p-4 sm:p-6 transition-all duration-300 flex-1 max-w-md
+                  bg-white text-black border border-gray-200 hover:bg-[#0A5C35] hover:text-white hover:shadow-lg flex flex-col"
+                whileHover={{ 
+                  y: -15, 
+                  scale: 1.02,
+                  boxShadow: "0 25px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+                }}
+              >
+                <motion.p 
+                  className="text-sm sm:text-base mb-4 sm:mb-5 leading-relaxed flex-grow"
                 >
-                  {[1, 2, 3, 4, 5].map((star, i) => (
-                    <motion.span 
-                      key={star} 
-                      className="text-yellow-400 text-sm"
+                  {testimonial.comment}
+                </motion.p>
+                <motion.div 
+                  className="flex items-center gap-3 mt-auto"
+                >
+                  <div>
+                    <motion.h4 
+                      className="font-semibold text-sm sm:text-base"
                     >
-                      ★
-                    </motion.span>
-                  ))}
+                      {testimonial.name}
+                    </motion.h4>
+                    <motion.p 
+                      className="text-xs sm:text-sm text-black"
+                    >
+                      {testimonial.position}
+                    </motion.p>
+                  </div>
+                  <motion.div 
+                    className="ml-auto"
+                  >
+                    {[1, 2, 3, 4, 5].map((star, i) => (
+                      <motion.span 
+                        key={star} 
+                        className="text-yellow-400 text-sm"
+                      >
+                        ★
+                      </motion.span>
+                    ))}
+                  </motion.div>
                 </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-[#0A5C35] hover:text-white transition-all duration-300"
-          aria-label="Previous testimonials"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-[#0A5C35] hover:text-white transition-all duration-300"
-          aria-label="Next testimonials"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+          {/* Navigation Arrows - Desktop only */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-[#0A5C35] hover:text-white transition-all duration-300"
+            aria-label="Previous testimonials"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-[#0A5C35] hover:text-white transition-all duration-300"
+            aria-label="Next testimonials"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </motion.section>
   );
