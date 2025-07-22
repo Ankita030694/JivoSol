@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
 import WhyUs from '@/components/WhyUs';
