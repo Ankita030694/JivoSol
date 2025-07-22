@@ -306,6 +306,7 @@ const Navbar = () => {
           </Link>
           
           {/* Mobile contact button */}
+          <Link href="/contact">
           <button 
             className={`mt-8 bg-white text-black rounded-full border border-[#0A5C3580] flex items-center justify-center gap-3 px-4 py-3 
             hover:bg-[#0A5C35]/10 transition-all duration-500 transform hover:scale-105 active:scale-95 group 
@@ -319,6 +320,7 @@ const Navbar = () => {
             </div>
             <span className="text-lg font-medium">Get In Touch</span>
           </button>
+          </Link>
         </div>
       </div>
     </nav>
