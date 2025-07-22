@@ -141,7 +141,7 @@ const Brands = () => {
 
       <div className="relative">
         {/* Mobile: Single card with horizontal scroll */}
-        <div className="md:hidden bg-red-100 p-4">
+        <div className="md:hidden p-4">
           <div className="text-center mb-4">
           </div>
           <div className="flex overflow-x-auto gap-4 pb-4">

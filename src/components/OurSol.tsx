@@ -60,9 +60,9 @@
           We help brands build and scale their digital presence through:
         </p>
 
-        <div className="relative flex flex-col items-center space-y-1 sm:space-y-2 xxl:space-y-3">
+        <div className="relative flex flex-col items-center space-y-3 sm:space-y-4 xxl:space-y-6">
           {services.map((service, index) => (
-            <div key={index} className="relative w-full flex flex-col items-center group py-1 sm:py-2 xxl:py-3">
+            <div key={index} className="relative w-full flex flex-col items-center group">
               {/* Row: Icon, Line, Title, Line */}
               <div className="relative w-full flex items-center justify-center">
                 {/* Icon on the left, absolutely positioned, only visible on hover - hidden on mobile */}
@@ -101,7 +101,7 @@
               </div>
 
               {/* Mobile description - shown below the service name on mobile */}
-              <div className="md:hidden w-full text-center mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+              <div className="md:hidden w-full text-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <p className="text-sm text-black px-4">
                   {service.description}
                 </p>
