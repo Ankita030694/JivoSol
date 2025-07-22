@@ -5,76 +5,78 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// Custom hook for lazy loading videos
-const useVideoLoader = (videoUrl: string, thumbnailUrl: string) => {
+// Custom hook for optimized video loading
+const useOptimizedVideoLoader = (videoUrl: string) => {
   const [isLoading, setIsLoading] = useState(true);
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
-  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    // Preload thumbnail
-    const img = new Image();
-    img.src = thumbnailUrl;
-    img.onload = () => setThumbnailLoaded(true);
-  }, [thumbnailUrl]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     if (!videoElement) return;
 
     const handleLoadedData = () => {
       setIsLoading(false);
-      // Add a small delay before marking video as ready to ensure smooth transition
-      setTimeout(() => setVideoReady(true), 100);
+      setTimeout(() => setVideoReady(true), 50);
+    };
+
+    const handleError = () => {
+      setError(true);
+      setIsLoading(false);
+    };
+
+    const handleCanPlay = () => {
+      // Video is ready to play
     };
 
     videoElement.addEventListener('loadeddata', handleLoadedData);
+    videoElement.addEventListener('error', handleError);
+    videoElement.addEventListener('canplay', handleCanPlay);
     
     return () => {
       videoElement.removeEventListener('loadeddata', handleLoadedData);
+      videoElement.removeEventListener('error', handleError);
+      videoElement.removeEventListener('canplay', handleCanPlay);
     };
   }, [videoElement]);
 
-  return { isLoading, setVideoElement, thumbnailLoaded, videoReady };
+  return { isLoading, setVideoElement, videoReady, error };
 };
 
 const About = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set());
 
-  // Thumbnail versions of videos (lower quality)
+  // Local video files from homepagevids folder
   const videos = [
     {
-      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001(1).mp4?alt=media&token=3ed17b44-c716-4d10-93c5-9d482a2daa4a',
-      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F001_thumb.jpg?alt=media', // You'll need to create and upload these thumbnails
+      url: '/homepagevids/001.mp4',
+      name: '',
+      description: ''
     },
     {
-      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002(1).mp4?alt=media&token=3b941819-af45-4c1f-ac43-549d787a950a',
-      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F002_thumb.jpg?alt=media',
+      url: '/homepagevids/002.mp4',
+      name: '', 
+      description: ''
     },
     {
-      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2)(1).mp4?alt=media&token=c5ab4613-f83f-4989-9774-0793e3208425',
-      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Ffez_thumb.jpg?alt=media',
+      url: '/homepagevids/FezRemovetext.mp4',
+      name: '',
+      description: ''
     },
     {
-      url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise5.mp4?alt=media&token=8da7e4a5-396e-4b22-83f3-f21346e85ee6',
-      thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Fwitwise_thumb.jpg?alt=media',
+      url: '/homepagevids/Witwise5.mp4',
+      name: '',
+      description: ''
     },
-  ];
-  
-  // Client names corresponding to each video
-  const clientNames = [
-    'Client One',
-    'Client Two',
-    'Client Three',
-    'Client Four',
   ];
 
-  // Animation variants for different sections
+  // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
   };
   
   const staggerContainer = {
@@ -82,8 +84,8 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
@@ -94,9 +96,28 @@ const About = () => {
     threshold: 0.1,
   });
 
-  // Track which videos are in view for optimization
-  const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
-  const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set());
+  // Preload videos when component mounts
+  useEffect(() => {
+    const preloadVideo = (url: string, index: number) => {
+      const video = document.createElement('video');
+      video.preload = 'metadata';
+      video.muted = true;
+      video.src = url;
+      
+      video.onloadedmetadata = () => {
+        setPreloadedVideos(prev => new Set([...prev, index]));
+      };
+      
+      video.onerror = () => {
+        console.warn(`Failed to preload video ${index}: ${url}`);
+      };
+    };
+
+    // Preload all videos
+    videos.forEach((video, index) => {
+      preloadVideo(video.url, index);
+    });
+  }, []);
 
   // Handle scroll events for mobile
   useEffect(() => {
@@ -106,13 +127,12 @@ const About = () => {
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
       const containerWidth = container.clientWidth;
-      const videoWidth = containerWidth * 0.8; // 80% of container width on mobile
-      const gap = 16; // gap between videos
+      const videoWidth = containerWidth * 0.8;
+      const gap = 16;
       
       const newIndex = Math.round(scrollLeft / (videoWidth + gap));
       setCurrentVideoIndex(Math.max(0, Math.min(newIndex, videos.length - 1)));
       
-      // Hide scroll indicator after first scroll
       if (scrollLeft > 10) {
         setShowScrollIndicator(false);
       }
@@ -122,7 +142,7 @@ const About = () => {
     return () => container.removeEventListener('scroll', handleScroll);
   }, [videos.length]);
 
-  // Auto-hide scroll indicator after 3 seconds
+  // Auto-hide scroll indicator
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowScrollIndicator(false);
@@ -130,37 +150,6 @@ const About = () => {
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (inView) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const videoIndex = parseInt(entry.target.getAttribute('data-index') || '0');
-            if (entry.isIntersecting) {
-              setVisibleVideos((prev) => new Set([...prev, videoIndex]));
-              // Preload next video
-              const nextIndex = (videoIndex + 1) % videos.length;
-              setPreloadedVideos((prev) => new Set([...prev, nextIndex]));
-            } else {
-              setVisibleVideos((prev) => {
-                const newSet = new Set(prev);
-                newSet.delete(videoIndex);
-                return newSet;
-              });
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      document.querySelectorAll('.video-container').forEach((videoEl) => {
-        observer.observe(videoEl);
-      });
-
-      return () => observer.disconnect();
-    }
-  }, [inView, videos.length]);
 
   return (
     <section className="py-8 px-4 text-center overflow-hidden">
@@ -256,70 +245,68 @@ const About = () => {
           {/* Desktop Grid */}
           <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
             {videos.map((video, index) => {
-              const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
-              const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
+              const { isLoading, setVideoElement, videoReady } = useOptimizedVideoLoader(video.url);
+              const isPreloaded = preloadedVideos.has(index);
               
               return (
                 <motion.div 
                   key={index}
                   variants={fadeInUp}
-                  className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0"
-                  data-index={index}
+                  className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100"
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {(!thumbnailLoaded || isLoading) && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                  {/* Loading Placeholder */}
+                  {isLoading && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
+                      <div className="text-gray-500 text-sm">Loading...</div>
+                    </div>
                   )}
                   
+                  {/* Video Element */}
                   <div className="relative w-full h-full">
-                    {/* Thumbnail Layer */}
-                    <div 
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        videoReady ? 'opacity-0' : 'opacity-100'
-                      }`}
-                    >
-                      {thumbnailLoaded && (
-                        <img 
-                          src={video.thumbnail}
-                          alt={`Thumbnail for ${clientNames[index]}`}
-                          className="object-cover w-full h-full"
-                        />
-                      )}
-                    </div>
-
-                    {/* Video Layer */}
-                    <div 
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        videoReady ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      {shouldLoadVideo && (
-                        <video
-                          ref={(el) => setVideoElement(el)}
-                          src={video.url}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="object-cover w-full h-full"
-                          preload="metadata"
-                        />
-                      )}
-                    </div>
+                    {isPreloaded && (
+                      <video
+                        ref={(el) => setVideoElement(el)}
+                        src={video.url}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="object-cover w-full h-full"
+                        preload="metadata"
+                        style={{ 
+                          opacity: videoReady ? 1 : 0,
+                          transition: 'opacity 0.3s ease-in-out'
+                        }}
+                      />
+                    )}
                   </div>
 
+                  {/* Video Info Overlay */}
                   <motion.div 
-                    className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
+                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end"
                     initial={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
-                    <motion.p 
-                      className="text-white px-4 pb-4 font-medium"
-                      initial={{ y: 10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {clientNames[index]}
-                    </motion.p>
+                    <div className="p-4 w-full">
+                      <motion.h3 
+                        className="text-white font-semibold text-lg mb-1"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                      >
+                        {video.name}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-white/80 text-sm"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.6 }}
+                      >
+                        {video.description}
+                      </motion.p>
+                    </div>
                   </motion.div>
                 </motion.div>
               );
@@ -333,72 +320,70 @@ const About = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {videos.map((video, index) => {
-              const { isLoading, setVideoElement, thumbnailLoaded, videoReady } = useVideoLoader(video.url, video.thumbnail);
-              const shouldLoadVideo = visibleVideos.has(index) || preloadedVideos.has(index);
+              const { isLoading, setVideoElement, videoReady } = useOptimizedVideoLoader(video.url);
+              const isPreloaded = preloadedVideos.has(index);
               const isActive = currentVideoIndex === index;
               
               return (
                 <motion.div 
                   key={index}
                   variants={fadeInUp}
-                  className="video-container relative w-[80vw] h-[70vh] rounded-2xl overflow-hidden flex-shrink-0 snap-center"
-                  data-index={index}
+                  className="video-container relative w-[80vw] h-[70vh] rounded-2xl overflow-hidden flex-shrink-0 snap-center bg-gray-100"
                   transition={{ type: "spring", stiffness: 300 }}
                   style={{ minWidth: '80vw' }}
                 >
-                  {(!thumbnailLoaded || isLoading) && (
-                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                  {/* Loading Placeholder */}
+                  {isLoading && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
+                      <div className="text-gray-500 text-sm">Loading...</div>
+                    </div>
                   )}
                   
+                  {/* Video Element */}
                   <div className="relative w-full h-full">
-                    {/* Thumbnail Layer */}
-                    <div 
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        videoReady ? 'opacity-0' : 'opacity-100'
-                      }`}
-                    >
-                      {thumbnailLoaded && (
-                        <img 
-                          src={video.thumbnail}
-                          alt={`Thumbnail for ${clientNames[index]}`}
-                          className="object-cover w-full h-full"
-                        />
-                      )}
-                    </div>
-
-                    {/* Video Layer */}
-                    <div 
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        videoReady ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      {shouldLoadVideo && (
-                        <video
-                          ref={(el) => setVideoElement(el)}
-                          src={video.url}
-                          autoPlay={isActive}
-                          muted
-                          loop
-                          playsInline
-                          className="object-cover w-full h-full"
-                          preload="metadata"
-                        />
-                      )}
-                    </div>
+                    {isPreloaded && (
+                      <video
+                        ref={(el) => setVideoElement(el)}
+                        src={video.url}
+                        autoPlay={isActive}
+                        muted
+                        loop
+                        playsInline
+                        className="object-cover w-full h-full"
+                        preload="metadata"
+                        style={{ 
+                          opacity: videoReady ? 1 : 0,
+                          transition: 'opacity 0.3s ease-in-out'
+                        }}
+                      />
+                    )}
                   </div>
 
+                  {/* Video Info Overlay */}
                   <motion.div 
-                    className="absolute inset-x-0 bottom-0 h-3/3 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-300 flex items-end"
+                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end"
                     initial={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
-                    <motion.p 
-                      className="text-white px-4 pb-4 font-medium"
-                      initial={{ y: 10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {clientNames[index]}
-                    </motion.p>
+                    <div className="p-4 w-full">
+                      <motion.h3 
+                        className="text-white font-semibold text-lg mb-1"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.5 }}
+                      >
+                        {video.name}
+                      </motion.h3>
+                      <motion.p 
+                        className="text-white/80 text-sm"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3, delay: 0.6 }}
+                      >
+                        {video.description}
+                      </motion.p>
+                    </div>
                   </motion.div>
                 </motion.div>
               );
