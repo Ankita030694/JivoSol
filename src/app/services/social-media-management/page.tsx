@@ -430,7 +430,7 @@ export default function InsightsPage() {
      
 
       {/* Why Choose JIVO Section */}
-      <div className="bg-[#0A5C35] text-white py-8 px-4" style={{ marginBottom: 0, paddingBottom: 0 }}>
+      <div className="bg-[#0A5C35] text-white py-8 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">
             Why choose JIVO as your social media partner

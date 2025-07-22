@@ -770,9 +770,6 @@ export default function InsightsPage() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center w-full">
-        <ResultComponent />
-      </div>
      
        {/* Ads that perform Section */}
       <div className="py-8 bg-gradient-to-br from-gray-50 to-white">

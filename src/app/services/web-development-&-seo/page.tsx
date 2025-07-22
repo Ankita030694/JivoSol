@@ -286,8 +286,92 @@ export default function InsightsPage() {
       </section>
 
       {/* We Specialize Section */}
-      <div className="flex justify-center items-center py-8 w-full px-48">
-        <Image src="/specialize.svg" alt="Jivo Hero" width={1000} height={100} className="w-full h-full object-cover" priority />
+      <div className="w-full py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">
+            We specialize in
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8 mb-8">
+            {/* 1 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">Business websites</span>
+                <span className="text-lg text-black"> for startups, service providers, and smes</span>
+              </div>
+            </div>
+            {/* 2 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">Landing pages</span>
+                <span className="text-lg text-black"> for lead generation, campaigns, or sales</span>
+              </div>
+            </div>
+            {/* 3 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">E-Commerce stores</span>
+                <span className="text-lg text-black"> on shopify and woocommerce</span>
+              </div>
+            </div>
+            {/* 4 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">Portfolio</span>
+                <span className="font-normal text-lg text-black"> and personal brand websites</span>
+              </div>
+            </div>
+            {/* 5 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">Website redesigns</span>
+                <span className="font-bold text-lg text-black"> and speed optimization</span>
+                <span className="font-normal text-lg text-black"> for better performance</span>
+              </div>
+            </div>
+            {/* 6 */}
+            <div className="flex items-start gap-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <div>
+                <span className="font-bold text-lg text-black">SEO fundamentals</span>
+                <span className="font-normal text-lg text-black">, analytics setup, and pixel integration</span>
+              </div>
+            </div>
+          </div>
+          <div className="text-center mt-8">
+            <p className="text-lg text-black font-medium">
+              Whether you're launching, scaling, or rebranding, we help you build a site that<br className="hidden md:inline" /> reflects your business.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Process Section */}

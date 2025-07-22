@@ -15,7 +15,7 @@ const brochures = [
     thumbnail: "/brochures/thumbnails/witwise-thumbnail.png"
   },
   {
-    title: "Santhosh Sir Portfolio",
+    title: "CME",
     file: "/brochures/santhosh-portfolio.pdf",
     thumbnail: "/brochures/thumbnails/santhosh-thumbnail.png"
   },
@@ -30,7 +30,7 @@ const brochures = [
     thumbnail: "/brochures/thumbnails/cs-spine-thumbnail.png"
   },
   {
-    title: "Amar Portfolio",
+    title: "Amara Portfolio",
     file: "/brochures/amar-portfolio.pdf",
     thumbnail: "/brochures/thumbnails/amar-thumbnail.png"
   },
@@ -138,6 +138,121 @@ const StationaryCarouselModal = ({ isOpen, onClose, images, startIndex }: { isOp
                 currentIndex === index ? 'bg-green-700' : 'bg-gray-300'
               }`}
             />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Add ProcessSteps component
+const ProcessSteps = () => {
+  const steps = [
+    {
+      number: "01",
+      title: "Brand Discovery",
+      description: "We begin with a call to understand your story, vision, audience, and what sets you apart."
+    },
+    {
+      number: "02", 
+      title: "Strategy & Positioning",
+      description: "We develop your brand strategy and positioning to differentiate you in the market."
+    },
+    {
+      number: "03",
+      title: "Visual Exploration", 
+      description: "We share mood boards and design directions to align on the look and feel."
+    },
+    {
+      number: "04",
+      title: "Final Design",
+      description: "We craft your logo, color palette, fonts, and brand system"
+    },
+    {
+      number: "05",
+      title: "Brand Guidelines Creation",
+      description: "We give you a clear brand guidelines document so everything stays consistent across platforms"
+    },
+    {
+      number: "06",
+      title: "Delivery of Brand Assets",
+      description: "We hand over everything you need to launch your brand!"
+    }
+  ];
+
+  return (
+    <div className="px-2 md:px-4 py-8">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-4xl font-bold mb-6 text-black">Our Process</h2>
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+          A systematic approach to building your brand identity from concept to completion
+        </p>
+      </div>
+      
+      <div className="max-w-full mx-auto">
+        {/* First Row - Steps 1-3 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+          {steps.slice(0, 3).map((step, index) => (
+            <div key={index} className="relative">
+              <div className="bg-white border-4 rounded-3xl shadow-sm transition-all duration-300 p-8 pt-12 relative h-[200px]"
+                   style={{ borderColor: '#0a5c35' }}>
+                
+                {/* Icon positioned on left middle of top border */}
+                <div className="absolute -top-8 left-8">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a5c35' }}>
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Step Number Badge - top right inside container */}
+                <div className="absolute top-4 right-4">
+                  <span className="text-white text-sm font-bold px-3 py-2 rounded-lg" style={{ backgroundColor: '#0a5c35' }}>
+                    STEP {step.number}
+                  </span>
+                </div>
+                
+                {/* Text Content - left aligned */}
+                <div className="text-left h-full flex flex-col justify-center">
+                  <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-sm">{step.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Second Row - Steps 4-6 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {steps.slice(3, 6).map((step, index) => (
+            <div key={index + 3} className="relative">
+              <div className="bg-white border-4 rounded-3xl shadow-sm transition-all duration-300 p-8 pt-12 relative h-[200px]"
+                   style={{ borderColor: '#0a5c35' }}>
+                
+                {/* Icon positioned on left middle of top border */}
+                <div className="absolute -top-8 left-8">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a5c35' }}>
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Step Number Badge - top right inside container */}
+                <div className="absolute top-4 right-4">
+                  <span className="text-white text-sm font-bold px-3 py-2 rounded-lg" style={{ backgroundColor: '#0a5c35' }}>
+                    STEP {step.number}
+                  </span>
+                </div>
+                
+                {/* Text Content - left aligned */}
+                <div className="text-left h-full flex flex-col justify-center">
+                  <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
+                  <p className="text-gray-700 leading-relaxed text-sm">{step.description}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -589,8 +704,9 @@ export default function InsightsPage() {
       </section>
 
       <div className="flex justify-center items-center py-8 w-[90%] mx-auto">
-            <Image src="/process2.svg" alt="Jivo Hero" width={1920} height={100} className="w-screen object-cover" priority />
-        </div>
+        <ProcessSteps />
+      </div>
+
 
       <div className="flex justify-center items-center w-full">
         <ResultComponent />
