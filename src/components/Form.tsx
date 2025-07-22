@@ -191,7 +191,7 @@ const Form = () => {
             }}
           >
             <motion.div 
-              className="bg-white rounded-xl p-6 shadow-lg h-full flex flex-col"
+              className="bg-white rounded-xl xxl:rounded-2xl p-6 xxl:p-8 shadow-lg xxl:shadow-xl h-full flex flex-col"
               initial={{ boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
               animate={{ boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)" }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -203,7 +203,7 @@ const Form = () => {
                 initial="hidden"
                 animate="visible"
               >
-                <div className="flex-1 space-y-3">
+                <div className="flex-1 space-y-3 xxl:space-y-4">
                   <motion.div variants={itemVariants} className="relative">
                     <motion.input
                       whileFocus={{ scale: 1.01, boxShadow: "0 2px 10px rgba(0, 0, 0, 0.08)" }}
@@ -214,13 +214,13 @@ const Form = () => {
                       value={formData.name}
                       onChange={handleChange}
                       onKeyDown={handleNameKeyDown}
-                      className="w-full px-4 py-2 rounded-xl border border-gray-100 focus:outline-none pr-10 text-gray-700"
+                      className="w-full px-4 xxl:px-5 py-2 xxl:py-3 rounded-xl xxl:rounded-2xl border border-gray-100 focus:outline-none pr-10 xxl:pr-12 text-gray-700 xxl:text-lg"
                     />
                     <motion.svg 
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: 0.6 }}
-                      className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      className="w-4 h-4 xxl:w-5 xxl:h-5 absolute right-3 xxl:right-4 top-1/2 -translate-y-1/2 text-gray-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </motion.svg>
                   </motion.div>

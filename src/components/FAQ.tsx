@@ -57,34 +57,34 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+    <section className="py-8 xxl:py-12 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+      <div className="container mx-auto px-4 xxl:px-8">
+        <div className="text-center mb-8 xxl:mb-12">
+          <h2 className="text-3xl xxl:text-4xl font-bold mb-2 xxl:mb-4 font-poppins text-[#0a5c35]">
             Frequently asked questions
           </h2>
-          <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+          <p className="text-gray-700 text-sm xxl:text-base max-w-2xl xxl:max-w-3xl mx-auto">
             Find answers to common questions about our services and how we can help your business grow
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl xxl:max-w-4xl mx-auto">
           {faqs.map((faq, index) => (
-            <div key={index} className="mb-3">
+            <div key={index} className="mb-3 xxl:mb-4">
               <button
-                className={`w-full text-left p-3 rounded-md transition-all duration-300 flex justify-between items-center group
+                className={`w-full text-left p-3 xxl:p-4 rounded-md xxl:rounded-lg transition-all duration-300 flex justify-between items-center group
                   ${openIndex === index 
-                    ? 'bg-[#0a5c35] text-white shadow-lg' 
-                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg border border-[#0a5c35]/10'
+                    ? 'bg-[#0a5c35] text-white shadow-lg xxl:shadow-xl' 
+                    : 'bg-white hover:bg-[#0a5c35]/5 text-gray-800 shadow-md hover:shadow-lg xxl:hover:shadow-xl border border-[#0a5c35]/10'
                   }`}
                 onClick={() => toggleFAQ(index)}
               >
-                <span className={`font-semibold text-sm transition-colors duration-300 ${
+                <span className={`font-semibold text-sm xxl:text-base transition-colors duration-300 ${
                   openIndex === index ? 'text-white' : 'text-gray-800'
                 }`}>
                   {faq.question}
                 </span>
-                <span className={`text-lg transition-colors duration-300 ${
+                <span className={`text-lg xxl:text-xl transition-colors duration-300 ${
                   openIndex === index ? 'text-white' : 'text-[#0a5c35]'
                 }`}>
                   {openIndex === index ? '↑' : '↓'}
@@ -92,8 +92,8 @@ const FAQ = () => {
               </button>
               
               {openIndex === index && (
-                <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
-                  <p className="text-gray-700 leading-relaxed text-xs">
+                <div className="p-3 xxl:p-4 bg-white mt-1 xxl:mt-2 rounded-md xxl:rounded-lg shadow-md xxl:shadow-lg border border-[#0a5c35]/10">
+                  <p className="text-gray-700 leading-relaxed text-xs xxl:text-sm">
                     {faq.answer}
                   </p>
                 </div>

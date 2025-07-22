@@ -2,6 +2,9 @@ module.exports = {
     // ... existing config ...
     theme: {
       extend: {
+        screens: {
+          'xxl': '1600px',
+        },
         backgroundColor: {
           '[#ECECEC]': '#ECECEC',
         },

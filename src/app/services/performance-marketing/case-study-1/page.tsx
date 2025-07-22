@@ -63,14 +63,7 @@ export default function CaseStudyPage() {
       
       {/* Hero Section */}
       <div className="relative h-[70vh] bg-gradient-to-r from-[#0A5C35] to-[#0B4619]">
-        <div className="absolute inset-0">
-          <Image
-            src="/perfmark/casestudy1/Cover Image.jpg"
-            alt="Nidhi Chugh Case Study Cover"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
+
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-4xl">
@@ -146,7 +139,7 @@ export default function CaseStudyPage() {
                 src="/perfmark/casestudy1/Copy of Nidhi 1.png"
                 alt="Nidhi Chugh Profile"
                 fill
-                className="object-cover rounded-lg shadow-xl"
+                className="object-contain rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -345,7 +338,7 @@ export default function CaseStudyPage() {
                 src="/perfmark/casestudy1/Copy of Nidhi 2.png"
                 alt="Campaign Execution"
                 fill
-                className="object-cover rounded-lg shadow-xl"
+                className="object-contain rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -489,10 +482,7 @@ export default function CaseStudyPage() {
                 The campaign successfully transformed a spiritual practice into a scalable digital business 
                 with global reach and measurable ROI.
               </p>
-              <div className="flex justify-center gap-8 text-sm">
-                <div><strong>Prepared by:</strong> JIVO Solutions (formerly ZEMINIK)</div>
-                <div><strong>Date:</strong> May 2025</div>
-              </div>
+              
             </div>
             <Link href="/contact">
               <button className="bg-white text-[#0A5C35] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300">

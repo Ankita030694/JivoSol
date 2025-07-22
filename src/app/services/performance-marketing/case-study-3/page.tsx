@@ -54,14 +54,7 @@ export default function CaseStudyPage() {
       
       {/* Hero Section */}
       <div className="relative h-[70vh] bg-gradient-to-r from-[#0A5C35] to-[#0B4619]">
-        <div className="absolute inset-0">
-          <Image
-            src="/perfmark/casestudy3/Cover Image YSE.jpg"
-            alt="Yashi Shukla Education Case Study"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
+
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-4xl">
@@ -111,7 +104,7 @@ export default function CaseStudyPage() {
                 src="/perfmark/casestudy3/Copy of yashi 1.png"
                 alt="Yashi Shukla Education Overview"
                 fill
-                className="object-cover rounded-lg shadow-xl"
+                  className="object-contain rounded-lg shadow-xl"
               />
             </div>
           </div>
@@ -170,7 +163,7 @@ export default function CaseStudyPage() {
                   src="/perfmark/casestudy3/Copy of yashi 2.png"
                   alt="Meta Ads Strategy"
                   fill
-                  className="object-cover rounded-lg shadow-xl"
+                  className="object-contain rounded-lg shadow-xl"
                 />
               </div>
             </div>
@@ -182,7 +175,7 @@ export default function CaseStudyPage() {
                   src="/perfmark/casestudy3/Copy of yashi 3.png"
                   alt="Google Ads Strategy"
                   fill
-                  className="object-cover rounded-lg shadow-xl"
+                  className="object-contain rounded-lg shadow-xl"
                 />
               </div>
               <div className="order-1 md:order-2">

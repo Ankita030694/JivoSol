@@ -30,7 +30,7 @@ const TypewriterEffect = ({ text }: { text: string }) => {
   }, [currentIndex, text]);
 
   return (
-    <h1 className="font-poppins font-bold text-white uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-normal">
+    <h1 className="font-poppins font-bold text-white uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xxl:text-7xl leading-tight md:leading-normal xxl:leading-relaxed">
       {displayText}
       {!isComplete && <span className="animate-pulse">|</span>}
     </h1>
@@ -41,10 +41,10 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="w-full h-[60vh] md:h-[60vh] sm:h-[50vh] relative">
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 text-center">
+      <div className="w-full h-[60vh] md:h-[60vh] sm:h-[50vh] xxl:h-[70vh] relative">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 xxl:px-8 text-center">
           <TypewriterEffect text="Presence is Everything" />
-          <h2 className="font-poppins font-light text-white text-sm max-w-xl">
+          <h2 className="font-poppins font-light text-white text-sm xxl:text-base max-w-xl xxl:max-w-2xl">
             In a digital-first world, how you're seen is how you're remembered.
           </h2>
         </div>

@@ -44,14 +44,7 @@ export default function CaseStudyPage() {
       
       {/* Hero Section */}
       <div className="relative h-[70vh] bg-gradient-to-r from-[#0A5C35] to-[#0B4619]">
-        <div className="absolute inset-0">
-          <Image
-            src="/perfmark/casestudy2/Cover Image Witwise.jpg"
-            alt="WitWise Education Case Study"
-            fill
-            className="object-contain opacity-30"
-          />
-        </div>
+
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container mx-auto px-4 h-full flex items-center relative z-10">
           <div className="max-w-4xl">

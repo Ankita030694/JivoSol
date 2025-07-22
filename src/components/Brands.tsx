@@ -110,30 +110,30 @@ const Brands = () => {
   
   return (
     <motion.section 
-      className="pt-8 px-4 max-w-7xl mx-auto font-['Poppins',sans-serif]"
+      className="pt-8 xxl:pt-12 px-4 xxl:px-8 max-w-7xl xxl:max-w-[90rem] mx-auto font-['Poppins',sans-serif]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.div 
-        className="text-center mb-8"
+        className="text-center mb-8 xxl:mb-12"
         ref={headerRef}
         variants={staggerContainer}
         initial="hidden"
         animate={headerInView ? "visible" : "hidden"}
       >
         <motion.p 
-          className="text-[#0A5C35] text-lg"
+          className="text-[#0A5C35] text-lg xxl:text-xl"
         >
           Client Testimonials
         </motion.p>
         <motion.h2 
-          className="text-3xl sm:text-4xl font-bold mb-4 text-black"
+          className="text-3xl sm:text-4xl xxl:text-5xl font-bold mb-4 xxl:mb-6 text-black"
         >
           Brands that grew with JIVO
         </motion.h2>
         <motion.p 
-          className="text-gray-600 max-w-2xl mx-auto"
+          className="text-gray-600 max-w-2xl xxl:max-w-3xl mx-auto xxl:text-lg"
         >
           Here's what they have to say:
         </motion.p>

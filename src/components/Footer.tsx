@@ -5,23 +5,23 @@ import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-black text-white py-12 xxl:py-16">
+      <div className="container mx-auto px-4 xxl:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 xxl:gap-16 mb-12 xxl:mb-16">
           {/* Newsletter and Logo Column */}
-          <div className="md:col-span-2 pr-4">
-            <h3 className="text-2xl mb-4">
+          <div className="md:col-span-2 pr-4 xxl:pr-8">
+            <h3 className="text-2xl xxl:text-3xl mb-4 xxl:mb-6">
               Get the latest inspiration & insights
             </h3>
-            <div className="flex w-full max-w-md mb-8">
+            <div className="flex w-full max-w-md xxl:max-w-lg mb-8 xxl:mb-10">
               <input
                 type="email"
                 placeholder="Your Email..."
-                className="flex-1 p-3 rounded-l-md text-black bg-white"
+                className="flex-1 p-3 xxl:p-4 rounded-l-md text-black bg-white xxl:text-lg"
               />
-              <button className="bg-[#0B4619] text-white px-6 rounded-r-md">
-                <span className="transform rotate-90 inline-block">→</span>
+              <button className="bg-[#0B4619] text-white px-6 xxl:px-8 rounded-r-md">
+                <span className="transform rotate-90 inline-block xxl:text-lg">→</span>
               </button>
             </div>
 
@@ -32,17 +32,17 @@ const Footer = () => {
                 alt="Jivo Solutions"
                 width={200}
                 height={50}
-                className="mb-4"
+                className="mb-4 xxl:mb-6 xxl:scale-110"
               />
             </div>
           </div>
 
           {/* Services Column */}
           <div>
-            <h4 className="font-semibold mb-4 text-[#7AA792]">
+            <h4 className="font-semibold mb-4 xxl:mb-6 text-[#7AA792] xxl:text-lg">
               Services
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2 xxl:space-y-3">
               {[
                 { href: "/services/social-media-management", text: "Social Media Management" },
                 { href: "/services/performance-marketing", text: "Performance Marketing" },

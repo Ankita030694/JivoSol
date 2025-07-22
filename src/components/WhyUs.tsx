@@ -128,27 +128,27 @@ const WhyUs = () => {
   return (
     <div>
       <div 
-        className="w-full bg-[#ECECEC] py-8 md:py-12"
+        className="w-full bg-[#ECECEC] py-8 md:py-12 xxl:py-16"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 xxl:px-8">
           <div 
             ref={headingRef}
-            className="text-center mb-8 md:mb-12"
+            className="text-center mb-8 md:mb-12 xxl:mb-16"
           >
             <h2 
-              className="text-3xl md:text-4xl font-bold text-black mb-4 px-4"
+              className="text-3xl md:text-4xl xxl:text-5xl font-bold text-black mb-4 xxl:mb-6 px-4 xxl:px-8"
             >
               Why brands work with us
             </h2>
             <div 
-              className="text-black max-w-3xl mx-auto px-4"
+              className="text-black max-w-3xl xxl:max-w-4xl mx-auto px-4 xxl:px-8"
             >
-              <p className="font-bold text-sm md:text-base">We are a strategy-first digital partner focused on long-term impact.</p>
-              <p className="text-sm md:text-base mt-2">Our clients choose us for our clarity of thought, execution excellence, and commitment to lasting results.</p>
+              <p className="font-bold text-sm md:text-base xxl:text-lg">We are a strategy-first digital partner focused on long-term impact.</p>
+              <p className="text-sm md:text-base xxl:text-lg mt-2">Our clients choose us for our clarity of thought, execution excellence, and commitment to lasting results.</p>
             </div>
             <Link href="/contact">
             <button 
-              className="bg-[#0A5C35] text-white px-6 py-2 rounded-full mt-6 flex items-center mx-auto text-sm md:text-base"
+              className="bg-[#0A5C35] text-white px-6 xxl:px-8 py-2 xxl:py-3 rounded-full xxl:rounded-2xl mt-6 xxl:mt-8 flex items-center mx-auto text-sm md:text-base xxl:text-lg"
             >
               Work With Us {" "}
               <span>
@@ -160,16 +160,16 @@ const WhyUs = () => {
 
           <div 
             ref={statsRef} 
-            className="flex flex-wrap justify-center gap-4 max-w-full px-4"
+            className="flex flex-wrap justify-center gap-4 xxl:gap-6 max-w-full px-4 xxl:px-8"
           >
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className="bg-white p-4 md:p-6 rounded-lg w-full sm:w-[200px] md:w-[220px] text-center"
+                className="bg-white p-4 md:p-6 xxl:p-8 rounded-lg xxl:rounded-xl w-full sm:w-[200px] md:w-[220px] xxl:w-[260px] text-center"
               >
-                <p className="text-xs md:text-sm text-black mb-2 md:mb-3">{stat.label}</p>
+                <p className="text-xs md:text-sm xxl:text-base text-black mb-2 md:mb-3 xxl:mb-4">{stat.label}</p>
                 <p 
-                  className="text-[#0A5C35] text-3xl md:text-5xl font-bold"
+                  className="text-[#0A5C35] text-3xl md:text-5xl xxl:text-6xl font-bold"
                 >
                   {counters[index]}
                   {stat.label === "Client Retention Rate" ? "%" : "+"}
@@ -183,18 +183,18 @@ const WhyUs = () => {
       </div>
       
       <div 
-        className="bg-white py-8 md:py-12 overflow-hidden"
+        className="bg-white py-8 md:py-12 xxl:py-16 overflow-hidden"
       >
         <div 
-          className="text-center mb-8 px-4"
+          className="text-center mb-8 xxl:mb-12 px-4 xxl:px-8"
         >
           <p 
-            className="text-[#0A5C35] text-base md:text-lg"
+            className="text-[#0A5C35] text-base md:text-lg xxl:text-xl"
           >
             Our Clients
           </p>
           <h2 
-            className="text-3xl md:text-4xl font-bold text-black"
+            className="text-3xl md:text-4xl xxl:text-5xl font-bold text-black"
           >
             Trusted by businesses
           </h2>
@@ -215,7 +215,7 @@ const WhyUs = () => {
                 sizes="200px"
                 quality={1000}
                 unoptimized={true}
-                className="inline-block mx-2 md:mx-4 w-[60px] h-[60px] md:w-[100px] md:h-[100px] object-contain" 
+                className="inline-block mx-2 md:mx-4 xxl:mx-6 w-[60px] h-[60px] md:w-[100px] md:h-[100px] xxl:w-[120px] xxl:h-[120px] object-contain" 
                 style={{
                   filter: 'none',
                   transform: 'translateZ(0)'

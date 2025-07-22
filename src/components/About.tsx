@@ -152,14 +152,14 @@ const About = () => {
   }, []);
 
   return (
-    <section className="py-8 px-4 text-center overflow-hidden">
+    <section className="py-8 xxl:py-12 px-4 xxl:px-8 text-center overflow-hidden">
       {/* About Us Header */}
       <motion.div 
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="mb-4">
-        <h3 className="text-[#0A5C35] text-lg">About Us</h3>
+        className="mb-4 xxl:mb-6">
+        <h3 className="text-[#0A5C35] text-lg xxl:text-xl">About Us</h3>
       </motion.div>
 
       {/* Main Title */}
@@ -167,7 +167,7 @@ const About = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-3xl md:text-4xl font-bold mb-6 text-black">
+        className="text-3xl md:text-4xl xxl:text-5xl font-bold mb-6 xxl:mb-8 text-black">
         We are JIVO Solutions
       </motion.h2>
 
@@ -176,19 +176,19 @@ const About = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="max-w-4xl mx-auto mb-8">
+        className="max-w-4xl xxl:max-w-6xl mx-auto mb-8 xxl:mb-12">
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-gray-700 mb-1">
+          className="text-gray-700 mb-1 xxl:text-lg">
           A <b>Digital Solutions Company</b> focused on building strategic visibility for brands that are ready to grow.
         </motion.p>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="text-gray-700 mb-8 max-w-3xl text-center mx-auto">
+          className="text-gray-700 mb-8 xxl:mb-10 max-w-3xl xxl:max-w-4xl text-center mx-auto xxl:text-lg">
           We create cohesive digital ecosystems that align Content, Design, Performance, and Strategy.
         </motion.p>
       </motion.div>

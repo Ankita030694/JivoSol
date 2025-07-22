@@ -89,7 +89,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-around bg-[#ECECEC] px-4 py-4 shadow-lg backdrop-blur-sm transition-all duration-300 border-b border-gray-200 w-full">
+    <nav className="sticky top-0 z-50 flex items-center justify-around bg-[#ECECEC] px-4 xxl:px-8 py-4 xxl:py-6 shadow-lg backdrop-blur-sm transition-all duration-300 border-b border-gray-200 w-full">
       {/* Logo - always on the left */}
       <div className="nav-logo group">
         <Link href="/" className="transition-transform duration-300 block">
@@ -98,8 +98,8 @@ const Navbar = () => {
             alt="Jivo Solutions Logo"
             width={210}
             height={21}
+            className="xxl:scale-110"
             priority
-            className=""
           />
         </Link>
       </div>
@@ -119,10 +119,10 @@ const Navbar = () => {
       </button>
 
       {/* Desktop Navigation Links - hidden on mobile */}
-      <div className="hidden md:flex gap-8 bg-white px-6 py-3 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+      <div className="hidden md:flex gap-8 xxl:gap-10 bg-white px-6 xxl:px-8 py-3 xxl:py-4 rounded-xl xxl:rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg xxl:hover:shadow-xl">
         <Link 
           href="/" 
-          className={`font-normal transition-all duration-300 ${
+          className={`font-normal transition-all duration-300 xxl:text-lg ${
             isActive('/') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
@@ -130,7 +130,7 @@ const Navbar = () => {
         </Link>
         <Link 
           href="/about" 
-          className={`font-normal transition-all duration-300 ${
+          className={`font-normal transition-all duration-300 xxl:text-lg ${
             isActive('/about') ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
           }`}
         >
@@ -140,7 +140,7 @@ const Navbar = () => {
           <button 
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`font-normal transition-all duration-300 flex items-center gap-1 ${
+            className={`font-normal transition-all duration-300 flex items-center gap-1 xxl:text-lg ${
               isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
             }`}
           >

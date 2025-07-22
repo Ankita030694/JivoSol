@@ -355,98 +355,86 @@ export default function InsightsPage() {
             {/* First Row - 5 tools */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
               {/* Google Ads */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <img 
-                    src="/google.svg" 
-                    alt="Google Ads" 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-white font-medium text-base">Google Ads</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Google_Ads_logo.svg" 
+                  alt="Google Ads" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
-              
               {/* Meta */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <img 
-                    src="/fb.svg" 
-                    alt="Meta" 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-white font-medium text-base">Meta</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Meta_Platforms_Inc._logo.svg" 
+                  alt="Meta" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* Bing Ads */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <img 
-                    src="/bing.svg" 
-                    alt="Bing Ads" 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-white font-medium text-base">Bing Ads</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Bing_logo_(2016).svg" 
+                  alt="Bing Ads" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* Google Analytics */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <img 
-                    src="/google.svg" 
-                    alt="Google Analytics" 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-white font-medium text-base">Google Analytics</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Logo_Google_Analytics.svg" 
+                  alt="Google Analytics" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* Google Merchant Centre */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-white rounded-lg flex items-center justify-center shadow-md">
-                  <img 
-                    src="/google.svg" 
-                    alt="Google Merchant Centre" 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <span className="text-white font-medium text-base">Google Merchant Centre</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/google-merchant-center.svg" 
+                  alt="Google Merchant Centre" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
             </div>
             
             {/* Second Row - 4 tools, centered */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
               {/* Semrush */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-2xl">S</span>
-                </div>
-                <span className="text-white font-medium text-base">Semrush</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Semrush_logo.svg" 
+                  alt="Semrush" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* Shopify */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-2xl">S</span>
-                </div>
-                <span className="text-white font-medium text-base">Shopify</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/Shopify_logo_2018.svg" 
+                  alt="Shopify" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* ChatGPT */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-2xl">C</span>
-                </div>
-                <span className="text-white font-medium text-base">ChatGPT</span>
+                  <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/ChatGPT_logo.svg" 
+                  alt="ChatGPT" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
               
               {/* Buffer */}
-              <div className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl p-6 flex flex-col items-center text-center hover:bg-white/25 transition-all duration-300 shadow-lg">
-                <div className="w-16 h-16 mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
-                  <span className="text-white font-bold text-2xl">B</span>
-                </div>
-                <span className="text-white font-medium text-base">Buffer</span>
+              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+                <img 
+                  src="/perfmark/logos/logo-buffer-svgrepo-com.svg" 
+                  alt="Buffer" 
+                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                />
               </div>
             </div>
           </div>
@@ -794,22 +782,22 @@ export default function InsightsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {[
                 {
-                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F001(1).mp4?alt=media&token=3ed17b44-c716-4d10-93c5-9d482a2daa4a',
+                  url: '/homepagevids/001.mp4',
                   thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F001_thumb.jpg?alt=media',
                   title: 'Brand Storytelling'
                 },
                 {
-                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2F002(1).mp4?alt=media&token=3b941819-af45-4c1f-ac43-549d787a950a',
+                  url: '/homepagevids/002.mp4',
                   thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F002_thumb.jpg?alt=media',
                   title: 'Product Showcase'
                 },
                 {
-                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FFez%20Remove%20text%20(2)(1).mp4?alt=media&token=c5ab4613-f83f-4989-9774-0793e3208425',
+                  url: '/homepagevids/FezRemovetext.mp4',
                   thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Ffez_thumb.jpg?alt=media',
                   title: 'Fez Campaign'
                 },
                 {
-                  url: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2FWitwise5.mp4?alt=media&token=8da7e4a5-396e-4b22-83f3-f21346e85ee6',
+                  url: '/homepagevids/Witwise5.mp4',
                   thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Fwitwise_thumb.jpg?alt=media',
                   title: 'WitWise Education'
                 }
@@ -1008,10 +996,10 @@ export default function InsightsPage() {
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
               <Image 
-                src="/casestudies/ncdp.jpg" 
+                src="/perfmark/casestudy1/Cover Image.jpg" 
                 alt="Nidhi Chugh Case Study" 
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -1050,10 +1038,10 @@ export default function InsightsPage() {
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
               <Image 
-                src="/witwisecs.jpeg" 
+                src="/perfmark/casestudy2/Cover Image Witwise.jpg" 
                 alt="WitWise Education Case Study" 
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -1089,7 +1077,7 @@ export default function InsightsPage() {
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
               <Image 
-                src="/yse.jpeg" 
+                src="/perfmark/casestudy3/Cover Image YSE.jpg" 
                 alt="Yashi Shukla Education Case Study" 
                 fill
                 className="object-cover"
@@ -1384,6 +1372,15 @@ export default function InsightsPage() {
       )}
 
       <Footer />
+      
+      <style jsx>{`
+        .tool-logo {
+          transition: filter 0.3s ease;
+        }
+        .group:hover .tool-logo {
+          filter: brightness(0) invert(1);
+        }
+      `}</style>
     </div>
   );
 }
