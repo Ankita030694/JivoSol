@@ -7,9 +7,9 @@ import { useInView } from 'react-intersection-observer';
 
 const About = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [videoElements, setVideoElements] = useState<{ [key: number]: HTMLVideoElement | null }>({});
   const [videoStates, setVideoStates] = useState<{
     [key: number]: { isLoaded: boolean; isPlaying: boolean; hasError: boolean }
   }>({});
@@ -71,9 +71,9 @@ const About = () => {
   }, []);
 
   // Function to handle video element registration
-  const registerVideoElement = (index: number, element: HTMLVideoElement | null) => {
-    if (element) {
-      setVideoElements(prev => ({ ...prev, [index]: element }));
+  const handleVideoRef = (index: number, element: HTMLVideoElement | null) => {
+    if (element && !videoRefs.current[index]) {
+      videoRefs.current[index] = element;
       
       // Set up event listeners
       const handleLoadedData = () => {
@@ -111,35 +111,41 @@ const About = () => {
       element.addEventListener('pause', handlePause);
 
       // Force load the video
-      element.load();
-
-      return () => {
-        element.removeEventListener('loadeddata', handleLoadedData);
-        element.removeEventListener('error', handleError);
-        element.removeEventListener('play', handlePlay);
-        element.removeEventListener('pause', handlePause);
-      };
+      try {
+        element.load();
+      } catch (error) {
+        console.warn(`Failed to load video ${index}:`, error);
+      }
     }
   };
 
   // Handle video playback based on current index
   useEffect(() => {
-    Object.entries(videoElements).forEach(([indexStr, videoElement]) => {
+    Object.entries(videoRefs.current).forEach(([indexStr, videoElement]) => {
       const index = parseInt(indexStr);
-      if (videoElement && videoStates[index]?.isLoaded) {
-        if (index === currentVideoIndex) {
-          // Play current video
-          videoElement.currentTime = 0;
-          videoElement.play().catch(err => {
-            console.warn(`Failed to play video ${index}:`, err);
-          });
-        } else {
-          // Pause other videos
-          videoElement.pause();
+      const videoState = videoStates[index];
+      
+      if (videoElement && videoState?.isLoaded) {
+        try {
+          if (index === currentVideoIndex) {
+            // Play current video
+            videoElement.currentTime = 0;
+            const playPromise = videoElement.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(err => {
+                console.warn(`Failed to play video ${index}:`, err);
+              });
+            }
+          } else {
+            // Pause other videos
+            videoElement.pause();
+          }
+        } catch (error) {
+          console.warn(`Error controlling video ${index}:`, error);
         }
       }
     });
-  }, [currentVideoIndex, videoElements, videoStates]);
+  }, [currentVideoIndex, videoStates]);
 
   // Handle scroll events for mobile
   useEffect(() => {
@@ -292,7 +298,7 @@ const About = () => {
                   
                   {/* Video Element */}
                   <video
-                    ref={(el) => registerVideoElement(index, el)}
+                    ref={(el) => handleVideoRef(index, el)}
                     src={video.url}
                     muted
                     loop
@@ -370,7 +376,7 @@ const About = () => {
                   
                   {/* Video Element */}
                   <video
-                    ref={(el) => registerVideoElement(index, el)}
+                    ref={(el) => handleVideoRef(index, el)}
                     src={video.url}
                     muted
                     loop
