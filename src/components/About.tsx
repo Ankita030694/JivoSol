@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const About = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Local video files from homepagevids folder
   const videos = [
@@ -55,14 +56,40 @@ const About = () => {
     threshold: 0.1,
   });
 
-  // Auto-advance carousel for mobile
+  // Handle scroll events for mobile carousel
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-    }, 5000);
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-    return () => clearInterval(interval);
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const containerWidth = container.clientWidth;
+      const videoWidth = containerWidth * 0.8; // 80vw
+      const gap = 16; // 1rem = 16px
+      
+      const newIndex = Math.round(scrollLeft / (videoWidth + gap));
+      setCurrentVideoIndex(Math.max(0, Math.min(newIndex, videos.length - 1)));
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
   }, [videos.length]);
+
+  // Function to scroll to specific video
+  const scrollToVideo = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const containerWidth = container.clientWidth;
+    const videoWidth = containerWidth * 0.8;
+    const gap = 16;
+    const scrollPosition = index * (videoWidth + gap);
+    
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <section className="py-8 xxl:py-12 px-4 xxl:px-8 text-center overflow-hidden">
@@ -156,14 +183,21 @@ const About = () => {
             ))}
           </div>
 
-          {/* Mobile Carousel */}
-          <div className="md:hidden relative w-full h-[70vh] rounded-2xl overflow-hidden bg-gray-100">
+          {/* Mobile Swipeable Carousel */}
+          <div 
+            ref={scrollContainerRef}
+            className="md:hidden flex gap-4 overflow-x-auto scroll-smooth px-4 snap-x snap-mandatory"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
             {videos.map((video, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                  index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
-                }`}
+                className="relative w-[80vw] h-[70vh] rounded-2xl overflow-hidden flex-shrink-0 snap-center bg-gray-100"
+                style={{ minWidth: '80vw' }}
               >
                 <video
                   src={video.url}
@@ -183,7 +217,7 @@ const About = () => {
           {videos.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentVideoIndex(index)}
+              onClick={() => scrollToVideo(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentVideoIndex 
                   ? 'bg-[#005F33] w-6' 
