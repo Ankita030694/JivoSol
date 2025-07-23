@@ -778,28 +778,20 @@ export default function InsightsPage() {
               Video Campaigns
             </h3>
             
-            {/* Video Grid - Similar to About.tsx */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Video Grid - Using videos from @vids folder */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
-                  url: '/homepagevids/001.mp4',
-                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F001_thumb.jpg?alt=media',
-                  title: 'Brand Storytelling'
+                  url: '/perfmark/vids/Radha-House.mp4',
+                  title: 'Radha House Campaign'
                 },
                 {
-                  url: '/homepagevids/002.mp4',
-                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2F002_thumb.jpg?alt=media',
-                  title: 'Product Showcase'
-                },
-                {
-                  url: '/homepagevids/FezRemovetext.mp4',
-                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Ffez_thumb.jpg?alt=media',
-                  title: 'Fez Campaign'
-                },
-                {
-                  url: '/homepagevids/Witwise5.mp4',
-                  thumbnail: 'https://firebasestorage.googleapis.com/v0/b/jivosol.firebasestorage.app/o/homepagevids%2Fthumbnails%2Fwitwise_thumb.jpg?alt=media',
+                  url: '/perfmark/vids/Witwise (1).mp4',
                   title: 'WitWise Education'
+                },
+                {
+                  url: '/perfmark/vids/Sidewok12.mp4',
+                  title: 'Sidewok Campaign'
                 }
               ].map((video, index) => (
                 <div 

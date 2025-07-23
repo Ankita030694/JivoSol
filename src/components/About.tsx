@@ -5,49 +5,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// Custom hook for optimized video loading
-const useOptimizedVideoLoader = (videoUrl: string) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
-  const [videoReady, setVideoReady] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    if (!videoElement) return;
-
-    const handleLoadedData = () => {
-      setIsLoading(false);
-      setTimeout(() => setVideoReady(true), 50);
-    };
-
-    const handleError = () => {
-      setError(true);
-      setIsLoading(false);
-    };
-
-    const handleCanPlay = () => {
-      // Video is ready to play
-    };
-
-    videoElement.addEventListener('loadeddata', handleLoadedData);
-    videoElement.addEventListener('error', handleError);
-    videoElement.addEventListener('canplay', handleCanPlay);
-    
-    return () => {
-      videoElement.removeEventListener('loadeddata', handleLoadedData);
-      videoElement.removeEventListener('error', handleError);
-      videoElement.removeEventListener('canplay', handleCanPlay);
-    };
-  }, [videoElement]);
-
-  return { isLoading, setVideoElement, videoReady, error };
-};
-
 const About = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [preloadedVideos, setPreloadedVideos] = useState<Set<number>>(new Set());
+  const [videoStates, setVideoStates] = useState<{
+    [key: number]: { isLoading: boolean; videoReady: boolean; error: boolean }
+  }>({});
 
   // Local video files from homepagevids folder
   const videos = [
@@ -96,6 +60,15 @@ const About = () => {
     threshold: 0.1,
   });
 
+  // Initialize video states
+  useEffect(() => {
+    const initialState: { [key: number]: { isLoading: boolean; videoReady: boolean; error: boolean } } = {};
+    videos.forEach((_, index) => {
+      initialState[index] = { isLoading: true, videoReady: false, error: false };
+    });
+    setVideoStates(initialState);
+  }, []);
+
   // Preload videos when component mounts
   useEffect(() => {
     const preloadVideo = (url: string, index: number) => {
@@ -105,11 +78,18 @@ const About = () => {
       video.src = url;
       
       video.onloadedmetadata = () => {
-        setPreloadedVideos(prev => new Set([...prev, index]));
+        setVideoStates(prev => ({
+          ...prev,
+          [index]: { ...prev[index], isLoading: false, videoReady: true }
+        }));
       };
       
       video.onerror = () => {
         console.warn(`Failed to preload video ${index}: ${url}`);
+        setVideoStates(prev => ({
+          ...prev,
+          [index]: { ...prev[index], isLoading: false, error: true }
+        }));
       };
     };
 
@@ -245,8 +225,7 @@ const About = () => {
           {/* Desktop Grid */}
           <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
             {videos.map((video, index) => {
-              const { isLoading, setVideoElement, videoReady } = useOptimizedVideoLoader(video.url);
-              const isPreloaded = preloadedVideos.has(index);
+              const videoState = videoStates[index] || { isLoading: true, videoReady: false, error: false };
               
               return (
                 <motion.div 
@@ -256,7 +235,7 @@ const About = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {/* Loading Placeholder */}
-                  {isLoading && (
+                  {videoState.isLoading && (
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
                       <div className="text-gray-500 text-sm">Loading...</div>
                     </div>
@@ -264,9 +243,8 @@ const About = () => {
                   
                   {/* Video Element */}
                   <div className="relative w-full h-full">
-                    {isPreloaded && (
+                    {videoState.videoReady && (
                       <video
-                        ref={(el) => setVideoElement(el)}
                         src={video.url}
                         autoPlay
                         muted
@@ -275,7 +253,7 @@ const About = () => {
                         className="object-cover w-full h-full"
                         preload="metadata"
                         style={{ 
-                          opacity: videoReady ? 1 : 0,
+                          opacity: videoState.videoReady ? 1 : 0,
                           transition: 'opacity 0.3s ease-in-out'
                         }}
                       />
@@ -320,8 +298,7 @@ const About = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {videos.map((video, index) => {
-              const { isLoading, setVideoElement, videoReady } = useOptimizedVideoLoader(video.url);
-              const isPreloaded = preloadedVideos.has(index);
+              const videoState = videoStates[index] || { isLoading: true, videoReady: false, error: false };
               const isActive = currentVideoIndex === index;
               
               return (
@@ -333,7 +310,7 @@ const About = () => {
                   style={{ minWidth: '80vw' }}
                 >
                   {/* Loading Placeholder */}
-                  {isLoading && (
+                  {videoState.isLoading && (
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
                       <div className="text-gray-500 text-sm">Loading...</div>
                     </div>
@@ -341,9 +318,8 @@ const About = () => {
                   
                   {/* Video Element */}
                   <div className="relative w-full h-full">
-                    {isPreloaded && (
+                    {videoState.videoReady && (
                       <video
-                        ref={(el) => setVideoElement(el)}
                         src={video.url}
                         autoPlay={isActive}
                         muted
@@ -352,7 +328,7 @@ const About = () => {
                         className="object-cover w-full h-full"
                         preload="metadata"
                         style={{ 
-                          opacity: videoReady ? 1 : 0,
+                          opacity: videoState.videoReady ? 1 : 0,
                           transition: 'opacity 0.3s ease-in-out'
                         }}
                       />
