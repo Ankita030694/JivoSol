@@ -17,7 +17,7 @@ const About = () => {
       description: ''
     },
     {
-      url: '/homepagevids/002.mp4',
+      url: '/homepagevids/002.mp4', 
       name: '', 
       description: ''
     },
