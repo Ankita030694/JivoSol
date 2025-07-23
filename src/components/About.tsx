@@ -9,8 +9,9 @@ const About = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const [videoElements, setVideoElements] = useState<{ [key: number]: HTMLVideoElement | null }>({});
   const [videoStates, setVideoStates] = useState<{
-    [key: number]: { isLoading: boolean; videoReady: boolean; error: boolean }
+    [key: number]: { isLoaded: boolean; isPlaying: boolean; hasError: boolean }
   }>({});
 
   // Local video files from homepagevids folder
@@ -62,70 +63,83 @@ const About = () => {
 
   // Initialize video states
   useEffect(() => {
-    const initialState: { [key: number]: { isLoading: boolean; videoReady: boolean; error: boolean } } = {};
+    const initialState: { [key: number]: { isLoaded: boolean; isPlaying: boolean; hasError: boolean } } = {};
     videos.forEach((_, index) => {
-      initialState[index] = { isLoading: true, videoReady: false, error: false };
+      initialState[index] = { isLoaded: false, isPlaying: false, hasError: false };
     });
     setVideoStates(initialState);
   }, []);
 
-  // Preload videos when component mounts
-  useEffect(() => {
-    const preloadVideo = (url: string, index: number) => {
-      const video = document.createElement('video');
-      video.preload = 'auto'; // Changed from 'metadata' to 'auto' for better mobile support
-      video.muted = true;
-      video.src = url;
+  // Function to handle video element registration
+  const registerVideoElement = (index: number, element: HTMLVideoElement | null) => {
+    if (element) {
+      setVideoElements(prev => ({ ...prev, [index]: element }));
       
+      // Set up event listeners
       const handleLoadedData = () => {
         setVideoStates(prev => ({
           ...prev,
-          [index]: { ...prev[index], isLoading: false, videoReady: true }
+          [index]: { ...prev[index], isLoaded: true }
         }));
       };
-      
+
       const handleError = () => {
-        console.warn(`Failed to preload video ${index}: ${url}`);
+        console.error(`Video ${index} failed to load`);
         setVideoStates(prev => ({
           ...prev,
-          [index]: { ...prev[index], isLoading: false, error: true }
+          [index]: { ...prev[index], hasError: true }
         }));
       };
 
-      const handleCanPlay = () => {
-        // Additional check to ensure video is ready
+      const handlePlay = () => {
         setVideoStates(prev => ({
           ...prev,
-          [index]: { ...prev[index], isLoading: false, videoReady: true }
+          [index]: { ...prev[index], isPlaying: true }
         }));
       };
-      
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('error', handleError);
-      
+
+      const handlePause = () => {
+        setVideoStates(prev => ({
+          ...prev,
+          [index]: { ...prev[index], isPlaying: false }
+        }));
+      };
+
+      element.addEventListener('loadeddata', handleLoadedData);
+      element.addEventListener('error', handleError);
+      element.addEventListener('play', handlePlay);
+      element.addEventListener('pause', handlePause);
+
       // Force load the video
-      video.load();
-      
-      // Fallback: if video doesn't load within 5 seconds, mark it as ready anyway
-      setTimeout(() => {
-        setVideoStates(prev => {
-          if (prev[index]?.isLoading) {
-            return {
-              ...prev,
-              [index]: { ...prev[index], isLoading: false, videoReady: true }
-            };
-          }
-          return prev;
-        });
-      }, 5000);
-    };
+      element.load();
 
-    // Preload all videos
-    videos.forEach((video, index) => {
-      preloadVideo(video.url, index);
+      return () => {
+        element.removeEventListener('loadeddata', handleLoadedData);
+        element.removeEventListener('error', handleError);
+        element.removeEventListener('play', handlePlay);
+        element.removeEventListener('pause', handlePause);
+      };
+    }
+  };
+
+  // Handle video playback based on current index
+  useEffect(() => {
+    Object.entries(videoElements).forEach(([indexStr, videoElement]) => {
+      const index = parseInt(indexStr);
+      if (videoElement && videoStates[index]?.isLoaded) {
+        if (index === currentVideoIndex) {
+          // Play current video
+          videoElement.currentTime = 0;
+          videoElement.play().catch(err => {
+            console.warn(`Failed to play video ${index}:`, err);
+          });
+        } else {
+          // Pause other videos
+          videoElement.pause();
+        }
+      }
     });
-  }, []);
+  }, [currentVideoIndex, videoElements, videoStates]);
 
   // Handle scroll events for mobile
   useEffect(() => {
@@ -149,44 +163,6 @@ const About = () => {
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
   }, [videos.length]);
-
-  // Force load videos that are currently visible or about to be visible
-  useEffect(() => {
-    const loadVisibleVideos = () => {
-      videos.forEach((video, index) => {
-        const videoState = videoStates[index];
-        if (videoState?.isLoading) {
-          // For mobile, load videos that are close to being visible
-          const shouldLoad = index <= currentVideoIndex + 1;
-          if (shouldLoad) {
-            const videoElement = document.createElement('video');
-            videoElement.preload = 'auto';
-            videoElement.muted = true;
-            videoElement.src = video.url;
-            
-            videoElement.onloadeddata = () => {
-              setVideoStates(prev => ({
-                ...prev,
-                [index]: { ...prev[index], isLoading: false, videoReady: true }
-              }));
-            };
-            
-            videoElement.onerror = () => {
-              setVideoStates(prev => ({
-                ...prev,
-                [index]: { ...prev[index], isLoading: false, error: true }
-              }));
-            };
-            
-            videoElement.load();
-          }
-        }
-      });
-    };
-
-    // Load visible videos when currentVideoIndex changes
-    loadVisibleVideos();
-  }, [currentVideoIndex, videoStates, videos]);
 
   // Auto-hide scroll indicator
   useEffect(() => {
@@ -291,7 +267,7 @@ const About = () => {
           {/* Desktop Grid */}
           <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
             {videos.map((video, index) => {
-              const videoState = videoStates[index] || { isLoading: true, videoReady: false, error: false };
+              const videoState = videoStates[index] || { isLoaded: false, isPlaying: false, hasError: false };
               
               return (
                 <motion.div 
@@ -301,30 +277,33 @@ const About = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {/* Loading Placeholder */}
-                  {videoState.isLoading && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
+                  {!videoState.isLoaded && !videoState.hasError && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center z-10">
                       <div className="text-gray-500 text-sm">Loading...</div>
                     </div>
                   )}
                   
+                  {/* Error Placeholder */}
+                  {videoState.hasError && (
+                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center z-10">
+                      <div className="text-gray-500 text-sm">Video unavailable</div>
+                    </div>
+                  )}
+                  
                   {/* Video Element */}
-                  <div className="relative w-full h-full">
-                    {videoState.videoReady && (
-                      <video
-                        src={video.url}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="object-cover w-full h-full"
-                        preload="auto"
-                        style={{ 
-                          opacity: videoState.videoReady ? 1 : 0,
-                          transition: 'opacity 0.3s ease-in-out'
-                        }}
-                      />
-                    )}
-                  </div>
+                  <video
+                    ref={(el) => registerVideoElement(index, el)}
+                    src={video.url}
+                    muted
+                    loop
+                    playsInline
+                    className="object-cover w-full h-full"
+                    preload="metadata"
+                    style={{ 
+                      opacity: videoState.isLoaded ? 1 : 0,
+                      transition: 'opacity 0.3s ease-in-out'
+                    }}
+                  />
 
                   {/* Video Info Overlay */}
                   <motion.div 
@@ -364,7 +343,7 @@ const About = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {videos.map((video, index) => {
-              const videoState = videoStates[index] || { isLoading: true, videoReady: false, error: false };
+              const videoState = videoStates[index] || { isLoaded: false, isPlaying: false, hasError: false };
               const isActive = currentVideoIndex === index;
               
               return (
@@ -376,40 +355,44 @@ const About = () => {
                   style={{ minWidth: '80vw' }}
                 >
                   {/* Loading Placeholder */}
-                  {videoState.isLoading && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
+                  {!videoState.isLoaded && !videoState.hasError && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center z-10">
                       <div className="text-gray-500 text-sm">Loading...</div>
                     </div>
                   )}
                   
+                  {/* Error Placeholder */}
+                  {videoState.hasError && (
+                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center z-10">
+                      <div className="text-gray-500 text-sm">Video unavailable</div>
+                    </div>
+                  )}
+                  
                   {/* Video Element */}
-                  <div className="relative w-full h-full">
-                    <video
-                      src={video.url}
-                      autoPlay={isActive}
-                      muted
-                      loop
-                      playsInline
-                      className="object-cover w-full h-full"
-                      preload="auto"
-                      style={{ 
-                        opacity: videoState.videoReady ? 1 : 0.3,
-                        transition: 'opacity 0.3s ease-in-out'
-                      }}
-                      onLoadedData={() => {
-                        setVideoStates(prev => ({
-                          ...prev,
-                          [index]: { ...prev[index], isLoading: false, videoReady: true }
-                        }));
-                      }}
-                      onError={() => {
-                        setVideoStates(prev => ({
-                          ...prev,
-                          [index]: { ...prev[index], isLoading: false, error: true }
-                        }));
-                      }}
-                    />
-                  </div>
+                  <video
+                    ref={(el) => registerVideoElement(index, el)}
+                    src={video.url}
+                    muted
+                    loop
+                    playsInline
+                    className="object-cover w-full h-full"
+                    preload="metadata"
+                    style={{ 
+                      opacity: videoState.isLoaded ? 1 : 0,
+                      transition: 'opacity 0.3s ease-in-out'
+                    }}
+                  />
+
+                  {/* Play indicator for mobile */}
+                  {isActive && videoState.isLoaded && !videoState.isPlaying && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                      <div className="bg-black/50 rounded-full p-4">
+                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Video Info Overlay */}
                   <motion.div 
