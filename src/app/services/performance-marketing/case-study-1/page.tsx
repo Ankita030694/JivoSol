@@ -83,9 +83,7 @@ export default function CaseStudyPage() {
                   Get Similar Results
                 </button>
               </Link>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-[#0A5C35] transition-all duration-300">
-                View Case Details
-              </button>
+            
             </div>
           </div>
         </div>

@@ -84,7 +84,7 @@ export default function CaseStudyPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">1. Introduction</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#0A5C35]">Introduction</h2>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
                 Yashi Shukla Education is a leading overseas education advisory firm specializing in personalized guidance for students aspiring to study abroad. Their services include profile building, SOP review, counseling, and pre-departure sessions.
               </p>
@@ -114,7 +114,7 @@ export default function CaseStudyPage() {
       {/* Objectives */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">2. Objectives</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">Objectives</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {objectives.map((objective, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
@@ -129,7 +129,7 @@ export default function CaseStudyPage() {
       {/* Campaign Strategy */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">3. Campaign Strategy</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">Campaign Strategy</h2>
           
           {/* Meta Ads Strategy */}
           <div className="mb-16">
@@ -214,7 +214,7 @@ export default function CaseStudyPage() {
       {/* Results Section */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">5. Results & Insights</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">Results & Insights</h2>
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             {results.map((result, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
@@ -260,7 +260,7 @@ export default function CaseStudyPage() {
       {/* Instagram Growth */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">6. Instagram Growth & Engagement</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">Instagram Growth & Engagement</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {instagramMetrics.map((metric, index) => (
               <div key={index} className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-8 rounded-lg text-center">
@@ -275,7 +275,7 @@ export default function CaseStudyPage() {
       {/* Challenges & Solutions */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">7. Challenges & Solutions</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#0A5C35]">Challenges & Solutions</h2>
           <div className="space-y-8">
             {challenges.map((item, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
@@ -299,7 +299,7 @@ export default function CaseStudyPage() {
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-8 text-[#0A5C35]">8. Conclusion</h2>
+            <h2 className="text-3xl font-bold mb-8 text-[#0A5C35]">Conclusion</h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               Yashi Shukla Education's digital journey shows how <strong>personalized creative + precise targeting + funnel automation = high-performance lead gen</strong>. By focusing on storytelling, retargeting, and audience relevance, we've built a scalable model that consistently delivers ROI-positive leads.
             </p>

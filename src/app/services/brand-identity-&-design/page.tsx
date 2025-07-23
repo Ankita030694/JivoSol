@@ -149,109 +149,78 @@ const StationaryCarouselModal = ({ isOpen, onClose, images, startIndex }: { isOp
 const ProcessSteps = () => {
   const steps = [
     {
-      number: "01",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      ),
       title: "Brand Discovery",
       description: "We begin with a call to understand your story, vision, audience, and what sets you apart."
     },
     {
-      number: "02", 
-      title: "Strategy & Positioning",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+        </svg>
+      ),
+      title: "Strategy & Positioning", 
       description: "We develop your brand strategy and positioning to differentiate you in the market."
     },
     {
-      number: "03",
-      title: "Visual Exploration", 
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+        </svg>
+      ),
+      title: "Visual Exploration",
       description: "We share mood boards and design directions to align on the look and feel."
     },
     {
-      number: "04",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+      ),
       title: "Final Design",
       description: "We craft your logo, color palette, fonts, and brand system"
     },
     {
-      number: "05",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+        </svg>
+      ),
       title: "Brand Guidelines Creation",
       description: "We give you a clear brand guidelines document so everything stays consistent across platforms"
     },
     {
-      number: "06",
+      icon: (
+        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+      ),
       title: "Delivery of Brand Assets",
       description: "We hand over everything you need to launch your brand!"
     }
   ];
 
   return (
-    <div className="px-2 md:px-4 py-8">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-4xl font-bold mb-6 text-black">Our Process</h2>
-        <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-          A systematic approach to building your brand identity from concept to completion
-        </p>
-      </div>
-      
-      <div className="max-w-full mx-auto">
-        {/* First Row - Steps 1-3 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-          {steps.slice(0, 3).map((step, index) => (
-            <div key={index} className="relative">
-              <div className="bg-white border-4 rounded-3xl shadow-sm transition-all duration-300 p-8 pt-12 relative h-[200px]"
-                   style={{ borderColor: '#0a5c35' }}>
-                
-                {/* Icon positioned on left middle of top border */}
-                <div className="absolute -top-8 left-8">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a5c35' }}>
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </div>
-                </div>
+    <div className="bg-white py-8">
+      <div className="container mx-auto px-4">
+        <h2 className="font-poppins font-bold text-4xl text-center mb-12 text-black">
+          Our Process
+        </h2>
 
-                {/* Step Number Badge - top right inside container */}
-                <div className="absolute top-4 right-4">
-                  <span className="text-white text-sm font-bold px-3 py-2 rounded-lg" style={{ backgroundColor: '#0a5c35' }}>
-                    STEP {step.number}
-                  </span>
-                </div>
-                
-                {/* Text Content - left aligned */}
-                <div className="text-left h-full flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
-                  <p className="text-gray-700 leading-relaxed text-sm">{step.description}</p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {steps.map((step, index) => (
+            <div key={index} className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
+                {step.icon}
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Second Row - Steps 4-6 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {steps.slice(3, 6).map((step, index) => (
-            <div key={index + 3} className="relative">
-              <div className="bg-white border-4 rounded-3xl shadow-sm transition-all duration-300 p-8 pt-12 relative h-[200px]"
-                   style={{ borderColor: '#0a5c35' }}>
-                
-                {/* Icon positioned on left middle of top border */}
-                <div className="absolute -top-8 left-8">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a5c35' }}>
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Step Number Badge - top right inside container */}
-                <div className="absolute top-4 right-4">
-                  <span className="text-white text-sm font-bold px-3 py-2 rounded-lg" style={{ backgroundColor: '#0a5c35' }}>
-                    STEP {step.number}
-                  </span>
-                </div>
-                
-                {/* Text Content - left aligned */}
-                <div className="text-left h-full flex flex-col justify-center">
-                  <h3 className="text-xl font-bold text-black mb-3">{step.title}</h3>
-                  <p className="text-gray-700 leading-relaxed text-sm">{step.description}</p>
-                </div>
-              </div>
+              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">{step.title}</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -291,15 +260,15 @@ export default function InsightsPage() {
   };
 
   const brandLogos = [
-    "/clientlogo/client1.jpg",
-    "/clientlogo/client2.png",
-    "/clientlogo/client3.png",
-    "/clientlogo/client4.jpg",
-    "/clientlogo/client5.jpg",
-    "/clientlogo/client6.png",
-    "/clientlogo/client7.png",
-    "/clientlogo/client8.jpg",
-    "/clientlogo/client9.jpg"
+    "/clientlogos/1.jpeg",
+    "/clientlogos/2.jpeg",
+    "/clientlogos/3.jpeg",
+    "/clientlogos/4.jpeg",
+    "/clientlogos/5.jpeg",
+    "/clientlogos/6.jpeg",
+    "/clientlogos/7.jpeg",
+    "/clientlogos/8.jpeg",
+    "/clientlogos/17.jpeg"
   ];
 
   const faqs = [

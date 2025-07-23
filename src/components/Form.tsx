@@ -184,7 +184,7 @@ const Form = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="absolute" 
             style={{ 
-              width: '500px', 
+              width: '500px',
               height: '500px',
               top: '250px', 
               left: '70px'
