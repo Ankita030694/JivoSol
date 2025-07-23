@@ -73,24 +73,52 @@ const About = () => {
   useEffect(() => {
     const preloadVideo = (url: string, index: number) => {
       const video = document.createElement('video');
-      video.preload = 'metadata';
+      video.preload = 'auto'; // Changed from 'metadata' to 'auto' for better mobile support
       video.muted = true;
       video.src = url;
       
-      video.onloadedmetadata = () => {
+      const handleLoadedData = () => {
         setVideoStates(prev => ({
           ...prev,
           [index]: { ...prev[index], isLoading: false, videoReady: true }
         }));
       };
       
-      video.onerror = () => {
+      const handleError = () => {
         console.warn(`Failed to preload video ${index}: ${url}`);
         setVideoStates(prev => ({
           ...prev,
           [index]: { ...prev[index], isLoading: false, error: true }
         }));
       };
+
+      const handleCanPlay = () => {
+        // Additional check to ensure video is ready
+        setVideoStates(prev => ({
+          ...prev,
+          [index]: { ...prev[index], isLoading: false, videoReady: true }
+        }));
+      };
+      
+      video.addEventListener('loadeddata', handleLoadedData);
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('error', handleError);
+      
+      // Force load the video
+      video.load();
+      
+      // Fallback: if video doesn't load within 5 seconds, mark it as ready anyway
+      setTimeout(() => {
+        setVideoStates(prev => {
+          if (prev[index]?.isLoading) {
+            return {
+              ...prev,
+              [index]: { ...prev[index], isLoading: false, videoReady: true }
+            };
+          }
+          return prev;
+        });
+      }, 5000);
     };
 
     // Preload all videos
@@ -121,6 +149,44 @@ const About = () => {
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
   }, [videos.length]);
+
+  // Force load videos that are currently visible or about to be visible
+  useEffect(() => {
+    const loadVisibleVideos = () => {
+      videos.forEach((video, index) => {
+        const videoState = videoStates[index];
+        if (videoState?.isLoading) {
+          // For mobile, load videos that are close to being visible
+          const shouldLoad = index <= currentVideoIndex + 1;
+          if (shouldLoad) {
+            const videoElement = document.createElement('video');
+            videoElement.preload = 'auto';
+            videoElement.muted = true;
+            videoElement.src = video.url;
+            
+            videoElement.onloadeddata = () => {
+              setVideoStates(prev => ({
+                ...prev,
+                [index]: { ...prev[index], isLoading: false, videoReady: true }
+              }));
+            };
+            
+            videoElement.onerror = () => {
+              setVideoStates(prev => ({
+                ...prev,
+                [index]: { ...prev[index], isLoading: false, error: true }
+              }));
+            };
+            
+            videoElement.load();
+          }
+        }
+      });
+    };
+
+    // Load visible videos when currentVideoIndex changes
+    loadVisibleVideos();
+  }, [currentVideoIndex, videoStates, videos]);
 
   // Auto-hide scroll indicator
   useEffect(() => {
@@ -251,7 +317,7 @@ const About = () => {
                         loop
                         playsInline
                         className="object-cover w-full h-full"
-                        preload="metadata"
+                        preload="auto"
                         style={{ 
                           opacity: videoState.videoReady ? 1 : 0,
                           transition: 'opacity 0.3s ease-in-out'
@@ -318,21 +384,31 @@ const About = () => {
                   
                   {/* Video Element */}
                   <div className="relative w-full h-full">
-                    {videoState.videoReady && (
-                      <video
-                        src={video.url}
-                        autoPlay={isActive}
-                        muted
-                        loop
-                        playsInline
-                        className="object-cover w-full h-full"
-                        preload="metadata"
-                        style={{ 
-                          opacity: videoState.videoReady ? 1 : 0,
-                          transition: 'opacity 0.3s ease-in-out'
-                        }}
-                      />
-                    )}
+                    <video
+                      src={video.url}
+                      autoPlay={isActive}
+                      muted
+                      loop
+                      playsInline
+                      className="object-cover w-full h-full"
+                      preload="auto"
+                      style={{ 
+                        opacity: videoState.videoReady ? 1 : 0.3,
+                        transition: 'opacity 0.3s ease-in-out'
+                      }}
+                      onLoadedData={() => {
+                        setVideoStates(prev => ({
+                          ...prev,
+                          [index]: { ...prev[index], isLoading: false, videoReady: true }
+                        }));
+                      }}
+                      onError={() => {
+                        setVideoStates(prev => ({
+                          ...prev,
+                          [index]: { ...prev[index], isLoading: false, error: true }
+                        }));
+                      }}
+                    />
                   </div>
 
                   {/* Video Info Overlay */}
