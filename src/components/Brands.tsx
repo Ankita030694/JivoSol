@@ -116,7 +116,7 @@ const Brands = () => {
       transition={{ duration: 1 }}
     >
       <motion.div 
-        className="text-center mb-8 xxl:mb-12"
+        className="text-center"
         ref={headerRef}
         variants={staggerContainer}
         initial="hidden"

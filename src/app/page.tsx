@@ -58,12 +58,24 @@ export default function Home() {
           priority
         />
       </div>
-      <About />
-      <WhyUs />
-      <OurSolution />
-      <Brands />
-      <Form />
-      <FAQ />
+      <div className="py-8">
+        <About />
+      </div>
+      <div className="py-8">
+        <WhyUs />
+      </div>
+      <div className="py-8">
+        <OurSolution />
+      </div>
+      <div className="py-8">
+        <Brands />
+      </div>
+      <div className="py-8">
+        <Form />
+      </div>
+      <div className="py-8">
+        <FAQ />
+      </div>
       <Footer />
     </div>
   );
