@@ -1041,7 +1041,7 @@ export default function InsightsPage() {
                 src="/perfmark/casestudy2/Cover Image Witwise.jpg" 
                 alt="WitWise Education Case Study" 
                 fill
-                className="object-contain"
+                className="object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

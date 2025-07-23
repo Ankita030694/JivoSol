@@ -260,15 +260,15 @@ export default function InsightsPage() {
   };
 
   const brandLogos = [
-    "/clientlogos/1.jpeg",
-    "/clientlogos/2.jpeg",
-    "/clientlogos/3.jpeg",
-    "/clientlogos/4.jpeg",
-    "/clientlogos/5.jpeg",
-    "/clientlogos/6.jpeg",
-    "/clientlogos/7.jpeg",
-    "/clientlogos/8.jpeg",
-    "/clientlogos/17.jpeg"
+    "/clientlogo/client1.jpg",
+    "/clientlogo/client2.png",
+    "/clientlogo/client3.png",
+    "/clientlogo/client4.jpg",
+    "/clientlogo/client5.jpg",
+    "/clientlogo/client6.png",
+    "/clientlogo/client7.png",
+    "/clientlogo/client8.jpg",
+    "/clientlogo/client9.jpg"
   ];
 
   const faqs = [
