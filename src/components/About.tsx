@@ -1,18 +1,12 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const About = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const [videoStates, setVideoStates] = useState<{
-    [key: number]: { isLoaded: boolean; isPlaying: boolean; hasError: boolean }
-  }>({});
 
   // Local video files from homepagevids folder
   const videos = [
@@ -61,123 +55,14 @@ const About = () => {
     threshold: 0.1,
   });
 
-  // Initialize video states
+  // Auto-advance carousel for mobile
   useEffect(() => {
-    const initialState: { [key: number]: { isLoaded: boolean; isPlaying: boolean; hasError: boolean } } = {};
-    videos.forEach((_, index) => {
-      initialState[index] = { isLoaded: false, isPlaying: false, hasError: false };
-    });
-    setVideoStates(initialState);
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+    }, 5000);
 
-  // Function to handle video element registration
-  const handleVideoRef = (index: number, element: HTMLVideoElement | null) => {
-    if (element && !videoRefs.current[index]) {
-      videoRefs.current[index] = element;
-      
-      // Set up event listeners
-      const handleLoadedData = () => {
-        setVideoStates(prev => ({
-          ...prev,
-          [index]: { ...prev[index], isLoaded: true }
-        }));
-      };
-
-      const handleError = () => {
-        console.error(`Video ${index} failed to load`);
-        setVideoStates(prev => ({
-          ...prev,
-          [index]: { ...prev[index], hasError: true }
-        }));
-      };
-
-      const handlePlay = () => {
-        setVideoStates(prev => ({
-          ...prev,
-          [index]: { ...prev[index], isPlaying: true }
-        }));
-      };
-
-      const handlePause = () => {
-        setVideoStates(prev => ({
-          ...prev,
-          [index]: { ...prev[index], isPlaying: false }
-        }));
-      };
-
-      element.addEventListener('loadeddata', handleLoadedData);
-      element.addEventListener('error', handleError);
-      element.addEventListener('play', handlePlay);
-      element.addEventListener('pause', handlePause);
-
-      // Force load the video
-      try {
-        element.load();
-      } catch (error) {
-        console.warn(`Failed to load video ${index}:`, error);
-      }
-    }
-  };
-
-  // Handle video playback based on current index
-  useEffect(() => {
-    Object.entries(videoRefs.current).forEach(([indexStr, videoElement]) => {
-      const index = parseInt(indexStr);
-      const videoState = videoStates[index];
-      
-      if (videoElement && videoState?.isLoaded) {
-        try {
-          if (index === currentVideoIndex) {
-            // Play current video
-            videoElement.currentTime = 0;
-            const playPromise = videoElement.play();
-            if (playPromise !== undefined) {
-              playPromise.catch(err => {
-                console.warn(`Failed to play video ${index}:`, err);
-              });
-            }
-          } else {
-            // Pause other videos
-            videoElement.pause();
-          }
-        } catch (error) {
-          console.warn(`Error controlling video ${index}:`, error);
-        }
-      }
-    });
-  }, [currentVideoIndex, videoStates]);
-
-  // Handle scroll events for mobile
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      const scrollLeft = container.scrollLeft;
-      const containerWidth = container.clientWidth;
-      const videoWidth = containerWidth * 0.8;
-      const gap = 16;
-      
-      const newIndex = Math.round(scrollLeft / (videoWidth + gap));
-      setCurrentVideoIndex(Math.max(0, Math.min(newIndex, videos.length - 1)));
-      
-      if (scrollLeft > 10) {
-        setShowScrollIndicator(false);
-      }
-    };
-
-    container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
+    return () => clearInterval(interval);
   }, [videos.length]);
-
-  // Auto-hide scroll indicator
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowScrollIndicator(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="py-8 xxl:py-12 px-4 xxl:px-8 text-center overflow-hidden">
@@ -242,26 +127,7 @@ const About = () => {
         </Link>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showScrollIndicator ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="mb-4 flex justify-center items-center gap-2 text-sm text-gray-500"
-      >
-        <motion.div
-          animate={{ x: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-4 h-4"
-        >
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </motion.div>
-        <span>Swipe to see more</span>
-      </motion.div>
-
-      {/* Video Grid Container */}
+      {/* Video Carousel */}
       <div className="relative">
         <motion.div 
           ref={ref}
@@ -271,172 +137,53 @@ const About = () => {
           className="relative"
         >
           {/* Desktop Grid */}
-          <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto scrollbar-hide">
-            {videos.map((video, index) => {
-              const videoState = videoStates[index] || { isLoaded: false, isPlaying: false, hasError: false };
-              
-              return (
-                <motion.div 
-                  key={index}
-                  variants={fadeInUp}
-                  className="video-container relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100"
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  {/* Loading Placeholder */}
-                  {!videoState.isLoaded && !videoState.hasError && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center z-10">
-                      <div className="text-gray-500 text-sm">Loading...</div>
-                    </div>
-                  )}
-                  
-                  {/* Error Placeholder */}
-                  {videoState.hasError && (
-                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center z-10">
-                      <div className="text-gray-500 text-sm">Video unavailable</div>
-                    </div>
-                  )}
-                  
-                  {/* Video Element */}
-                  <video
-                    ref={(el) => handleVideoRef(index, el)}
-                    src={video.url}
-                    muted
-                    loop
-                    playsInline
-                    className="object-cover w-full h-full"
-                    preload="metadata"
-                    style={{ 
-                      opacity: videoState.isLoaded ? 1 : 0,
-                      transition: 'opacity 0.3s ease-in-out'
-                    }}
-                  />
-
-                  {/* Video Info Overlay */}
-                  <motion.div 
-                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <div className="p-4 w-full">
-                      <motion.h3 
-                        className="text-white font-semibold text-lg mb-1"
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.5 }}
-                      >
-                        {video.name}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-white/80 text-sm"
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.6 }}
-                      >
-                        {video.description}
-                      </motion.p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
+          <div className="hidden md:flex justify-center gap-4 overflow-x-auto px-2 max-w-full mx-auto">
+            {videos.map((video, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                className="relative w-[315px] h-[560px] rounded-2xl overflow-hidden flex-shrink-0 bg-gray-100"
+              >
+                <video
+                  src={video.url}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="object-cover w-full h-full"
+                />
+              </motion.div>
+            ))}
           </div>
 
-          {/* Mobile Horizontal Scroll */}
-          <div 
-            ref={scrollContainerRef}
-            className="md:hidden flex gap-4 overflow-x-auto scroll-smooth px-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {videos.map((video, index) => {
-              const videoState = videoStates[index] || { isLoaded: false, isPlaying: false, hasError: false };
-              const isActive = currentVideoIndex === index;
-              
-              return (
-                <motion.div 
-                  key={index}
-                  variants={fadeInUp}
-                  className="video-container relative w-[80vw] h-[70vh] rounded-2xl overflow-hidden flex-shrink-0 snap-center bg-gray-100"
-                  transition={{ type: "spring", stiffness: 300 }}
-                  style={{ minWidth: '80vw' }}
-                >
-                  {/* Loading Placeholder */}
-                  {!videoState.isLoaded && !videoState.hasError && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center z-10">
-                      <div className="text-gray-500 text-sm">Loading...</div>
-                    </div>
-                  )}
-                  
-                  {/* Error Placeholder */}
-                  {videoState.hasError && (
-                    <div className="absolute inset-0 bg-gray-300 flex items-center justify-center z-10">
-                      <div className="text-gray-500 text-sm">Video unavailable</div>
-                    </div>
-                  )}
-                  
-                  {/* Video Element */}
-                  <video
-                    ref={(el) => handleVideoRef(index, el)}
-                    src={video.url}
-                    muted
-                    loop
-                    playsInline
-                    className="object-cover w-full h-full"
-                    preload="metadata"
-                    style={{ 
-                      opacity: videoState.isLoaded ? 1 : 0,
-                      transition: 'opacity 0.3s ease-in-out'
-                    }}
-                  />
-
-                  {/* Play indicator for mobile */}
-                  {isActive && videoState.isLoaded && !videoState.isPlaying && (
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <div className="bg-black/50 rounded-full p-4">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Video Info Overlay */}
-                  <motion.div 
-                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                  >
-                    <div className="p-4 w-full">
-                      <motion.h3 
-                        className="text-white font-semibold text-lg mb-1"
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.5 }}
-                      >
-                        {video.name}
-                      </motion.h3>
-                      <motion.p 
-                        className="text-white/80 text-sm"
-                        initial={{ y: 10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3, delay: 0.6 }}
-                      >
-                        {video.description}
-                      </motion.p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              );
-            })}
+          {/* Mobile Carousel */}
+          <div className="md:hidden relative w-full h-[70vh] rounded-2xl overflow-hidden bg-gray-100">
+            {videos.map((video, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-500 ${
+                  index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <video
+                  src={video.url}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            ))}
           </div>
         </motion.div>
 
         {/* Mobile Video Indicators */}
         <div className="md:hidden flex justify-center gap-2 mt-4">
           {videos.map((_, index) => (
-            <div
+            <button
               key={index}
+              onClick={() => setCurrentVideoIndex(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentVideoIndex 
                   ? 'bg-[#005F33] w-6' 
@@ -446,7 +193,6 @@ const About = () => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };
