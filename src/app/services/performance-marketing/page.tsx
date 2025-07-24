@@ -130,9 +130,9 @@ export default function InsightsPage() {
     <div>
       <Navbar />
       <div className="w-full relative">
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 xxl:px-8 text-center">
           <h1
-            className="font-poppins font-bold text-white uppercase text-4xl"
+            className="font-poppins font-bold text-white uppercase text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xxl:text-6xl leading-tight md:leading-normal xxl:leading-relaxed"
           >
             Performance Marketing
           </h1>
@@ -142,83 +142,83 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={1000}
           height={100}
-          className="w-full h-36 sm:h-48 object-cover"
+          className="w-full h-32 sm:h-40 md:h-48 object-cover"
           priority
         />
       </div>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-8 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-6 sm:py-8 px-4 xxl:px-8">
         <div className="max-w-6xl mx-auto text-center">
           {/* Main Heading - We Are Paid Media Experts */}
           <h1 
-            className="font-poppins font-bold text-gray-900 mb-6 text-4xl text-center"
+            className="font-poppins font-bold text-gray-900 mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-4xl text-center"
           >
             We are paid media experts
           </h1>
           
           {/* Updated Subheading */}
-          <div className="text-gray-600 mb-8 max-w-4xl mx-auto text-center font-poppins space-y-4">
+          <div className="text-gray-600 mb-6 sm:mb-8 max-w-4xl mx-auto text-center font-poppins space-y-3 sm:space-y-4">
             <p 
-              className="mb-4 text-black max-w-4xl mx-auto"
+              className="mb-3 sm:mb-4 text-black max-w-4xl mx-auto text-sm sm:text-base"
             >
               At JIVO Solutions, we go beyond traditional ad management. Our award-winning performance marketing experts craft high-impact campaigns using smart targeting, data-driven strategy, and continuous optimization. The goal is simple, more traffic, more leads, more sales.
             </p>
             <p 
-              className="mb-4 text-black max-w-4xl mx-auto"
+              className="mb-3 sm:mb-4 text-black max-w-4xl mx-auto text-sm sm:text-base"
             >
               Whether you're launching a product, scaling your eCommerce store, or generating B2B leads, we build campaigns that turn ad spend into measurable business impact.
             </p>
           </div>
 
           {/* What is Performance Marketing Section - Redesigned, Content Only */}
-          <section className="mb-16 max-w-5xl mx-auto relative z-10">
+          <section className="mb-12 sm:mb-16 max-w-5xl mx-auto relative z-10">
             {/* Decorative background gradients */}
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-br from-[#0A5C35]/20 to-[#4F9F7A]/10 rounded-full blur-2xl pointer-events-none"></div>
             <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-gradient-to-tr from-[#0A5C35]/10 to-[#4F9F7A]/30 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div className="relative bg-white/80 backdrop-blur-lg border border-[#0A5C35]/10 rounded-3xl shadow-2xl px-8 py-10 md:px-16 md:py-14">
-              <div className="flex flex-col items-center gap-6">
-                <h2 className="font-poppins font-bold text-gray-900 mb-6 text-2xl text-center">
+            <div className="relative bg-white/80 backdrop-blur-lg border border-[#0A5C35]/10 rounded-3xl shadow-2xl px-6 sm:px-8 py-8 sm:py-10 md:px-16 md:py-14">
+              <div className="flex flex-col items-center gap-4 sm:gap-6">
+                <h2 className="font-poppins font-bold text-gray-900 mb-4 sm:mb-6 text-xl sm:text-2xl text-center">
                   What is Performance Marketing?
                 </h2>
-                <p className="text-gray-800 mb-6 font-poppins text-lg leading-relaxed text-center">
+                <p className="text-gray-800 mb-4 sm:mb-6 font-poppins text-sm sm:text-base md:text-lg leading-relaxed text-center">
                   <span className="bg-gradient-to-r from-[#0A5C35]/10 to-[#4F9F7A]/10 px-1 rounded">
                     Performance marketing
                   </span>{" "}
                   is a results-driven approach to online advertising where you only pay when your audience takes action—like clicking, signing up, or buying. Every dollar is accountable, every campaign is measurable, and every result is real.
                 </p>
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <span className="inline-block bg-[#0A5C35]/10 text-[#0A5C35] font-semibold px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-2">
                     Perfect for brands who want to:
                   </span>
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-800 font-poppins text-base leading-relaxed max-w-xl w-full">
-                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
-                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-gray-800 font-poppins text-sm sm:text-base leading-relaxed max-w-xl w-full">
+                  <li className="flex items-center gap-2 sm:gap-3 bg-[#4F9F7A]/10 rounded-lg px-3 sm:px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0A5C35] text-white font-bold text-sm sm:text-lg shadow">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
                     Track real ROI from their ad budgets
                   </li>
-                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
-                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 sm:gap-3 bg-[#4F9F7A]/10 rounded-lg px-3 sm:px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0A5C35] text-white font-bold text-sm sm:text-lg shadow">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
                     Target the right audience with precision
                   </li>
-                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
-                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 sm:gap-3 bg-[#4F9F7A]/10 rounded-lg px-3 sm:px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0A5C35] text-white font-bold text-sm sm:text-lg shadow">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
                     Scale campaigns based on real-time data
                   </li>
-                  <li className="flex items-center gap-3 bg-[#4F9F7A]/10 rounded-lg px-4 py-2 shadow-sm">
-                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0A5C35] text-white font-bold text-lg shadow">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                  <li className="flex items-center gap-2 sm:gap-3 bg-[#4F9F7A]/10 rounded-lg px-3 sm:px-4 py-2 shadow-sm">
+                    <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0A5C35] text-white font-bold text-sm sm:text-lg shadow">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
@@ -231,13 +231,13 @@ export default function InsightsPage() {
           
           {/* Services Heading - We Manage And Optimize */}
           <h2 
-            className="text-3xl font-bold mb-6 text-black"
+            className="hidden sm:block text-3xl font-bold mb-6 text-black"
           >
             We Manage And Optimize Paid Marketing Across:
           </h2>
           
           {/* Metrics Cards Container with Exact Positioning */}
-          <div className="relative mx-auto mb-12" style={{ width: '708px', height: '347px' }}>
+            <div className="hidden sm:block relative mx-auto mb-12" style={{ width: '708px', height: '347px' }}>
             {/* Spend Card - Left */}
             <div 
               className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300"
@@ -258,7 +258,7 @@ export default function InsightsPage() {
             
             {/* Revenue Card - Middle (Tallest) */}
             <div 
-              className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300 z-10"
+              className="hidden sm:block absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300 z-10"
               style={{
                 width: '280px',
                 height: '347px',
@@ -297,7 +297,7 @@ export default function InsightsPage() {
             
             {/* ROAS Card - Right */}
             <div 
-              className="absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="hidden sm:block absolute text-white flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all duration-300"
               style={{
                 width: '214px',
                 height: '161px',
@@ -315,7 +315,7 @@ export default function InsightsPage() {
           </div>
           
           {/* Partner Logos - Custom Images */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-8 border-gray-200 -mt-30 relative z-50 mb-10">
+          <div className="hidden md:flex flex-col md:flex-row items-center justify-center gap-16 pt-8 border-gray-200 -mt-30 relative z-50 mb-10">
             {/* Custom Partner Logo 1 */}
             <div className="flex flex-col items-center group cursor-pointer relative z-50">
               <div className="mb-4">
@@ -343,97 +343,97 @@ export default function InsightsPage() {
         </div>
       </div> 
       {/* Paid Media Tools Section */}
-      <div className="w-full bg-[#0A5C35] py-20 px-4">
+      <div className="w-full bg-[#0A5C35] py-12 sm:py-16 md:py-20 px-4 xxl:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Main Heading */}
-          <h2 className="text-white font-poppins font-bold text-4xl md:text-5xl text-center mb-16">
+          <h2 className="text-white font-poppins font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-12 md:mb-16">
             Paid Media Tools We Thrive On
           </h2>
           
           {/* Tools Grid */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {/* First Row - 5 tools */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center">
               {/* Google Ads */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Google_Ads_logo.svg" 
                   alt="Google Ads" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               {/* Meta */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Meta_Platforms_Inc._logo.svg" 
                   alt="Meta" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* Bing Ads */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Bing_logo_(2016).svg" 
                   alt="Bing Ads" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* Google Analytics */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Logo_Google_Analytics.svg" 
                   alt="Google Analytics" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* Google Merchant Centre */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="hidden sm:block bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/google-merchant-center.svg" 
                   alt="Google Merchant Centre" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
             </div>
             
             {/* Second Row - 4 tools, centered */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center max-w-4xl mx-auto">
               {/* Semrush */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Semrush_logo.svg" 
                   alt="Semrush" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* Shopify */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/Shopify_logo_2018.svg" 
                   alt="Shopify" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* ChatGPT */}
-                  <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/ChatGPT_logo.svg" 
                   alt="ChatGPT" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
               
               {/* Buffer */}
-              <div className="bg-white/0 rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
                 <img 
                   src="/perfmark/logos/logo-buffer-svgrepo-com.svg" 
                   alt="Buffer" 
-                  className="w-30 h-30 object-contain tool-logo transition-all duration-300 group-hover:invert group-hover:brightness-0 group-hover:contrast-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
                 />
               </div>
             </div>
@@ -442,7 +442,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Hero Round 3 Image */}
-      <div>
+      <div className="hidden sm:block">
         <Image
           src="/heround3.svg"
           alt="Jivo Hero"
@@ -454,21 +454,21 @@ export default function InsightsPage() {
       </div>
 
       {/* Platforms Section */}
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
+      <div className="container mx-auto px-4 xxl:px-8 py-6 sm:py-8">
+        <h1 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-4 sm:mb-6 md:mb-8 text-black">
           Platforms JIVO specializes in
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           {/* Bing Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Bing Ads
               </h2>
               <Image src="/bing.svg" alt="Bing Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Microsoft's Bing search engine has more than 936 million unique
               monthly visitors! Tap into this audience with our Bing Ads
               services that include advanced targeting, ad scheduling, keyword
@@ -477,14 +477,14 @@ export default function InsightsPage() {
           </div>
 
           {/* Facebook Advertising */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Facebook Advertising
               </h2>
               <Image src="/fb.svg" alt="Facebook Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Be seen and heard on the world's largest social media network. Our
               Facebook advertising services include advanced targeting options,
               personalized ad creation, and retargeting website visitors to
@@ -493,9 +493,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Google Display Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Google Display Ads
               </h2>
               <Image
@@ -505,7 +505,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Advertise on a network of over two million websites, videos, and
               apps with our Google Display Ads services. Utilizing a wide range
               of ad formats and targeting options, we create highly engaging and
@@ -514,9 +514,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Google Paid Search */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Google Paid Search
               </h2>
               <Image
@@ -526,7 +526,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               We offer Google Paid Search services, also known as Google Ads, to
               help you advertise on Google SERPs. Our Google Paid Search
               services include keyword research, bid management, and ad creation
@@ -536,9 +536,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Instagram Advertising */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Instagram Advertising
               </h2>
               <Image
@@ -548,7 +548,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Connect with your audience on one of the most engaging social platforms. Our
               Instagram advertising services include creative content development,
               targeted campaigns, and performance optimization to maximize your
@@ -557,9 +557,9 @@ export default function InsightsPage() {
           </div>
 
           {/* LinkedIn PPC Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 LinkedIn PPC Ads
               </h2>
               <Image
@@ -569,7 +569,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Reach professional audiences with our LinkedIn PPC advertising services.
               We specialize in creating targeted campaigns for B2B marketing,
               lead generation, and brand awareness in the professional network.
@@ -577,9 +577,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Remarketing Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Remarketing Ads
               </h2>
               <Image
@@ -589,7 +589,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Reconnect with your website visitors through strategic remarketing campaigns.
               Our services help you engage potential customers who have shown interest
               in your products or services, increasing conversion rates and ROI.
@@ -597,9 +597,9 @@ export default function InsightsPage() {
           </div>
 
           {/* Shopping Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 Shopping Ads
               </h2>
               <Image
@@ -609,7 +609,7 @@ export default function InsightsPage() {
                 height={32}
               />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Showcase your products directly in search results with our Shopping Ads
               services. We optimize your product listings, manage campaigns, and
               implement strategies to increase visibility and drive sales.
@@ -617,14 +617,14 @@ export default function InsightsPage() {
           </div>
 
           {/* YouTube Video Ads */}
-          <div className="border rounded-lg p-4 md:p-6 flex flex-col">
+          <div className="border rounded-lg p-3 sm:p-4 md:p-6 flex flex-col">
             <div className="flex justify-between items-start">
-              <h2 className="font-poppins font-semibold text-2xl text-green-800">
+              <h2 className="font-poppins font-semibold text-lg sm:text-xl md:text-2xl text-green-800">
                 YouTube Video Ads
               </h2>
               <Image src="/yt.svg" alt="YouTube Logo" width={32} height={32} />
             </div>
-            <p className="mt-4 text-black text-sm md:text-base">
+            <p className="mt-3 sm:mt-4 text-black text-xs sm:text-sm md:text-base">
               Advertise on the world's largest video-sharing platform with our
               YouTube video ads services. We create engaging video ads in
               various formats, including skippable ads, non-skippable ads,
@@ -637,16 +637,91 @@ export default function InsightsPage() {
       
 
       {/* How does Performance Marketing work at JIVO? */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto px-1 md:px-2">
-          <h2 className="font-poppins font-bold text-4xl text-center mb-4 text-black">
+      <div className="bg-white py-6 sm:py-8">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <h2 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-3 sm:mb-4 text-black">
             How does Performance Marketing work at JIVO?
           </h2>
-          <p className="text-gray-700 text-center mb-10 max-w-3xl mx-auto font-poppins text-lg">
+          <p className="text-gray-700 text-center mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto font-poppins text-sm sm:text-base md:text-lg">
             We use a step-by-step process to make sure your ads reach the right people, generate meaningful results, and continuously improve over time.
           </p>
 
           <div className="max-w-6xl mx-auto">
+            {/* Mobile Layout: All cards same height */}
+            <div className="sm:hidden space-y-3">
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  1
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Set clear business goals</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We understand what you want to achieve and create a roadmap to get there, ensuring every campaign aligns with your business objectives.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  2
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Choose the right ad platforms</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We identify where your audience is most active and select the platforms that will give you the best return on your advertising investment.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  3
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Build campaign strategy & creatives</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We create scroll-stopping visual creatives and compelling ad copy that resonates with your target audience and drives action.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  4
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Launch with advanced tracking</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We implement full-funnel tracking to monitor every touchpoint and ensure we can measure the true impact of your campaigns.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  5
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Daily monitoring & optimization</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We monitor campaigns in real time and make data-driven adjustments to improve performance and maximize your return on ad spend.
+                </p>
+              </div>
+              
+                  <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  6
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Continuous testing & scaling</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  We run A/B tests and scale what works, continuously optimizing your campaigns to achieve better results and reach more customers.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-[#0A5C35] to-[#4F9F7A] text-white rounded-lg p-4 shadow-lg flex flex-col h-44">
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-lg font-bold mb-2">
+                  7
+                </div>
+                <h3 className="font-poppins font-bold text-base mb-2">Transparent Reporting</h3>
+                <p className="text-white/90 text-sm leading-relaxed flex-1 overflow-hidden">
+                  You receive clear performance reports with actionable insights, so you always know how your campaigns are performing and what's working best.
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop Layout: Original */}
+            <div className="hidden sm:block">
             {/* First row: 4 cards */}
             <div className="flex flex-col gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-0">
@@ -755,31 +830,32 @@ export default function InsightsPage() {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </div>
       </div>
      
        {/* Ads that perform Section */}
-      <div className="py-8 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-poppins font-bold text-4xl text-black">
+      <div className="py-6 sm:py-8 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-black">
               Ads that perform
             </h2>
-            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
               See our performance marketing campaigns in action. From compelling video ads to high-converting creatives, 
               we create content that drives real results for our clients.
             </p>
           </div>
 
           {/* Video Showcase Section */}
-          <div className="mb-16">
-            <h3 className="font-poppins font-bold text-2xl mb-8 text-black text-center">
+          <div className="mb-12 sm:mb-16">
+            <h3 className="font-poppins font-bold text-xl sm:text-2xl mb-6 sm:mb-8 text-black text-center">
               Video Campaigns
             </h3>
             
-            {/* Video Grid - Using videos from @vids folder */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Desktop: Grid layout */}
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
                   url: '/perfmark/vids/Radha-House.mp4',
@@ -823,55 +899,81 @@ export default function InsightsPage() {
                 </div>
               ))}
             </div>
+
+            {/* Mobile: Horizontal carousel */}
+            <div className="sm:hidden">
+              <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
+                {[
+                  {
+                    url: '/perfmark/vids/Radha-House.mp4',
+                    title: 'Radha House Campaign'
+                  },
+                  {
+                    url: '/perfmark/vids/Witwise (1).mp4',
+                    title: 'WitWise Education'
+                  },
+                  {
+                    url: '/perfmark/vids/Sidewok12.mp4',
+                    title: 'Sidewok Campaign'
+                  }
+                ].map((video, index) => (
+                  <div 
+                    key={index}
+                    className="relative flex-none w-48 aspect-[9/16] rounded-2xl overflow-hidden shadow-xl"
+                  >
+                    <video
+                      src={video.url}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls={false}
+                      className="object-cover w-full h-full"
+                      preload="metadata"
+                    />
+                    
+                    {/* Title overlay */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                      <h4 className="text-white font-poppins font-semibold text-sm mb-1">
+                        {video.title}
+                      </h4>
+                      <p className="text-white/80 text-xs">
+                        Performance Campaign
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Creative Showcase Section */}
           <div>
-            <h3 className="font-poppins font-bold text-2xl mb-8 text-black text-center">
+            <h3 className="font-poppins font-bold text-xl sm:text-2xl mb-6 sm:mb-8 text-black text-center">
               Creative Assets
             </h3>
             
-            {/* Creative Grid - First Row (4 images) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-              {creativeImages.slice(0, 4).map((image, index) => (
-                <div 
-                  key={index}
-                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                >
-                  <Image
-                    src={image}
-                    alt={`Performance Marketing Creative ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                    onClick={() => openImageModal(image)}
-                  />
-                  
-                 
-                </div>
-              ))}
-            </div>
-
-            {/* Creative Grid - Second Row (3 images) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {creativeImages.slice(4).map((image, index) => (
-                <div 
-                  key={index + 4}
-                  className="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                >
-                  <Image
-                    src={image}
-                    alt={`Performance Marketing Creative ${index + 5}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                    onClick={() => openImageModal(image)}
-                  />
-                  
-                  {/* Overlay on hover */}
-                 
-                </div>
-              ))}
+            {/* Creative Grid - All images in square grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {creativeImages.map((image, index) => {
+                // For mobile (sm:hidden), hide the last image
+                const isLast = index === creativeImages.length - 1;
+                return (
+                  <div 
+                    key={index}
+                    className={`relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer aspect-square${isLast ? ' sm:block hidden' : ''}`}
+                  >
+                    <Image
+                      src={image}
+                      alt={`Performance Marketing Creative ${index + 1}`}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      onClick={() => openImageModal(image)}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -884,106 +986,103 @@ export default function InsightsPage() {
             description="Let's create ads that don't just look good—they perform."
           />
       {/* Why choose JIVO as your performance marketing partner */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="font-poppins font-bold text-4xl text-center mb-12 text-black">
+      <div className="bg-white py-6 sm:py-8">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <h2 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 text-black">
             Why choose JIVO as your performance marketing partner
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {/* Tailored for Your Goals */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">Tailored for Your Goals</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">Tailored for Your Goals</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 Every business is different, and so is every ad campaign we run. We build your strategy around your product, market, and objectives to get the best results.
               </p>
             </div>
 
             {/* Platform-Specific Expertise */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">Platform-Specific Expertise</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">Platform-Specific Expertise</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 Whether it's Google, Meta, LinkedIn, or YouTube, we know how to make each platform work for your business. Our team stays updated with the latest tools, features, and policies.
               </p>
             </div>
 
             {/* Clear Strategy */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">Clear Strategy</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                We don't throw ads into the void. Every campaign starts with a clear plan backed by research, insights, and a focus on your bottom line.
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">Clear Strategy</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
+                We don't throw ads into the wild and hope for the best. Every campaign starts with a clear strategy based on your goals, audience insights, and competitive analysis.
               </p>
             </div>
 
             {/* One Dedicated Manager */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">One Dedicated Manager</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">One Dedicated Manager</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 You'll work with a single point of contact who knows your goals, updates you regularly, and keeps everything running smoothly.
               </p>
             </div>
 
             {/* Consistent Monitoring */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">Consistent Monitoring</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">Consistent Monitoring</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 We monitor campaigns daily, test new ideas, and make smart changes so your results keep getting better.
               </p>
             </div>
 
             {/* Performance Reports */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">Performance Reports</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">Performance Reports</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 You'll get easy-to-read reports that show exactly what your ads achieved, leads, sales, traffic, and what's coming next.
               </p>
             </div>
           </div>
-
-          {/* CTA Button */}
-         
         </div>
       </div>
 
       <div className="flex justify-center items-center w-full">
         <ResultComponent />
       </div>  
-      <div className="bg-[#ECECEC] px-4 py-8">
-        <h1 className="font-poppins font-bold text-4xl text-center mb-6 md:mb-8 text-black">
+      <div className="bg-[#ECECEC] px-4 xxl:px-8 py-6 sm:py-8">
+        <h1 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-4 sm:mb-6 md:mb-8 text-black">
           Our PPC Case Studies
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6">
           {/* Case Study 1 - Nidhi Chugh */}
           <div className="bg-white rounded-lg overflow-hidden shadow transform transition-all duration-300 hover:shadow-xl hover:scale-105">
             <div className="relative h-48">
@@ -1112,13 +1211,13 @@ export default function InsightsPage() {
       </div>
       
       {/* FAQs Section */}
-      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-6">
-            <h2 className="font-poppins font-bold text-2xl mb-2 text-[#0a5c35]">
+      <section className="py-6 sm:py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-4 sm:mb-6">
+            <h2 className="font-poppins font-bold text-xl sm:text-2xl mb-2 text-[#0a5c35]">
               FAQs
             </h2>
-            <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+            <p className="text-gray-700 text-xs sm:text-sm max-w-2xl mx-auto">
               Find answers to common questions about our performance marketing services
             </p>
           </div>
@@ -1134,12 +1233,12 @@ export default function InsightsPage() {
                   }`}
                 onClick={() => toggleFAQ(0)}
               >
-                <span className={`font-poppins font-semibold text-sm transition-colors duration-300 ${
+                <span className={`font-poppins font-semibold text-xs sm:text-sm transition-colors duration-300 ${
                   openIndex === 0 ? 'text-white' : 'text-gray-800'
                 }`}>
                   What is performance marketing?
                 </span>
-                <span className={`text-lg transition-colors duration-300 ${
+                <span className={`text-base sm:text-lg transition-colors duration-300 ${
                   openIndex === 0 ? 'text-white' : 'text-[#0a5c35]'
                 }`}>
                   {openIndex === 0 ? '↑' : '↓'}
@@ -1147,7 +1246,7 @@ export default function InsightsPage() {
               </button>
               {openIndex === 0 && (
                 <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
-                  <p className="text-gray-700 leading-relaxed text-xs">
+                  <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
                     Performance marketing is a results-driven approach where you pay only for actions like clicks, leads, or sales. We track and optimize every campaign to deliver measurable ROI.
                   </p>
                 </div>

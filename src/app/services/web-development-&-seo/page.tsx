@@ -49,12 +49,9 @@ export default function InsightsPage() {
     <div>
       <Navbar />
       <div className="w-full relative">
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 xxl:px-8">
           <h1
-            className="font-poppins font-bold text-white uppercase"
-            style={{
-              fontSize: "42px",
-            }}
+            className="font-poppins font-bold text-white uppercase text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xxl:text-6xl leading-tight md:leading-normal xxl:leading-relaxed"
           >
             Web Development & SEO
           </h1>
@@ -64,28 +61,28 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={1000}
           height={100}
-          className="w-full h-48 object-cover"
+          className="w-full h-32 sm:h-40 md:h-48 object-cover"
           priority
         />
       </div>
 
       {/* Hero Section */}
-      <div className="bg-[#ECECEC] py-8">
-        <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-6 text-black">
+      <div className="bg-[#ECECEC] py-8 sm:py-8">
+        <div className="max-w-4xl mx-auto text-center px-4 xxl:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-black">
             Build a website that performs and gets found
           </h2>
-          <p className="mb-4 text-black max-w-4xl mx-auto">
+          <p className="mb-3 sm:mb-4 text-black max-w-4xl mx-auto text-sm sm:text-base">
             Your website is your brand's digital home. At JIVO Solutions, we design and develop websites that are fast, mobile-responsive, easy to navigate, and built to convert. Every website is backed by strong SEO foundations so it's discoverable too.
           </p>
           
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-black">Platforms we build on</h3>
-            <div className="flex flex-wrap justify-center gap-4">
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">Platforms we build on</h3>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
               {['WordPress', 'Webflow', 'Shopify', 'HTML/CSS', 'React'].map((tech) => (
                 <button
                   key={tech}
-                  className="px-6 py-2 rounded-full bg-white text-black 
+                  className="px-3 sm:px-6 py-1.5 sm:py-2 rounded-full bg-white text-black text-xs sm:text-sm
                     relative overflow-hidden group transition-colors duration-300
                     hover:text-white"
                 >
@@ -100,11 +97,11 @@ export default function InsightsPage() {
       </div>
 
       {/* What We Offer Section */}
-      <div className="py-8 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">What We Offer</h2>
+      <div className="py-6 sm:py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">What We Offer</h2>
           {/* First row: 3 cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8">
             {[
               {
                 title: "Web Design & Development",
@@ -119,14 +116,14 @@ export default function InsightsPage() {
                 description: "Every site we build is mobile-optimized to ensure your brand looks perfect on every screen, from desktop to smartphone."
               }
             ].map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{service.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{service.description}</p>
+              <div key={index} className="bg-gray-50 rounded-lg p-4 sm:p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#006B3F]">{service.title}</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{service.description}</p>
               </div>
             ))}
           </div>
           {/* Second row: 2 cards centered */}
-          <div className="flex flex-col md:flex-row justify-center gap-8">
+          <div className="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 title: "eCommerce Development",
@@ -137,9 +134,9 @@ export default function InsightsPage() {
                 description: "We optimize your website structure, content, and code for better visibility on search engines like Google, helping you rank higher and get found faster."
               }
             ].map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow min-w-[260px] flex-1">
-                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{service.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{service.description}</p>
+              <div key={index} className="bg-gray-50 rounded-lg p-4 sm:p-6 hover:shadow-lg transition-shadow min-w-[260px] flex-1">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#006B3F]">{service.title}</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{service.description}</p>
               </div>
             ))}
           </div>
@@ -147,30 +144,30 @@ export default function InsightsPage() {
       </div>
 
       {/* What Is SEO Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc]">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-4xl font-bold text-center mb-12 text-black">
+      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc]">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">
               What Is SEO?
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
               SEO (Search Engine Optimization) is the art and science of enhancing your website to increase its visibility on search engines like Google.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row md:items-stretch md:justify-center gap-8">
+          <div className="flex flex-col md:flex-row md:items-stretch md:justify-center gap-4 sm:gap-6 md:gap-8">
             <div className="flex-1">
-              <div className="bg-white rounded-xl shadow-lg p-8 h-full flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-[#006B3F] mb-4 text-center">Why SEO Matters</h3>
-                <ul className="space-y-4">
+              <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 h-full flex flex-col justify-center">
+                <h3 className="text-lg sm:text-xl font-semibold text-[#006B3F] mb-3 sm:mb-4 text-center">Why SEO Matters</h3>
+                <ul className="space-y-3 sm:space-y-4">
                   {[
                     "Rank higher in search results",
                     "Attract more organic traffic",
                     "Target the right audience with the right keywords",
                     "Improve user experience and conversion rates"
                   ].map((benefit, index) => (
-                    <li key={index} className="flex items-center text-gray-800 text-base md:text-lg">
-                      <span className="flex items-center justify-center w-6 h-6 bg-[#0a5c35] rounded-full mr-3">
-                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                    <li key={index} className="flex items-center text-gray-800 text-sm sm:text-base md:text-lg">
+                      <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-[#0a5c35] rounded-full mr-2 sm:mr-3">
+                        <svg className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </span>
@@ -181,13 +178,13 @@ export default function InsightsPage() {
               </div>
             </div>
             <div className="flex-1 flex flex-col justify-center">
-              <div className="bg-[#006B3F] rounded-xl shadow-lg p-8 h-full flex flex-col justify-center">
-                <h4 className="text-xl font-semibold text-white mb-4 text-center">Our Approach</h4>
-                <p className="text-white text-base md:text-lg leading-relaxed mb-4 text-center">
+              <div className="bg-[#006B3F] rounded-xl shadow-lg p-4 sm:p-6 md:p-8 h-full flex flex-col justify-center">
+                <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 text-center">Our Approach</h4>
+                <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed mb-3 sm:mb-4 text-center">
                   At JIVO, we combine on-page and off-page SEO strategies to elevate your digital presence and drive real business growth.
                 </p>
                 <div className="flex justify-center">
-                  <svg className="w-14 h-14 text-white opacity-80" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 48 48">
+                  <svg className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-white opacity-80" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 48 48">
                     <circle cx="24" cy="24" r="20" stroke="#fff" strokeWidth="3" fill="none"/>
                     <path d="M24 14v10l7 7" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -199,31 +196,31 @@ export default function InsightsPage() {
       </section>
 
       {/* SEO Services Section */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-4xl font-bold text-center mb-12 text-black">
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">
               Our SEO Services
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
               We offer a comprehensive suite of SEO solutions to help your business grow online.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {/* On-Page SEO */}
-            <div className="bg-gradient-to-br from-[#e2eafc] to-[#f5f7fa] rounded-xl shadow-lg p-8 flex flex-col h-full">
-              <div className="flex items-center mb-6">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#006B3F] mr-3">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-[#e2eafc] to-[#f5f7fa] rounded-xl shadow-lg p-4 sm:p-6 md:p-8 flex flex-col h-full">
+              <div className="flex items-center mb-4 sm:mb-6">
+                <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#006B3F] mr-2 sm:mr-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 9l5-5 5 5M12 4.5V15" />
                   </svg>
                 </span>
-                <h3 className="text-2xl font-bold text-[#006B3F]">On-Page SEO Services</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#006B3F]">On-Page SEO Services</h3>
               </div>
-              <p className="text-gray-700 mb-6 text-base md:text-lg">
+              <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg">
                 We optimize every element within your website to improve its search engine ranking and user experience.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   "Keyword research & mapping",
                   "Title tags & meta descriptions",
@@ -235,9 +232,9 @@ export default function InsightsPage() {
                   "Schema markup integration",
                   "Mobile-friendliness & Core Web Vitals"
                 ].map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-800">
-                    <span className="flex items-center justify-center w-6 h-6 bg-[#0a5c35] rounded-full mr-3">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <li key={index} className="flex items-center text-gray-800 text-sm sm:text-base">
+                    <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-[#0a5c35] rounded-full mr-2 sm:mr-3">
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
@@ -248,19 +245,19 @@ export default function InsightsPage() {
             </div>
 
             {/* Off-Page SEO */}
-            <div className="bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc] rounded-xl shadow-lg p-8 flex flex-col h-full">
-              <div className="flex items-center mb-6">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#0a5c35] mr-3">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-br from-[#f5f7fa] to-[#e2eafc] rounded-xl shadow-lg p-4 sm:p-6 md:p-8 flex flex-col h-full">
+              <div className="flex items-center mb-4 sm:mb-6">
+                <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0a5c35] mr-2 sm:mr-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                 </span>
-                <h3 className="text-2xl font-bold text-[#0a5c35]">Off-Page SEO Services</h3>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0a5c35]">Off-Page SEO Services</h3>
               </div>
-              <p className="text-gray-700 mb-6 text-base md:text-lg">
+              <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-base md:text-lg">
                 We build your website's credibility and authority through strategic activities beyond your site.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   "Backlink building from high-authority websites",
                   "Local SEO (Google Business Profile optimization)",
@@ -270,9 +267,9 @@ export default function InsightsPage() {
                   "Social signals and content distribution",
                   "Brand mentions & reputation management"
                 ].map((service, index) => (
-                  <li key={index} className="flex items-center text-gray-800">
-                    <span className="flex items-center justify-center w-6 h-6 bg-[#006B3F] rounded-full mr-3">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                  <li key={index} className="flex items-center text-gray-800 text-sm sm:text-base">
+                    <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-[#006B3F] rounded-full mr-2 sm:mr-3">
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
@@ -286,88 +283,88 @@ export default function InsightsPage() {
       </section>
 
       {/* We Specialize Section */}
-      <div className="w-full py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">
+      <div className="w-full py-8 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">
             We specialize in
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 sm:gap-y-8 md:gap-y-10 gap-x-4 sm:gap-x-6 md:gap-x-8 mb-6 sm:mb-8">
             {/* 1 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">Business websites</span>
-                <span className="text-lg text-black"> for startups, service providers, and smes</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">Business websites</span>
+                <span className="text-sm sm:text-base md:text-lg text-black"> for startups, service providers, and smes</span>
               </div>
             </div>
             {/* 2 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">Landing pages</span>
-                <span className="text-lg text-black"> for lead generation, campaigns, or sales</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">Landing pages</span>
+                <span className="text-sm sm:text-base md:text-lg text-black"> for lead generation, campaigns, or sales</span>
               </div>
             </div>
             {/* 3 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">E-Commerce stores</span>
-                <span className="text-lg text-black"> on shopify and woocommerce</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">E-Commerce stores</span>
+                <span className="text-sm sm:text-base md:text-lg text-black"> on shopify and woocommerce</span>
               </div>
             </div>
             {/* 4 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">Portfolio</span>
-                <span className="font-normal text-lg text-black"> and personal brand websites</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">Portfolio</span>
+                <span className="font-normal text-sm sm:text-base md:text-lg text-black"> and personal brand websites</span>
               </div>
             </div>
             {/* 5 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">Website redesigns</span>
-                <span className="font-bold text-lg text-black"> and speed optimization</span>
-                <span className="font-normal text-lg text-black"> for better performance</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">Website redesigns</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black"> and speed optimization</span>
+                <span className="font-normal text-sm sm:text-base md:text-lg text-black"> for better performance</span>
               </div>
             </div>
             {/* 6 */}
-            <div className="flex items-start gap-4">
-              <span className="inline-flex items-center justify-center w-10 h-10 bg-[#0A5C35] rounded-sm mt-1">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-[#0A5C35] rounded-sm mt-1">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
               <div>
-                <span className="font-bold text-lg text-black">SEO fundamentals</span>
-                <span className="font-normal text-lg text-black">, analytics setup, and pixel integration</span>
+                <span className="font-bold text-sm sm:text-base md:text-lg text-black">SEO fundamentals</span>
+                <span className="font-normal text-sm sm:text-base md:text-lg text-black">, analytics setup, and pixel integration</span>
               </div>
             </div>
           </div>
-          <div className="text-center mt-8">
-            <p className="text-lg text-black font-medium">
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-sm sm:text-base md:text-lg text-black font-medium">
               Whether you're launching, scaling, or rebranding, we help you build a site that<br className="hidden md:inline" /> reflects your business.
             </p>
           </div>
@@ -375,10 +372,10 @@ export default function InsightsPage() {
       </div>
 
       {/* Process Section */}
-      <div className="py-8 bg-[#ECECEC]">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">Our Web Development & SEO Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="py-6 sm:py-8 bg-[#ECECEC]">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">Our Web Development & SEO Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 step: "1",
@@ -407,11 +404,11 @@ export default function InsightsPage() {
               }
             ].map((process, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-[#006B3F] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#006B3F] text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold mx-auto mb-3 sm:mb-4">
                   {process.step}
                 </div>
-                <h3 className="text-lg font-semibold mb-3 text-black">{process.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{process.description}</p>
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-2 sm:mb-3 text-black">{process.title}</h3>
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{process.description}</p>
               </div>
             ))}
           </div>
@@ -481,10 +478,10 @@ export default function InsightsPage() {
       </div>
 
       {/* Why Choose JIVO Section */}
-      <div className="py-8 bg-[#ECECEC]">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">Why Choose JIVO for Web Development & SEO?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="py-6 sm:py-8 bg-[#ECECEC]">
+        <div className="max-w-6xl mx-auto px-4 xxl:px-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-black">Why Choose JIVO for Web Development & SEO?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 title: "Custom-Built",
@@ -511,9 +508,9 @@ export default function InsightsPage() {
                 description: "Our sites are made to grow with your business, easy to update, expand, and integrate with tools like CRMs, payment gateways, and marketing platforms."
               }
             ].map((feature, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold mb-4 text-[#006B3F]">{feature.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+              <div key={index} className="bg-white rounded-lg p-4 sm:p-6 hover:shadow-lg transition-shadow">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#006B3F]">{feature.title}</h3>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -527,13 +524,13 @@ export default function InsightsPage() {
       />
 
       {/* FAQ Section */}
-      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+      <section className="py-6 sm:py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
               FAQs
             </h2>
-            <p className="text-gray-700 text-sm max-w-2xl mx-auto">
+            <p className="text-gray-700 text-xs sm:text-sm max-w-2xl mx-auto">
               Find answers to common questions about our web development and SEO services
             </p>
           </div>
@@ -549,12 +546,12 @@ export default function InsightsPage() {
                     }`}
                   onClick={() => toggleFaq(index)}
                 >
-                  <span className={`font-semibold text-sm transition-colors duration-300 ${
+                  <span className={`font-semibold text-xs sm:text-sm transition-colors duration-300 ${
                     openFaqIndex === index ? 'text-white' : 'text-gray-800'
                   }`}>
                     {faq.question}
                   </span>
-                  <span className={`text-lg transition-colors duration-300 ${
+                  <span className={`text-base sm:text-lg transition-colors duration-300 ${
                     openFaqIndex === index ? 'text-white' : 'text-[#0a5c35]'
                   }`}>
                     {openFaqIndex === index ? '↑' : '↓'}
@@ -563,7 +560,7 @@ export default function InsightsPage() {
                 
                 {openFaqIndex === index && (
                   <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
-                    <p className="text-gray-700 leading-relaxed text-xs">
+                    <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
                       {faq.answer}
                     </p>
                   </div>

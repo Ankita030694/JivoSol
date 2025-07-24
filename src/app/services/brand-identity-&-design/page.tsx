@@ -205,20 +205,20 @@ const ProcessSteps = () => {
   ];
 
   return (
-    <div className="bg-white py-8">
-      <div className="container mx-auto px-4">
-        <h2 className="font-poppins font-bold text-4xl text-center mb-12 text-black">
+    <div className="bg-white py-6 sm:py-8">
+      <div className="container mx-auto px-4 xxl:px-8">
+        <h2 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-8 sm:mb-12 text-black">
           Our Process
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {steps.map((step, index) => (
-            <div key={index} className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-4">
+            <div key={index} className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0A5C35] rounded-lg flex items-center justify-center mb-3 sm:mb-4">
                 {step.icon}
               </div>
-              <h3 className="font-poppins font-bold text-xl mb-3 text-[#0A5C35]">{step.title}</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <h3 className="font-poppins font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-[#0A5C35]">{step.title}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -337,12 +337,9 @@ export default function InsightsPage() {
     <div>
       <Navbar />
       <div className="w-full relative">
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4 xxl:px-8">
           <h1
-            className="font-poppins font-bold text-white uppercase text-center px-4"
-            style={{
-              fontSize: "clamp(24px, 5vw, 42px)",
-            }}
+            className="font-poppins font-bold text-white uppercase text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xxl:text-6xl leading-tight md:leading-normal xxl:leading-relaxed"
           >
             Brand Identity & Design
           </h1>
@@ -352,108 +349,108 @@ export default function InsightsPage() {
           alt="Jivo Hero"
           width={1000}
           height={100}
-          className="w-full h-32 md:h-48 object-cover"
+          className="w-full h-32 sm:h-40 md:h-48 object-cover"
           priority
         />
       </div>
 
       {/* Brand Introduction Section */}
-      <div className="px-4 md:px-48 py-8 bg-white">
+      <div className="px-4 xxl:px-8 py-6 sm:py-8 bg-white">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">Build a brand that stays remembered.</h2>
-          <p className="mb-4 text-black max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-black">Build a brand that stays remembered.</h2>
+          <p className="mb-3 sm:mb-4 text-black max-w-4xl mx-auto text-sm sm:text-base">
             Your brand is more than just a logo. It's how people see, feel, and remember your business. At JIVO Solutions, we help you build a clear, memorable, and professional brand identity that creates trust, drives recall, and sets you apart in any market.
           </p>
           
-          <div className="flex flex-col gap-6 mb-8">
+          <div className="flex flex-col gap-4 sm:gap-6 mb-6 sm:mb-8">
             {/* First row: 3 cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {[
                 "Build trust and professionalism",
                 "Stand out in crowded markets",
                 "Communicate your values clearly"
               ].map((benefit, index) => (
-                <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div key={index} className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-700 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
+                    <span className="text-xs sm:text-sm md:text-base font-medium text-gray-800">{benefit}</span>
                   </div>
                 </div>
               ))}
             </div>
             {/* Second row: 2 cards centered */}
-            <div className="flex justify-center gap-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
               {[
                 "Attract your ideal customers",
                 "Stay consistent across every platform"
               ].map((benefit, index) => (
-                <div key={index} className="bg-green-50 p-4 rounded-lg border border-green-200 min-w-[250px]">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-green-700 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div key={index} className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200 sm:min-w-[250px]">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-green-700 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-sm md:text-base font-medium text-gray-800">{benefit}</span>
+                    <span className="text-xs sm:text-sm md:text-base font-medium text-gray-800">{benefit}</span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-semibold mb-4 text-black">What's included?</h3>
-            <p className="text-gray-700 mb-4">
+          <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-black">What's included?</h3>
+            <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base">
               We offer complete branding services that cover everything from discovery to design, across digital, print, and web touchpoints.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="px-4 md:px-48 py-8 bg-[#ECECEC]">
+      <div className="px-4 xxl:px-8 py-6 sm:py-8 bg-[#ECECEC]">
         <div className="text-center">
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 text-black">What We Offer</h2>
-          <p className="text-sm md:text-base text-gray-600 mb-8 text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-black">What We Offer</h2>
+          <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 text-black">
             We offer end-to-end branding services, from concept to final delivery — across <br className="hidden md:block" /> digital, print, and real-world experiences.
           </p>
           
           
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
             <button 
               onClick={() => scrollToSection('logo-section')}
-              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+              className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-xs sm:text-sm md:text-base"
             >
               <span className="relative z-10 group-hover:text-white transition-colors">Logo designing & branding</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
             <button 
               onClick={() => scrollToSection('event-section')}
-              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+              className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-xs sm:text-sm md:text-base"
             >
               <span className="relative z-10 group-hover:text-white transition-colors">Event & print design</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
             <button 
               onClick={() => scrollToSection('stationary-section')}
-              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+              className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-xs sm:text-sm md:text-base"
             >
               <span className="relative z-10 group-hover:text-white transition-colors">Brand Stationery Kit</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
             <button 
               onClick={() => scrollToSection('brochures-section')}
-              className="px-4 md:px-6 py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-sm md:text-base"
+              className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full border border-green-700 hover-fill-effect relative overflow-hidden transition-colors text-black group text-xs sm:text-sm md:text-base"
             >
               <span className="relative z-10 group-hover:text-white transition-colors">Brochures</span>
               <div className="absolute top-0 left-0 h-full w-0 bg-green-700 group-hover:w-full transition-all duration-300 ease-out"></div>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-3xl mx-auto mb-8 sm:mb-12">
             {[
               "Concept development and mood boarding",
               "Typography hierarchy and usage",
@@ -466,7 +463,7 @@ export default function InsightsPage() {
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-2">
                 <span className="text-green-700">✓</span>
-                <span className="text-black text-xs md:text-sm text-start">{item}</span>
+                <span className="text-black text-xs sm:text-sm text-start">{item}</span>
               </div>
             ))}
           </div>
@@ -476,23 +473,23 @@ export default function InsightsPage() {
       </div>
 
       {/* Client Logos Section */}
-      <div id="logo-section" className="px-4 md:px-48 py-8 bg-white">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Logo Designing & Branding</h2>
-          <p className="text-sm md:text-base text-gray-600 mb-8">
+      <div id="logo-section" className="px-4 xxl:px-8 py-6 sm:py-8 bg-white">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-black">Logo Designing & Branding</h2>
+          <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">
             Trusted by leading brands across industries
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 sm:gap-6 md:gap-12 max-w-5xl mx-auto">
           {brandLogos.map((logo: string, index: number) => (
-            <div key={index} className="flex items-center justify-center p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-              <div className="relative w-[150px] h-[150px]">
+            <div key={index} className={`flex items-center justify-center p-3 sm:p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 ${index === brandLogos.length - 1 ? 'col-span-2 sm:col-span-1' : ''}`}>
+              <div className="relative w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]">
                 <Image
                   src={logo}
                   alt={`Brand Logo ${index + 1}`}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 150px, 150px"
+                  sizes="(max-width: 768px) 120px, 150px"
                 />
               </div>
             </div>
@@ -501,17 +498,17 @@ export default function InsightsPage() {
       </div>
 
       {/* Event & Print Design Section */}
-      <div id="event-section" className="px-4 md:px-48 py-8 bg-[#f9f9f9]">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Event & Print Design</h2>
-          <p className="text-sm md:text-base text-gray-600">
+      <div id="event-section" className="px-4 xxl:px-8 py-6 sm:py-8 bg-[#f9f9f9]">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3 sm:mb-4">Event & Print Design</h2>
+          <p className="text-sm sm:text-base text-gray-600">
             Explore our work in print collateral — from letterheads and newspapers to standees and bill designs.
           </p>
         </div>
         <div className="relative max-w-5xl mx-auto">
-          <div className="relative h-[300px] md:h-[500px] flex items-center justify-center">
+          <div className="relative h-[250px] sm:h-[300px] md:h-[500px] flex items-center justify-center">
             {/* Previous Image */}
-            <div className="absolute left-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] transform -translate-x-1/2 transition-all duration-300 opacity-50 blur-sm hidden md:block">
+            <div className="absolute left-0 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[400px] md:h-[400px] transform -translate-x-1/2 transition-all duration-300 opacity-50 blur-sm hidden md:block">
               <Image
                 src={eventImages[(currentSlide - 1 + eventImages.length) % eventImages.length]}
                 alt="Previous"
@@ -521,7 +518,7 @@ export default function InsightsPage() {
             </div>
 
             {/* Current Image */}
-            <div className="relative w-[250px] h-[250px] md:w-[500px] md:h-[500px] z-10 transition-all duration-300">
+            <div className="relative w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[500px] md:h-[500px] z-10 transition-all duration-300">
               <Image
                 src={eventImages[currentSlide]}
                 alt={`Event & Print Design ${currentSlide + 1}`}
@@ -531,7 +528,7 @@ export default function InsightsPage() {
             </div>
 
             {/* Next Image */}
-            <div className="absolute right-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] transform translate-x-1/2 transition-all duration-300 opacity-50 blur-sm hidden md:block">
+            <div className="absolute right-0 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[400px] md:h-[400px] transform translate-x-1/2 transition-all duration-300 opacity-50 blur-sm hidden md:block">
               <Image
                 src={eventImages[(currentSlide + 1) % eventImages.length]}
                 alt="Next"
@@ -544,28 +541,28 @@ export default function InsightsPage() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 bg-white p-2 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-8 md:-translate-x-16 bg-white p-1.5 sm:p-2 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 md:w-6 md:h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 bg-white p-2 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-8 md:translate-x-16 bg-white p-1.5 sm:p-2 md:p-3 rounded-full shadow-lg hover:bg-gray-100 transition-colors z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 md:w-6 md:h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-4 md:mt-8">
+          <div className="flex justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-4 md:mt-8">
             {eventImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-colors ${
                   currentSlide === index ? 'bg-green-700' : 'bg-gray-300'
                 }`}
               />
@@ -575,29 +572,29 @@ export default function InsightsPage() {
       </div>
 
       {/* Brand Stationary Kit Section */}
-      <div id="stationary-section" className="px-4 md:px-48 py-8 bg-white">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Brand Stationary Kit</h2>
-          <p className="text-sm md:text-base text-gray-600">
+      <div id="stationary-section" className="px-4 xxl:px-8 py-6 sm:py-8 bg-white">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3 sm:mb-4">Brand Stationary Kit</h2>
+          <p className="text-sm sm:text-base text-gray-600">
             Professional stationary designs that elevate your brand presence
           </p>
         </div>
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* First Brand Logo */}
             <div 
               className="cursor-pointer group"
               onClick={() => setIsStationaryModalOpen(true)}
             >
-              <div className="relative h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative h-[120px] sm:h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/stationary/brand-logo.png"
                   alt="Brand Logo"
                   fill
-                  className="object-contain p-4 bg-white"
+                  className="object-contain p-3 sm:p-4 bg-white"
                 />
                 <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                  <span className="bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     View Brand Kit 1
                   </span>
                 </div>
@@ -609,15 +606,15 @@ export default function InsightsPage() {
               className="cursor-pointer group"
               onClick={() => setIsSecondBrandModalOpen(true)}
             >
-              <div className="relative h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative h-[120px] sm:h-[150px] w-full rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                 <Image
                   src="/stationary/img34.jpg"
                   alt="Second Brand Logo"
                   fill
-                  className="object-contain p-4 bg-white"
+                  className="object-contain p-3 sm:p-4 bg-white"
                 />
                 <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                  <span className="bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     View Brand Kit 2
                   </span>
                 </div>
@@ -628,23 +625,23 @@ export default function InsightsPage() {
       </div>
 
       {/* Brochures Section - Moved here */}
-      <section id="brochures-section" className="py-8 bg-[#f9f9f9]">
-        <div className="container mx-auto px-4 md:px-48">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">Our Brochures</h2>
-            <p className="text-sm md:text-base text-gray-600">
+      <section id="brochures-section" className="py-6 sm:py-8 bg-[#f9f9f9]">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-black">Our Brochures</h2>
+            <p className="text-sm sm:text-base text-gray-600">
               Explore our collection of brochures and portfolios
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {brochures.map((brochure, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer group"
                 onClick={() => window.open(brochure.file, '_blank')}
               >
-                <div className="relative h-48 w-full">
+                <div className="relative h-48 sm:h-56 w-full">
                   <Image
                     src={brochure.thumbnail}
                     alt={brochure.title}
@@ -652,18 +649,18 @@ export default function InsightsPage() {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                    <span className="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="bg-green-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                       View PDF
                     </span>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{brochure.title}</h3>
+                <div className="p-3 sm:p-4">
+                  <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-2">{brochure.title}</h3>
                   <div className="flex items-center text-green-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    <span className="text-sm">Click to view</span>
+                    <span className="text-xs sm:text-sm">Click to view</span>
                   </div>
                 </div>
               </div>
@@ -688,13 +685,13 @@ export default function InsightsPage() {
       />
 
       {/* FAQ Section */}
-      <section className="py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
+      <section className="py-6 sm:py-8 bg-gradient-to-b from-[#0a5c35]/5 to-white relative">
+        <div className="container mx-auto px-4 xxl:px-8">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 font-poppins text-[#0a5c35]">
               FAQs
             </h2>
-            <p className="text-gray-700 text-xs md:text-sm max-w-2xl mx-auto">
+            <p className="text-gray-700 text-xs sm:text-sm max-w-2xl mx-auto">
               Find answers to common questions about our brand identity and design services
             </p>
           </div>
@@ -710,12 +707,12 @@ export default function InsightsPage() {
                     }`}
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className={`font-semibold text-xs md:text-sm transition-colors duration-300 ${
+                  <span className={`font-semibold text-xs sm:text-sm transition-colors duration-300 ${
                     openIndex === index ? 'text-white' : 'text-gray-800'
                   }`}>
                     {faq.question}
                   </span>
-                  <span className={`text-base md:text-lg transition-colors duration-300 ${
+                  <span className={`text-base sm:text-lg transition-colors duration-300 ${
                     openIndex === index ? 'text-white' : 'text-[#0a5c35]'
                   }`}>
                     {openIndex === index ? '↑' : '↓'}
@@ -724,7 +721,7 @@ export default function InsightsPage() {
                 
                 {openIndex === index && (
                   <div className="p-3 bg-white mt-1 rounded-md shadow-md border border-[#0a5c35]/10">
-                    <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
+                    <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
                       {faq.answer}
                     </p>
                   </div>
