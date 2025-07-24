@@ -89,7 +89,7 @@ const Footer = () => {
               Head office
             </h4>
             <p className="mb-4">
-            Unit No.108, Tower B, 1st Floor, Spaze Business Park, Sector 66, Gurugram
+            108-111, 1st Floor, Spaze Business Park, Gurugram, Haryana, 122102
             </p>
             <a
               href="mailto:info@jivosolutions.com"
