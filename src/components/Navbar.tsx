@@ -248,23 +248,23 @@ const Navbar = () => {
           </Link>
           
           {/* Mobile services dropdown with arrow */}
-          <div className={`flex flex-col gap-2 ${mobileMenuItemClasses} ${mobileMenuItemVariants[2]} ${
+          <div className={`${mobileMenuItemClasses} ${mobileMenuItemVariants[2]} ${
             isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
           }`}>
-            <button 
+            <div 
               onClick={toggleMobileServices}
-              className={`text-xl font-normal flex items-center justify-between transition-all duration-300 ${
+              className={`text-xl font-normal flex items-center justify-between transition-all duration-300 cursor-pointer ${
                 isServiceActive() ? 'text-[#0A5C35] font-bold' : 'text-gray-800 hover:text-[#0A5C35]'
-              } p-2 rounded-lg hover:bg-gray-50 w-full`}
+              }`}
             >
               <span>Services</span>
               <FaChevronDown 
                 className={`transition-transform duration-500 ease-bounce ml-2 ${isMobileServicesOpen ? 'rotate-180' : ''}`} 
               />
-            </button>
+            </div>
             
             <div className={`pl-4 flex flex-col gap-3 overflow-hidden transition-all duration-500 ease-in-out ${
-              isMobileServicesOpen ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'
+              isMobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}>
               {serviceLinks.map((service, index) => {
                 const servicePath = `/services/${service.toLowerCase().replace(/\s+/g, '-')}`;

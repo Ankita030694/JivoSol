@@ -66,19 +66,19 @@ export const OurSolution: FC = () => {
         We help brands build and scale their digital presence through:
       </p>
 
-      <div className="relative flex flex-col items-center space-y-8 sm:space-y-10 xxl:space-y-12">
+      <div className="relative flex flex-col items-center space-y-6 sm:space-y-8 md:space-y-10 xxl:space-y-12">
         {services.map((service, index) => (
           <div key={index} className={`relative w-full flex flex-col items-center group ${activeService === index ? 'active-service' : ''}`}>
             {/* Row: Icon, Line, Title, Line */}
             <div className="relative w-full flex items-center justify-center">
               {/* Icon on the left, absolutely positioned, only visible on hover - hidden on mobile */}
-              <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-all duration-500 xxl:left-8" style={{ transform: 'translateY(20%)' }}>
+              <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-all duration-500 xxl:left-8 w-[300px] h-[300px] xxl:w-[350px] xxl:h-[350px]">
                 <Image
                   src={service.icon}
                   alt={service.name}
                   width={300}
                   height={300}
-                  className="xxl:scale-110"
+                  className="w-full h-full object-contain xxl:scale-110"
                 />
               </div>
               {/* Left line - now extends to the edge, hidden on mobile */}
@@ -109,17 +109,6 @@ export const OurSolution: FC = () => {
                     {service.name}
                   </div>
                 </button>
-                {/* Navigation button - appears when service is active (mobile only) */}
-                {activeService === index && (
-                  <div className="mt-4 transition-all duration-300 md:hidden">
-                    <a
-                      href={service.link}
-                      className="inline-block bg-[#055e31] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#044a28] transition-colors duration-300"
-                    >
-                      Learn More
-                    </a>
-                  </div>
-                )}
               </div>
               {/* Right line - now extends to the edge, hidden on mobile */}
               <div className="hidden md:relative md:flex md:flex-grow md:flex-col md:items-end md:justify-center">
@@ -133,14 +122,20 @@ export const OurSolution: FC = () => {
               </div>
             </div>
 
-            {/* Mobile description - shown below the service name on mobile */}
-            <div className={`md:hidden w-full text-center transition-all duration-500 ${
-              activeService === index ? 'opacity-100 mt-4' : 'opacity-0 group-hover:opacity-100'
-            }`}>
-              <p className="text-sm text-black px-4">
-                {service.description}
-              </p>
-            </div>
+            {/* Mobile description and button - only rendered when active */}
+            {activeService === index && (
+              <div className="md:hidden w-full text-center mt-3">
+                <p className="text-sm text-black px-4 mb-3">
+                  {service.description}
+                </p>
+                <a
+                  href={service.link}
+                  className="inline-block bg-[#055e31] text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-[#044a28] transition-colors duration-300"
+                >
+                  Learn More
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>

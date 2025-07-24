@@ -247,14 +247,15 @@ export default function InsightsPage() {
                     />
                   ))
                 : teamImages.slice(0, 4).map((image, index) => (
-                    <Image 
-                      key={index}
-                      src={image} 
-                      alt={`Team Example ${index + 1}`} 
-                      width={300} 
-                      height={300} 
-                      className="rounded-lg shadow-lg w-full aspect-square object-cover" 
-                    />
+                    <div key={index} className="flex items-center justify-center w-full h-full bg-white rounded-lg shadow-lg overflow-hidden aspect-square">
+                      <Image 
+                        src={image} 
+                        alt={`Team Example ${index + 1}`} 
+                        width={400} 
+                        height={400} 
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
                   ))
               }
             </div>
@@ -280,7 +281,7 @@ export default function InsightsPage() {
                         alt={`Team Example ${index + 5}`} 
                         width={300} 
                         height={300} 
-                        className="rounded-lg shadow-lg w-full aspect-square object-cover" 
+                        className="rounded-lg shadow-lg w-full object-contain"
                       />
                     ))
                 }

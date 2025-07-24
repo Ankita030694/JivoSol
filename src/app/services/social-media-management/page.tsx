@@ -213,9 +213,64 @@ export default function InsightsPage() {
           <p className="mb-6 sm:mb-8 text-black max-w-4xl mx-auto text-sm sm:text-base">
             Explore the visuals we've crafted for our clients
           </p>
-          
-          {/* Main Video Display with Carousel */}
-          <div className="relative w-full max-w-[800px] mx-auto mb-6 sm:mb-8">
+
+          {/* Mobile: Full-size video carousel */}
+          <div className="sm:hidden">
+            <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
+              {videos.map((video, index) => (
+                <div
+                  key={index}
+                  className="relative flex-none w-[90vw] max-w-xs aspect-[9/16] rounded-2xl overflow-hidden shadow-xl"
+                >
+                  <video
+                    src={video.src}
+                    autoPlay
+                    muted={isMuted}
+                    loop
+                    playsInline
+                    controls={false}
+                    className="object-cover w-full h-full"
+                    preload="metadata"
+                    ref={index === currentVideoIndex ? videoRef : undefined}
+                    onLoadedData={index === currentVideoIndex ? handleVideoLoad : undefined}
+                    onError={index === currentVideoIndex ? handleVideoError : undefined}
+                  />
+                  {/* Sound Toggle Button */}
+                  {index === currentVideoIndex && (
+                    <button
+                      onClick={() => setIsMuted(!isMuted)}
+                      className="absolute bottom-2 right-2 bg-black bg-opacity-50 text-white p-2 rounded-full z-20 hover:bg-opacity-70 transition-all duration-300"
+                    >
+                      {isMuted ? (
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                        </svg>
+                      ) : (
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        </svg>
+                      )}
+                    </button>
+                  )}
+                </div>
+              ))}
+            </div>
+            {/* Mobile navigation dots */}
+            <div className="flex justify-center mt-4 gap-2">
+              {videos.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentVideoIndex(idx)}
+                  className={`w-2.5 h-2.5 rounded-full ${currentVideoIndex === idx ? 'bg-emerald-700' : 'bg-gray-300'}`}
+                  aria-label={`Go to video ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop/Tablet: Carousel with previews */}
+          <div className="hidden sm:block relative w-full max-w-[800px] mx-auto mb-6 sm:mb-8">
             <div className="flex items-center justify-center gap-2 sm:gap-4 relative">
               {/* Previous Video Preview */}
               <div 
@@ -317,8 +372,6 @@ export default function InsightsPage() {
               </svg>
             </button>
           </div>
-
-          
         </div>
       </div>
 
