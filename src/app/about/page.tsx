@@ -122,23 +122,23 @@ export default function InsightsPage() {
           <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-black">Founder</p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            I am Aakanksha Chugh, Founder of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
+            I am Aakanksha Chugh, Founder of JIVO Solutions (Formerly 'Zeminik Solutions')
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which I bring into every creative decision and strategic framework we build at JIVO.
+            With over three years in the digital marketing industry, I've led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which I bring into every creative decision and strategic framework we build at JIVO.
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we&apos;ve worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
+            What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we've worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
+            I built JIVO to help ambitious brands take control of how they're seen because if what you've built matters, the world should experience it that way.
           </p>
           
           <p className="text-xs sm:text-sm italic mb-4 text-black text-justify">
-            &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
+            "I've seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens."
           </p>
           
 
@@ -172,23 +172,23 @@ export default function InsightsPage() {
           <p className="text-lg sm:text-xl mb-4 sm:mb-6 text-black">Founder</p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            I Am Aakanksha Chugh, Founder Of JIVO Solutions <span>(Formerly &apos;Zeminik Solutions&apos;)</span>
+            I am Aakanksha Chugh, Founder of JIVO Solutions (Formerly 'Zeminik Solutions')
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            With over three years in the digital marketing industry, I&apos;ve led brand strategy and execution for more than 50 businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting And Finance from the University of London has given me a strong foundation in business thinking, which i bring into every creative decision and strategic framework we build at JIVO
+            With over three years in the digital marketing industry, I've led brand strategy and execution for more than 105+ businesses across hospitality, wellness, education, luxury, lifestyle and more. My academic background in Accounting & Finance from the University of London has given me a strong foundation in business thinking, which I bring into every creative decision and strategic framework we build at JIVO.
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we&apos;ve worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
+            What started as a passion for helping brands communicate better has evolved into a purpose driven company focused on visibility as a growth driver. we've worked with clients across India, the UAE, London, Australia and more, delivering digital solutions that are thoughtful, tailored and results oriented.
           </p>
           
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-black text-justify">
-            I built JIVO to help ambitious brands take control of how they&apos;re seen because if what you&apos;ve built matters, the world should experience it that way.
+            I built JIVO to help ambitious brands take control of how they're seen because if what you've built matters, the world should experience it that way.
           </p>
           
           <p className="text-xs sm:text-sm italic mb-4 text-black text-justify">
-            &quot;I&apos;ve seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens.&quot;
+            "I've seen too many great brands stay invisible for the wrong reasons. At JIVO, we exist to make sure that never happens."
           </p>
         </div>
       </div>
