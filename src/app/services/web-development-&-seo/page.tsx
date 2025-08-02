@@ -474,7 +474,7 @@ export default function InsightsPage() {
 
       {/* Results Section */}
       <div className="flex justify-center items-center w-full">
-        <ResultComponent />
+        <ResultComponent serviceType="web-development" />
       </div>
 
       {/* Why Choose JIVO Section */}

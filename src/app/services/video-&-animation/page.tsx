@@ -344,7 +344,7 @@ export default function InsightsPage() {
       </div>
 
       <div className="flex justify-center items-center w-full">
-        <ResultComponent />
+        <ResultComponent serviceType="video-animation" />
       </div>
 
       <CTAComponent

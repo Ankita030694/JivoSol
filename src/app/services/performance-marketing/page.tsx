@@ -355,46 +355,46 @@ export default function InsightsPage() {
             {/* First Row - 5 tools */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 items-center">
               {/* Google Ads */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Google_Ads_logo.svg" 
                   alt="Google Ads" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               {/* Meta */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Meta_Platforms_Inc._logo.svg" 
                   alt="Meta" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* Bing Ads */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Bing_logo_(2016).svg" 
                   alt="Bing Ads" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* Google Analytics */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Logo_Google_Analytics.svg" 
                   alt="Google Analytics" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* Google Merchant Centre */}
-              <div className="hidden sm:block bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="hidden sm:block bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/google-merchant-center.svg" 
                   alt="Google Merchant Centre" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
             </div>
@@ -402,38 +402,38 @@ export default function InsightsPage() {
             {/* Second Row - 4 tools, centered */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 items-center max-w-4xl mx-auto">
               {/* Semrush */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Semrush_logo.svg" 
                   alt="Semrush" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* Shopify */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/Shopify_logo_2018.svg" 
                   alt="Shopify" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* ChatGPT */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/ChatGPT_logo.svg" 
                   alt="ChatGPT" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
               
               {/* Buffer */}
-              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 group">
+              <div className="bg-white/0 rounded-xl p-4 sm:p-6 flex flex-col items-center text-center">
                 <img 
                   src="/perfmark/logos/logo-buffer-svgrepo-com.svg" 
                   alt="Buffer" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo transition-all duration-300"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30 object-contain tool-logo"
                 />
               </div>
             </div>
@@ -1075,7 +1075,7 @@ export default function InsightsPage() {
       </div>
 
       <div className="flex justify-center items-center w-full">
-        <ResultComponent />
+        <ResultComponent serviceType="performance-marketing" />
       </div>  
       <div className="bg-[#ECECEC] px-4 xxl:px-8 py-6 sm:py-8">
         <h1 className="font-poppins font-bold text-2xl sm:text-3xl md:text-4xl text-center mb-4 sm:mb-6 md:mb-8 text-black">

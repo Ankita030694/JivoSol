@@ -1,17 +1,108 @@
 import React from "react";
 import Image from "next/image";
 
-const ResultComponent: React.FC = () => {
-  const leftColumnPoints = [
-    "Higher quality leads and purchases",
-    "Increased ROAS (Return on Ad Spend)",
-    "Clear insight into where your marketing money is going"
-  ];
+interface ResultComponentProps {
+  serviceType?: 'brand-identity' | 'performance-marketing' | 'content-creation' | 'video-animation' | 'web-development' | 'social-media';
+}
 
-  const rightColumnPoints = [
-    "Scalable, sustainable paid growth",
-    "Better audience targeting and lower acquisition costs",
-  ];
+const ResultComponent: React.FC<ResultComponentProps> = ({ serviceType = 'performance-marketing' }) => {
+  // Service-specific results content
+  const getServiceResults = () => {
+    switch (serviceType) {
+      case 'brand-identity':
+        return {
+          leftColumnPoints: [
+            "Strong, memorable brand recognition",
+            "Consistent visual identity across all touchpoints",
+            "Professional credibility and trust building"
+          ],
+          rightColumnPoints: [
+            "Differentiated market positioning",
+            "Increased customer loyalty and retention"
+          ]
+        };
+      
+      case 'performance-marketing':
+        return {
+          leftColumnPoints: [
+            "Higher quality leads and purchases",
+            "Increased ROAS (Return on Ad Spend)",
+            "Clear insight into where your marketing money is going"
+          ],
+          rightColumnPoints: [
+            "Scalable, sustainable paid growth",
+            "Better audience targeting and lower acquisition costs"
+          ]
+        };
+      
+      case 'content-creation':
+        return {
+          leftColumnPoints: [
+            "Professional, high-quality visual assets",
+            "Consistent brand storytelling across platforms",
+            "Increased engagement and social media reach"
+          ],
+          rightColumnPoints: [
+            "Improved brand perception and credibility",
+            "Higher conversion rates from visual content"
+          ]
+        };
+      
+      case 'video-animation':
+        return {
+          leftColumnPoints: [
+            "Higher engagement rates and viewer retention",
+            "Improved brand message comprehension",
+            "Increased social media shares and virality"
+          ],
+          rightColumnPoints: [
+            "Better conversion rates from video content",
+            "Enhanced storytelling and emotional connection"
+          ]
+        };
+      
+      case 'web-development':
+        return {
+          leftColumnPoints: [
+            "Improved search engine rankings and visibility",
+            "Faster website performance and user experience",
+            "Higher conversion rates and lead generation"
+          ],
+          rightColumnPoints: [
+            "Mobile-responsive design for all devices",
+            "Scalable website architecture for business growth"
+          ]
+        };
+      
+      case 'social-media':
+        return {
+          leftColumnPoints: [
+            "Increased brand awareness and reach",
+            "Higher engagement rates and community building",
+            "Consistent brand voice and messaging"
+          ],
+          rightColumnPoints: [
+            "Improved customer relationships and loyalty",
+            "Better ROI from social media investments"
+          ]
+        };
+      
+      default:
+        return {
+          leftColumnPoints: [
+            "Higher quality leads and purchases",
+            "Increased ROAS (Return on Ad Spend)",
+            "Clear insight into where your marketing money is going"
+          ],
+          rightColumnPoints: [
+            "Scalable, sustainable paid growth",
+            "Better audience targeting and lower acquisition costs"
+          ]
+        };
+    }
+  };
+
+  const { leftColumnPoints, rightColumnPoints } = getServiceResults();
 
   return (
     <div className="relative w-full" style={{ height: "290px" }}>

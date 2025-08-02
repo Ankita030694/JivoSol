@@ -557,7 +557,7 @@ export default function InsightsPage() {
       
       {/* Results Section */}
       <div className="flex justify-center items-center w-full" style={{ margin: 0, padding: 0, border: 'none', outline: 'none' }}>
-        <ResultComponent />
+        <ResultComponent serviceType="social-media" />
       </div>
 
       {/* CTA Section */}

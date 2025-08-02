@@ -675,7 +675,7 @@ export default function InsightsPage() {
 
 
       <div className="flex justify-center items-center w-full">
-        <ResultComponent />
+        <ResultComponent serviceType="brand-identity" />
       </div>
 
       {/* CTA Section */}
