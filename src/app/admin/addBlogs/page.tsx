@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faChartLine, faUpload, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { collection, addDoc, updateDoc, doc } from 'firebase/firestore'
-import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { db, app, storage } from '../../../lib/firebase'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useRouter } from 'next/navigation'
 import dynamic from 'next/dynamic'
+import { useAuth } from '@/contexts/AuthContext'
+import AdminNav from '@/components/AdminNav'
 import Footer from '@/components/Footer'
-import Navbar from '@/components/Navbar'
 import ImageUpload from './ImageUpload'
 
 // Dynamically import Tiptap editor with client-side rendering only
@@ -43,6 +43,8 @@ interface Blog {
 }
 
 const AddBlog = () => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const [newBlog, setNewBlog] = useState<Blog>({
     title: '',
     subtitle: '',
@@ -60,17 +62,13 @@ const AddBlog = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isUploadingImage, setIsUploadingImage] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
-  const router = useRouter()
 
-  // Check if user is logged in; if not, redirect to login page
+  // Redirect to login if not authenticated
   useEffect(() => {
-    // const unsubscribe = onAuthStateChanged(getAuth(app), (user) => {
-    //   if (!user) {
-    //     router.push('/login')
-    //   }
-    // })
-    // return () => unsubscribe()
-  }, [router])
+    if (!loading && !user) {
+      router.push('/login')
+    }
+  }, [user, loading, router])
 
   // Generate slug from title
   const generateSlug = (title: string) => {
@@ -231,9 +229,23 @@ const AddBlog = () => {
     router.push('/admin/blogs')
   }
 
+  // Show loading spinner while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#005F33E5] to-[#0A5C35]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+      </div>
+    );
+  }
+
+  // Don't render anything if user is not authenticated (will redirect)
+  if (!user) {
+    return null;
+  }
+
   return (
     <div>
-        <Navbar />
+        <AdminNav />
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#005F33E5] to-[#0A5C35] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}

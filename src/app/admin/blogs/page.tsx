@@ -6,13 +6,13 @@ import { collection, getDocs, deleteDoc, doc, query, orderBy, updateDoc } from '
 import { motion, AnimatePresence } from 'framer-motion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEdit, faTrashAlt, faEye, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { onAuthStateChanged } from 'firebase/auth'
 import { format } from 'date-fns'
 import Link from 'next/link'
 
 // Import the already configured Firebase instances
 import { db } from '../../../lib/firebase'
-import Navbar from '@/components/Navbar'
+import { useAuth } from '@/contexts/AuthContext'
+import AdminNav from '@/components/AdminNav'
 import Footer from '@/components/Footer'
 
 // Blog interface
@@ -31,48 +31,48 @@ interface Blog {
 }
 
 const BlogsManagement = () => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null)
   const [statusMessage, setStatusMessage] = useState('')
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
-  const router = useRouter()
   
-  // Check if user is logged in; if not, redirect to login page
+  // Redirect to login if not authenticated
   useEffect(() => {
-    // const unsubscribe = onAuthStateChanged(getAuth(app), (user) => {
-    //   if (!user) {
-    //     router.push('/login')
-    //   }
-    // })
-    // return () => unsubscribe()
-  }, [router])
-  
-  // Fetch blogs from Firestore
-  useEffect(() => {
-    async function fetchBlogs() {
-      setIsLoading(true)
-      try {
-        const q = query(collection(db, 'blogs'), orderBy('created', 'desc'))
-        const querySnapshot = await getDocs(q)
-        
-        const blogsData: Blog[] = []
-        querySnapshot.forEach((doc) => {
-          blogsData.push({ id: doc.id, ...doc.data() as Blog })
-        })
-        
-        setBlogs(blogsData)
-      } catch (error) {
-        console.error("Error fetching blogs:", error)
-        setStatusMessage("Error loading blogs. Please try again.")
-      } finally {
-        setIsLoading(false)
-      }
+    if (!loading && !user) {
+      router.push('/login')
     }
-    
-    fetchBlogs()
-  }, [])
+  }, [user, loading, router])
+  
+  // Fetch blogs from Firestore only if user is authenticated
+  useEffect(() => {
+    if (user) {
+      async function fetchBlogs() {
+        setIsLoading(true)
+        try {
+          const q = query(collection(db, 'blogs'), orderBy('created', 'desc'))
+          const querySnapshot = await getDocs(q)
+          
+          const blogsData: Blog[] = []
+          querySnapshot.forEach((doc) => {
+            blogsData.push({ id: doc.id, ...doc.data() as Blog })
+          })
+          
+          setBlogs(blogsData)
+        } catch (error) {
+          console.error("Error fetching blogs:", error)
+          setStatusMessage("Error loading blogs. Please try again.")
+        } finally {
+          setIsLoading(false)
+        }
+      }
+      
+      fetchBlogs()
+    }
+  }, [user])
   
   // Filter blogs based on search term
   const filteredBlogs = blogs.filter(blog => 
@@ -157,9 +157,23 @@ const BlogsManagement = () => {
     }
   }
   
+  // Show loading spinner while checking authentication
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#005F33E5] to-[#0A5C35]">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+      </div>
+    );
+  }
+
+  // Don't render anything if user is not authenticated (will redirect)
+  if (!user) {
+    return null;
+  }
+  
   return (
     <div>
-        <Navbar />
+        <AdminNav />
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#005F33E5] to-[#0A5C35] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Page Header */}

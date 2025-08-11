@@ -3,11 +3,19 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function LoginPage() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [decorElements, setDecorElements] = useState<Array<{width: number, height: number, top: string, left: string, scale: number, opacity: number, duration: number}>>([]);
   
   useEffect(() => {
@@ -27,11 +35,69 @@ export default function LoginPage() {
     setDecorElements(elements);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/dashboard');
+    }
+  }, [user, loading, router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt with:', { email, password });
+    setIsSubmitting(true);
+    setError('');
+    
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('Login successful:', userCredential.user);
+      
+      // Redirect to dashboard after successful login
+      router.push('/dashboard');
+    } catch (error: any) {
+      console.error('Login error:', error);
+      
+      // Handle specific Firebase auth errors
+      switch (error.code) {
+        case 'auth/user-not-found':
+          setError('No account found with this email address.');
+          break;
+        case 'auth/wrong-password':
+          setError('Incorrect password. Please try again.');
+          break;
+        case 'auth/invalid-email':
+          setError('Please enter a valid email address.');
+          break;
+        case 'auth/user-disabled':
+          setError('This account has been disabled.');
+          break;
+        case 'auth/too-many-requests':
+          setError('Too many failed attempts. Please try again later.');
+          break;
+        default:
+          setError('Login failed. Please check your credentials and try again.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  // Show loading spinner while checking authentication
+  if (loading || !mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#005F33E5] to-[#0A5C35]">
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+          className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full"
+        />
+      </div>
+    );
+  }
+
+  // Don't render login form if user is already authenticated (will redirect)
+  if (user) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#005F33E5] to-[#0A5C35] text-white px-4 relative">
@@ -57,6 +123,17 @@ export default function LoginPage() {
                   <p className="mt-3 text-white/80">Welcome back! Please enter your details</p>
                 </motion.div>
 
+                {/* Error message */}
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-200 text-sm"
+                  >
+                    {error}
+                  </motion.div>
+                )}
+
                 <motion.form 
                   onSubmit={handleSubmit}
                   className="space-y-6"
@@ -76,7 +153,8 @@ export default function LoginPage() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50 transition-all"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -98,7 +176,8 @@ export default function LoginPage() {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50 transition-all"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="••••••••"
                     />
                   </div>
@@ -106,9 +185,17 @@ export default function LoginPage() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full bg-white text-[#0A5C35] px-4 py-3 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-white/90"
+                      disabled={isSubmitting}
+                      className="w-full bg-white text-[#0A5C35] px-4 py-3 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-white/90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white flex items-center justify-center"
                     >
-                      Sign in
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#0A5C35] mr-2"></div>
+                          Signing in...
+                        </>
+                      ) : (
+                        'Sign in'
+                      )}
                     </button>
                   </div>
 

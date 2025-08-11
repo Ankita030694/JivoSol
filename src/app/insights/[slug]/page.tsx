@@ -125,7 +125,7 @@ export default async function BlogPage(props: { params: Params }) {
         <div className="absolute inset-0 bg-black/50 z-10"></div>
 
         {/* Background Image */}
-        {/* <Image src={''} alt={blog.title} fill className="object-cover opacity-60 z-0" priority /> */}
+        <Image src={blog.image} alt={blog.title} fill className="object-cover opacity-60 z-0" priority />
 
         {/* Content Container */}
         <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4">
@@ -226,7 +226,7 @@ export default async function BlogPage(props: { params: Params }) {
                 <Link key={relatedBlog.id} href={`/insights/${relatedBlog.slug}`} className="block group">
                   <div className="bg-white rounded-xl overflow-hidden shadow-sm transition group-hover:shadow-md">
                     <div className="relative h-48">
-                      <Image src={"/jabout1.svg"} alt={relatedBlog.title} fill className="object-cover" />
+                      <Image src={relatedBlog.image} alt={relatedBlog.title} fill className="object-cover" />
                     </div>
                     <div className="p-5">
                       <p className="text-sm text-gray-500 mb-2">{relatedBlog.date}</p>
