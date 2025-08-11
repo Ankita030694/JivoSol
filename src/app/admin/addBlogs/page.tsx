@@ -56,7 +56,7 @@ const AddBlog = () => {
     metaDescription: '',
     slug: '',
     faqs: [],
-    author: 'Akanksha Chugh'
+    author: 'Aakanksha Chugh'
   })
   const [formMode, setFormMode] = useState<'add' | 'edit'>('add')
   const [isSubmitting, setIsSubmitting] = useState(false)
