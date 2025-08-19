@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 
@@ -19,13 +20,30 @@ export const metadata: Metadata = {
   description: "",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteName = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: "https://jivosolutions.com/",
+    name: "JIVO Solutions",
+    alternateName: ["JIVO", "Jivo Solutions"]
+  };
+
   return (
     <html lang="en">
+      <head>
+        <Script
+          id="site-name"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteName) }}
+        />
+        <meta property="og:site_name" content="JIVO Solutions" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
