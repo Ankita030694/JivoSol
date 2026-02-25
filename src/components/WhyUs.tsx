@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
@@ -61,12 +61,12 @@ const WhyUs = () => {
   const animationTriggered = useRef(false);
 
   // Animation variants
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 60 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
   };
   
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,

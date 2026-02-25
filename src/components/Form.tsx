@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { app } from '../lib/firebase';
 import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
 
 interface FormData {
@@ -38,7 +38,7 @@ const Form = () => {
   ];
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -50,7 +50,7 @@ const Form = () => {
     }
   };
   
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { 
       y: 0, 
@@ -59,7 +59,7 @@ const Form = () => {
     }
   };
   
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
       opacity: 1, 
@@ -76,7 +76,7 @@ const Form = () => {
     tap: { scale: 0.95 }
   };
   
-  const dropdownVariants = {
+  const dropdownVariants: Variants = {
     hidden: { opacity: 0, y: -10, height: 0 },
     visible: { 
       opacity: 1, 
