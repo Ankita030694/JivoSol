@@ -23,7 +23,7 @@ const TypewriterEffect = ({ text }: { text: string }) => {
         setDisplayText(prev => prev + text[currentIndex]);
         setCurrentIndex(prev => prev + 1);
       }, 100); 
-      
+       
       return () => clearTimeout(timeout);
     } else {
       setIsComplete(true);
